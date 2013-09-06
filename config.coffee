@@ -21,8 +21,8 @@ exports.config =
                     'vendor/scripts/jquery-1.8.2.js'
                     'vendor/scripts/lodash-v0.8.2.js'
                     'vendor/scripts/backbone-0.9.2.js'
+                    'vendor/scripts/three.js'
                 ]
-
         stylesheets:
             joinTo: 'stylesheets/app.css'
             order:

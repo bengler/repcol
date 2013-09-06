@@ -74,13 +74,57 @@
   globals.require.brunch = true;
 })();
 
+window.require.define({"geometryBuilder": function(exports, require, module) {
+  var GeometryBuilder;
+
+  GeometryBuilder = (function() {
+    function GeometryBuilder() {}
+
+    GeometryBuilder.prototype.build = function(scene, data) {
+      var geometry, material, scaleX, scaleY,
+        _this = this;
+
+      this.scene = scene;
+      this.data = data;
+      scaleX = 60;
+      scaleY = 20;
+      geometry = new THREE.CubeGeometry(1, 1, 1);
+      material = new THREE.MeshLambertMaterial({
+        color: 0xFF0000
+      });
+      return this.data.artists.forEach(function(artist) {
+        var mesh;
+
+        material = new THREE.MeshLambertMaterial();
+        material.color.setRGB(Math.random(), 0, 0);
+        mesh = new THREE.Mesh(geometry, material);
+        mesh.position.set(artist._x * scaleX, artist._y * scaleY, 0);
+        mesh.scale.x = artist._width * scaleX;
+        mesh.scale.y = artist._height * scaleY;
+        return _this.scene.add(mesh);
+      });
+    };
+
+    GeometryBuilder.prototype.yearToFloat = function(year) {
+      return (year - this.startYear) / this.endYear;
+    };
+
+    return GeometryBuilder;
+
+  })();
+
+  module.exports = new GeometryBuilder;
+  
+}});
+
 window.require.define({"importer": function(exports, require, module) {
   var Importer;
 
   Importer = (function() {
     function Importer() {
       this.data = {
-        artistsKeyed: {}
+        artistsKeyed: {},
+        works: []
       };
     }
 
@@ -99,7 +143,7 @@ window.require.define({"importer": function(exports, require, module) {
       });
       artistsLoaded.then(function() {
         return d3.csv("data/filtered_artwork.csv", function(err, rows) {
-          var missing;
+          var artists_before_filtering, missing;
 
           missing = 0;
           rows.forEach(function(row) {
@@ -107,14 +151,34 @@ window.require.define({"importer": function(exports, require, module) {
 
             value = _this.data.artistsKeyed[row["KunstnerNøkkel"]];
             if (value != null) {
-              return _this.data.artistsKeyed[row["KunstnerNøkkel"]].works.push(row);
+              _this.data.artistsKeyed[row["KunstnerNøkkel"]].works.push(row);
+              return _this.data.works.push(row);
             } else {
               return missing += 1;
             }
           });
-          console.info("Missing artists for " + missing + " works");
-          _this.data.works = rows;
+          console.info("Missing artists for " + missing + " works!");
+          artists_before_filtering = _this.data.artists.length;
+          _this.data.artists = _this.data.artists.filter(function(artist) {
+            var filter;
+
+            filter = artist.works.length !== 0;
+            if (!filter) {
+              delete _this.data.artistsKeyed[artist["KunstnerNøkkel"]];
+            }
+            return filter;
+          });
+          console.info("Removed " + (artists_before_filtering - _this.data.artists.length) + " out of " + artists_before_filtering + " of artists as they didn't have works");
+          _this.data.artists = _.sortBy(_this.data.artists, function(artist) {
+            return artist["FØDT"];
+          });
+          _this.data.artists.forEach(function(artist) {
+            return _.sortBy(artist.works, function(work) {
+              return work["Avledet datering"];
+            });
+          });
           console.info(_this.data.artists[1]);
+          console.info(_this.data.works[1]);
           return _this.dataLoaded.resolve(_this.data);
         });
       });
@@ -531,33 +595,55 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
   var SceneKeeper;
 
   SceneKeeper = (function() {
-    var SHOW_STATS, visualStructure;
+    var SHOW_STATS, geometryBuilder, visualStructure;
 
     visualStructure = require('./visualStructure');
+
+    geometryBuilder = require('./geometryBuilder');
 
     SHOW_STATS = true;
 
     function SceneKeeper() {}
 
     SceneKeeper.prototype.init = function(data) {
-      visualStructure.init(data);
-      return this.initScene();
+      this.data = visualStructure.init(data);
+      this.initScene();
+      return geometryBuilder.build(this.scene, this.data);
     };
 
     SceneKeeper.prototype.initScene = function() {
-      var container;
+      var container, geometry, light, material, mesh;
 
-      container = document.createElement('div');
-      document.body.appendChild(container);
-      this.camera = new THREE.Camera(60, window.innerWidth / window.innerHeight, 2000, 1000000);
-      this.camera.useTarget = true;
-      this.cameraDistance = 0;
-      this.cameraRotation = 0;
-      this.cameraHeight = 1.0016;
       this.scene = new THREE.Scene;
-      this.renderer = new THREE.WebGLRenderer();
+      this.camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 10000);
+      this.camera.position.set(0, 0, -90);
+      this.camera.lookAt(this.scene.position);
+      this.controls = new THREE.TrackballControls(this.camera);
+      this.controls.rotateSpeed = 1.0;
+      this.controls.zoomSpeed = 1.2;
+      this.controls.panSpeed = 0.8;
+      this.controls.noZoom = false;
+      this.controls.noPan = false;
+      this.controls.staticMoving = true;
+      this.controls.dynamicDampingFactor = 0.3;
+      this.controls.keys = [65, 83, 68];
+      this.scene.fog = new THREE.FogExp2(0xcccccc, 0.001103);
+      geometry = new THREE.CubeGeometry(1, 1, 1);
+      material = new THREE.MeshLambertMaterial({
+        color: 0xFF0000
+      });
+      mesh = new THREE.Mesh(geometry, material);
+      this.scene.add(mesh);
+      light = new THREE.PointLight(0xFFFF00);
+      light.position.set(10, 6, 15);
+      this.scene.add(light);
+      this.renderer = new THREE.WebGLRenderer({
+        antialias: true
+      });
       this.renderer.setSize(window.innerWidth, window.innerHeight);
       this.renderer.setClearColor(new THREE.Color(0xFFFFFF));
+      container = document.createElement('div');
+      document.body.appendChild(container);
       container.appendChild(this.renderer.domElement);
       if (SHOW_STATS) {
         this.stats = new Stats();
@@ -577,10 +663,11 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
         this.stats.update();
       }
       if (!this.stopped) {
-        return requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
           return _this.animate();
         });
       }
+      return this.controls.update();
     };
 
     SceneKeeper.prototype.render = function() {
@@ -634,10 +721,38 @@ window.require.define({"visualStructure": function(exports, require, module) {
     function VisualStructure() {}
 
     VisualStructure.prototype.init = function(data) {
+      var workIndex,
+        _this = this;
+
       this.data = data;
+      this.tracks = [];
       console.info("Tally");
       console.info("Number of artists: " + this.data.artists.length);
-      return console.info("Number of works: " + this.data.works.length);
+      console.info("Number of works: " + this.data.works.length);
+      this.startYear = this.data.artists[0]["FØDT"];
+      this.endYear = new Date().getFullYear();
+      console.info("Normalizing against: " + this.startYear + " - " + this.endYear);
+      this.numberOfWorks = this.data.works.length;
+      console.info("Allocating artist space");
+      workIndex = -0.5;
+      this.data.artists.forEach(function(artist) {
+        var height, width, x;
+
+        height = artist.works.length / _this.numberOfWorks;
+        x = _this.yearToFloat(artist["FØDT"]);
+        width = _this.yearToFloat(artist["DØD"]) - x;
+        artist._x = x - 0.5 - (width / 2);
+        artist._y = workIndex + height / 2;
+        artist._height = height;
+        artist._width = _this.yearToFloat(artist["DØD"]) - x;
+        return workIndex += height;
+      });
+      console.info("Done");
+      return this.data;
+    };
+
+    VisualStructure.prototype.yearToFloat = function(year) {
+      return (year - this.startYear) / (this.endYear - this.startYear);
     };
 
     return VisualStructure;
