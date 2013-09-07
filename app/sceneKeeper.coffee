@@ -40,7 +40,7 @@ class SceneKeeper
     @scene.add( mesh )
 
     light = new THREE.PointLight( 0xFFFF00 )
-    light.position.set( 10, 6, 15 )
+    light.position.set( 10, 10, -90 )
     @scene.add( light )
 
     @renderer = new THREE.WebGLRenderer({ antialias: true})

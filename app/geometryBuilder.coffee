@@ -1,6 +1,5 @@
 class GeometryBuilder
 
-
   build:(scene, data) ->
     @scene = scene
     @data = data
@@ -14,7 +13,7 @@ class GeometryBuilder
     @data.artists.forEach (artist)=>
 
       material = new THREE.MeshLambertMaterial()
-      material.color.setRGB(Math.random(), 0, 0)
+        material.color.setRGB(Math.random(), 0, 0)
 
       mesh = new THREE.Mesh( geometry, material )
       mesh.position.set(artist._x * scaleX, artist._y * scaleY, 0)

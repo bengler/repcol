@@ -635,7 +635,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       mesh = new THREE.Mesh(geometry, material);
       this.scene.add(mesh);
       light = new THREE.PointLight(0xFFFF00);
-      light.position.set(10, 6, 15);
+      light.position.set(10, 10, -90);
       this.scene.add(light);
       this.renderer = new THREE.WebGLRenderer({
         antialias: true
