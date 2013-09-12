@@ -19,7 +19,7 @@ class SceneKeeper
     @scene = new THREE.Scene
 
     @camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 10000)
-    @camera.position.set(0,0,-90)
+    @camera.position.set(0,0,90)
     @camera.lookAt(@scene.position);
 
     @controls = new THREE.TrackballControls(@camera)
@@ -32,15 +32,15 @@ class SceneKeeper
     @controls.dynamicDampingFactor = 0.3
     @controls.keys = [ 65, 83, 68 ]
 
-    @scene.fog = new THREE.FogExp2 0xcccccc, 0.001103
+    # @scene.fog = new THREE.FogExp2 0xcccccc, 0.001103
 
-    geometry = new THREE.CubeGeometry( 1, 1, 1 )
-    material = new THREE.MeshLambertMaterial( { color: 0xFF0000 } )
-    mesh = new THREE.Mesh( geometry, material )
-    @scene.add( mesh )
+    # geometry = new THREE.CubeGeometry( 1, 1, 1 )
+    # material = new THREE.MeshLambertMaterial( { color: 0xFF0000 } )
+    # mesh = new THREE.Mesh( geometry, material )
+    # @scene.add( mesh )
 
-    light = new THREE.PointLight( 0xFFFF00 )
-    light.position.set( 10, 10, -90 )
+    light = new THREE.PointLight( 0xFFFFFF )
+    light.position.set( 0, 0, 40 )
     @scene.add( light )
 
     @renderer = new THREE.WebGLRenderer({ antialias: true})

@@ -13,7 +13,7 @@ class VisualStructure
     console.info("Number of artists: " + @data.artists.length)
     console.info("Number of works: " + @data.works.length)
 
-    @startYear = @data.artists[0]["FØDT"]
+    @startYear = @data.artists[0].dob
     @endYear = new Date().getFullYear()
     console.info("Normalizing against: #{@startYear} - #{@endYear}")
 
@@ -21,18 +21,35 @@ class VisualStructure
 
     console.info("Allocating artist space")
 
+    # Todo: calc 1/@numberOfWorks once!
+
     workIndex = -0.5
     @data.artists.forEach (artist)=>
       height = artist.works.length/@numberOfWorks
-      x = @yearToFloat(artist["FØDT"])
-      width = @yearToFloat(artist["DØD"]) - x
+      x = @yearToFloat(artist.dob)
+      width = @yearToFloat(artist.dod) - x
 
-      artist._x = x - 0.5 - (width / 2)
+      artist._x = x - 0.5 + (width / 2)
       artist._y = workIndex + height/2
       artist._height = height 
-      artist._width = @yearToFloat(artist["DØD"]) - x
+      artist._width = width
+
+
+      artist.works.forEach (work, i)=>
+        if !work.invalid
+          wHeight = 1/@numberOfWorks
+          wX = @yearToFloat(work.produced)
+          wWidth = @yearToFloat(work.acquired) - wX
+          wY = workIndex + ((1/@numberOfWorks) * i)
+
+          work._x = wX - 0.5 + (wWidth / 2)
+          work._y = wY + wHeight/2
+          work._height = wHeight 
+          work._width = wWidth
 
       workIndex += height
+
+
 
     console.info("Done")
 

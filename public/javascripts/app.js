@@ -81,27 +81,49 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
     function GeometryBuilder() {}
 
     GeometryBuilder.prototype.build = function(scene, data) {
-      var geometry, material, scaleX, scaleY,
+      var WorkMaterial, geometry, manMaterial, material, properties, scaleX, scaleY, undefMaterial, womanMaterial, workGeometry, workMaterial,
         _this = this;
 
       this.scene = scene;
       this.data = data;
       scaleX = 60;
-      scaleY = 20;
-      geometry = new THREE.CubeGeometry(1, 1, 1);
-      material = new THREE.MeshLambertMaterial({
-        color: 0xFF0000
+      scaleY = 40;
+      geometry = new THREE.CubeGeometry(1, 1, 0.5);
+      workGeometry = new THREE.CubeGeometry(1, 1, 4);
+      properties = {};
+      workMaterial = new THREE.MeshLambertMaterial();
+      undefMaterial = new THREE.MeshLambertMaterial(properties);
+      manMaterial = new THREE.MeshLambertMaterial(properties);
+      womanMaterial = new THREE.MeshLambertMaterial(properties);
+      WorkMaterial = new THREE.MeshLambertMaterial({
+        side: THREE.DoubleSide,
+        transparent: true
       });
+      material = void 0;
       return this.data.artists.forEach(function(artist) {
         var mesh;
 
-        material = new THREE.MeshLambertMaterial();
-        material.color.setRGB(Math.random(), 0, 0);
+        if (artist.gender === 1) {
+          material = undefMaterial;
+        } else if (artist.gender === 2) {
+          material = womanMaterial;
+        } else if (artist.gender === 0) {
+          material = manMaterial;
+        }
         mesh = new THREE.Mesh(geometry, material);
         mesh.position.set(artist._x * scaleX, artist._y * scaleY, 0);
         mesh.scale.x = artist._width * scaleX;
         mesh.scale.y = artist._height * scaleY;
-        return _this.scene.add(mesh);
+        _this.scene.add(mesh);
+        return artist.works.forEach(function(work) {
+          if (!work.invalid) {
+            mesh = new THREE.Mesh(workGeometry, workMaterial);
+            mesh.position.set(work._x * scaleX, work._y * scaleY, 0);
+            mesh.scale.x = work._width * scaleX;
+            mesh.scale.y = work._height * scaleY;
+            return _this.scene.add(mesh);
+          }
+        });
       });
     };
 
@@ -133,51 +155,47 @@ window.require.define({"importer": function(exports, require, module) {
         _this = this;
 
       artistsLoaded = $.Deferred();
-      d3.csv("data/filtered_artists.csv", function(err, rows) {
+      d3.csv("data/artists.csv", function(err, rows) {
         rows.forEach(function(row) {
           row.works = [];
-          return _this.data.artistsKeyed[row["KunstnerNøkkel"]] = row;
+          row.id = +row.id;
+          row.gender = +row.gender;
+          row.dob = +row.dob;
+          row.dod = +row.dod;
+          return _this.data.artistsKeyed[row["id"]] = row;
         });
         _this.data.artists = rows;
         return artistsLoaded.resolve();
       });
       artistsLoaded.then(function() {
-        return d3.csv("data/filtered_artwork.csv", function(err, rows) {
-          var artists_before_filtering, missing;
+        return d3.csv("data/works.csv", function(err, rows) {
+          var missing;
 
           missing = 0;
           rows.forEach(function(row) {
             var value;
 
-            value = _this.data.artistsKeyed[row["KunstnerNøkkel"]];
+            row.artistId = +row.artistId;
+            row.produced = +row.produced;
+            row.acquired = +row.acquired;
+            row.invalid = row.produced === 0 || row.acquired === 0;
+            value = _this.data.artistsKeyed[row["artistId"]];
             if (value != null) {
-              _this.data.artistsKeyed[row["KunstnerNøkkel"]].works.push(row);
+              _this.data.artistsKeyed[row["artistId"]].works.push(row);
               return _this.data.works.push(row);
             } else {
               return missing += 1;
             }
           });
           console.info("Missing artists for " + missing + " works!");
-          artists_before_filtering = _this.data.artists.length;
-          _this.data.artists = _this.data.artists.filter(function(artist) {
-            var filter;
-
-            filter = artist.works.length !== 0;
-            if (!filter) {
-              delete _this.data.artistsKeyed[artist["KunstnerNøkkel"]];
-            }
-            return filter;
-          });
-          console.info("Removed " + (artists_before_filtering - _this.data.artists.length) + " out of " + artists_before_filtering + " of artists as they didn't have works");
           _this.data.artists = _.sortBy(_this.data.artists, function(artist) {
-            return artist["FØDT"];
+            return artist.dob;
           });
           _this.data.artists.forEach(function(artist) {
             return _.sortBy(artist.works, function(work) {
-              return work["Avledet datering"];
+              return work.produced;
             });
           });
-          console.info(_this.data.artists[1]);
           console.info(_this.data.works[1]);
           return _this.dataLoaded.resolve(_this.data);
         });
@@ -612,11 +630,11 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     };
 
     SceneKeeper.prototype.initScene = function() {
-      var container, geometry, light, material, mesh;
+      var container, light;
 
       this.scene = new THREE.Scene;
       this.camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 10000);
-      this.camera.position.set(0, 0, -90);
+      this.camera.position.set(0, 0, 90);
       this.camera.lookAt(this.scene.position);
       this.controls = new THREE.TrackballControls(this.camera);
       this.controls.rotateSpeed = 1.0;
@@ -627,15 +645,8 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.controls.staticMoving = true;
       this.controls.dynamicDampingFactor = 0.3;
       this.controls.keys = [65, 83, 68];
-      this.scene.fog = new THREE.FogExp2(0xcccccc, 0.001103);
-      geometry = new THREE.CubeGeometry(1, 1, 1);
-      material = new THREE.MeshLambertMaterial({
-        color: 0xFF0000
-      });
-      mesh = new THREE.Mesh(geometry, material);
-      this.scene.add(mesh);
-      light = new THREE.PointLight(0xFFFF00);
-      light.position.set(10, 10, -90);
+      light = new THREE.PointLight(0xFFFFFF);
+      light.position.set(0, 0, 40);
       this.scene.add(light);
       this.renderer = new THREE.WebGLRenderer({
         antialias: true
@@ -729,7 +740,7 @@ window.require.define({"visualStructure": function(exports, require, module) {
       console.info("Tally");
       console.info("Number of artists: " + this.data.artists.length);
       console.info("Number of works: " + this.data.works.length);
-      this.startYear = this.data.artists[0]["FØDT"];
+      this.startYear = this.data.artists[0].dob;
       this.endYear = new Date().getFullYear();
       console.info("Normalizing against: " + this.startYear + " - " + this.endYear);
       this.numberOfWorks = this.data.works.length;
@@ -739,12 +750,26 @@ window.require.define({"visualStructure": function(exports, require, module) {
         var height, width, x;
 
         height = artist.works.length / _this.numberOfWorks;
-        x = _this.yearToFloat(artist["FØDT"]);
-        width = _this.yearToFloat(artist["DØD"]) - x;
-        artist._x = x - 0.5 - (width / 2);
+        x = _this.yearToFloat(artist.dob);
+        width = _this.yearToFloat(artist.dod) - x;
+        artist._x = x - 0.5 + (width / 2);
         artist._y = workIndex + height / 2;
         artist._height = height;
-        artist._width = _this.yearToFloat(artist["DØD"]) - x;
+        artist._width = width;
+        artist.works.forEach(function(work, i) {
+          var wHeight, wWidth, wX, wY;
+
+          if (!work.invalid) {
+            wHeight = 1 / _this.numberOfWorks;
+            wX = _this.yearToFloat(work.produced);
+            wWidth = _this.yearToFloat(work.acquired) - wX;
+            wY = workIndex + ((1 / _this.numberOfWorks) * i);
+            work._x = wX - 0.5 + (wWidth / 2);
+            work._y = wY + wHeight / 2;
+            work._height = wHeight;
+            return work._width = wWidth;
+          }
+        });
         return workIndex += height;
       });
       console.info("Done");
