@@ -140,40 +140,22 @@ class Wrangler
     CSV.open("app/assets/data/works.csv", 'w') do |csv|
       csv << ['id', 'artistId', 'produced', 'acquired', 'kind']
       @works.each do |v| 
-        if @artistDict[v[:artistKey]].nil?
-          worksWithoutArtists += 1
-        else
-          csv << [v[:inventoryNr],v[:artistId],v[:productionYear],v[:acquiredYear],v[:kind]]
-        end
+        csv << [v[:inventoryNr],v[:artistId],v[:productionYear],v[:acquiredYear],v[:kind]]
       end
     end
-
-    puts "Skipped #{artistsWithoutWorks} works that didn't have artists."
-
   end
 
   def extractWorks
-    strangeProductionDate = 0
-
     @rows.each do |row|
       artist = @artistDict[keyFromRow(row)]
       if artist
         work = workFromRow(row)
         work[:artistId] = artist[:id]
         work[:artistKey] = keyFromRow(row)
-
-        if work[:productionYear] && artist[:dob]
-          if work[:productionYear] < artist[:dob]
-            strangeProductionDate += 1 
-          end
-        end
-
         artist[:works] << work
         @works << work
-
       end
     end
-    puts "!!! Found #{strangeProductionDate} works with seemingly invalid production dates"
   end
 
   def workFromRow(row)

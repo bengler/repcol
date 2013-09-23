@@ -27,7 +27,7 @@ class VisualStructure
     @data.artists.forEach (artist)=>
       height = artist.works.length/@numberOfWorks
       x = @yearToFloat(artist.dob)
-      width = @yearToFloat(artist.dod) - x
+      width = @yearToFloat(artist.dod) - x 
 
       artist._x = x - 0.5 + (width / 2)
       artist._y = workIndex + height/2

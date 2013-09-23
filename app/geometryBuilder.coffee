@@ -12,7 +12,7 @@ class GeometryBuilder
 
     # properties = 
     #   depthTest: true
-    #   color: color
+    #   color: #ff0000
     #   opacity: 0.35
     #   wireframe: false
     #   blending: THREE.AdditiveAlphaBlending
@@ -21,8 +21,7 @@ class GeometryBuilder
     properties = {}
 
     workMaterial = new THREE.MeshLambertMaterial()
-
-    undefMaterial = new THREE.MeshLambertMaterial(properties)
+    undefMaterial = new THREE.MeshLambertMaterial(properties.color)
     manMaterial = new THREE.MeshLambertMaterial(properties)
     womanMaterial = new THREE.MeshLambertMaterial(properties)
 
@@ -59,6 +58,8 @@ class GeometryBuilder
           mesh.scale.x = work._width * scaleX
           mesh.scale.y = work._height * scaleY
           @scene.add( mesh )
+
+    @data.artists = @data.artists[0..20]
 
 
   yearToFloat:(year) ->

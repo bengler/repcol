@@ -524,3 +524,3410 @@ id,gender,dob,dod,firstname,lastname
 523,2,1934,2013,Astrid,Myklebust
 524,1,1951,2013,Rolf,Nerli
 525,2,1932,2013,Inga Nordsletta,Pedersen
+526,1,1934,2013,Alberto,Quintanilla
+527,1,1923,1993,Frank,Odvén
+528,1,1952,2013,Sigmund,Reite
+529,1,1943,1995,D a g  Arnljot,Rødsand
+530,1,1943,2013,Jørgen C.,Rasmussen
+531,1,1949,2013,Terje,Resell
+532,1,1940,2013,Jan,Riishede
+533,1,1934,2007,Asle,Raaen
+534,1,1925,2013,Arnold,Rottem
+535,1,1952,2013,Jarle,Rosseland
+536,1,1951,2013,Leong,Va
+537,1,1928,2013,Arvid Angell,Udbjørg
+538,1,1948,2013,Dag Magne,Staurheim
+539,1,1942,2013,Thor,Sandborg
+540,1,1916,1958,Frithjof,Tidemand-Johannessen
+541,1,1925,2013,Eystein,Sigurdsson
+542,1,1920,1980,Arne Schram,Bruland
+543,1,1952,2013,Ola,Steen
+544,1,1923,1999,Hans Gerhard,Sørensen
+545,1,1939,2013,Stanley,Stornes
+546,1,1933,2013,Haakon,Engelsen
+547,,1927,2013,Randi,Skavlan
+548,1,1934,2013,Arnulf,Bjørndal
+549,2,1930,2013,Astrid,Hanni
+550,1,1948,2013,Kåre Jan,Solenes
+551,1,1921,2013,Hroar,Scheibler
+552,1,1925,2013,Sven,Sæther
+553,1,1945,2013,Edvin,Skjerping
+554,1,1937,2013,Oddbjørn,Stølen
+555,1,1952,2013,Morten,Thoresen
+556,1,1954,2013,Dang Van,Ty
+557,1,1927,2013,Ole Johan,Tørud
+558,1,1944,2013,Herbert,Thoma
+559,1,1928,2013,Hans,Østeng
+560,1,1920,1980,Hans,Aarhus
+561,2,1918,2003,Suzanne,Øgaard
+562,1,1946,2013,Geir,Aanvik
+563,2,1951,2013,Bodil,Halvarson
+564,2,1951,2013,Eva,Harr
+565,2,1948,2013,Else,Kapstad
+566,1,1947,2013,Øystein,Selmer
+567,2,1941,2013,Sonja,Krohn
+568,,1928,2013,Frede,Schilling
+569,1,1957,2013,Knut Eerik,Halvorsen
+570,1,1925,2013,Finn,Strømsted
+571,1,1931,2013,Helge,Revold
+572,1,1917,1997,Egil,Weiglin
+573,1,1945,2013,Leif,Lundgren
+574,1,1921,1992,Kåre,Tveit
+575,1,1947,2013,Otto,Guribye
+576,1,1919,1997,Alf Krogh,Holt
+577,1,1927,2013,Tom,Krestesen
+578,1,1923,2013,Oscar,Bodøgaard
+579,1,1939,2013,Paul,Grøtvedt
+580,,1930,1990,Gudbrand,Mo
+581,1,1944,2013,Viggo,Aadnevik
+582,1,1927,2001,Bård,Brodersen
+583,1,1932,2000,Einar,Eilertsen
+584,2,1922,2013,Mette,Holst
+585,2,1941,2013,Oddbjørg,Aarseth
+586,2,1954,2013,Ingunn Hvalø,Hansen
+587,2,1925,1990,Stefanny,Hillgaard
+588,2,1943,2013,Sidsel,Bryde
+589,2,1951,2013,Lykke,Frydenlund
+590,1,1937,2013,Einar,Aarø
+591,2,1952,2013,Elena,Engelsen
+592,2,1927,1972,Wencke,Smith
+593,1,1937,2013,Morten,Krohg
+594,2,1956,2013,Kirsten,Wagle
+595,2,1957,2013,Astrid,Løvaas
+596,1,1919,1995,Kalle,Orstad
+597,1,1929,2013,Thorstein,Rittun
+598,1,1956,2013,Torgny,Braaten
+599,1,1921,2013,Rolv,Muri
+600,1,1930,2013,Kain,Tapper
+601,1,1907,1994,Henry,Heerup
+602,1,1952,2013,Børre,Larsen
+603,1,1944,2013,Nils Eger,Pettersen
+604,2,1929,2013,Marit Charlotte,Olsen
+605,2,1958,2013,Nina,Due
+606,1,1949,2013,Vegard,Stalsberg
+607,2,1937,1980,Sidsel,Paaske
+608,1,1938,2013,Svein,Jacobsen
+609,1,1951,2013,Tor,Bomann-Larsen
+610,1,1945,2013,Jan,Harr
+611,1,1945,2013,Hans Ragnar,Mathisen
+612,2,1950,2013,Iben,Sandemose
+613,2,1951,2013,Christl,Engelsen
+614,1,1948,2013,Peter,Cunliffe
+615,1,1943,2013,Øyvind Osjord,Åstein
+616,2,1960,2013,Sissel,Tolaas
+617,1,1923,1976,Erik,Eriksen
+618,1,1949,2013,Dag,Thorkildsen
+619,1,1948,2013,Ole Jakob,Ihlebæk
+620,2,1950,2013,Marilyn Ann,Owens
+621,1,1954,2013,George,Morgenstern
+622,2,1956,2013,Nina,Bang
+623,1,1937,2013,Kai,Øvre
+624,2,1952,2013,Bente,Stokke
+625,1,1957,2013,Thomas,Hestvold
+626,2,1951,2013,Marianne,Mannsåker
+627,2,1951,2013,Marianne,Bratteli
+628,1,1913,1988,Atle,Urdal
+629,1,1950,2013,Jon Arne,Mogstad
+630,1,1957,2013,Niels,Haukeland
+631,1,1953,2013,Tom,Sandberg
+632,2,1955,2013,Shirazeh,Houshiary
+633,1,1958,2013,Peter,Howson
+634,1,1942,2013,Claus,Hänsel
+635,2,1959,2013,Ewa,Zawadska-Rykala
+636,2,1933,2013,Ragnheidur,Jonsdottir
+637,2,1948,2013,Matilde,Marin
+638,1,1942,2013,Kazutoshi,Yagami
+639,,1955,2013,Naohide,Yamazaki
+640,2,1948,2013,Izabella,Gustowska
+641,1,1965,2013,Surasi,Kusolwong
+642,2,1960,2013,Monika,Pietsch
+643,1,1956,2013,Thavorn,Ko-udomvit
+644,2,1957,2013,Trine,Lindheim
+645,1,1947,2013,Ondrej,Michalek
+646,1,1948,2013,Bill,Woodrow
+647,2,1963,2013,Sonja,Landberg
+648,1,1919,1988,Valtyr,Petursson
+649,2,1951,2013,Ida,Lorentzen
+650,1,1949,2013,Richard,Deacon
+651,2,1958,2013,Hanne,Nielsen
+652,1,1943,2013,Per,Maning
+653,1,1946,2013,Thomas Joshua,Cooper
+654,1,1945,2013,Petter,Zennström
+655,1,1959,2013,Raymond,Slåttli
+656,2,1943,2013,Marianne,Magnus
+657,2,1952,2013,Ingunn,Skogholt
+658,1,1950,2013,John,Aiken
+659,1,1961,2013,Georg,Gudni
+660,1,1922,2013,Ioannis,Avramidis
+661,1,1944,2013,Gilberto,Zorio
+662,2,1957,2013,Suvi,Nieminen
+663,2,1956,2013,Sigfrid Ingebjørg,Hernes
+664,2,1963,2013,Hilde,Svalheim
+665,1,1961,1990,Jan Roar,Flaa
+666,1,1945,2013,Carolus,Enckell
+667,2,1955,2013,Silja,Rantanen
+668,2,1952,2013,Ingrid,Orfali
+669,1,1953,2013,Fredrik,Wretman
+670,1,1955,2013,Jesper,Christiansen
+671,1,1912,1977,Håkon,Stenstadvold
+672,1,1950,2013,Walter,Libuda
+673,1,1952,2013,Per,Formo
+674,1,1955,2013,Edgar,Ballo
+675,1,1953,2013,Dag,Alveng
+676,1,1953,2013,Hilmar,Fredriksen
+677,1,1955,2013,Geir,Yttervik
+678,1,1953,2013,László,Fehér
+679,1,1955,2013,Steinar,Elstrøm
+680,1,1953,2013,Stein,Rønning
+681,2,1946,2013,Susana,Solano
+682,1,1938,1991,Kåre,Kivijärvi
+683,1,1961,2013,Markus,Brendmoe
+684,1,1951,2013,Kjell,Bjørgeengen
+685,1,1953,2013,Anders,Widoff
+686,1,1934,2013,Carl Fredrik,Reuterswärd
+687,1,1939,2013,Richard,Serra
+688,1,1944,2013,Fons,Brasser
+689,2,1948,2013,Kirsten,Ortwed
+690,,1951,2013,James,Welling
+691,1,1938,2013,Helge,Røed
+692,1,1904,1989,Hans,Hartung
+693,1,1957,2013,Ernst,Billgren
+694,1,1937,2013,Siri,Aurdal
+695,2,1908,2000,Synnøve Anker,Aurdal
+696,2,1957,2013,Gunnhild,Bakke
+697,1,1925,2013,Haakon,Bjørklid
+698,1,1955,2013,Helge,Fromreide
+699,2,1939,2013,Brit,Fuglevaag
+700,2,1941,2013,Carol Comiskey,Haaker
+701,1,1951,2013,Helge,Korvald
+702,2,1946,2013,Ellen,Lenvik
+703,1,1952,2013,Tom,Lid
+704,2,1948,2013,Anne,Mariendal
+705,1,1949,2013,Terje Torp,Pettersen
+706,1,1940,2013,Ole,Rinnan
+707,2,1951,2013,Mette,Schau
+708,1,1921,1964,Christian Fredrik,Schjøtt
+709,1,1932,2008,Kjartan,Slettemark
+710,1,1935,2013,Jan,Stensrud
+711,2,1928,2013,Karin,Sundbye
+712,1,1944,2013,Jan,Sæther
+713,2,1949,2013,Sara,Tunheim
+714,1,1950,2013,Johannes,Tvedt
+715,1,1954,2013,Per Christian,Vatn
+716,2,1929,1989,Kjerstin,Øvrelid
+717,1,1927,2013,Pierre,Alechinsky
+718,1,1921,2013,Karel,Appel
+719,2,1923,2013,Geneviève,Asse
+720,1,1924,1993,Martin,Barré
+721,1,1920,1996,Torsten,Bergmark
+722,1,1886,1964,Roger,Bissière
+723,1,1907,1977,Camille,Bryen
+724,1,1922,2013,Jacques,Busse
+725,1,1922,2013,Guillaume,Corneille
+726,1,1923,2013,Carlo,Cruz-Diez
+727,1,1934,2013,Peter,Dahl
+728,1,1920,1999,Olivier,Debré
+729,1,1901,1985,Jean,Dubuffet
+730,1,1920,1976,Poul,Ekelund
+731,1,1949,2013,Rainer,Fetting
+732,1,1927,2013,Jorge,Fornas
+733,1,1909,1995,Wilhelm,Freddie
+734,1,1924,2013,Roger,Gillet
+735,2,1912,1955,Gunvor,Grönvik
+736,1,1891,1984,Virgilio,Guidi
+737,1,1953,2013,Rolf,Hanson
+738,1,1928,2013,Wladyslaw,Hasior
+739,1,1932,2013,Reino,Hietanen
+740,1,1914,1973,Asger,Jorn
+741,1,1932,2013,Kimmo,Kaivanto
+742,1,1940,2013,Yuri,Kuper
+743,1,1928,2013,Julio,Le Parc
+744,1,1920,1980,Lage,Lindell
+745,1,1911,1993,Alfred,Manessier
+746,1,1910,1993,Richard,Mortensen
+747,1,1929,2013,Lucio,Munoz
+748,1,1900,1969,Serge,Poliakoff
+749,1,1914,1976,Armand,Rossander
+750,1,1909,1984,Gustave,Singier
+751,1,1923,2005,Jésus Raphael,Soto
+752,1,1899,1991,Rufino,Tamayo
+753,1,1910,1985,Raoul,Ubac
+754,1,1935,2013,Vladimir,Velickovic
+755,2,1908,1992,Maria Elena,Vieira da Silva
+756,1,1939,2013,Dario,Villalba
+757,1,1928,1987,Andy,Warhol
+758,1,1931,2013,Tom,Wesselmann
+759,1,1931,2010,Sivert,Donali
+760,1,1920,1975,Karl Johan,Flaathe
+761,1,1946,2013,Bjørn Melbye,Gulliksen
+762,1,1938,2013,Jan Sture,Jarlum
+763,2,1951,2013,Kirsten,Kokkin
+764,1,1926,2013,Eilif,Mikkelsen
+765,1,1951,2013,Knut,Odden
+766,1,1941,2013,Harald,Oredam
+767,1,1942,2013,Olav,Orud
+768,1,1939,2013,Tore Bjørn,Skjølsvik
+769,2,1945,2013,Kjersti Wexelsen,Goksøyr
+770,1,1960,2013,Nico,Widerberg
+771,2,1924,1976,Edith,Aas
+772,1,1922,1995,Jean,Amado
+773,1,1922,2013,Leonard,Baskin
+774,1,1922,2013,KG,Bejemark
+775,1,1927,1998,Walter,Bengtsson
+776,1,1923,2013,Venancio,Blanco
+777,1,1913,1981,Reg,Butler
+778,1,1930,2013,Sergio de,Camargo
+779,1,1913,1987,Pericle,Fazzini
+780,1,1911,1977,Emile,Gilioli
+781,1,1927,2013,Alberto,Guzman
+782,1,1932,2013,Raimo Isma,Heino
+783,1,1943,2013,Peter,Hentze
+784,1,1928,2013,Jo,Jastram
+785,1,1939,2013,Kari,Juva
+786,1,1931,2013,Harry,Kivijärvi
+787,1,1931,2013,Oto,Logo
+788,1,1954,2013,Pero,Luostarinen
+789,2,1911,1984,Sonja Ferlov,Mancoba
+790,1,1908,1991,Giacomo,Manzù
+791,1,1906,1983,Marcello,Mascherini
+792,1,1953,2013,Krzyztof,Piotrowski
+793,1,1924,2013,Torsten,Renqvist
+794,1,1934,2013,Jørgen Haugen,Sørensen
+795,1,1923,2013,Imre,Varga
+796,1,1942,2013,Ole Jørgen,Lehmann
+797,1,1907,1990,Guiseppe,Santomaso
+798,1,1940,2013,Francisco Lopez,Toledo
+799,1,1910,1962,Ion,Tuculesco
+800,1,1926,2013,Per,Adde
+801,2,1949,2013,Eva,Leinonen
+802,2,1936,2013,Kajsa,Zetterquist
+803,1,1947,2013,Herleik,Kristiansen
+804,1,1952,2013,Ulf,Monsen
+805,1,1945,2013,Nils,Skare
+806,2,1944,2013,Svanhild,Heggedal
+807,1,1941,2013,Rolf,Graff
+808,2,1944,2013,Ellen,Auensen
+809,1,1938,2013,Kåre,Nordvik
+810,1,1927,2013,Arne,Løvstad
+811,1,1947,2013,Petar,Tale
+812,1,1931,1990,Nikolai,Astrup
+813,2,1928,2013,Eva,Winther-Larssen
+814,2,1958,2013,Runi,Langum
+815,1,1936,2013,Øivind,Enger
+816,2,1937,2013,Grete Næss,Ruud
+817,1,1941,2013,Yuri,Vasjenko
+818,1,1958,2013,Trak,Wendisch
+819,1,1957,2013,Thomas,Florschuetz
+820,1,1949,2013,Hanns,Schimansky
+821,1,1960,2013,Fritz,Heisterkamp
+822,2,1951,2013,Dagmar,Demming
+823,2,1963,2013,Camilla,Wærenskjold
+824,2,1959,2013,Nikki,Bell
+825,1,1955,2013,Ben,Langlands
+826,2,1960,2013,Cathy de,Monchaux
+827,1,1953,2013,Richard,Wilson
+828,,1941,2013,Kristjan,Gudmundsson
+829,1,1940,2001,Ola,Billgren
+830,1,1951,2013,Tom,Gundersen
+831,1,1940,2013,Giulio,Paolini
+832,1,1943,2013,Pier Paolo,Calzolari
+833,2,1953,2013,Ragna St.,Ingadottir
+834,2,1955,2013,Jennifer,Lloyd
+835,1,1960,2013,Bernard,Voita
+836,2,1935,2013,Silvie et Chérif,Defraoui
+837,1,1958,2013,Miroslaw,Balka
+838,1,1958,2013,Arild,Yttri
+839,2,1946,2013,Bente,Sætrang
+840,1,1950,2013,Einar,Sigstad
+841,2,1950,2013,Lone,Høyer Hansen
+842,1,1960,2013,Erik,Levine
+843,1,1950,2013,Andres,Serrano
+844,2,1954,2013,Cindy,Sherman
+845,2,1958,2013,Ebba,Bring
+846,1,1942,2013,Stefan,Caltia
+847,1,1950,2013,Lee,Jaffe
+848,2,1961,2013,Marianna,Uutinen
+849,1,1953,2013,Per,Berntsen
+850,1,1959,2013,Esko,Männikkö
+851,1,1965,2013,Julian,Trigo
+852,2,1937,2013,Anna,Blume
+853,1,1937,2011,Bernhard,Blume
+854,1,1936,2013,Jannis,Kounellis
+855,,1962,2013,Geir Morten,Brungot
+856,1,1948,2013,Hiroshi,Sugimoto
+857,2,1961,2013,Anne-Karin,Furunes
+858,1,1942,2013,Jim,Bengston
+859,1,1961,2013,Thorbjørn,Sørensen
+860,2,1965,2013,Jenny,Rydhagen
+861,1,1945,2013,Paul,McCarthy
+862,1,1966,2013,Peter,Land
+863,1,1965,2013,Per,Enoksson
+864,2,1950,2013,Marie-Jo,Lafontaine
+865,2,1965,2013,Mette,Tronvoll
+866,1,1933,2013,Ilya,Kabakov
+867,1,1967,2013,Bjarne,Melgaard
+868,1,1957,2013,Kjetil Ingvar,Berge
+869,1,1966,2013,Bjørn,Bjarre
+870,1,1963,2013,Harald,Fenn
+871,2,1960,2013,Tracey,Moffatt
+872,1,1947,2013,Giuseppe,Penone
+873,1,1934,2013,Giovanni,Anselmo
+874,1,1928,1994,Donald,Judd
+875,1,1944,2013,Christian,Boltanski
+876,1,1948,2013,Brian,Catling
+877,1,1963,2013,Hans Hamid,Rasmussen
+878,1,1920,1997,Oddmund,Kristiansen
+879,1,1927,1996,Robert A.,Robinson
+880,1,1958,2013,Fin,Serck-Hanssen
+881,2,1967,2013,Vibeke,Tandberg
+882,1,1955,2013,Willliam,Kentridge
+883,1,1963,2013,Mikkel,McAlinden
+884,2,1953,2013,Nan,Goldin
+885,1,1967,2013,Mads,Gamdrup
+886,1,1925,2013,Ian Hamilton,Finlay
+887,2,1950,2013,Jenny,Holzer
+888,1,1917,1983,Ole,Berg
+889,2,1965,2013,Gitte,Villesen
+890,2,1969,2013,Vanessa,Beecroft
+891,1,1967,2013,Vegar,Moen
+892,1,1952,2013,Günther,Förg
+893,2,1945,2013,Kristin,Ytreberg
+894,1,1938,2013,Dan,Young
+895,1,1939,2013,Arild,Kristo
+896,1,1959,2013,Mark,Wallinger
+897,1,1941,2013,Bruce,Nauman
+898,1,1968,2013,Knut,Åsdam
+899,1,1967,2013,Steinar,Jakobsen
+900,1,1951,2013,Axel,Hütte
+901,2,1960,2013,Mari,Slaattelid
+902,1,1970,2013,Torbjørn,Rødland
+903,2,1968,2013,Jannicke,Låker
+904,2,1967,2013,Lotte Konow,Lund
+905,1,1964,2013,Deimantas,Narkevicius
+906,2,1953,2013,Sophie,Calle
+907,1,1955,2013,Andreas,Gursky
+908,2,1967,2013,Miriam,Bäckström
+909,2,1966,2013,Marte,Aas
+910,2,1963,2013,Vanessa,Baird
+911,1,1947,2013,Leo,Copers
+912,2,1954,2013,Heidi Kennedy,Skjerve
+913,1,1947,2013,Georg,Herold
+914,1,1954,2013,Thomas,Struth
+915,1,1949,2013,Per,Bak Jensen
+916,2,1941,2013,Hanne,Darboven
+917,1,1961,2013,Rainer,Ganahl
+918,1,1962,2013,Dag Erik,Elgin
+919,1,1941,2013,Peter,Kruse
+920,2,1944,2013,Candida,Höfer
+921,2,1947,2013,Louise,Lawler
+922,1,1951,2013,Bill,Viola
+923,1,1962,2013,Johan,Grimonprez
+924,2,1964,2013,Mette Kathrine,Hellenes
+925,2,1938,2013,Tone,Vigeland
+926,1,1954,2013,Egil Martin,Kurdøl
+927,1,1931,2013,John,Baldessari
+928,2,1948,2013,Carina,Hedén
+929,2,1953,2013,Eva,Löfdahl
+930,2,1971,2013,Laetitia,Benat
+931,1,1965,2013,Sven,Påhlsson
+932,1,1965,2013,Anders,Tomren
+933,2,1960,2013,Katrine,Giæver
+934,1,1957,2013,Rune,Johansen
+935,2,1946,2013,Marina,Abramovic
+936,1,1914,1994,Jan,Schoonhoven
+937,2,1959,2013,Marijke von,Warmerdam
+938,1,1914,1979,Snorre,Andersen
+939,2,1966,2013,Hilde,Rognskog
+940,1,1965,2013,Jens,Fänge
+941,1,1947,2013,Richard,Wentworth
+942,2,1944,2013,Eva,Lange
+943,1,1940,2013,Egil,Storeide
+944,1,1934,2013,Lee,Friedlander
+945,1,1937,2013,Robert,Adams
+946,1,1951,2013,Gary,Hill
+947,1,1973,2013,Marius,Mørch
+948,1,1957,2013,Erik,Frandsen
+949,2,1958,2013,Jeannette,Christensen
+950,2,1969,2013,Ene-Liis,Semper
+951,1,1965,2013,Wim,Delvoye
+952,1,1964,2013,Thomas,Pihl
+953,2,1955,2013,Hennie-Ann,Isdahl
+954,1,1958,2013,Thomas,Ruff
+955,2,1969,2013,Tiril,Schrøder
+956,,1954,2013,Jeremy,Welsh
+957,1,1964,2013,Lars,Ramberg
+958,1,1967,2013,Per,Teljer
+959,1,1943,2013,Rémy,Zaugg
+960,2,1958,2013,Inger Johanne,Rasmussen
+961,1,1977,2013,Oliver,Payne
+962,1,1979,2013,Nick,Relph
+963,1,1971,2013,Jone,Kvie
+964,1,1958,2013,Nils Olav,Bøe
+965,1,1954,2013,Anish,Kapoor
+966,2,1970,2013,Camille,Norment
+967,1,1958,2013,Jan,Fabre
+968,2,1969,2013,Eline,Mugaas
+969,1,1967,2013,Olafur,Eliasson
+970,2,1951,2013,Ingrid,Book
+971,2,1971,2013,Kira,Wager
+972,2,1958,2013,Astrid,Nondal
+973,2,1965,2013,Tacita,Dean
+974,1,1967,2013,Rune Elias,Helgesen
+975,1,1953,2013,Jens,Hauge
+976,1,1964,2013,Kamin,Lertchaiprasert
+977,1,1748,1810,Louis Adrien,Masreliez
+978,1,1743,1809,Nicolai,Abildgaard
+979,1,1826,1901,Frederik Christian,Lund
+980,1,1816,1886,Frederik,Rohde
+981,1,1847,1919,Carl Wilhelm,Barth
+982,1,1857,1913,Hans,Heyerdahl
+983,1,1813,1874,Hans Johan Frederik,Berg
+984,1,1835,1912,Johan,Nielssen
+985,1,1855,1912,Ludvig,Skramstad
+986,1,1782,1853,Johan,Gørbitz
+987,1,1831,1892,Peter Nicolai,Arbo
+988,1,1826,1866,Johan Fredrik,Höckert
+989,1,1825,1897,Reinholdt,Boll
+990,1,1825,1903,Hans,Gude
+991,1,1810,1858,Joachim,Frich
+992,1,1835,1907,Halfdan,Schilling
+993,1,1844,1923,Andreas,Disen
+994,1,1822,1904,Johan Jacob,Bennetter
+995,1,1556,1610,Francesco,Vanni
+996,1,1812,1885,Bernt,Lund
+997,1,1816,1881,Fredrik,Scholander
+998,1,1825,1894,Magnus Thulstrup,Bagge
+999,1,1788,1857,Johan Christian,Dahl
+1000,1,1797,1861,Ernst,Meyer
+1001,1,1820,1886,Julius,Middelthun
+1002,1,1802,1842,Thomas,Fearnley
+1003,1,1822,1870,Johan Fredrik,Eckersberg
+1004,1,1575,1642,Guido,Reni
+1005,1,1824,1870,Wilhelm,Ziller
+1006,1,1810,1867,Joh. Hermann,Carmiencke
+1007,,1810,1861,Julius,Friedlænder
+1008,1,1799,1868,Emilius Ditlev,Bærentzen
+1009,1,1852,1925,Christian,Krohg
+1010,1,1612,1666,Pier Francesco,Mola
+1011,1,1810,1873,Wilhelm,Marstrand
+1012,1,1745,1802,Jens,Juel
+1013,1,1484,1549,Gaudenzio,Ferrari
+1014,1,1593,1678,Jacob,Jordaens
+1015,1,1787,1851,Hans Ditlev Frants,Linstow
+1016,1,1784,1833,Gustav,Finnberg
+1017,1,1821,1885,Carl,Ebert
+1018,1,1555,1630,Antonio,Tempesta
+1019,1,1687,1767,Giovanni Battista,Pittoni
+1020,1,1498,1574,Marten van,Heemskerck
+1021,1,1493,1560,Baccio,Bandinelli
+1022,1,1810,1887,Caspar Johann Nepomuk,Scheuren
+1023,1,1734,1816,Adrian,Zingg
+1024,1,1740,1799,Ferdinand,Kobell
+1025,1,1649,1712,Jan,Luyken
+1026,1,1638,1709,Meindert,Hobbema
+1027,1,1746,1828,Christian August,Lorentzen
+1028,1,1576,1666,Giovanni,Biliverti
+1029,1,1574,1625,Francesco,Brizzi
+1030,1,1787,1870,Andreas,Schelfhout
+1031,1,1883,1964,Bjørn,Smith-Hald
+1032,1,1642,1715,Jacob d',Agar
+1033,1,1776,1839,Jacob,Munch
+1034,1,1860,1917,Andreas,Bloch
+1035,1,1853,1928,Nils,Bergslien
+1036,1,1827,1908,Knud,Bergslien
+1037,1,1625,1713,Carlo,Maratti
+1038,1,1854,1885,Nikolai,Ulfsten
+1039,1,1842,1873,August,Schneider
+1040,1,1561,1604,Zacharias,Dolendo
+1041,1,1494,1533,Lucas van,Leyden
+1042,1,1552,1624,Anton,Wierx
+1043,1,1585,1620,Jan Baptist,Collaert
+1044,1,1553,1619,Hieronymus,Wierix
+1045,1,1550,1600,Johannes I,Sadeler
+1046,1,1534,1593,Hans,Bol
+1047,1,1560,1628,Raphael I,Sadeler
+1048,1,1510,1570,Hieronymus,Cock
+1049,1,1533,1578,Cornelis,Cort
+1050,1,1519,1590,Dirk Volkertsz,Coornhert
+1051,1,1593,1641,Jan van de,Velde (II)
+1052,1,1597,1655,Cornelis I,Schut
+1053,1,1581,1612,Willem van,Swanenburg
+1054,1,1580,1633,Boetius Adams,Bolswert
+1055,1,1561,1635,Marcus II,Gerards
+1056,1,1565,1607,Jan,Saenredam
+1057,1,1597,1644,Hendrik II,Hondius
+1058,1,1540,1617,Herman J.,Muller
+1059,1,1570,1605,Pieter,Bast
+1060,1,1623,1668,Regnier Nooms,Zeeman
+1061,1,1620,1683,Nicolaes,Berchem
+1062,,1520,1582,Giorgio,Ghisi
+1063,1,1702,1788,Francesco,Zuccarelli
+1064,1,1618,1661,Giovanni Battista,Galestruzzi
+1065,1,1615,1673,Salvator,Rosa
+1066,1,1736,1810,Jean Jacques de,Boissieu
+1067,1,1660,1704,Cornelis,Dusart
+1068,1,1715,1808,Johann Georg,Wille
+1069,1,1500,1550,Georg,Pencz
+1070,,1502,1560,Heinrich,Aldegrever
+1071,1,1607,1677,Wenzel,Hollar
+1072,1,1610,1664,Stefano della,Bella
+1073,1,1471,1528,Albrecht,Dürer
+1074,1,1599,1641,Anton van,Dyck
+1075,1,1607,1674,Jan,Lievens
+1076,1,1621,1675,Allart van,Everdingen
+1077,1,1620,1684,Jan van den,Hecke
+1078,1,1610,1681,Dirk,Stoop
+1079,,1741,1799,Jacob,Cats
+1080,1,1610,1685,Adriaen van,Ostade
+1081,1,1620,1693,Theodorus van,Kessel
+1082,1,1590,1648,Moses van,Uytenbroeck
+1083,1,1620,1664,Cornelis Pietersz,Bega
+1084,1,1622,1674,Peter,Boel
+1085,1,1598,1688,Claude,Mellan
+1086,1,1549,1615,Johan,Wierix
+1087,,1609,1675,Joh. H,Schønfeldt
+1088,1,1616,1670,Giovanni Benedetto,Castiglione
+1089,1,1646,1733,Jan van,Huchtenburg
+1090,1,1776,1839,Pieter Gerardus,Os
+1091,1,1480,1534,Marcantonio,Raimondi
+1092,1,1490,1540,Agostino,Musi
+1093,1,1530,1587,Adam,Ghisi
+1094,1,1523,1567,Enea Vicus,Vico
+1095,1,1557,1602,Agostino,Carracci
+1096,1,1612,1648,Simone,Cantarini
+1097,1,1560,1609,Annibale,Carracci
+1098,1,1480,1525,Ugo da,Carpi
+1099,,1558,1629,Andrea,Andreani
+1100,1,1610,1676,Anthonie,Waterloo
+1101,1,1622,1678,Karel,Dujardin
+1102,1,1610,1652,Jan Dirksz,Both
+1103,1,1624,1674,Jan van,Ossenbeck
+1104,1,1631,1708,Ludolf,Backhuysen
+1105,1,1628,1682,Jacob van,Ruisdael
+1106,1,1636,1672,Adriaen van de,Velde
+1107,1,1600,1655,Herman van,Swanevelt
+1108,,1570,1634,Pieter I de,Jode
+1109,1,1520,1586,Cornelis,Visscher I
+1110,1,1623,1678,Robert,Nanteuil
+1111,1,1751,1779,Hendrik,Kobell
+1112,1,1580,1629,Simon,Frisius
+1113,1,1585,1630,Hendrik,Goudt
+1114,1,1712,1775,Georg Friedrich,Schmidt
+1115,1,1640,1707,Gérard,Edelinck
+1116,1,1586,1659,Schelte Adams,Bolswert
+1117,1,1599,1642,Pieter van,Laer
+1118,1,1725,1797,Christian Bernhard,Rode
+1119,1,1576,1650,Cornelis,Galle
+1120,1,1603,1638,Paulus,Pontius
+1121,1,1600,1652,Nicolaus,Lauwers
+1122,1,1636,1700,Antoine,Masson
+1123,1,1613,1686,Jonas,Suyderhoff
+1124,1,1611,1661,Jan,Fyt
+1125,1,1662,1757,Gaspard,Duchange
+1126,1,1565,1629,Jacques de,Gheyn II
+1127,1,1537,1612,Philip,Galle
+1128,1,1785,1848,Charles,Heath
+1129,1,1631,1690,Abraham,Blooteling
+1130,1,1571,1631,Jacob,Matham
+1131,,1613,1670,Alexander,Voet
+1132,1,1618,1658,Cornelis,Visscher II
+1133,1,1617,1665,Michel,Dorigny
+1134,1,1787,1858,Pietro,Fontana
+1135,1,1693,1754,Johann Daniel,Hertz
+1136,1,1733,1811,Jakob Mathias,Schmutzer
+1137,1,1712,1779,Jeremias,Wachsmuth
+1138,1,1764,1816,Georg Christian,Schule
+1139,1,1739,1809,Johann Elias,Haid
+1140,1,1788,1861,Joseph,Eissner
+1141,1,1695,1767,Johann Elias,Ridinger
+1142,1,1738,1799,Johann,Balzer
+1143,1,1726,1801,Daniel Nikolaus,Chodowiecki
+1144,1,1740,1818,Carl Fr.,Holzmann
+1145,1,1747,1830,Johann Gotthard von,Müller
+1146,1,1673,1724,Jeremias,Wolff
+1147,,1727,1797,Benedikt Johann,Winckler
+1148,1,1651,1702,Karl Gustav von,Amling
+1149,1,1630,1675,Johann Eckhardt,Löffler
+1150,1,1700,1740,Joseph,Schmuzer
+1151,1,1699,1739,Andreas,Schmuzer
+1152,1,1789,1863,Carl,Frommel
+1153,1,1717,1765,Valentin Daniel,Preissler
+1154,,1540,1614,Raffaello,Guidi
+1155,,1616,1680,Luigi,Scaramuccia
+1156,1,1813,1865,Johann Jakob,Frey
+1157,1,1717,1800,Gottfried,Seuter
+1158,1,1715,1794,Johann Martin,Preissler
+1159,1,1758,1833,Rafaello,Morghen
+1160,1,1559,1620,Horazio,Farinati
+1161,1,1727,1815,Francesco,Bartolozzi
+1162,,1740,1806,Francesco del Pedro,
+1163,1,1760,1827,Vincenzo,Feoli
+1164,,1750,1819,Luigi,Cunego
+1165,1,1776,1847,Antonio,Ricciani
+1166,1,1700,1799,Pietro,Ghigi
+1167,1,1765,1792,Vincenzo,Segoni
+1168,1,1737,1809,Pietro Leone,Bombelli
+1169,1,1805,1836,Nicola,Aureli
+1170,1,1723,1783,Francesco,Londonio
+1171,1,1700,1799,Secondo,Bianchi
+1172,1,1737,1812,Pellegrino Dal,Colle
+1173,1,1757,1809,Girolamo,Carattoni
+1174,1,1720,1778,Giovanni Battista,Piranesi
+1175,1,1790,1820,Raffaello,Persichini
+1176,,1763,1829,Pietro,Bettelini
+1177,1,1635,1700,Pietro Santi,Bartoli
+1178,1,1667,1730,Carlo,Mogalli
+1179,1,1729,1784,Carlo,Faucci
+1180,1,1728,1782,Fabio,Berardi
+1181,1,1698,1771,Johan Justin,Preissler
+1182,1,1780,1813,Wilhelm,Arndt
+1183,1,1692,1767,Jacob,Folkema
+1184,1,1593,1650,Matthäus,Merian
+1185,1,1721,1788,Johann Isaias,Nilson
+1186,1,1730,1788,Salomon,Gessner
+1187,1,1814,1905,Giuseppe,Mochetti
+1188,,1691,1759,Georg Daniel,Neumann
+1189,1,1750,1820,Johann Michael,Frey
+1190,1,1803,1884,Adrian Ludwig,Richter
+1191,1,1628,1693,Philipp,Kilian
+1192,1,1571,1628,Jan,Muller
+1193,1,1550,1612,Jan Claesz de,Visscher
+1194,1,1580,1657,Pieter Claesz,Soutman
+1195,1,1570,1624,Jan van,Londerseel
+1196,1,1606,1674,Peeter II de,Jode
+1197,1,1636,1690,Johannes de,Visscher
+1198,1,1624,1667,Lucas II,Vorsterman
+1199,1,1595,1675,Lucas Emil,Vorsterman
+1200,1,1637,1673,Adriaen,Lommelin
+1201,1,1606,1676,Theodor van,Thulden
+1202,1,1613,1660,Pieter de,Bailliu
+1203,1,1616,1689,Ferdinand,Bol
+1204,1,1599,1639,Ignatius,Marinus
+1205,1,1770,1834,Johannes Pieter de,Frey
+1206,1,1732,1789,Caspar Jacobsz,Philips
+1207,1,1706,1761,Pieter,Tanjé
+1208,1,1613,1653,Pieter,Nolpe
+1209,1,1649,1649,Marcus de,Bye
+1210,1,1714,1799,Thomas,Major
+1211,1,1731,1797,Jacques-Firmin,Beauvarlet
+1212,1,1699,1771,Laurent,Cars
+1213,1,1627,1704,Louis,Cossin
+1214,1,1739,1798,Nicolas de,Launay
+1215,1,1752,1824,Jean Baptiste,Fosseyeux
+1216,1,1749,1814,Robert,Delaunay
+1217,1,1620,1670,Jean,Picart
+1218,1,1755,1804,Jean-Louis,Delignon
+1219,1,1639,1681,François,Spierre
+1220,1,1753,1820,Charles Melchior,Descourtis
+1221,1,1673,1733,Bernard,Picart
+1222,1,1746,1800,Pierre Charles,Ingouf
+1223,,1680,1729,François,Chéreau (I)
+1224,1,1592,1635,Jacques,Callot
+1225,1,1755,1832,Philibert Louis,Debucourt
+1226,1,1655,1698,Jacques,Blondeau
+1227,1,1707,1783,Jacques-Philippe,Le Bas
+1228,,1700,1786,Claude Augustin,Duflos
+1229,1,1623,1700,Jean,Pesne
+1230,1,1742,1810,Antoine Louis,Romanet
+1231,1,1756,1844,Pierre Alexandre,Tardieu
+1232,1,1754,1820,Ignatz Sebastian,Klauber
+1233,1,1741,1814,Jean,Dambrun
+1234,1,1784,1818,N.F.,Maviez
+1235,1,1724,1801,Noël,Le Mire
+1236,1,1765,1829,Antoine Alexandre,Morel
+1237,,1766,1820,Ernest,Morace
+1238,1,1591,1630,Esaias van de,Velde (I)
+1239,1,1622,1693,François I de,Poilly
+1240,2,1636,1697,Claudine,Stella
+1241,,1600,1668,Balthasar,Moncornet
+1242,,1645,1699,Jean Louis,Roullet
+1243,1,1667,1756,Jean,Audran
+1244,,1682,1739,Louis,Desplaces
+1245,1,1699,1789,Etienne,Jeurat
+1246,1,1684,1753,Nicolas IV de,Larmessin
+1247,1,1691,1762,Jean,Moyreau
+1248,1,1703,1763,Jean,Daullé
+1249,,1708,1756,Dominique,Sornique
+1250,1,1709,1780,Francois,Vivares
+1251,,1778,1823,Johannes,Flindt
+1252,1,1663,1738,Pierre,Drevet
+1253,,1694,1760,Gilles Edme,Petit
+1254,,1719,1794,Etienne,Fiquet
+1255,,1804,1878,Carl Edvard,Sonne
+1256,1,1813,1878,Pietro,Menozzi
+1257,,1804,1875,Antonio,Costa
+1258,,1822,1905,Lodovico,Bigola
+1259,,1692,1764,Francesco,Zucchi
+1260,,1800,1860,Gaetano,Guadagnini
+1261,1,1514,1562,Virgilius,Solis
+1262,1,1472,1553,Lucas,Cranach d.e.
+1263,1,1489,1530,Ludvig,Krug
+1264,1,1500,1550,Hans Sebald,Beham
+1265,1,1570,1629,Aegidius,Sadeler
+1266,1,1543,1547,Nicolò,Casa
+1267,1,1748,1831,Johan Frederik,Clemens
+1268,1,1738,1814,Johan Friedrich,Bause
+1269,1,1606,1689,Charles,Errard
+1270,,1699,1789,Etienne,Jeaurat
+1271,,1716,1791,Jacques Nicolas,Tardieu
+1272,1,1674,1749,Nicolas Henri,Tardieu
+1273,1,1740,1803,Charles,Gaucher
+1274,1,1687,1741,Henri Simon,Thomassin
+1275,,1590,1650,Jean,Morin
+1276,,1615,1674,Jean,Lenfant
+1277,1,1738,1796,Johann Ernst,Mansfeld
+1278,1,1714,1759,Philipp Andreas,Kilian
+1279,1,1579,1637,Lucas,Kilian
+1280,1,1743,1805,Andreas Ludvig,Krüger
+1281,1,1769,1822,Johan Georg,Müller
+1282,1,1758,1817,Johann Heinrich,Lips
+1283,1,1651,1720,Arnold van,Westerhout
+1284,1,1808,1889,Erling Carl Wilhelm,Eckersberg
+1285,1,1610,1677,Albert,Haelwegh
+1286,1,1659,1724,Pieter Stevens van,Gunst
+1287,1,1663,1743,Robert van,Oudenaarde
+1288,1,1758,1823,Jacob,Rieter
+1289,1,1644,1702,C.,Vermeulen
+1290,1,1590,1660,François,Perrier
+1291,1,1765,1810,Luigi,Scavonetti
+1292,1,1776,1842,Giovanni,Suntach
+1293,1,1749,1815,Thomas,Burke
+1294,1,1752,1812,John Raphael,Smith
+1295,1,1710,1780,James,Mason
+1296,,1755,1838,Robert,Pollard (I)
+1297,1,1721,1792,Robert,Strange
+1298,1,1725,1795,John,Ogborne
+1299,1,1763,1836,Peter William,Tomkins
+1300,,1748,1804,Jean-Baptiste,Michel
+1301,1,1740,1790,James,Watson
+1302,1,1758,1835,James,Fittler
+1303,1,1734,1805,William,Byrne
+1304,1,1739,1813,Valentine,Green
+1305,,1660,1691,Jean,Sauvé
+1306,,1734,1816,Jean Charles,Levasseur
+1307,,1746,1812,Etienne Claude,Voysard
+1308,,1732,1817,François  Denis,Née
+1309,,1638,1711,Etienne,Baudet
+1310,1,1734,1787,Cristoforo dall',Acqua
+1311,1,1791,1858,Pierre François,Bertonnier
+1312,1,1688,1741,Etienne Jehandier,Desrochers
+1313,1,1728,1807,Louis Simon,Lempereur
+1314,1,1704,1762,Johan Jacob,Haid
+1315,1,1775,1848,Louis François,Lejeune
+1316,1,1769,1829,Wilh,Jury
+1317,1,1624,1700,Jonas,Umbach
+1318,1,1620,1691,Aelbert,Cuyp
+1319,1,1815,1910,Andreas,Achenbach
+1320,1,1812,1897,Louis,Gurlitt
+1321,1,1705,1752,Martin,Tyroff
+1322,1,1807,1858,Christian Friedrich,Ezdorf
+1323,1,1757,1821,Adam,Bartsch
+1324,1,1761,1847,Johann Christian,Reinhart
+1325,1,1757,1835,Carl Wilhelm,Kolbe
+1326,2,1791,1863,Maria,Ellenrieder
+1327,1,1751,1824,Johann Christian,Klengel
+1328,1,1712,1774,Christian Wilhelm Ernst,Dietrich
+1329,1,1729,1800,Joh. Andreas Benjamin,Nathnagel
+1330,1,1729,1804,Johann Andreas Benjamin,Nothnagel
+1331,1,1733,1771,Franz Edmund,Weirotter
+1332,1,1708,1781,Christian Johann,Rugendas
+1333,1,1571,1635,Karel de,Mallery
+1334,1,1660,1742,Jean,Mariette
+1335,1,1560,1618,Adrian,Collaert
+1336,1,1625,1654,Paulus,Potter
+1337,1,1825,1916,Jacob,Kornerup
+1338,,1803,1846,Christian,Holm
+1339,1,1829,1908,Carl Fredrik,Bartsch
+1340,1,1640,1710,Franz,Ertinger
+1341,1,1715,1790,Charles Nicolas,Cochin d.y.
+1342,1,1818,1875,Anton,Melbye
+1343,1,1666,1742,Georg Philipp,Rugendas (I)
+1344,1,1810,1858,Carl,Wahlbom
+1345,1,1822,1911,Andreas Peter,Madsen
+1346,1,1807,1843,Carl,Küchler
+1347,1,1810,1882,A C,Schleisner
+1348,1,1803,1848,Martinus,Rørbye
+1349,1,1803,1867,Peter Chr.,Schøler
+1350,1,1603,1677,Gabriel,Perelle
+1351,1,1661,1733,Simon,Gribelin
+1352,1,1710,1772,Pierre Louis,Surugue
+1353,1,1742,1810,John Francis,Rigaud
+1354,1,1781,1836,Alex H.,Dynouy
+1355,1,1746,1803,Louis,Le Sueur
+1356,1,1650,1684,Raymond de,La Fage
+1357,1,1820,1858,Hans,Hansen
+1358,1,1720,1795,Carl Wilhelm,Böhme
+1359,1,1606,1669,Rembrandt van Rijn,
+1360,1,1667,1744,Isaac de,Moucheron
+1361,1,1652,1732,Richard van,Orley
+1362,1,1723,1797,Pierre Francois,Basan
+1363,1,1603,1684,Cornelis,Bloemaert
+1364,,1697,1764,William,Hogarth
+1365,1,1856,1956,Johan,Nordhagen
+1366,1,1610,1635,Jan Joris,Vliet
+1367,1,1741,1816,Reinier,Vinkels
+1368,1,1792,1876,Johan Adam,Klein
+1369,1,1819,1903,Vilhelm,Kyhn
+1370,,1756,1822,Jean-Guillaume,Bervic
+1371,1,1863,1933,Robert Anning,Bell
+1372,1,1779,1857,Auguste-Gaspard-Louis,Desnoyers
+1373,1,1785,1849,Joseph Théodore,Richomme
+1374,1,1741,1801,John,Browne
+1375,1,1803,1876,Friedrich,Wagner
+1376,1,1710,1782,Giuseppe,Vasi
+1377,1,1781,1835,Bartolomeo,Pinelli
+1378,1,1754,1838,Gustave Joseph,Biot
+1379,1,1614,1661,Jan van,Aken
+1380,1,1760,1830,William,Skelton
+1381,1,1813,1874,Johann Wilhelm,Kaiser
+1382,1,1610,1660,Jacobus,Neeffs
+1383,1,1640,1703,Gérard,Audran
+1384,1,1625,1680,Cornelis van,Chaukerken
+1385,1,1753,1818,Maurice,Blot
+1386,1,1812,1848,Carl,Müller
+1387,1,1807,1873,Richard Austen,Artlett
+1388,1,1508,1584,Cornelis,Massys
+1389,1,1525,1569,Pieter,Brueghel d.e.
+1390,1,1766,1831,Guiseppe,Longhi
+1391,1,1779,1833,Etienne Frédéric,Lignon
+1392,1,1565,1652,Nicolas de,Bruyn
+1393,1,1785,1852,Carl Ludwig,Schuler
+1394,1,1715,1794,Johan Martin,Preisler
+1395,1,1565,1637,Crispin de,Passe I
+1396,1,1589,1667,Crispin de,Passe II
+1397,1,1788,1860,Søren Henrik,Petersen
+1398,1,1747,1799,Andreas,Heckel
+1399,1,1698,1780,Jacobus,Houbraken
+1400,1,1743,1822,Richard,Earlom
+1401,1,1749,1825,Friedrich,Müller
+1402,1,1843,1923,Georg von,Rosen
+1403,1,1510,1570,Niccolo,Boldrini
+1404,1,1634,1666,Danker,Dankerts
+1405,1,1738,1818,Emanuel de,Ghendt
+1406,1,1631,1705,Adrian van der,Cabel
+1407,1,1609,1685,Herman II,Saftleven
+1408,1,1770,1831,Chr,Haldenwang
+1409,1,1833,1868,Hugo Louis,Becker
+1410,1,1686,1754,Peter von,Bemmel
+1411,1,1800,1855,Gotlieb Louis,Fehr
+1412,1,1750,1800,Johann Gottlieb,Facius
+1413,1,1742,1803,Christian Gottlieb,Geyser
+1414,1,1773,1843,Jacob,Gauermann
+1415,1,1807,1862,Fritz,Gauermann
+1416,1,1766,1855,Wilhelm von,Kobell
+1417,1,1700,1800,Joh. Michael,Probst
+1418,1,1780,1826,Benedict,Piringer
+1419,1,1761,1810,Johann Gottlob,Schumann
+1420,1,1780,1845,Joseph,Mössmer
+1421,1,1759,1812,Martin von,Molitor
+1422,1,1700,1754,Georg Martin,Preissler
+1423,1,1700,1800,Johann Conrad,Reiff
+1424,1,1734,1774,Friedrich,Reclam
+1425,1,1746,1806,Carl Wilhelm,Weisbrod
+1426,,1654,1725,Christoph,Weigel d.e.
+1427,1,1791,1849,Samuel,Amsler
+1428,1,1782,1838,J.,Bruder
+1429,1,1741,1813,Jacob,Dorner
+1430,1,1746,1807,Balthasar Anton,Dunker
+1431,1,1795,1822,Johann Christoph,Erhard
+1432,1,1791,1834,Friedrich,Fleischmann
+1433,1,1800,1859,Carl,Kotterba
+1434,1,1775,1852,Johann Jacob,Dorner
+1435,1,1754,1806,Louis Charles,Ruotte
+1436,1,1746,1831,Nicolas,Ponce
+1437,1,1813,1865,Charles Em.,Jacque
+1438,1,1831,1911,Leopold,Flameng
+1439,1,1554,1626,Paul,Bril
+1440,1,1584,1635,Willem van,Nieuwlandt
+1441,1,1783,1823,Alexander,Lauréus
+1442,1,1751,1817,Georg,Haas
+1443,1,1768,1824,Andreas,Flint
+1444,1,1786,1856,Wilh. Heinrich Moritz,Heuer
+1445,1,1776,1819,Frans Martin,Dodt
+1446,1,1853,1914,Carl Edvard,Tullberg
+1447,1,1655,1727,Johan van der,Aveelen
+1448,1,1644,1711,Adriaen Frans,Boudewyns
+1449,1,1744,1794,Marie-Cathrine,Prestel
+1450,1,1787,1827,Leonard Henrik,Roos af Hjälmsäter
+1451,1,1808,1879,Knud,Baade
+1452,1,1787,1837,Domenico,Quaglio
+1453,1,1783,1816,Christian Gottlieb,Kratzenstein-Stub
+1454,1,1739,1808,Johann Theophilus,Prestel
+1455,1,1751,1816,Christian Friedrich,Stoelzel
+1456,1,1805,1867,Christian,Morgenstern
+1457,,1806,1890,Asmus,Kaufmann
+1458,1,1759,1828,Eberhards Sig.,Henne
+1459,1,1777,1806,Charles Louis,Buchorn
+1460,1,1769,1844,John Adolf,Darnstedt
+1461,1,1794,1830,johs. Fr.,Bolt
+1462,1,1622,1683,Melchior,Küsel
+1463,1,1810,1868,Georg,Busse
+1464,1,1765,1814,Martin Rudolf,Heland
+1465,1,1795,1857,Otto Henrik,Wallgren
+1466,1,1789,1859,Hans,Michelsen
+1467,1,1826,1882,Wilhelm von,Hanno
+1468,1,1770,1844,Bertel,Thorvaldsen
+1469,1,1818,1871,Johan Vilhelm,Gertner
+1470,1,1727,1804,Domenico,Tiepolo
+1471,1,1852,1928,Eilif,Peterssen
+1472,1,1783,1853,Christoffer Wilhelm,Eckersberg
+1473,1,1763,1843,Heinrich August,Grosch
+1474,,1754,1798,Asmus Jacob,Carstens
+1475,1,1846,1903,Frithjof,Smith-Hald
+1476,1,1804,1862,Jacques,Rothmüller
+1477,1,1666,1739,Magnus,Berg
+1478,,1655,1726,Alessandro,Gherardini
+1479,1,1792,1837,Christian Ernst,Stoelzel
+1480,1,1603,1665,Willhelm van der,Leeuw
+1481,1,1650,1692,Pietro,Aquila
+1482,1,1739,1797,Pietro Antonio,Martini
+1483,1,1737,1809,Johann Ch.,Rosenberg
+1484,1,1808,1880,Charles George,Lewis
+1485,1,1813,1875,Frederick Christian,Lewis
+1486,1,1805,1876,John Frederick,Lewis
+1487,1,1827,1852,August,Cappelen
+1488,1,1842,1917,Carl Otto Bentzon,Haslund
+1489,1,1765,1807,Johann Peter,Pichler
+1490,1,1827,1902,Siegwald,Dahl
+1491,1,1851,1935,Wilhelm,Peters
+1492,1,1820,1908,Georg Emil,Libert
+1493,1,1801,1890,Jørgen Walentin,Sonne
+1494,1,1811,1846,Sophus,Schack
+1495,1,1836,1885,August-André,Lancon
+1496,1,1835,1860,August,Geist
+1497,1,1777,1852,Christian,Forssell
+1498,1,1755,1816,Johan Fredrik,Martin
+1499,1,1565,1630,Alessandro,Gandini
+1500,1,1578,1652,Christoph,Jegher
+1501,1,1431,1506,Andrea,Mantegna
+1502,1,1484,1551,Domenico,Beccafumi
+1503,1,1590,1652,Jusepe de,Ribera
+1504,1,1696,1770,Giovanni Battista,Tiepolo
+1505,1,1515,1586,Lucas,Cranach d.y.
+1506,1,1599,1660,Giovanni Battista,Vanni
+1507,1,1616,1677,Thomas,Wyck
+1508,1,1820,1908,Lorenz,Frølich
+1509,1,1625,1664,Cornelis van,Dalen
+1510,1,1859,1923,Bernt,Grønvold
+1511,1,1813,1887,Franz Wilhelm,Schiertz
+1512,1,1745,1808,Jacob Wilhelm,Mechau
+1513,1,1755,1822,Albert Christopher,Dies
+1514,1,1763,1808,F. A.,Milatz
+1515,1,1613,1672,Willem,Basse
+1516,1,1825,1910,Johan Julius,Exner
+1517,2,1824,1908,Aasta,Hansteen
+1518,1,1743,1792,Carl,Guttenberg
+1519,1,1687,1747,Gottfried,Stein
+1520,1,1836,1879,Hans Nielsen,Bergh
+1521,1,1502,1540,Barthel,Beham
+1522,1,1804,1880,Constantin,Hansen
+1523,1,1765,1844,Christian,Hornemann
+1524,1,1787,1870,Johannes,Flintoe
+1525,1,1828,1902,Carl Nicolaj Marius,Simonsen
+1526,1,1849,1924,Alfred,Fosterud
+1527,1,1807,1863,Johann Wilhelm,Schirmer
+1528,1,1634,1689,Ciro,Ferri
+1529,1,1772,1847,Niels Peter,Holbech
+1530,1,1848,1931,Victor,Jasper
+1531,1,1614,1652,Bonaventura,Peeters (I)
+1532,1,1577,1640,Peter Paul,Rubens
+1533,1,1610,1690,David,Teniers (II)
+1534,,1582,1649,David,Teniers d.e.
+1535,1,1643,1687,Antony van,Zsÿlevelt
+1536,1,1763,1814,Anton Heinrich,Riedel
+1537,1,1648,1706,Carel,Allard
+1538,1,1695,1754,Jacob de,Wit
+1539,1,1640,1723,Abraham,Genoels
+1540,1,1803,1886,Eugène,Isabey
+1541,1,1852,1903,Gustaf,Gustafsson
+1542,1,1738,1796,Axel,Tallberg
+1543,1,1646,1726,Johannes,Glauber
+1544,1,1804,1844,Friedrich,Westphal
+1545,1,1860,1946,Ferdinand,Boberg
+1546,1,1857,1920,Max,Klinger
+1547,1,1470,1552,Hans,Baldung
+1548,1,1757,1808,Johann Georg,Prisler
+1549,1,1844,1930,Robert,Haglund
+1550,1,1860,1920,Anders,Zorn
+1551,1,1863,1888,Carl Samuel,Flodman
+1552,1,1836,1914,Albert Theodor,Gellerstedt
+1553,1,1850,1921,Julius,Kronberg
+1554,1,1853,1919,Carl,Larsson
+1555,1,1856,1951,Tryøve,Hermelin
+1556,2,1865,1935,Carolina Maria Benedicks-B,Bruce
+1557,1,1625,1670,Petrus,Clouwet
+1558,1,1792,1850,Jean Alexandre,Allais
+1559,1,1618,1636,Conrad,Waumans
+1560,1,1615,1642,Hans,Witdoeck
+1561,1,1626,1678,Richard,Collin
+1562,1,1808,1888,Jørgen Pedersen,Roed
+1563,1,1816,1878,Thorald,Læssøe
+1564,1,1807,1885,Niels,Simonsen
+1565,1,1850,1917,Frans,Schwartz
+1566,1,1595,1661,Pieter,Molyn
+1567,1,1820,1904,Cesar de,Cock
+1568,1,1854,1924,Christian,Skredsvig
+1569,1,1850,1908,Frants,Henningsen
+1570,1,1857,1946,Viggo,Jastrau
+1571,1,1561,1623,Jan Theodor,De Bry
+1572,1,1771,1840,Edv.,Alton
+1573,1,1842,1916,Wilhelm,Holter
+1574,1,1604,1672,Franciscus van den,Steen
+1575,1,1815,1905,Adolf,Menzel
+1576,1,1582,1649,David I,Teniers
+1577,1,1763,1815,Hermanius van,Brussel
+1578,1,1623,1687,Gillis,Neyts
+1579,1,1658,1702,Peeter,Bout
+1580,1,1610,1656,Gerrit Claesz,Bleker
+1581,1,1595,1672,Lucas van,Uden
+1582,1,1527,1590,Melchior,Lorch
+1583,1,1600,1643,Pieter van,Sompel
+1584,1,1622,1668,Robert van den,Hoecke
+1585,,1599,1659,Bartholomeus,Breenbergh
+1586,1,1842,1905,Thorvald Simon,Niss
+1587,1,1853,1923,Hans Nicolay,Hansen
+1588,1,1864,1927,J,Klaus
+1589,1,1849,1906,Eugène,Carrière
+1590,1,1850,1924,Jean-François,Raffaëlli
+1591,1,1746,1828,Francisco de,Goya
+1592,1,1858,1941,John Leopold,Lübschitz
+1593,1,1863,1944,Edvard,Munch
+1594,1,1831,1910,Theophile N.,Chauvel
+1595,1,1863,1928,Franz,Stuck
+1596,1,1844,1900,Wilhelm,Leibl
+1597,1,1852,1901,Ernst,Zimmermann
+1598,1,1847,1935,Max,Liebermann
+1599,1,1869,1954,Henri,Matisse
+1600,1,1864,1901,Henri de,Toulouse-Lautrec
+1601,1,1832,1883,Édouard,Manet
+1602,1,1892,1971,Marcel,Gromaire
+1603,,1878,1953,Guido Josef,Kern
+1604,1,1816,1884,Carl Georg Anton,Graeb
+1605,1,1606,1647,Pieter Jansz.,Quast
+1606,1,1610,1666,Jan van,Troyen
+1607,1,1812,1872,Philipp Herrmann,Eichens
+1608,1,1664,1724,Johann Baptiste,Homann
+1609,1,1800,1877,Karl August,Lebschée
+1610,1,1645,1708,Romein de,Hooghe
+1611,1,1800,1900,Gottfried,Pfauntz
+1612,1,1791,1828,Lorentz,Ekeman-Allesson
+1613,1,1795,1846,Carl Fr.,Heinzmann
+1614,1,1870,1940,David,Ljungdahl
+1615,1,1765,1840,Ernst L.,Riepenhausen
+1616,1,1710,1776,Johann Gottfried,Haid
+1617,1,1640,1711,Gerard de,Lairesse
+1618,1,1590,1638,Gerrit Adriansz,Gouw
+1619,1,1600,1632,Willem,Panneels
+1620,1,1812,1879,Wilhelm,Wegener
+1621,1,1786,1836,Jacob Chr.,Miville
+1622,1,1793,1869,Lorenzo del,Quaglio
+1623,1,1822,1866,August,Löffler
+1624,1,1753,1806,Christoph,Nathe
+1625,1,1747,1803,Johann Friedrich Alexander,Thiele
+1626,,1798,1876,M,Neher
+1627,1,1609,1680,Conrad,Meyer
+1628,1,1811,1861,Joseph,Heiche
+1629,1,1788,1861,Carl Wilhelm,Heideck
+1630,1,1778,1833,Joh. Martin Fr.,Geissler
+1631,1,1786,1862,Albrecht,Adam
+1632,1,1824,1862,Eugen,Hess
+1633,1,1811,1881,Johann Martin,Gensler
+1634,1,1730,1815,Bartholomäus Ignaz,Weiss
+1635,1,1849,1890,Willem,Linning
+1636,1,1715,1779,Jakob van,Schley
+1637,1,1571,1596,Theodor,Galle
+1638,1,1592,1640,Jan,Bol
+1639,1,1792,1863,Ludvig Emil,Grimm
+1640,,1772,1836,Fr. Chr.,Fues
+1641,1,1783,1844,Joh. Alexander,Dallinger
+1642,1,1800,1900,Franz,Reinholdt
+1643,1,1751,1800,Franz,Sablet
+1644,1,1539,1591,Joost,Amman
+1645,1,1733,1805,Joh. Wilhelm,Meil
+1646,1,1800,1900,Ferdinand (prins),Sachsen-Cobourg
+1647,1,1787,1845,di la,Belle
+1648,1,1754,1807,Clemens,Kohl
+1649,1,1764,1837,Johann Heinrich,Menken
+1650,1,1572,1621,Heinrich,Ulrich
+1651,1,1483,1538,Albrecht,Altdorfer
+1652,1,1754,1809,Johann Georg,Penzel
+1653,1,1752,1783,Jah. Aug.,Rossmäsler
+1654,1,1759,1841,Johann Georg,Dillis
+1655,1,1739,1806,Johann Benjamin,Ehrenreich
+1656,1,1750,1832,Wolfgang von,Göthe
+1657,1,1717,1780,Christian Ludwig von,Hagedorn
+1658,1,1718,1781,Emanuel,Handmann
+1659,1,1790,1863,Georg Ernst,Hargen
+1660,1,1740,1796,J. Daniel,Heimlich
+1661,1,1797,1857,Franz,Krüger
+1662,1,1768,1839,Joseph Anton,Koch
+1663,1,1812,1870,August Gustav,Lasinsky
+1664,2,1738,1789,erkehertuginne av Østerrike,Maria Anna
+1665,1,1653,1713,Felix,Meyer
+1666,1,1655,1712,Johann,Meyer
+1667,1,1813,1861,Gustav Fr.,Papperitz
+1668,1,1736,1811,Martin Ferdinand,Quadal
+1669,1,1752,1807,Carl Gottlieb,Rasp
+1670,1,1754,1800,J. A. Friedrich,Rauscher
+1671,1,1782,1844,Alexander,Sauerweid
+1672,1,1490,1549,Hans,Schaufelein
+1673,1,1611,1671,Joh. Christoph,Storer
+1674,1,1698,1777,Paul,Troger
+1675,1,1803,1861,Otto,Wagner
+1676,1,1663,1743,Robert van,Auden-Aerd
+1677,1,1656,1745,Jan Frans van,Bloemen
+1678,1,1656,1711,Louis de,Deyster
+1679,1,1815,1869,Jan August Henri Baron,Leys
+1680,1,1821,1860,Egidius,Linnig
+1681,1,1599,1633,Jan,Miele
+1682,1,1506,1564,Cornelis,Bos
+1683,1,1650,1675,Abraham,Casembrot
+1684,1,1738,1795,Jan,Chalon
+1685,1,1628,1709,Barent,Graat
+1686,1,1812,1894,Remingius Adrianus,Haanen
+1687,1,1470,1536,Daniel,Hopfer
+1688,1,1605,1668,Jan Miense,Molenaer
+1689,1,1620,1675,Johannes van IV,Noort
+1690,1,1675,1735,Abraham,Rademaker
+1691,1,1597,1686,Roeland,Roghman
+1692,1,1607,1681,Cornelis,Saftleven
+1693,1,1721,1784,Hendrik,Spilman
+1694,1,1661,1690,Willem d. y.,Swidde
+1695,1,1809,1860,Johannes,Tavenraet
+1696,1,1600,1653,Simon Jacobsz de,Vlieger
+1697,1,1712,1784,Simon,Fokke
+1698,1,1818,1878,Jean Francois,Portaels
+1699,1,1736,1813,Anton,Graff
+1700,1,1665,1748,Joachim Frang,Beich
+1701,1,1782,1855,Johann G. A.,Frenzel
+1702,1,1711,1778,Johann Gottlieb,Glume
+1703,1,1758,1813,Samuel,Graenicher
+1704,1,1708,1740,Johann Evangelist,Holzer
+1705,1,1760,1832,Franz Nicolaus,König
+1706,1,1724,1784,Gottlieb Friedrich,Riedel
+1707,1,1545,1592,Christoph,Schwartz
+1708,1,1868,1932,Max,Slevogt
+1709,1,1744,1824,Daniel,Berger
+1710,1,1500,1545,Hans von,Culmbach
+1711,1,1543,1580,Adam,Fuchs
+1712,1,1829,1900,Julius,Allgeyer
+1713,1,1799,1880,Joseph,Caspar
+1714,1,1760,1824,Christian-August,Günther
+1715,1,1702,1750,Johann Lorenz,Haid
+1716,,1668,1691,Joachim jr.,Sandrart
+1717,1,1867,1956,Emil,Nolde
+1718,1,1886,1941,Emil,Stumpp
+1719,1,1870,1938,Ernst,Barlach
+1720,1,1883,1970,Erich,Heckel
+1721,1,1572,1634,Cornelius,Drebbel
+1722,,1550,1595,Julius,Goltzius
+1723,1,1545,1608,Pieter van der,Borcht
+1724,1,1518,1570,Frans,Floris
+1725,2,1600,1640,Magdalena van de,Passe
+1726,1,1564,1651,Abraham,Bloemaert
+1727,1,1610,1669,Friedrich,Bloemaert
+1728,1,1693,1775,Louis Fabricius,Dubourg
+1729,1,1624,1679,Jan Vande,Capelle
+1730,1,1649,1694,Paul van II,Somer
+1731,1,1777,1831,Chr. David,Gebauer
+1732,1,1608,1650,Andries Dirkz,Both
+1733,1,1656,1738,Carel de,Moor
+1734,1,1624,1654,Hermann,Nauwinx
+1735,1,1769,1858,Hendrik van der,Burgh
+1736,1,1600,1622,Nicolaes,Ryckmans
+1737,1,1531,1574,Giulio A.,Bonasone
+1738,1,1578,1616,Orazio,Borgianni
+1739,1,1555,1619,Ludovico,Carracci
+1740,1,1612,1691,Lorenzo,Loli
+1741,1,1544,1628,Jacopo,Palma giovane
+1742,1,1520,1583,Martin,Rota
+1743,1,1503,1540,Francesco,Mazzuoli
+1744,1,1566,1624,Francisco,Villamena
+1745,1,1570,1615,Bartolomeo,Schidone
+1746,1,1650,1715,Giovanni Francesco,Venturini
+1747,1,1505,1565,Giovanni Jacopo,Caraglio
+1748,1,1510,1580,Giovanni Battista,Franco
+1749,1,1606,1680,Giovanni Francesco,Grimaldi
+1750,1,1490,1540,Agostino,Veneziano
+1751,1,1608,1674,Giovanni Andrea,Podesta
+1752,1,1529,1592,Bartholomeo,Passaroti
+1753,1,1540,1590,Bernardino,Passari
+1754,1,1676,1729,Marco,Ricci
+1755,1,1546,1629,Camillo,Procaccini
+1756,1,1648,1678,Giovanni Battista,Falda
+1757,,1788,1875,Michele,Bisi
+1758,1,1702,1786,Marcus,Pitteri
+1759,1,1659,1741,Giovanni Girolamo,Frezza
+1760,1,1745,1821,Friedrich Wilhelm,Gmelin
+1761,1,1704,1779,Lorenzo,Zucchi
+1762,1,1678,1740,Andrea,Zucchi
+1763,1,1727,1794,Domenico,Cunego
+1764,1,1790,1835,Giovita,Caravaglia
+1765,1,1700,1785,Felice,Polanzani
+1766,1,1743,1790,Giovanni,David
+1767,1,1594,1674,Karl,Audran
+1768,1,1736,1793,Louis Marin,Bonnet
+1769,1,1810,1864,Alexandre,Calame
+1770,1,1738,1804,Jouis Jaques,Cathelin
+1771,1,1729,1790,Juste,Chevillet
+1772,1,1692,1765,Anne-Claude de Tubières,Caylus
+1773,1,1755,1805,Georg Abraham,Hackert
+1774,1,1743,1819,Francois,Godefroy
+1775,1,1722,1785,Robert,Gaillard
+1776,1,1698,1771,Nicolas Gabriel,Dupuis
+1777,1,1685,1742,Charles,Dupuis
+1778,1,1747,1825,Dominique Vivant,Denon
+1779,1,1714,1777,Étienne,Fessard
+1780,1,1607,1680,Jean,Boulanger
+1781,1,1739,1792,Nicolas,Delaunay
+1782,1,1729,1786,Jean-Jacues,Le Veau
+1783,1,1748,1790,Francois Auguste,Moitte
+1784,1,1727,1800,Noël,Lemire
+1785,1,1765,1840,Charles Pierre,Normand
+1786,1,1749,1815,Jean,Mathieu
+1787,1,1745,1785,Daniel,Lerpiniere
+1788,1,1656,1708,Antoine,Trouvain
+1789,1,1732,1813,Cornelis,Vermeulen
+1790,1,1640,1713,Alexis,Loir
+1791,1,1695,1760,Adrien,Manglard
+1792,1,1669,1776,Nicolas Charles de,Silvestre
+1793,1,1759,1824,Jean Louis Charles,Pauquet
+1794,1,1706,1774,Simon Francois I,Ravenet
+1795,1,1745,1805,Charles Nicolas,Varin
+1796,1,1669,1728,Jean Baptiste,Poilly
+1797,1,1705,1751,Carl Marcus,Tuscher
+1798,1,1744,1805,Victor Marie,Picot
+1799,,1699,1749,Pierre Hubert,Subleyras
+1800,1,1621,1676,Jaques,Courtois
+1801,1,1710,1777,Peter Carl,Canot
+1802,1,1759,1829,Pierre Charles,Baquoy
+1803,1,1616,1671,Sébastien,Bourdon
+1804,1,1612,1652,Niclas,Chapron
+1805,1,1847,1898,Felix-Hilaire,Buhot
+1806,1,1758,1836,Antoine Charles H.,Vernet
+1807,1,1738,1792,Giovanni,Vitalba
+1808,1,1757,1841,Alexandre-H,Dunouy
+1809,1,1820,1870,Charles Fr.,Eustache
+1810,1,1722,1776,Gille,Demarteau
+1811,1,1838,1919,Gustave Marie,Greux
+1812,1,1673,1722,Claude,Gillot
+1813,1,1600,1682,Claude,Lorrain
+1814,1,1606,1656,Laurent de la,Hyre
+1815,,1740,1812,Jacques Philippe II,Loutherbourg
+1816,1,1734,1781,Jean-Baptiste,Le Prince
+1817,1,1814,1878,Noël Jules le,Mire
+1818,1,1803,1869,Paul,Huet
+1819,1,1813,1873,Célesté Francois,Nanteuil
+1820,1,1745,1830,Jean-Pierre,Norblin de la Gourdaine
+1821,1,1676,1763,Sébastien,Leclerc (II)
+1822,1,1642,1682,Valentin,Lefevre
+1823,1,1621,1690,Francois,Tortebat
+1824,1,1592,1640,Pierre,Scalberge
+1825,1,1686,1755,Jean-Baptiste,Oudry
+1826,1,1733,1808,Hubert,Robert
+1827,1,1828,1893,Jules Jaques,Veyrassat
+1828,1,1603,1677,Gabriel,Pérelle
+1829,1,1600,1638,Jaques de,Rousseau
+1830,1,1819,1879,Théodore,Valerio
+1831,1,1912,1999,Jean,Rigaud
+1832,1,1602,1676,Abraham,Bosse
+1833,1,1728,1763,Georg Wilhelm,Bauernfeind
+1834,1,1696,1762,Bernard,Baron
+1835,1,1652,1746,Nicolas,Dorigny
+1836,2,1890,1928,Aagot,Schøyen
+1837,1,1723,1782,Jean Jaques,Flipart
+1838,1,1755,1838,Johann Friedrich,Leybolt
+1839,1,1649,1695,Jean-Baptiste,Corneille
+1840,1,1610,1686,Gilles,Rousselet
+1841,1,1625,1681,Nicolaas,Loyer
+1842,1,1562,1622,Philippe,Thomassin
+1843,1,1716,1783,Nicolas,Lesueur
+1844,1,1755,1835,Claude Francios,Fortier
+1845,1,1821,1859,A.,Riffaut
+1846,1,1806,1882,Edward,Schuler
+1847,1,1737,1824,Robert II,Daudet
+1848,1,1711,1779,Jan,Punt
+1849,1,1785,1875,Jean-Nicolas,Laugier
+1850,1,1833,1899,William,Austin
+1851,1,1721,1775,Richard,Houston
+1852,1,1715,1785,Johan Sebastian,Müller
+1853,1,1763,1852,John,Landseer
+1854,1,1732,1783,William Wynne,Ryland
+1855,1,1689,1763,Joseph,Goupy
+1856,1,1701,1780,John Babtist,Jackson
+1857,1,1748,1820,Johann Thomas,Hauer
+1858,1,1712,1774,Edvard,Rooker
+1859,1,1730,1782,James,Peake
+1860,1,1746,1818,Samuel,Middiman
+1861,1,1765,1828,Jean,Thouvenin
+1862,1,1811,1880,Edward William,Cooke
+1863,1,1834,1903,James Abott McNeil,Whistler
+1864,1,1700,1766,Thomas,Worlidge
+1865,1,1857,1910,Herbert,Railton
+1866,1,1759,1808,Andreas,Massinger
+1867,1,1767,1832,Edme,Bovinet
+1868,1,1894,1958,Julius,Komjáti
+1869,1,1878,1956,Ernö,Barta
+1870,1,1861,1942,Jacques-Émile,Blanche
+1871,1,1715,1776,Charles François,Hutin
+1872,1,1874,1947,Nicolaj Konstantinov,Roerich
+1873,1,1867,1956,Frank,Bangwyn
+1874,1,1761,1826,Conrad,Gessner
+1875,1,1626,1694,Gerrit Lendertsz,Valck
+1876,1,1577,1662,Adam,Willaertz
+1877,1,1815,1850,Louis,Marvy
+1878,1,1770,1843,Christian,Friedrich
+1879,1,1691,1759,Georg Daniel,Heumann
+1880,,1710,1769,Joh. Christopher,Dietzsch
+1881,,1816,1859,Alfred,Rethel
+1882,1,1778,1813,Angelo,Quaglio
+1883,1,1736,1844,Karl Frederik,Bendorp
+1884,1,1749,1818,Heinrich,Guttenberg
+1885,1,1652,1729,Robert,Bonnart
+1886,1,1838,1888,Anton,Mauve
+1887,1,1594,1664,Salomon,Savery
+1888,1,1823,1891,Théodule,Ribot
+1889,1,1819,1895,Joachim Ferdinand,Richardt
+1890,1,1849,1927,Michael,Ancher
+1891,1,1865,1916,Otto Petersen,Balle
+1892,1,1728,1763,Georg W.,Baurenfeind
+1893,1,1747,1822,Friderich Ludv.,Bradt
+1894,1,1741,1770,Johannes Gottfred,Bradt
+1895,1,1803,1892,Heinrich,Buntzen
+1896,1,1851,1909,Peder Severin,Krøyer
+1897,1,1866,1914,Max Peter Johan,Kleinsorg
+1898,1,1820,1902,Johan Adolph,Kittendorff
+1899,1,1770,1812,Erasmus Christoffer,Karlebye
+1900,1,1871,1939,Achton Johannes,Friis
+1901,1,1889,1961,Axel,Salto
+1902,,1843,1913,Peter M. Christian,Zacho
+1903,1,1762,1826,Niels,Truslew
+1904,1,1861,1904,Johan Peter,Wildenradt
+1905,1,1856,1942,Adolph Alfred,Larsen
+1906,1,1830,1892,Jens Vilhelm Ferdinand,Larsen
+1907,1,1851,1911,Carl Ludvig (Thilson),Locher
+1908,1,1864,1937,Holger Valdemar Rasmussen,Magaard
+1909,1,1863,1929,Fr. Karl Krist. Hansen,Reistrup
+1910,1,1863,1928,Albert Henrik,Repholtz
+1911,1,1856,1935,Johan,Rohde
+1912,1,1860,1942,Olaf Viggo Peter,Langer
+1913,1,1866,1939,Hans Chr.,Gether Caspersen
+1914,1,1868,1950,Christian H.P.C.,Bang
+1915,1,1869,1927,Luplau,Jansen
+1916,1,1860,1948,Hans Axel,Hou
+1917,1,1815,1882,Hans Jørgen,Hammer
+1918,1,1807,1881,Emmerik Lucian,Høegh-Guldberg
+1919,1,1776,1859,Jens M.,Holm
+1920,1,1826,1893,Hans Chr.,Henneberg
+1921,,1808,1891,F. C.,Kjerschouv
+1922,1,1861,1935,Axel,Holm
+1923,1,1811,1844,Adam A,Müller
+1924,1,1857,1935,Lars Jørgen Peter,Lund
+1925,2,1849,1909,Louise,Ravn-Hansen
+1926,1,1763,1809,Elias,Meyer
+1927,1,1783,1854,Jens Peter,Møller
+1928,2,1852,1924,Josepha M,Martensen
+1929,1,1818,1848,Johan Thomas,Lundebye
+1930,1,1865,1922,Knud Erik,Larsen
+1931,1,1823,1859,Emanuel,Larsen
+1932,1,1862,1941,Sophus,Stein
+1933,1,1866,1923,Poul,Steffensen
+1934,1,1841,1928,Simon,Simonsen
+1935,1,1738,1813,Carl Frederik,Stanley
+1936,1,1828,1893,Axel Thorsen,Schovelin
+1937,1,1770,1830,Johan H,Senn
+1938,1,1799,1892,Johan Ernst Ch.,Walter
+1939,1,1880,1946,Niels,Hansen
+1940,1,1821,1871,Jens Peter,Lund
+1941,1,1854,1932,Alfred,Olsen
+1942,1,1791,1854,Niels,Ringe
+1943,1,1807,1876,Georg Rasmus Friedrich,Hoffmann
+1944,1,1821,1902,(Solomon) Geskel,Soloman
+1945,1,1863,1958,Jens Ferdinand,Willumsen
+1946,1,1892,1975,Lennart Rafael,Segerstråle
+1947,1,1889,1933,Henry,Ericsson
+1948,1,1865,1947,prins,Eugen
+1949,1,1869,1930,Alfred,Bergström
+1950,1,1872,1900,Ingeman Waldemar,Lindholm
+1951,1,1860,1905,Carl,Söderlund
+1952,1,1868,1954,Carl Hjalmar Valentin M,Molin
+1953,1,1855,1938,Erik August Allan,Österlind
+1954,1,1881,1939,Carl Olof,Petersen
+1955,1,1882,1952,Eigil Wilhelm S.,Schwab
+1956,2,1872,1961,Harriet,Sundström
+1957,1,1886,1946,Gabriel Henric,Burmeister
+1958,1,1877,1952,Ernst,Norlind
+1959,1,1889,1944,Erns Viktor,Hällgren
+1960,1,1856,1937,Tekla,Nordström
+1961,1,1802,1878,Johan E.,Cardon
+1962,1,1864,1940,Emil,Åberg
+1963,1,1746,1816,Pehr,Hörberg
+1964,1,1894,1935,John Axel,Fridell
+1965,1,1877,1961,Pär,Siegård
+1966,1,1780,1862,Johan Gustav,Ruckman
+1967,1,1887,1919,Gösta,Sandels
+1968,1,1895,1963,Harald,Sallberg
+1969,1,1731,1791,Per Gustav,Floding
+1970,1,1779,1868,Carl Fredrik,Akrel
+1971,1,1812,1899,Carl Oscar,Cardon
+1972,1,1883,1959,Erik Fredrik A.,Hedman
+1973,1,1807,1904,Johan Henric,Strømer
+1974,1,1769,1823,Amandeus Wenzel,Böhm
+1975,1,1737,1817,Chr. von,Mechel
+1976,1,1818,1898,J. B. (Adolphe),Appian
+1977,1,1848,1903,Paul,Gauguin
+1978,1,1830,1903,Camille,Pissarro
+1979,1,1841,1919,Auguste,Renoir
+1980,,1859,1923,Theophile-Alex.,Steinlen
+1981,1,1839,1906,Paul,Cézanne
+1982,1,1836,1904,Henri,Fantin-Latour
+1983,1,1837,1911,Alphonse,Legros
+1984,1,1863,1916,Alexandre,Lunois
+1985,1,1861,1932,Gustave,Leheutre
+1986,1,1872,1936,Manuel,Robbe
+1987,1,1863,1938,Georges,Auriol
+1988,1,1849,1934,Albert,Besnard
+1989,1,1867,1947,Pierre,Bonnard
+1990,1,1870,1943,Maurice,Denis
+1991,1,1841,1927,Armand,Guillaumin
+1992,1,1864,1940,René Georges,Hermann-Paul
+1993,1,1856,1914,Charles,Maurin
+1994,1,1840,1916,Odilon,Redon
+1995,1,1861,1927,Jozsef,Rippl-R¢na¿
+1996,1,1858,1928,Jan,Toorop
+1997,1,1862,1926,Théodore van,Rysselberghe
+1998,2,1865,1938,Suzanne,Valadon
+1999,1,1865,1925,Félix,Vallotton
+2000,1,1868,1940,Édouard,Vuillard
+2001,1,1858,1936,Edmond,Aman-Jean
+2002,1,1863,1924,Charles,Cottet
+2003,1,1856,1910,Henri-Edmond,Cross
+2004,1,1868,1943,Georges de,Feure
+2005,1,1841,1917,Eugène-Samuel,Grasset
+2006,1,1863,1923,Raphaël,Lewisohn
+2007,1,1860,1943,Henri,Martin
+2008,1,1863,1944,Lucien,Pissarro
+2009,1,1824,1898,Pierre,Puvis de Chavannes
+2010,1,1840,1917,Auguste,Rodin
+2011,1,1867,1944,Ker Xavier,Roussel
+2012,1,1861,1945,Lucien,Simon
+2013,1,1839,1899,Alfred,Sisley
+2014,1,1808,1879,Honoré,Daumier
+2015,1,1798,1863,Eugène,Delacroix
+2016,1,1881,1973,Pablo,Picasso
+2017,1,1875,1947,Albert,Marquet
+2018,1,1654,1732,Wolfgang,Kilian
+2019,1,1790,1854,W. C. van,Baarsel
+2020,,1529,1556,Chr.,Froschoveri
+2021,1,1706,1778,Chr. Fr.,Boetius
+2022,1,1763,1825,I.G.,Boettger
+2023,1,1754,1824,Gustav G.,Endner
+2024,1,1733,1748,Nicolas van,Franckendaal
+2025,1,1745,1801,Sigmond,Freudenberger
+2026,1,1719,1772,Christian Friedrich,Fritzsch
+2027,1,1722,1795,Michael,Keyl
+2028,1,1703,1759,Salomon,Kleiner
+2029,1,1733,1791,Johann Conrad,Krüger
+2030,1,1756,1834,Ephraim Gottlieb,Krüger
+2031,1,1760,1817,Adam Wolfgang,Kueffner
+2032,1,1712,1786,Samuel,Kupfer
+2033,1,1763,1817,Johann Georg,Mansfeld
+2034,1,1675,1730,Joh. Georg,Menzel
+2035,1,1765,1822,Joh. Michael,Mettenleitner
+2036,1,1800,1900,Armand,Reinhardt
+2037,,1700,1800,,Richter
+2038,1,1619,1680,prins,Rupert
+2039,,1700,1800,G?,Röst
+2040,1,1795,1858,Franz,Stöber
+2041,1,1703,1754,Johann Christoph,Sysang
+2042,1,1754,1812,Medard,Thoenert
+2043,1,1750,1815,Jacob Samuel,Walwerth
+2044,1,1795,1867,Carl,Wagner
+2045,1,1765,1830,J. Caspar,Weinrauch
+2046,1,1701,1770,Joh. Christoph,Winkler
+2047,1,1775,1840,Johann Gottfried,Zschoch
+2048,1,1784,1870,Leopold,Beyer
+2049,1,1763,1840,Johann Heinrich,Ramberg
+2050,1,1798,1874,Johann Nepomuk,Passini
+2051,1,1873,1957,Ferdinand,Olivier
+2052,1,1737,1807,Jacob Philipp,Hackert
+2053,1,1779,1864,Christian Gottlob,Hammer
+2054,1,1745,1796,Ferdinand,Landerere
+2055,1,1758,1810,Francesco,Piranesi
+2056,1,1772,1813,Antoine,Cardon
+2057,1,1870,1928,Ferdinand,Schmutzer
+2058,1,1873,1962,Max,Svabinsky
+2059,1,1860,1930,Aron,Gerle
+2060,1,1811,1873,Joseph,Keller
+2061,1,1804,1877,Friedrich Eduard,Eichens
+2062,1,1843,1920,William,Hecht
+2063,1,1825,1899,Johann Leonard,Raab
+2064,1,1834,1911,Gustav,Eilers
+2065,1,1829,1895,Johann Friedrich,Vogel
+2066,1,1791,1857,Moritz Fr. A.,Steinla
+2067,1,1806,1877,Achille Louis,Martinet
+2068,1,1810,1882,Eduard,Mandel
+2069,,1689,1770,Antonio Giovanni,Faldoni
+2070,1,1870,1918,Gustav Adolph,Clemens
+2071,1,1786,1868,Harunobu,Gakutei
+2072,1,1725,1770,Suzuki,Harunobu
+2073,1,1797,1858,Utagawa,Hiroshige
+2074,1,1761,1828,Sakai,Hôitsu
+2075,1,1780,1850,Totoya,Hokkei
+2076,1,1757,1820,Kubo,Shunman
+2077,1,1760,1849,Katsushika,Hokusai
+2078,1,1824,1837,Shunbaisai,Hokuei
+2079,1,1679,1748,Tachibana,Morikuni
+2080,1,1792,1848,Eisen,Keisai
+2081,1,1764,1824,Kitao,Masayoshi
+2082,1,1706,1763,Torii,Kiyomasu II
+2083,1,1735,1785,Torii,Kiyomitsu
+2084,1,1752,1815,Torii,Kiyonaga
+2085,1,1664,1729,Torii,Kiyonobu I
+2086,1,1735,1790,Isoda,Koryûsai
+2087,1,1795,1854,Utagawa,Kuninao
+2088,1,1786,1864,Utagawa,Kunisada I
+2089,1,1797,1861,Utagawa,Kuniyoshi
+2090,1,1761,1816,Kitao,Masanobu
+2091,1,1686,1764,Okumura,Masanobu
+2092,1,1807,1873,Utagawa,Sadahide
+2093,1,1803,1853,Ryûsai,Shigeharu
+2094,1,1764,1820,Ryûryûkyô,Shinsai
+2095,1,1743,1812,Katsukawa,Shunkô
+2096,1,1796,1858,Suzuki,Kiitsu
+2097,1,1726,1792,Katsukawa,Shunshô
+2098,1,1739,1820,Kitao,Shigemasa
+2099,1,1770,1824,Katsukawa,Shuntei
+2100,1,1671,1750,Nishikawa,Sukenobu
+2101,1,1771,1844,Teisai,Hokuba
+2102,1,1773,1828,Utagawa,Toyohiro
+2103,1,1769,1825,Utagawa,Toyokuni I
+2104,1,1753,1806,Kitagawa,Utamaro
+2105,1,1787,1867,Kikugawa,Eizan
+2106,1,1841,1899,Ichiyôtei,Yoshitaki
+2107,1,1756,1827,Chobunsai,Eishi
+2108,1,1793,1800,Chôkôsai,Eishô
+2109,1,1823,1880,Utagawa,Kunisada II
+2110,1,1680,1763,Ôoka,Shunboku
+2111,1,1826,1869,Utagawa,Hiroshige II
+2112,1,1859,1920,Ogata,Gekkô
+2113,1,1866,1942,Sekka,Kamisaka
+2114,1,1869,1934,Severin,Grande
+2115,1,1868,1957,Georg,Lührig
+2116,2,1867,1945,Käthe,Kollwitz
+2117,2,1861,1908,Emilie,Mediz-Pelïkan
+2118,1,1868,1944,Karl,Mediz
+2119,1,1856,1911,Georg,Müller-Breslau
+2120,1,1867,1916,Max Eduard,Giese
+2121,1,1720,1775,Jonas,Haas
+2122,1,1777,1825,Friedrich Wilhelm,Bollinger
+2123,1,1808,1886,Friedrich,Randel
+2124,1,1890,1961,Einar,Berger
+2125,1,1745,1811,Jean-Baptiste Marie,Huet
+2126,1,1786,1854,Lois-Leopold,Boilly
+2127,1,1792,1845,Nicolas,Charlet
+2128,1,1745,1818,Jacques,Bertaux
+2129,1,1812,1893,Eugenius Frans de,Block
+2130,1,1703,1770,Francois,Boucher
+2131,1,1818,1852,Francois Gustave,Buschman
+2132,1,1876,1938,Charles,Dufresne
+2133,1,1720,1778,Charles Dom. Joseph,Eisen
+2134,1,1810,1887,Louis,Gallait
+2135,1,1814,1870,Cornelius Johannes Adrianus,Seghers
+2136,1,1868,1926,Albin,Egger-Lienz
+2137,1,1884,1953,Julien,Célos
+2138,1,1874,1950,Wynand Otto Jan,Nieuwenkamp
+2139,,1880,1920,Marten van der,Loo
+2140,1,1871,1924,Walther,Georgi
+2141,1,1818,1897,Hugo,Burkner
+2142,1,1815,1893,Isak Wilhelm,Tegner
+2143,1,1804,1859,Charles Joseph,Travies
+2144,1,1786,1844,Ferdinand,Piloty
+2145,1,1878,1938,Elling,Bjørset
+2146,1,1881,1950,Mons,Breidvik
+2147,1,1880,1945,Per,Deberitz
+2148,1,1877,1947,Ole,Engh
+2149,1,1892,1984,Rolf Juell,Gleditsch
+2150,1,1878,1911,Karl,Haldorsen
+2151,1,1855,1912,Nils,Hansteen
+2152,1,1878,1946,Hans,Holm
+2153,1,1869,1947,Moritz,Kaland
+2154,2,1896,1977,Solveig,Kaurin
+2155,2,1882,1979,Manna,Kielland
+2156,2,1885,1974,Nana Krohg,Schweigaard
+2157,1,1883,1983,Johannes,Kølbel
+2158,1,1879,1929,Theodor,Laureng
+2159,1,1871,1904,Ivar,Lund
+2160,1,1898,1967,Erling,Merton
+2161,1,1878,1946,Søren,Onsager
+2162,1,1876,1947,Einar,Sandberg
+2163,1,1867,1940,Severin,Segelcke
+2164,1,1873,1948,Kristofer,Sinding-Larsen
+2165,1,1874,1963,Harald Krohg,Stabell
+2166,1,1869,1943,Anders Castus,Svarstad
+2167,1,1882,1962,Henrik,Sørensen
+2168,1,1890,1921,Henry,Thue
+2169,1,1876,1943,Hans,Ødegaard
+2170,1,1862,1906,Einar,Øfsti
+2171,2,1875,1935,Astri,Aasen
+2172,1,1895,1987,Roar Matheson,Bye
+2173,1,1890,1960,Eivind,Engebretsen
+2174,1,1858,1944,Ola,Geelmuyden
+2175,1,1871,1920,Otto,Hennig
+2176,1,1896,1973,Olaf,Holwech
+2177,1,1852,1901,Hjalmar,Johnsen
+2178,1,1862,1928,Louis,Lacomblé
+2179,1,1881,1920,Brynjulf,Larsson
+2180,1,1892,1914,Reidar,Petersen
+2181,1,1888,1962,Ørnulf av Fjordene,Salicath
+2182,1,1863,1934,Gudmund,Stenersen
+2183,1,1888,1983,Einar,Stensby
+2184,1,1859,1927,Gustav,Wentzel
+2185,1,1857,1921,Michaloff,Wigdehl
+2186,1,1886,1967,Olaf,Willums
+2187,1,1904,1994,Gert,Jynge
+2188,1,1900,1991,Johan,Lie-Gjemre
+2189,1,1903,1985,Per,Rom
+2190,1,1910,1994,Per Palle,Storm
+2191,1,1906,1979,Ralph Aulie,Styker
+2192,1,1906,1994,Chrix,Dahl
+2193,1,1880,1928,Nikolai,Astrup
+2194,1,1881,1961,Jean René,Gauguin
+2195,1,1911,1976,Paul René,Gauguin
+2196,1,1883,1961,Pola,Gauguin
+2197,1,1878,1970,Arne,Kavli
+2198,1,1905,1997,Harald,Kihle
+2199,1,1879,1935,Henrik,Lund
+2200,1,1902,1927,Bjarne,Ness
+2201,1,1883,1925,Olaf,Nordhagen
+2202,1,1899,1971,Rolf,Rude
+2203,2,1903,1994,Alfhild,Rude
+2204,1,1855,1938,Erik,Werenskiold
+2205,1,1902,1938,John,Savio
+2206,1,1847,1906,Frits,Thaulow
+2207,1,1873,1947,Albert,Næss
+2208,1,1898,1942,Lasse,Segelcke
+2209,1,1775,1833,Johan Friedrich Leonhard,Dreier
+2210,1,1810,1876,Johan Ludvig,Losting
+2211,1,1798,1883,Georg Carl Christian Wedel,Prahl
+2212,1,1786,1851,Hans Thøger,Winther
+2213,1,1905,1985,Bjarne,Engebret
+2214,1,1899,1990,Erling,Enger
+2215,2,1903,1993,Else Christie,Kielland
+2216,1,1908,1962,Finn,Nielssen
+2217,1,1902,1972,Harald,Dal
+2218,1,1909,1970,Sigurd,Winge
+2219,1,1879,1933,Bernhard,Folkestad
+2220,1,1857,1914,Theodor,Kittelsen
+2221,1,1884,1948,Thoralv,Sundt-Ohlsen
+2222,2,1882,1981,Alfhild Børsum,Johnsen
+2223,1,1892,1977,Dagfin,Werenskiold
+2224,1,1889,1962,Kristofer Eriksen,Ganer
+2225,1,1869,1935,Harald,Sohlberg
+2226,1,1850,1920,Olav,Rusti
+2227,2,1876,1956,Inger,Sverdrup
+2228,1,1888,1962,Lorentz,Ree
+2229,1,1893,1982,Arent,Christensen
+2230,2,1886,1973,Ragnhild,Ender
+2231,1,1894,1945,Leif,Grung
+2232,1,1887,1955,Kristian,Oppegaard
+2233,1,1893,1967,Alfred,Oster
+2234,1,1889,1962,Johan,Oppegård
+2235,2,1890,1972,Signe,Walle
+2236,1,1898,1977,Christian,Christensen
+2237,1,1884,1939,Sverre,Johnsen
+2238,1,1867,1938,August,Eiebakke
+2239,1,1886,1976,Guido,Schjølberg
+2240,1,1894,1966,Nils,Bratager
+2241,1,1885,1939,Paul,Ansteinsson
+2242,2,1902,1963,Lilla,Hellesen
+2243,1,1909,1990,Jardar,Lunde
+2244,1,1888,1977,Gunnar,Wareberg
+2245,1,1896,1966,Terje,Strand
+2246,1,1887,1962,Øyvind,Sørensen
+2247,2,1891,1978,Jenny,Vard
+2248,1,1907,1986,Søren,Begby
+2249,1,1910,2001,Olav,Mosebekk
+2250,1,1912,1990,Thorbjørn,Egner
+2251,1,1907,1974,Ørnulf,Bast
+2252,2,1914,2010,Else,Hagen
+2253,1,1630,1678,Jacob Mortenssøn,Maschius
+2254,1,1911,1970,Ivar,Thorkildsen
+2255,1,1867,1919,Oluf,Wold-Torne
+2256,1,1898,1992,Henrik,Finne
+2257,1,1893,1975,Rolf,Nesch
+2258,1,1751,1801,William,Hamilton
+2259,1,1902,1995,Finn,Faaborg
+2260,1,1912,1977,Kåre,Jonsborg
+2261,1,1806,1869,Carl Andreas,Dahlström
+2262,1,1894,1958,Otte,Sköld
+2263,1,1884,1950,Max,Beckmann
+2264,1,1875,1965,Olaf,Lange
+2265,1,1864,1939,Eivind,Nielsen
+2266,2,1862,1931,Minka,Grønvold
+2267,1,1852,1912,Jacob,Gløersen
+2268,1,1869,1953,Kristen,Holbø
+2269,1,1858,1928,Eyolf,Soot
+2270,1,1853,1890,Vincent van,Gogh
+2271,1,1849,1929,Gerhard,Munthe
+2272,1,1814,1876,Adolph,Tidemand
+2273,1,1860,1945,Fredrik,Kolstø
+2274,1,1837,1892,Vincent Stoltenberg,Lerche
+2275,1,1845,1915,Walter,Crane
+2276,1,1858,1930,Nils,Kreuger
+2277,1,1797,1856,Paul,Delaroche
+2278,1,1835,1893,Olaf,Isaachsen
+2279,1,1866,1935,Thorolf,Holmboe
+2280,1,1865,1946,Torleiv Jørgensen,Stadskleiv
+2281,1,1877,1899,Halfdan,Egedius
+2282,1,1889,1965,Per,Krohg
+2283,1,1868,1939,Thorvald,Erichsen
+2284,1,1856,1933,Joakim,Skovgaard
+2285,1,1889,1946,Isaac,Grünewald
+2286,1,1834,1917,Edgar,Degas
+2287,1,1886,1934,Otto Emil,Johansen
+2288,1,1903,1980,Dyre Kristofer,Vaa
+2289,1,1902,1977,Stinius,Fredriksen
+2290,1,1891,1928,Rolf,Lunde
+2291,1,1898,1981,Ridley,Borchgrevink
+2292,1,1894,1958,Sigurd,Danifer
+2293,1,1902,1972,Per,Lund
+2294,1,1897,1941,Bernt Julius Muus,Clüver
+2295,1,1899,1984,Trygve,Torkildsen
+2296,1,1901,1953,Carl von,Hanno
+2297,1,1895,1979,Alf,Rolfsen
+2298,1,1889,1970,Hugo Lous,Mohr
+2299,1,1814,1874,Jean Francios,Millet
+2300,1,1892,1953,Mogens,Lorentzen
+2301,1,1874,1946,Charles,Despiau
+2302,1,1887,1976,Georg,Jacobsen
+2303,1,1904,1977,Reidar,Aulie
+2304,1,1802,1883,Jacob,Calmeyer
+2305,1,1882,1958,Ragnvald,Blix
+2306,1,1878,1962,Olav,Engebrigtsen
+2307,1,1867,1961,Johannes,Larsen
+2308,1,1883,1956,Mikko,Oinomen
+2309,1,1894,1961,Reinhold v.,Rosen
+2310,1,1896,1968,Reidar,Magnus
+2311,,1855,1935,Georg,Pauli
+2312,1,1907,1994,Arne,Johnson
+2313,2,1910,1983,Edvarda,Lie
+2314,1,1904,1975,Willi,Midelfart
+2315,1,1903,1979,Søren,Steen-Johnsen
+2316,1,1901,1981,Alexander,Schultz
+2317,1,1907,1989,Kai,Fjell
+2318,1,1884,1976,Jean,Heiberg
+2319,1,1900,1983,Aage,Storstein
+2320,1,1900,1983,Arne,Vigeland
+2321,1,1907,1968,Alv,Ringereide
+2322,1,1873,1927,Harald,Brun
+2323,2,1890,1967,Randi,Holwech
+2324,1,1862,1943,Thorvald Hagbart,Torgersen
+2325,1,1834,1900,Anders,Askevold
+2326,1,1861,1940,Sven,Jørgensen
+2327,1,1907,1965,Erik,Wengelin
+2328,1,1902,1980,Erik Harry,Johannessen
+2329,1,1907,1985,Erkki,Tanttu
+2330,1,1809,1862,Frederik Hansen,Sødring
+2331,1,1877,1927,John Macody,Lund
+2332,2,1860,1942,Signe,Scheel
+2333,1,1910,1989,Per,Hurum
+2334,1,1916,2002,Joseph,Grimeland
+2335,1,1861,1945,Ludwig von,Hofmann
+2336,1,1928,2013,Johnny,Halvorsen
+2337,1,1899,1973,Henrik,Starcke
+2338,1,1901,1987,Mogens,Bøggild
+2339,1,1900,1982,Ebbe,Sadolin
+2340,1,1844,1897,Carl Andreas,Jensen
+2341,1,1906,1984,Kaare,Wildhagen
+2342,1,1790,1857,Luigi,Rossini
+2343,1,1908,1974,Helmuth,Thomsen
+2344,1,1897,1972,Helge,Thiis
+2345,1,1907,1979,Nils Erik,Flakstad
+2346,1,1903,1960,Alfred,Seland
+2347,1,1901,1984,Nic,Schiøll
+2348,1,1887,1962,Axel,Revold
+2349,2,1837,1921,Mathilde,Dietrichson
+2350,1,1800,1854,Hans Leganger,Reusch
+2351,1,1865,1939,Lars,Jorde
+2352,1,1868,1923,Oscar,Lærum
+2353,1,1875,1936,Sigmund,Sinding
+2354,1,1851,1896,Mathias,Skeibrok
+2355,1,1861,1894,Jørgen,Sørensen
+2356,2,1901,1993,Doro,Ording
+2357,1,1842,1895,Olaf,Dahl
+2358,1,1818,1895,David,Arnesen
+2359,1,1826,1856,Gustav Adolph,Mordt
+2360,1,1807,1873,Johan Sebastian,Welhaven
+2361,1,1839,1914,Frederik,Collett
+2362,2,1794,1830,Amalie von,Bassewitz
+2363,1,1813,1836,Johann Heinrich Karl,Schulz
+2364,1,1830,1902,Lars,Hertervig
+2365,1,1855,1914,Niels,Wiwel
+2366,1,1821,1847,Hjalmar,Kjerulf
+2367,1,1794,1822,August,Heinrich
+2368,2,1896,1984,Frøydis,Haavardsholm
+2369,1,1804,1832,Vilhelm,Bendz
+2370,1,1891,1960,Anton,Hansen
+2371,1,1803,1861,Heinrich Gustav Ferdinand,Holm
+2372,1,1824,1897,Carsten,Henrichsen
+2373,1,1824,1882,Vilhelm,Melbye
+2374,1,1689,1712,Carl Christian,Müller
+2375,1,1823,1854,Frederik,Kraft
+2376,1,1777,1867,Johan Ludwig (J. L.),Lund
+2377,1,1818,1848,Johan Thomas,Lundbye
+2378,1,1854,1926,Viggo,Pedersen
+2379,1,1870,1959,Hugo Vilfred,Pedersen
+2380,1,1858,1923,Carl,Schmidt
+2381,1,1731,1802,Johannes,Wiedewelt
+2382,1,1812,1890,Christian Olavius (C. O.),Zeuthen
+2383,1,1722,1782,Vigilius,Erichsen
+2384,1,1822,1885,Peter Frederik Nordahl Frits,Grove
+2385,1,1814,1866,Andreas Herman,Hunæus
+2386,,1741,1804,Cornelius,Høyer
+2387,1,1837,1890,Ferdinand Vilhelm,Jensen
+2388,1,1800,1856,Johan Laurentz,Jensen
+2389,,1824,1898,Emil Victor (E. V.),Langlet
+2390,1,1828,1875,Hans Christian,Ley
+2391,1,1609,1670,Karel van,Mander (III)
+2392,1,1826,1893,Ludvig,Messmann
+2393,1,1784,1817,Samuel,Mygind
+2394,1,1818,1879,Carl Frederik (C.F.),Sørensen
+2395,1,1824,1911,Christian Rudolph,Vogelsang
+2396,1,1846,1908,Thorvald,Bindesbøll
+2397,1,1880,1967,Gerhard,Henning
+2398,,1725,1793,Jens Petersen,Lund
+2399,1,1808,1843,Johann,Mohr
+2400,1,1749,1790,Erik,Pauelsen
+2401,1,1805,1838,Fritz,Petzholdt
+2402,1,1838,1867,Lugvig Albin,Schou
+2403,1,1854,1892,Axel,Axelson
+2404,1,1730,1786,Johan Edvard,Mandelberg
+2405,1,1711,1793,Carl Gustav,Pilo
+2406,1,1851,1906,Ernst,Josephson
+2407,1,1769,1845,Jacob Axel,Gillberg
+2408,1,1786,1854,Bengt,Fogelberg
+2409,1,1888,1943,Nils von,Dardel
+2410,1,1740,1814,Johan Tobias,Sergel
+2411,1,1829,1879,Erik Dorn,Bodom
+2412,1,1773,1841,Ulrik Frederik,Bøyesen
+2413,1,1843,1927,Christian,Holtermann
+2414,2,1845,1932,Harriet,Backer
+2415,1,1785,1858,Erik Theodor Christian Bernhard,Anker
+2416,1,1834,1902,Hans,Jahn
+2417,1,1828,1911,Morten,Müller
+2418,1,1873,1970,Knut Ragnvald,Sandvik
+2419,1,1842,1909,Otto,Sinding
+2420,1,1859,1906,Jacob,Bratland
+2421,1,1855,1930,Edvard,Diriks
+2422,1,1853,1920,Axel,Ender
+2423,1,1847,1920,Jahn,Ekenæs
+2424,1,1862,1938,Albert von,Hanno
+2425,1,1797,1858,Baltazar Mathias,Keilhau
+2426,1,1890,1940,Thoralf,Klouman
+2427,1,1863,1933,Olaf,Krohn
+2428,1,1841,1907,Carl Fredrik,Sundt-Hansen
+2429,1,1844,1910,Oscar A.,Wergeland
+2430,1,1815,1885,Christian August,Grosch
+2431,1,1873,1958,Olaf,Gulbransson
+2432,2,1865,1944,Helga Ring,Reusch
+2433,1,1869,1943,Gustav,Vigeland
+2434,1,1816,1878,Jonas Nicolai,Prahm
+2435,1,1848,1875,Carl,Schøyen
+2436,1,1900,1961,Thorbjørn,Lie-Jørgensen
+2437,1,1912,1970,Rolf,Syrdahl
+2438,1,1894,1956,Hans,Ryggen
+2439,1,1791,1866,Paul,Linaae
+2440,1,1894,1981,Tor,Refsum
+2441,2,1894,1981,Ragnhild,Iversen
+2442,2,1907,1998,Karen,Holtsmark
+2443,1,1915,1981,Alf-Jørgen,Aas
+2444,2,1937,2013,Tonje,Strøm
+2445,2,1912,1979,Pelle,Thommessen
+2446,1,1941,2013,Philippe,Mohlitz
+2447,1,1924,2013,Eduardo,Chillida
+2448,,1876,1950,Willi Otto Max,Lange
+2449,1,1838,1911,Sophus,Larpent
+2450,1,1898,1984,Einar,Stang
+2451,1,1909,1987,Ragnar,Kraugerud
+2452,2,1910,1999,Borghild,Rud
+2453,2,1905,1972,Anita,Greve
+2454,2,1905,1979,Vesla,Natvig
+2455,1,1908,1994,Arne,Ekeland
+2456,2,1912,1997,Gladys,Raknerud
+2457,2,1910,1997,Randi,Monsen
+2458,1,1914,1994,Inggard,Rosseland
+2459,1,1910,1999,Ferdinand,Finne
+2460,1,1898,1972,Vilhelm,Tveteraas
+2461,1,1908,1999,Fredrik,Matheson
+2462,1,1903,1987,Gösta,Hammarlund
+2463,2,1903,1991,Marianne,Hallbauer
+2464,1,1909,1981,Trygve,Mosebekk
+2465,1,1774,1840,Caspar David,Friedrich
+2466,1,1528,1612,Federico,Barocci
+2467,1,1549,1592,Francesco,Bassano
+2468,1,1565,1647,Orazio,Gentileschi
+2469,1,1481,1536,Baldassare,Peruzzi
+2470,1,1433,1498,Antonio di,Pollaiuolo
+2471,1,1570,1625,Giulio Cesare,Procaccini
+2472,1,1662,1734,Sebastiano,Ricci
+2473,1,1552,1626,Cristoforo,Roncalli
+2474,1,1590,1630,Daniele,Crespi
+2475,1,1511,1574,Giorgio,Vasari
+2476,1,1578,1660,Francesco,Albani
+2477,1,1682,1752,Jacopo,Amigoni
+2478,,1530,1593,Aurelio,Luini
+2479,1,1585,1647,Sisto,Badalocchio
+2480,1,1666,1740,Antonio,Balestra
+2481,1,1510,1592,Jacopo da Ponte,Bassano
+2482,1,1569,1632,Carlo da Fer,Bononi
+2483,1,1527,1585,Luca,Cambiaso
+2484,1,1773,1844,Vincenzo,Camuccini
+2485,,1637,1694,Sigismondo,Caula
+2486,1,1602,1664,Michel (d.e),Corneille
+2487,1,1727,1785,Giovanni Battista,Cipriani
+2488,1,1656,1746,Francesco,Trevisani
+2489,,1666,1724,Benedetto,Luti
+2490,1,1558,1638,Domenico,Cresti
+2491,1,1620,1684,Domenico,Canuti
+2492,1,1709,1769,Francesco,Fontebasso
+2493,1,1689,1767,Gaspare,Diziani
+2494,1,1527,1596,Pellegrino,Tibaldi
+2495,,1540,1611,"Niccolò Martelli, kalt",Trometta
+2496,,1661,1732,Niccolò,Lapi
+2497,1,1692,1766,Giovanni Domenico,Ferretti
+2498,1,1604,1646,Francesco,Furini
+2499,1,1632,1705,Luca,Giordano
+2500,,1576,1636,Pietro Paolo,Bonzi
+2501,1,1651,1721,Bonaventura,Lamberti
+2502,1,1669,1727,Bartolomeo,Litterini
+2503,1,1554,1627,Giovanni Battista,Paggi
+2504,1,1691,1765,Giovanni Paolo,Pannini
+2505,1,1700,1773,Luigi,Vanvitelli
+2506,1,1653,1736,Gaspar van,Wittel
+2507,1,1676,1746,Sebastiano,Galeotti
+2508,1,1629,1700,Lorenzo,Pasinelli
+2509,1,1628,1719,Carlo,Cignani
+2510,1,1682,1754,Giovanni Battista,Piazzetta
+2511,1,1486,1530,Andrea del Sarto,
+2512,,1562,1602,Pietro,Faccini
+2513,1,1486,1570,Jacopo,Sansovino
+2514,,1578,1651,Matteo,Rosselli
+2515,,1556,1621,Aurelio,Lomi
+2516,1,1510,1583,Pirro,Ligorio
+2517,1,1657,1747,Francesco,Solimena
+2518,1,1518,1594,Jacopo,Tintoretto
+2519,1,1556,1629,Antonio,Vassilacchi
+2520,1,1528,1588,Paolo,Veronese
+2521,1,1564,1626,Hans,Rottenhammer
+2522,1,1540,1609,Federigo,Zuccaro
+2523,1,1512,1571,Nicolò dell’,Abbate
+2524,1,1535,1607,Alessandro,Allori
+2525,,1503,1572,Agnolo,Bronzino
+2526,1,1560,1631,Giovanni,Balducci
+2527,1,1530,1574,Lattanzio,Gambara
+2528,1,1692,1776,Vincenzo,Bigari
+2529,,1654,1719,Giovanni Gioseffo dal,Sole
+2530,,1560,1630,Cesare,Pollini
+2531,,1560,1607,Andrea,Boscoli
+2532,1,1598,1680,Lorenzo,Bernini
+2533,1,1482,1525,Francesco Marco Antonio,Bigi
+2534,1,1500,1572,Giulio,Campi
+2535,,1734,1789,Fedele,Fischetti
+2536,1,1686,1776,Carlo,Carlone
+2537,1,1566,1643,Giovanni,Baglione
+2538,1,1570,1661,Francesco,Curradi
+2539,1,1728,1795,Giovanni Battista,Casanova
+2540,1,1557,1629,Bernardo,Castello
+2541,1,1484,1550,Domenico,Campagnola
+2542,1,1628,1679,Guillaume,Courtois
+2543,1,1717,1808,Domenico,Mondo
+2544,1,1721,1803,Domenico,Corvi
+2545,1,1665,1747,Giuseppe Maria,Crespi
+2546,1,1614,1630,Cosimo,Daddi
+2547,1,1660,1708,Giuseppe,Diamantini
+2548,1,1616,1686,Carlo,Dolci
+2549,1,1554,1640,Jacopo,Chimenti
+2550,,1616,1661,Giovanni Battista,Mola
+2551,1,1555,1608,Ambrogio,Figino
+2552,1,1512,1597,Prosper,Fontana
+2553,1,1648,1729,Marc-Antonio,Franceschini
+2554,,1606,1681,Giacinto,Gimignani
+2555,1,1652,1726,Antonio Domenico,Gabbiani
+2556,1,1588,1625,Francesco Giovanni,Gessi
+2557,1,1611,1690,Baldassare,Franceschini
+2558,1,1582,1647,Giovanni,Lanfranco
+2559,1,1620,1696,Pietro,Lauri
+2560,1,1578,1626,Ottavio,Leoni
+2561,1,1664,1718,Giovanni Paolo,Melchiori
+2562,1,1711,1780,Giovanni Battista,Marcola
+2563,1,1529,1592,Bartolomeo,Passerotti
+2564,1,1511,1587,Lelio,Orsi
+2565,1,1480,1528,Jacopo,Palma vecchio
+2566,1,1553,1615,Cherubino,Alberti
+2567,1,1642,1709,Andrea,Pozzo
+2568,1,1537,1591,Giovanni Battista di Matteo,Naldini
+2569,1,1510,1563,Francesco,Salviati
+2570,1,1496,1536,Giovanni Francesco,Penni
+2571,1,1686,1766,Antonio,Consetti
+2572,1,1729,1804,Giovanni Battista,Tempesti
+2573,1,1671,1749,Donato,Creti
+2574,1,1634,1699,Pandolfo,Reschi
+2575,1,1528,1591,Andreas,Attemstett
+2576,1,1501,1556,,Girolamo da Carpi
+2577,1,1517,1579,Cristoforo,Rosa
+2578,1,1528,1602,Sebastiano,Vini
+2579,1,1599,1661,Andrea,Sacchi
+2580,1,1568,1613,Ventura,Salimbeni
+2581,1,1544,1597,Francesco,Morandini
+2582,,1577,1621,Cristofano,Allori
+2583,1,1526,1571,Maso da San Friano,
+2584,1,1686,1753,Francesco,Simonini
+2585,2,1638,1665,Elisabetta,Sirani
+2586,,1610,1670,Giovanni Andrea,Sirani
+2587,1,1657,1734,Ilario,Spolverini
+2588,1,1663,1716,,Pietro Antonio de' Pietri
+2589,1,1556,1630,Alessandro,Maganza
+2590,1,1613,1699,Mattia,Preti
+2591,1,1712,1784,Stefano,Torelli
+2592,1,1621,1661,Flaminio,Torre
+2593,1,1578,1649,Alessandro,Turchi
+2594,1,1588,1648,Alessandro,Varotari
+2595,1,1536,1614,Cesare,Nebbia
+2596,1,1529,1566,Taddeo,Zuccaro
+2597,,1511,1526,,Mester H.L.
+2598,1,1500,1563,Andrea,Schiavone
+2599,1,1530,1590,Bernardino,Passeri
+2600,1,1575,1616,Jacques,Bellange
+2601,,1675,1741,Giovanni Antonio,Pellegrini
+2602,1,1798,1879,Abbondio,Sangiorgio
+2603,1,1731,1808,Giacomo,Zampa
+2604,1,1657,1745,Martino,Altomonte
+2605,1,1755,1808,Giuseppe Filippo Liberati,Marchi
+2606,,1480,1532,Bernardino,Luini
+2607,1,1693,1783,Bartolomäus,Altomonte
+2608,1,1721,1780,Bernardo,Bellotto
+2609,1,1741,1823,Antoine Francois,Callet
+2610,1,1796,1875,Camille,Corot
+2611,1,1732,1806,Jean-Honoré,Fragonard
+2612,1,1567,1619,Martin,Fréminet
+2613,1,1767,1824,Anne-Lois,Girodet de Roussy-Trioson
+2614,1,1763,1833,Philippe-Auguste,Hennequin
+2615,1,1656,1690,Raymond de la,Fage
+2616,1,1885,1925,Roger de la,Fresnaye
+2617,1,1729,1778,Simon,Lantara
+2618,1,1619,1690,Charles Le,Brun
+2619,,1734,1781,Jean Baptiste,Leprince
+2620,,1688,1752,Charles,Parrocel
+2621,1,1758,1823,Pierre-Louis,Prud'hon
+2622,1,1659,1743,Hyacinthe,Rigaud
+2623,1,1596,1657,Jacques,Stella
+2624,1,1714,1789,Claude-Joseph,Vernet
+2625,1,1590,1649,Simon,Vouet
+2626,1,1684,1721,Antoine,Watteau
+2627,1,1602,1674,Philippe de,Champaigne
+2628,1,1729,1765,Jean-Baptiste,Deshays
+2629,1,1725,1805,Jean Baptiste,Greuze
+2630,1,1741,1811,Jean Michel,Moreau
+2631,1,1685,1766,Jean-Marc,Nattier
+2632,1,1748,1821,Pierre-Alexandre,Wille
+2633,1,1713,1789,Jean Baptiste Marie,Pierre
+2634,1,1789,1863,Horace,Vernet
+2635,1,1558,1625,Jan,Brueghel d.e.
+2636,1,1633,1686,Frederik de,Moucheron
+2637,1,1634,1693,Nicolaus,Maes
+2638,1,1566,1638,Joachim,Wtewael
+2639,1,1550,1603,Hendrik van,Steenwyck (I)
+2640,1,1590,1656,Gerard van,Honthorst
+2641,1,1531,1603,Marten de,Vos
+2642,1,1546,1611,Bartholomaeus,Spranger
+2643,1,1579,1657,Frans,Snyders
+2644,1,1682,1749,Jan van,Huysum
+2645,1,1613,1652,Paul van,Vianen
+2646,1,1627,1697,Jan de,Bray
+2647,1,1627,1678,Willem,Schellinks
+2648,1,1605,1638,Adriaen,Brouwer
+2649,1,1657,1720,Pieter van,Bloemen
+2650,1,1595,1674,Leonard,Bramer
+2651,1,1628,1712,Jan,Hackaert
+2652,1,1610,1652,Jan,Asselijn
+2653,1,1627,1689,Jacob van der,Ulft
+2654,1,1596,1656,Jan van,Goyen
+2655,1,1640,1712,Josua de,Grave
+2656,1,1540,1599,Frederik,Sustris
+2657,1,1575,1632,Abraham I,Janssens
+2658,1,1622,1673,Adam,Pynacker
+2659,1,1601,1673,Anthonie,Palamedesz.
+2660,1,1632,1690,Adam Frans van der,Meulen
+2661,1,1656,1715,Dirck,Maes
+2662,1,1600,1670,Salomon van,Ruysdael
+2663,1,1613,1686,Jacques,d'Arthois
+2664,1,1655,1726,Anton,Schoonjans
+2665,1,1770,1848,Martinus,Schouman
+2666,1,1665,1722,Hendrik van der,Straaten
+2667,1,1635,1710,Abraham,Storck
+2668,1,1592,1667,Cornelius de,Wael
+2669,1,1645,1667,Moses,Terborch
+2670,1,1634,1682,Jacob,Ochtervelt
+2671,1,1627,1690,Hendrick,Verschuring
+2672,1,1575,1632,Hendrik van,Balen I
+2673,1,1575,1635,Gotthard,Ringgli
+2674,1,1633,1707,Willem van de,Velde (II)
+2675,1,1619,1668,Philips,Wouwerman
+2676,1,1621,1674,Gerbrand van den,Eeckhout
+2677,1,1534,1598,Gillis,Mostaert
+2678,1,1562,1645,Ferrau,Fenzoni
+2679,,1615,1669,Joris Abrahamz. var der,Haagen
+2680,,1706,1759,Lauritz de,Thurah
+2681,1,1611,1693,Willem van de,Velde d.e.
+2682,1,1631,1684,Jan,Wijnants
+2683,1,1596,1675,Abraham van,Diepenbeeck
+2684,1,1600,1652,Alexander,Keirincx
+2685,1,1609,1647,Jan,Martszen de Jonge
+2686,1,1616,1697,Ludolf de,Jongh
+2687,1,1567,1641,Peeter,Stevens
+2688,1,1600,1653,Pieter de,Grebber
+2689,,1659,1717,Dirck,Maas
+2690,1,1621,1660,Jan Baptist,Weenix
+2691,1,1615,1660,Govaert,Flinck
+2692,1,1604,1635,Pieter Dircksz.,Santvoort
+2693,1,1583,1660,Hendrik van der,Borght
+2694,,1623,1693,Hendrik,Mommers
+2695,1,1575,1629,Jacob,Hoefnagel jr.
+2696,1,1623,1673,Jacob van der,Does
+2697,1,1630,1708,Willem van,Bemmel
+2698,1,1508,1555,Allaert,Claesz
+2699,1,1635,1681,Frans van (the elder),Mieris
+2700,1,1662,1747,Willem van,Mieris
+2701,1,1753,1829,Joseph jr.,Bergler
+2702,1,1667,1741,Jacob Christoffel,Leblow
+2703,1,1728,1779,Anton Raphael,Mengs
+2704,1,1789,1869,Carl Gustav,Carus
+2705,,1785,1843,Carl Friedrich von,Rumohr
+2706,1,1552,1615,Johann,Achen
+2707,1,1751,1818,Friedrich Heinrich,Füger
+2708,1,1667,1744,Johann Jacob,Eybelwieser
+2709,1,1792,1847,Ferdinand Wolfgang,Flachenecker
+2710,1,1806,1882,Julius,Hübner
+2711,1,1829,1887,Wilhelm,Hahn
+2712,1,1539,1584,Tobias,Stimmer
+2713,2,1741,1807,Angelica,Kauffmann
+2714,1,1717,1767,Norbert Joseph Carl,Grund
+2715,1,1798,1871,Johann Theodor,Goldstein
+2716,1,1792,1837,Christian Ernst,Stölzel
+2717,1,1764,1850,Johann Gottfried,Schadow
+2718,1,1804,1878,Friedrich I,Preller
+2719,1,1830,1888,Oscar,Pletsch
+2720,1,1623,1678,Jürgen,Ovens
+2721,1,1552,1606,Daniel der Jüngere,Lindtmeyer
+2722,1,1667,1740,Johann,Kupetzky
+2723,1,1808,1889,Hermann,Kauffmann
+2724,1,1760,1830,Marquard,Wocher
+2725,1,1630,1706,Michael,Willmann
+2726,1,1723,1802,Johann Friedrich,Weitsch
+2727,1,1575,1619,Hans,Weiner
+2728,1,1799,1829,Simon,Wagner
+2729,1,1744,1767,Johann Georg,Wagner
+2730,1,1800,1800,F.,Voigt
+2731,1,1755,1795,Heinrich,Freudweiler
+2732,1,1621,1693,Johann Franz,Ermels
+2733,1,1650,1719,Peter,Caulitz
+2734,1,1610,1681,Leendert van,Cooghen
+2735,1,1652,1716,Johann Andreas,Wolff
+2736,1,1809,1845,Heinrich,Schønfeld
+2737,1,1625,1705,Johann G. Melchior,Schmittner
+2738,1,1450,1491,Martin,Schongauer
+2739,1,1761,1822,Johann David,Schubert
+2740,1,1685,1752,Alexander,Thiele
+2741,1,1759,1816,Christian Leberecht,Vogel
+2742,1,1728,1799,Tiberius D.,Wocher
+2743,1,1520,1566,Hans Sebald,Lautensack
+2744,1,1808,1880,Karl Friedrich,Lessing
+2745,1,1777,1845,Johann Friedrich,Mätthai
+2746,1,1814,1845,Alexander,Herrmann
+2747,1,1749,1822,Franz,Kobell
+2748,1,1786,1835,Gustav Heinrich,Naecke
+2749,1,1843,1883,Hugo,Kørber
+2750,1,1804,1874,Wilhelm von,Kaulbach
+2751,1,1739,1802,Johann Quirin,Jahn
+2752,1,1807,1885,Theobald Reinhold von,Oër
+2753,1,1780,1845,Joseph,Raabe
+2754,1,1655,1706,Philipp,Roos
+2755,1,1775,1845,Johann Carl,Rössler
+2756,1,1615,1695,Michael Conrad,Hirt
+2757,1,1739,1822,Michael,Wutky
+2758,1,1751,1781,Franz,Schüz
+2759,1,1769,1847,Simon,Warnberger
+2760,1,1606,1688,Joachim von I,Sandrart
+2761,1,1634,1686,Aarnout Ter,Himpel
+2762,1,1729,1782,Paulus Constantijn la,Fargue
+2763,1,1827,1905,Oswald,Achenbach
+2764,1,1692,1765,Johan Heinrich,Keller
+2765,,1813,1871,Carl Friedrich,Patzschke
+2766,1,1813,1870,Leopold,Fischer
+2767,1,1827,1894,Ferdinand,König
+2768,1,1826,1886,Carl Theodor von,Piloty
+2769,2,1700,1788,Mary Granville,Delany
+2770,1,1726,1805,Joseph,Roos
+2771,1,1640,1707,Samuel,Bottschild
+2772,1,1802,1858,Heinrich von,Arx
+2773,1,1824,1905,Friedrich von,Gärtner
+2774,1,1777,1845,Johann Friedrich,Matthäi
+2775,1,1783,1846,Robert,Langer
+2776,1,1631,1711,Johann Philipp,Lembke
+2777,1,1800,1861,Karl,Altmann
+2778,1,1819,1860,Ernst,Hasse
+2779,1,1563,1618,Christoph,Jamnitzer
+2780,1,1801,1851,Johann Christian,Ezdorf
+2781,1,1759,1826,Johann Moritz Gottfried,Jentzsch
+2782,1,1793,1877,Philipp,Veith
+2783,1,1804,1879,Georg Heinrich,Crola
+2784,1,1737,1806,Johann Eleazar,Schenau
+2785,1,1816,1853,Henry,Ritter
+2786,1,1822,1881,Edvard Gustav,Seydel
+2787,1,1718,1788,Joseph senior,Bergler
+2788,1,1654,1745,Jan-Peter I,Bredael
+2789,1,1683,1735,Jan-Peter II,Bredael
+2790,1,1798,1833,Joseph,Thürmer
+2791,1,1798,1824,Franz,Horny
+2792,1,1663,1708,Anton,Faistenberger
+2793,1,1803,1871,Joseph,Petzl
+2794,1,1833,1884,Friedrich,Wolf
+2795,1,1837,1902,Adolf Ernst,Meissner
+2796,1,1806,1872,Ludwig,Schütze
+2797,1,1867,1948,Thomas Theodor,Heine
+2798,1,1670,1739,Pierre,Parrocel
+2799,1,1734,1789,Jean-Charles,Delafosse
+2800,1,1672,1742,Gilles-Marie,Oppenort
+2801,1,1618,1682,Bartolomé Esteban,Murillo
+2802,1,1811,1889,Jules,Dupré
+2803,1,1833,1898,Sir Edward Coley,Burne-Jones
+2804,1,1723,1792,Joshua,Reynolds
+2805,1,1654,1733,Louis de,Boullogne d.y.
+2806,1,1570,1629,Hendrick de,Clerck
+2807,1,1727,1788,Thomas,Gainsborough
+2808,1,1813,1861,Alfred André,Geniole
+2809,1,1804,1866,Sulpice Guillaume,Gavarni
+2810,1,1661,1716,Paolo,Pagani
+2811,1,1664,1750,Ferdinand PH,Hamilton
+2812,1,1801,1866,Victor Jean,Adam
+2813,1,1792,1866,Karl Georg,Enslen
+2814,1,1734,1795,Christoph Daniel,Henning
+2815,1,1761,1804,Carl Heinrich von,Stolberg
+2816,1,1855,1920,Carl,Röchling
+2817,1,1629,1676,Jean le,Ducq
+2818,1,1823,1877,Julius,Hellesen
+2819,1,1769,1815,P,La Cave
+2820,1,1674,1755,Pier Leone,Ghezzi
+2821,,1592,1667,Peter,Snayers
+2822,1,1852,1901,Hjalmar,Johnssen
+2823,2,1877,1958,Hilda M.,Flodin
+2824,,1917,1996,Ernst,Mether-Borgström
+2825,1,1915,1995,Alf,Bjorhusdal
+2826,1,1917,2002,Guy,Krohg
+2827,1,1904,1990,Ole,Mæhle
+2828,1,1901,1981,Karl,Høgberg
+2829,1,1870,1961,Alf,Lundeby
+2830,1,1899,1970,Sven,Erixson
+2831,1,1856,1890,Harald,Bertrand
+2832,1,1895,1973,Knud,Agger
+2833,2,1869,1934,Lilli,Sømme
+2834,1,1875,1963,Jacques,Villon
+2835,1,1885,1954,Henri,Laurens
+2836,1,1871,1925,Wilhelm,Wetlesen
+2837,1,1877,1953,Raol,Dufy
+2838,1,1871,1958,Georges,Rouault
+2839,1,1846,1930,Elisabeth,Sinding
+2840,1,1850,1911,Clemence,Nielssen
+2841,1,1867,1927,Ingebrigt,Vik
+2842,1,1901,1966,Albert,Giacometti
+2843,1,1895,1957,Jens,Søndergaard
+2844,1,1860,1922,Wassily,Kandinsky
+2845,1,1831,1901,Peter Andreas,Blix
+2846,1,1955,2013,Heinrich,Wilthelm
+2847,1,1926,2013,Börje,Sandelin
+2848,1,1900,1966,Holger Jens,Jensen
+2849,1,1876,1926,Ludvig,Karsten
+2850,1,1880,1953,Rudolph,Thygesen
+2851,1,1884,1974,André,Dunoyer de Segonzac
+2852,2,1878,1956,Lul,Krag
+2853,,1922,2013,Michael,Ponce de Léon
+2854,1,1863,1893,Gunnar,Berg
+2855,1,1884,1920,Amedeo,Modigliani
+2856,1,1923,2013,Rasmus,Nellemann
+2857,1,1922,2013,Svend,Wiig-Hansen
+2858,1,1932,2013,Arne Haugen,Sørensen
+2859,1,1931,2013,Gösta,Gierow
+2860,1,1929,2013,Dennis,Stéen
+2861,1,1922,2013,Erland,Brand
+2862,2,1927,2013,Helle,Thorborg
+2863,2,1923,2013,Liv,Lund
+2864,1,1891,1976,Max,Ernst
+2865,1,1887,1927,Juan,Gris
+2866,1,1881,1953,Albert,Gleizes
+2867,1,1906,1966,Carl Victor,Lind
+2868,1,1930,2013,Lennart J. G.,Ivérus
+2869,1,1901,1988,Stanley William,Hayter
+2870,1,1930,2013,Pentti,Kaskipuro
+2871,1,1924,2013,Janne,Dahl
+2872,1,1922,2013,Eigil,Wendt
+2873,1,1864,1940,Karl,Dørnberger
+2874,1,1921,2013,Mario,Avati
+2875,1,1928,2013,Bernard,Buffet
+2876,1,1928,2013,Camille,Bryen
+2877,1,1882,1963,Georges,Braque
+2878,1,1932,2013,Väinö,Rouvinen
+2879,1,1931,1981,Kauko,Rantala
+2880,1,1932,2013,Simo,Hannula
+2881,1,1907,1981,Harry,Henriksson
+2882,1,1924,2013,Antti,Nieminen
+2883,1,1925,2013,Robert,Rauschenberg
+2884,,1921,2013,Ansei,Ughima
+2885,1,1930,2013,Richard,Anuszkiewicz
+2886,1,1926,2013,Marc-Antoine,Louttre
+2887,1,1923,2013,Ellsworth,Kelly
+2888,2,1900,1976,Asbjørg,Borgfelt
+2889,1,1924,2013,Karl-Erik,Häggblad
+2890,1,1522,1562,Frans,Huys
+2891,1,1500,1568,Jacob,Binck
+2892,1,1875,1948,Emanuel,Vigeland
+2893,1,1862,1940,Jacob Kielland,Sømme
+2894,1,1845,1929,Marcus,Grønvold
+2895,1,1565,1644,Agostino,Tassi
+2896,,1664,1674,Pieter,Verbeek
+2897,1,1850,1920,Friedrich August von,Kaulbach
+2898,1,1787,1849,William,Etty
+2899,1,1804,1830,Friedrich,Moosbrugger
+2900,2,1741,1807,Anna Maria,Kaufmann
+2901,1,1520,1567,Lambert,Suavius
+2902,2,1859,1935,Anna,Anker
+2903,1,1934,2013,Masuo,Ikeda
+2904,1,1933,2013,Francesco,Arduini
+2905,,1936,2013,Bogdan,Mesko
+2906,1,1923,2013,Jiri,John
+2907,1,1926,2013,Pravoslav,Sovák
+2908,1,1912,1995,Matti,Petäjä
+2909,1,1924,2013,Lars,Bo
+2910,2,1935,2013,Carmen,Garcia
+2911,1,1919,1967,Rodolfo,Margheri
+2912,1,1926,2013,Antonino,Virduzzo
+2913,1,1909,1968,Sverre,Hjertsen
+2914,1,1645,1714,Aalbert,Meyiering
+2915,1,1719,1765,Anton,Radigues
+2916,1,1731,1797,Paul van,Liender
+2917,1,1615,1668,Regnier,Persyn
+2918,1,1633,1706,Samuel,Blesendorff
+2919,1,1626,1702,Pierre Louis van,Schuppen
+2920,2,1942,2013,Anne,Paus
+2921,,1851,1891,Karl,Staufer
+2922,1,1907,1980,Arne,Stenseng
+2923,2,1852,1917,Sigrid,Bølling
+2924,1,1925,2013,James,Guitet
+2925,1,1887,1955,Edwin,Scharff
+2926,1,1878,1971,Willi,Geiger
+2927,1,1884,1976,Karl,Schmidt-Rottluff
+2928,1,1874,1930,Otto,Mueller
+2929,1,1881,1955,Max,Pechstein
+2930,1,1876,1944,Hermann,Struck
+2931,1,1883,1950,Ossian,Elgstrøm
+2932,1,1930,2013,Giovanni,Pomodoro
+2933,1,1936,2013,Pär Gunnar,Thelander
+2934,,1925,2013,Alf,Olsson
+2935,1,1925,2013,Lars,Lindeberg
+2936,2,1930,2013,Berit,Østeng
+2937,1,1923,2013,Lászlo Pal,Kiss
+2938,1,1881,1962,Arne,Lofthus
+2939,1,1931,2013,Roman,Opalka
+2940,1,1932,2013,Andrzej,Pietsch
+2941,1,1816,1863,Hans Christian,Knudsen
+2942,2,1935,2013,Alena,Kucerova
+2943,1,1935,2013,Virgilite,Nevjestic
+2944,1,1929,2013,Horst,Janssen
+2945,1,1814,1895,Carl Frederik,Diriks
+2946,1,1895,1978,Trygve Marentsius,Davidsen
+2947,,1908,1998,Victor,Pasmore
+2948,1,1926,2013,Hans D,Voss
+2949,1,1926,2013,Frans,Toikkanen
+2950,1,1926,2013,Eino,Ahonen
+2951,1,1927,2013,Tom,Krestensen
+2952,1,1933,1976,Per,Eggen
+2953,1,1910,1973,Albert,Christ-Janer
+2954,1,1940,2013,Joerg,Ortner
+2955,1,1933,2013,Thomas,Lenk
+2956,1,1941,1999,Raimo,Kanerva
+2957,,1929,2013,Kunihiro,Amano
+2958,,1940,2013,Tetsuya,Noda
+2959,,1939,2013,Takesada,Matsutani
+2960,,1779,1868,Carl Fredrik,Akrell
+2961,,1936,2013,Kosuke,Kimura
+2962,1,1890,1964,Giorgio,Morandi
+2963,1,1938,2013,Tamas,Hencze
+2964,,1945,2013,Andreá,Mengyán
+2965,1,1929,2013,Tibor,Gayor
+2966,,1939,2013,Istvuán,Nádler
+2967,1,1950,2013,Jan-Kåre,Øien
+2968,,1939,2013,Bendt Thoft,Nielsen
+2969,1,1787,1830,Wilh. Maxim.,Carpelan
+2970,1,1921,2013,Pierre,Courtin
+2971,1,1951,2013,Poul Skov,Sørensen
+2972,2,1941,2013,Elina,Luukanen
+2973,1,1902,1973,Joachim,Grøgaard
+2974,1,1929,2013,Bernhard,Luginbühl
+2975,2,1942,2013,Ruth,Weisberg
+2976,1,1923,2013,Olle,Hanspers
+2977,1,1909,1985,Endre,Nemes
+2978,1,1924,2013,Ulf,Dreyer
+2979,1,1936,2013,Horst,Antes
+2980,1,1951,2013,John,Thørrisen
+2981,1,1952,2013,Ivar,Øksendal
+2982,1,1933,2013,Marit,Bockelie
+2983,1,1939,2013,Hans Georg,Rauch
+2984,1,1941,2013,Veikko,Lehtovaara
+2985,1,1941,2013,Nicolai,Blagovolin
+2986,,1931,2013,Sigute,Valjuvene
+2987,1,1944,2013,Georgi,Tsereteli
+2988,1,1939,2013,Anatoli,Plakhov
+2989,1,1931,2013,Georgi,Poplavski
+2990,1,1931,2013,Aleksander,Dembo
+2991,1,1927,2013,Rasim,Babajev
+2992,1,1925,2013,Viktor,Vilner
+2993,1,1849,1937,Hans,Dahl
+2994,,1942,2013,Wong,Mod-Chew
+2995,1,1805,1880,Auguste Etienne François,Mayer
+2996,1,1942,2013,Kjell,Thorjussen
+2997,1,1891,1951,Joseph,Hecht
+2998,1,1953,2013,Tor,Kvarv
+2999,1,1932,2013,Bo,Swenson
+3000,1,1943,2013,Håkon,Henriksen
+3001,1,1928,2013,Philip von,Schantz
+3002,1,1927,2013,Paul,Wunderlich
+3003,1,1938,2013,Norman,Ackroyd
+3004,1,1760,1820,John-William,Edy
+3005,2,1937,2013,Outi,Heiskanen
+3006,2,1944,2013,Marjatta,Nuoreva
+3007,1,1939,2013,Brian,Albers
+3008,1,1933,1983,Eystein,Hanche-Olsen
+3009,,1947,2013,Masahiro,Okada
+3010,1,1936,2013,Jiri,Anderle
+3011,1,1940,2013,Svenrobert,Lundquist
+3012,1,1937,2013,Leiv,Stensaker
+3013,1,1955,2013,Asgeir,Midthjell
+3014,1,1865,1931,Akseli,Gallen-Kallela
+3015,1,1866,1911,Bjarne,Falck
+3016,2,1938,2013,Ulla,Rantanen
+3017,1,1885,1930,Jules,Pascin
+3018,1,1956,2013,Otto,Tveit
+3019,1,1947,2013,Juho,Karjalainen
+3020,1,1947,2013,Esa,Riippa
+3021,1,1948,2013,Åke,Johansson
+3022,1,1949,2013,Arne Winnæs,Isachsen
+3023,2,1953,2013,Anne-Sophie,Blytt
+3024,1,1918,1990,Gunnar,Bratlie
+3025,2,1946,2013,Ulla,Fries
+3026,1,1934,2013,Roj,Friberg
+3027,1,1954,2013,Jukka,Vänttinen
+3028,2,1954,2013,Klara,Nagy
+3029,2,1952,2013,Judith,Allan
+3030,1,1883,1966,Hallvard,Blekastad
+3031,2,1941,2013,Ingegjerd,Dillan
+3032,,1946,2013,Stoyan,Tsanev
+3033,,1944,2013,Stoimen,Stoilov
+3034,1,1521,1580,Girolamo,Sicciolante da Sermoneta
+3035,1,1529,1579,Juan,Fernandez de Navarrete
+3036,1,1705,1765,Carle van,Loo
+3037,,1646,1707,Giacinto,Calandrucci
+3038,2,1956,2013,Ingebjørg Une,Hagen
+3039,1,1877,1968,Kees van,Dongen
+3040,,1948,2013,Shigeru,Taniguchi
+3041,1,1857,1945,Louis,Moe
+3042,1,1949,2013,Hans Ove,Granath
+3043,1,1933,2013,Kåre,Bondesen
+3044,1,1910,1991,Odd,Einarson
+3045,1,1950,2013,Arne Roar,Lund
+3046,1,1924,2013,Christian,Backer-Owe
+3047,2,1956,2013,Beate,Strindberg
+3048,1,1950,2013,Viggo,Ree
+3049,2,1947,2013,Liisa de,Corral
+3050,1,1958,2013,Ole,Rosén
+3051,,1930,2013,Ilon,Wikland
+3052,,1936,2013,Dipak,Banerjee
+3053,,1953,2013,Mikio,Koyama
+3054,1,1942,2013,Michael,Morgner
+3055,2,1959,2013,Gudlaug,Blæsterdalen
+3056,1,1954,2013,Magnar,Huseby
+3057,2,1954,2013,Arna,Rennan
+3058,1,1952,2013,Jon Olav,Helle
+3059,1,1951,2013,Wolf,Wolfsmoon
+3060,2,1956,2013,Sigrid,Øyrehagen
+3061,2,1954,2013,Trine,Krogseth
+3062,2,1946,2013,Wenche Kvalstad,Eckhoff
+3063,1,1948,2013,Arnold,Dahlslett
+3064,2,1944,2013,Elsa,Ytti
+3065,1,1950,2013,Antti,Salokannel
+3066,2,1935,2013,Sigrid,Valtingojer
+3067,2,1952,2013,Eeva,Tiisala
+3068,2,1893,1986,Erna,Plachte
+3069,2,1956,2013,Anne Kathrine,Stangeland
+3070,1,1940,2013,Bjørn,Bjørneboe
+3071,1,1904,1988,Salvador,Dali
+3072,1,1821,1868,Charles,Meryon
+3073,1,1822,1885,Rodolphe,Bresdin
+3074,2,1943,2013,Ana Maria,Pacheco
+3075,2,1960,2013,Annette,Martens
+3076,2,1947,2013,Reidun,Angell
+3077,1,1954,2013,Hans Petter,Stubergh
+3078,2,1946,2013,Lise,Farmen
+3079,1,1952,2013,Gøran,Ohldieck
+3080,2,1965,2013,Line,Bergseth
+3081,1,1959,2013,Even,Aursand
+3082,2,1958,2013,Kari Bente,Faleide
+3083,2,1960,2013,Ruth,Roland
+3084,2,1948,2013,Eva,Berland
+3085,2,1951,2013,Gro,Finne
+3086,2,1952,2013,Kirsten,Ribu
+3087,2,1939,2013,Milda,Graham
+3088,1,1952,2013,Kjetil,Skøien
+3089,2,1959,2013,Yngvill,Myhre
+3090,1,1957,2013,Bertil,Greging
+3091,2,1965,2013,June,Sira
+3092,1,1798,1865,Claes Samuel,Sandels
+3093,2,1957,2013,Kristine,Hjertholm
+3094,1,1906,1990,Hannes,Derlick
+3095,2,1869,1959,Alice,Salvesen
+3096,2,1856,1930,Juliane,Langberg
+3097,2,1935,2013,Liv,Dessen
+3098,1,1962,2013,Per,Elvestuen
+3099,2,1925,2013,Marianne,Hamsun
+3100,1,1950,2013,Sven,Undheim
+3101,1,1862,1950,Otto,Valstad
+3102,1,1877,1964,Arnold,Thornam
+3103,2,1951,2013,Kari,Hveding
+3104,2,1954,2013,Karen,Bye
+3105,2,1957,2013,Nina Jo,Melbøe
+3106,1,1794,1832,Utagawa,Kuniyasu
+3107,1,1773,1810,Utagawa,Kunimasa
+3108,1,1833,1904,Utagawa,Yoshiiku
+3109,1,1839,1892,Tsukioka,Yoshitoshi
+3110,2,1960,2013,Kirsi,Neuvonen
+3111,1,1959,2013,Juha,Tammenpää
+3112,1,1958,2013,Dilip,Tamuly
+3113,1,1878,1909,Ivar,Arosenius
+3114,2,1952,2013,Karin M.,Valum
+3115,1,1953,1996,Leif O.,Kristiansen
+3116,1,1945,2013,Sverre,Morken
+3117,1,1910,1988,Tore,Deinboll
+3118,1,1866,1926,Jens Zetlitz Monrad,Kielland
+3119,1,1799,1871,Matthias,Stoltenberg
+3120,1,1858,1921,Fernand,Khnopff
+3121,2,1965,2013,Giske,Sigmundstad
+3122,2,1960,2013,Torhild,Berg
+3123,1,1848,1918,Adelsteen,Normann
+3124,2,1889,1943,Ragnhild,Keyser
+3125,1,1962,2013,Arne,Nøst
+3126,1,1908,1979,Eyolf Nagell,Erichsen
+3127,1,1906,1953,Alf,Hartmann
+3128,1,1912,1940,Harald,Holthe
+3129,1,1904,1984,Bjarne,Rise
+3130,1,1932,2013,Olav,Ile
+3131,1,1933,2013,Gunnar,Dietrichson
+3132,1,1921,2013,Hallgrim,Strømme
+3133,1,1930,2007,Eilif,Amundsen
+3134,2,1921,2013,Greta,Rydtun
+3135,1,1920,1996,Trygve,Slotfeldt
+3136,1,1932,2013,Lasse,Foss
+3137,1,1927,2013,Asbjørn,Strøm
+3138,1,1929,2013,Svein,Ellingsen
+3139,2,1931,2013,Inger Sofie,Ruud
+3140,1,1927,2013,Axel,Mørch
+3141,2,1958,2013,Eva,Faye
+3142,2,1966,2013,Siri,Dokken
+3143,1,1963,2013,Steffen,Kverneland
+3144,1,1966,2013,Lars,Elling
+3145,2,1946,2013,Anne,Kampmann
+3146,1,1952,2013,Herman,Isaksen
+3147,2,1972,2013,Silje,Sagfjæra
+3148,1,1957,2013,Are,Andreassen
+3149,1,1926,2013,Pentti,Lumikangas
+3150,2,1964,2013,Marja,Strömmer
+3151,2,1948,2013,Marjatta,Hanhijoki
+3152,2,1964,2013,Vappu,Johansson
+3153,1,1949,2013,Hannu,Hyrske
+3154,2,1948,2013,Ulla,Wennberg
+3155,1,1940,2013,Owe,Gustafson
+3156,2,1935,2013,Ursula,Schütz
+3157,1,1925,2013,Ulf,Trotzig
+3158,2,1963,2013,Lina,Nordenström
+3159,1,1945,2013,Richard,Årlin
+3160,2,1963,2013,Alexandra,Kern
+3161,1,1943,2013,Ulf,Gripenholm
+3162,2,1963,2013,Fabiola,Charry
+3163,2,1962,2013,Randi,Strand
+3164,2,1954,2013,Danuta,Haremska
+3165,2,1960,2013,Torill Høstad,Wik
+3166,2,1954,2013,Kristin,Skrivervik
+3167,,1906,1988,Kristian,Kildal
+3168,1,1920,1992,Einar,Granum
+3169,1,1879,1949,Othon,Friesz
+3170,1,1871,1960,Gabriel,Kielland
+3171,2,1965,2013,Elisabeth Rydland,Nilssen
+3172,1,1972,2013,Øyvind,Torseter
+3173,1,1964,2013,Per,Dybvig
+3174,1,1959,2013,Einar Lasse,Kolsrud
+3175,1,1962,2013,Hans-Georg,Kohler
+3176,2,1957,2013,Yavora,Petrova
+3177,1,1957,2013,Amar,Dawod
+3178,2,1957,2013,Marianne,Boberg
+3179,1,1954,2013,Roar,Hagen
+3180,1,1969,2013,Nils Martin,Erichsen
+3181,1,1962,2013,Nils Erik,Gjerdevik
+3182,1,1977,2013,Sverre Wilhelm,Malling
+3183,1,1969,2013,Sebastian,Sanders
+3184,1,1955,2013,Helge,Hansen
+3185,1,1957,2013,Tore Magne,Gundersen
+3186,1,1940,2013,Mike,Tombs
+3187,2,1969,2013,Anita,Tjemsland
+3188,1,1581,1644,Bernardo,Strozzi
+3189,2,1975,2013,Bodil,Eide
+3190,2,1967,2013,Tonje,Røseth
+3191,2,1969,2013,Linda,Skare
+3192,2,1972,2013,Marit Victoria Wulff,Andreassen
+3193,1,1880,1954,André,Derain
+3194,2,1964,2013,Hanne Lydia Opøien,Kristoffersen
+3195,1,1804,1860,Auguste,Raffet
+3196,1,1756,1827,Thomas,Rowlandson
+3197,1,1750,1810,Robert,Thew
+3198,1,1765,1810,Luigi,Schiavonetti
+3199,1,1750,1805,James,Parker
+3200,1,1750,1810,Peter,Simon d.y.
+3201,2,1758,1814,Caroline,Watson
+3202,1,1746,1810,Thomas,Ryder
+3203,1,1730,1810,Isaac,Taylor
+3204,1,1748,1790,Joseph,Collyer
+3205,1,1945,2013,Lars Staffan,Evjen
+3206,2,1972,2013,Marianne Wiig,Storaas
+3207,2,1973,2013,Verena,Winkelmann
+3208,2,1962,2013,Veronika,Ringbom
+3209,1,1968,2013,Talleiv Taro,Manum
+3210,2,1960,2013,Gunhild,Vegge
+3211,1,1695,1745,Anton Friedrich,Harms
+3212,1,1570,1657,Jan van,Ravesteyn
+3213,1,1620,1658,Abraham van,Cuylenborch
+3214,1,1590,1653,Reyer Claesz,Suyker
+3215,1,1606,1683,Jan Davidsz. de,Heem
+3216,1,1650,1702,Salomon,Rombouts
+3217,1,1590,1656,Balthasar van der,Ast
+3218,1,1621,1664,Egbert van der,Poel
+3219,1,1500,1576,Pieter,Claeissins (I)
+3220,1,1591,1661,Cornelis,Vroom
+3221,1,1596,1650,Jan van,Brosterhuisen
+3222,1,1545,1581,Frans,Pourbus (I)
+3223,1,1576,1639,Roelant,Savery
+3224,1,1613,1686,Jacques d’Arthois,
+3225,1,1621,1690,Peeter,Gysels
+3226,1,1591,1632,Valentin de Boullogne,
+3227,1,1695,1741,Andrea,Locatelli
+3228,1,1637,1712,Jan van der,Heyden
+3229,1,1636,1695,Melchior,d'Hondecoeter
+3230,1,1719,1768,Johann Conrad,Seekatz
+3231,1,1624,1659,Valerio,Castello
+3232,1,1578,1623,Hieronymus,Francken (II)
+3233,1,1571,1639,Rutilio di Lorenzo,Manetti
+3234,1,1632,1698,Johann Carl,Loth
+3235,1,1633,1715,Benedetto,Gennari
+3236,1,1622,1669,Quiringh van,Brekelenkam
+3237,1,1593,1641,Antoni van,Stralen
+3238,1,1718,1791,Christian Georg,Schütz (I)
+3239,1,1564,1635,Joos de,Momper (II)
+3240,1,1684,1752,Johann Georg,Dietrich
+3241,1,1630,1676,Klaes,Molenaer
+3242,1,1636,1699,Jean Baptiste,Monnoyer
+3243,1,1587,1661,Alexander,Adriaenssen
+3244,1,1804,1872,Bernardus van de,Laar
+3245,1,1697,1768,Christian,Seybold
+3246,1,1625,1668,Jan Adriaensz. van,Staveren
+3247,1,1763,1841,Claudius (Claus) (C. D.),Fritzsch
+3248,1,1612,1670,Bartholomeus van der,Helst
+3249,1,1603,1671,Jan van,Bijlert
+3250,1,1640,1719,Jacob,Toorenvliet
+3251,1,1685,1763,Jan van,Gool
+3252,1,1637,1676,Wilhelm van,Ehrenberg
+3253,1,1680,1730,Johannes Jacob,Hartmann
+3254,1,1615,1675,Gaspard,Dughet
+3255,1,1603,1676,Simon de,Vos
+3256,1,1595,1624,Dirck van,Baburen
+3257,1,1601,1672,Hendrick,Bloemaert
+3258,1,1668,1736,Petr,Brandl
+3259,1,1682,1759,Jan Josef,Horemans (I)
+3260,1,1680,1731,Jan Baptiste,Lambrechts
+3261,1,1626,1676,Cornelis,Lelienbergh
+3262,1,1713,1794,Domenico,Maggiotto
+3263,1,1640,1710,Aernout,Smit
+3264,1,1686,1755,Frans Xaver Hendrik,Verbeeck
+3265,1,1632,1696,Hendrik van,Minderhout
+3266,1,1573,1610,"Michelangelo Merisi da, hans skole",Caravaggio
+3267,1,1643,1706,Godfried,Schalken
+3268,1,1751,1829,Wilhelm,Tischbein
+3269,1,1610,1640,Gerrit,Donck
+3270,1,1774,1861,Carl Johan,Fahlcrantz
+3271,1,1641,1716,Francesco,Castiglione
+3272,1,1684,1751,Frans,Decker
+3273,1,1595,1650,Pieter van der,Plas
+3274,1,1626,1687,Jacob,Esselens
+3275,1,1611,1650,Jacob van,Spreeuwen
+3276,1,1631,1676,Domenicus van,Tol
+3277,1,1727,1776,Peder,Als
+3278,1,1619,1688,Philips,Koning
+3279,1,1814,1879,Carl Wilhelm,Hübner
+3280,1,1630,1678,Gillis,Rombouts
+3281,1,1589,1662,Adriaen van de,Venne
+3282,1,1585,1634,Hendrick,Avercamp
+3283,1,1645,1718,Jan,Griffier (I)
+3284,1,1570,1623,Frederik van,Valckenborch
+3285,1,1685,1749,Balthasar,Denner
+3286,2,1760,1807,Johanna Marianne,Freystein
+3287,1,1661,1722,Antoine,Coypel
+3288,2,1797,1829,Evelina,Stading
+3289,1,1544,1618,Ambrosius,Francken (I)
+3290,1,1805,1867,Karl Ferdinand,Sohn
+3291,1,1819,1897,August Wilhelm,Leu
+3292,1,1810,1887,Rudolf,Jordan
+3293,1,1820,1891,Frants,Bøe
+3294,2,1814,1891,Amalie,Lindegren
+3295,1,1755,1804,Lazare,Bruandet
+3296,1,1814,1878,Eduard,Geselschap
+3297,1,1810,1889,Andrea,Gastaldi
+3298,1,1817,1876,Theude,Grønland
+3299,1,1822,1902,Bengt,Nordenberg
+3300,1,1819,1867,Christian August,Printz
+3301,1,1799,1881,Eugène,Verboeckhoven
+3302,2,1835,1894,Sophie,Ribbing
+3303,1,1829,1882,Karl,Lorck
+3304,1,1799,1876,Carl Fredrik,Kiørboe
+3305,1,1830,1860,Werner,Holmberg
+3306,1,1825,1907,Ferdinand,Fagerlin
+3307,2,1597,1652,Artemisia,Gentileschi
+3308,1,1821,1907,Carl Maria Nicolaus,Hummel
+3309,1,1829,1907,Adolf,Seel
+3310,1,1803,1871,Johan Christian,Berger
+3311,1,1841,1896,Ludvig,Munthe
+3312,1,1622,1677,Gerrit,Lundens
+3313,1,1830,1883,Christian Delphin,Wexelsen
+3314,1,1816,1892,Tore,Billing
+3315,1,1833,1873,Alfred,Wiström
+3316,1,1833,1912,Sophus,Jacobsen
+3317,1,1828,1880,Edvard,Bergh
+3318,1,1597,1652,Pieter Symonsz.,Potter
+3319,1,1689,1765,Johann Salomon,Wahl
+3320,1,1855,1940,Karl,Uchermann
+3321,1,1601,1682,Abraham,Wuchters
+3322,1,1838,1932,Amaldus,Nielsen
+3323,1,1805,1883,Frederik  Ludvig (F.L),Storch
+3324,1,1502,1550,"Pieter, hans verksted",Coecke van Aelst
+3325,1,1802,1864,George,Lance
+3326,1,1850,1883,Carl,Skånberg
+3327,1,1842,1917,Johannes,Grimelund
+3328,1,1844,1935,Per,Ekström
+3329,1,1830,1890,Henrik,Olrik
+3330,2,1843,1914,Kitty,Kielland
+3331,1,1863,1933,Haakon Jensen,Kaulum
+3332,1,1840,1926,Claude,Monet
+3333,1,1594,1678,Willem Claesz.,Heda
+3334,1,1840,1905,Hjalmar,Munsterhjelm
+3335,1,1804,1887,Peder,Balke
+3336,1,1859,1933,Axel,Jungstedt
+3337,1,1848,1934,Pierre Georges,Jeanniot
+3338,1,1859,1908,Nils,Gude
+3339,1,1853,1929,William Turner,Dannat
+3340,1,1600,1630,Maerten Fransz.  van der,Hulst
+3341,1,1584,1632,Jan,Porcellis
+3342,1,1592,1655,Nicolaes Cornelisz.,Moeyart
+3343,1,1828,1905,Christen,Brun
+3344,1,1855,1923,Karl,Nordström
+3345,1,1846,1906,August,Jerndorff
+3346,1,1843,1917,Kristian,Zahrtmann
+3347,2,1819,1881,Elisabeth,Jerichau Baumann
+3348,1,1619,1678,Otto,Marseus van Schrieck
+3349,1,1852,1907,Fredrik,Borgen
+3350,1,1848,1911,Frits von,Uhde
+3351,1,1860,1934,Poul (Paul),Fischer
+3352,1,1586,1661,Anton,Mirou
+3353,1,1848,1908,Carl,Nielsen
+3354,1,1620,1677,Nicolaes van,Gelder
+3355,1,1858,1919,Richard,Bergh
+3356,2,1864,1940,Hanna,Pauli
+3357,1,1863,1949,Halfdan,Strøm
+3358,1,1858,1938,Niels,Skovgaard
+3359,1,1792,1883,Ferdinand,Braekeleer (I)
+3360,1,1863,1945,Johannes,Müller
+3361,1,1863,1947,Ragnvald,Hjerlow
+3362,1,1862,1915,Eugène,Jansson
+3363,1,1843,1904,Christian Meyer,Ross
+3364,1,1871,1951,Bernhard,Hinna
+3365,1,1648,1724,Jacob,Coning
+3366,1,1855,1947,Andreas,Singdahlsen
+3367,1,1860,1940,Julius,Paulsen
+3368,1,1865,1934,Sigurd,Lilloe
+3369,1,1862,1939,Fritz,Syberg
+3370,1,1860,1939,Bruno,Liljefors
+3371,2,1860,1935,Oda,Krohg
+3372,1,1876,1940,Nils Alstrup,Dahl
+3373,1,1876,1966,Torstein,Torsteinson
+3374,1,1873,1948,Svend,Hammershøi
+3375,1,1815,1879,Thomas,Couture
+3376,1,1749,1829,Johann Heinrich,Schmidt
+3377,1,1640,1719,Jan,Weenix
+3378,2,1854,1939,Marie,Tannæs
+3379,1,1606,1652,Hendrick van,Anthonissen
+3380,1,1659,1731,Johann Melchior,Roos
+3381,1,1868,1955,August,Jacobsen
+3382,1,1759,1825,Frederik,Petersen
+3383,1,1876,1901,Alfred,Hauge
+3384,1,1870,1960,Karl Johan,Holter
+3385,1,1840,1913,Philip,Barlag
+3386,2,1869,1908,Aase,Nørregaard
+3387,1,1844,1914,Peter Alfred  (P.A.),Schou
+3388,2,1853,1933,Asta,Nørregaard
+3389,2,1871,1961,Gyda Katrine,Voss
+3390,2,1856,1913,Ragnhild Christine,Thrane
+3391,1,1858,1941,Maximilien,Luce
+3392,1,1878,1922,Karl,Isakson
+3393,1,1503,1584,"Pietro, hans stil",Marescalco
+3394,1,1854,1933,L.A.,Ring
+3395,1,1821,1871,David,Jacobsen
+3396,2,1866,1934,Charlotte,Mannheimer
+3397,1,1886,1927,Leander,Engström
+3398,1,1819,1877,Gustave,Courbet
+3399,1,1883,1957,Aksel,Jørgensen
+3400,1,1869,1945,Ludvig,Find
+3401,2,1882,1967,Astri Welhaven,Heiberg
+3402,1,1887,1919,Henrik,Rom
+3403,1,1885,1961,Jais,Nielsen
+3404,1,1876,1958,Maurice de,Vlaminck
+3405,1,1864,1941,Niels Larsen,Stevns
+3406,1,1883,1915,Henri,Doucet
+3407,1,1891,1921,Per,Smith-Kielland
+3408,1,1880,1921,Aksel,Johannessen
+3409,1,1874,1955,Jacob,Sann
+3410,1,1883,1938,Birger,Simonsson
+3411,1,1891,1965,Gideon,Börje
+3412,1,1883,1958,Carl,Ryd
+3413,2,1864,1931,Marie,Hauge
+3414,1,1485,1547,Giovanni,Cariani
+3415,1,1500,1571,Paris,Bordone
+3416,1,1517,1560,Antonio,Badile
+3417,1,1607,1656,Aniello,Falcone
+3418,1,1541,1614,El Greco,
+3419,1,1492,1542,Bernard van,Orley
+3420,1,1523,1584,Pieter,Pourbus (II)
+3421,1,1576,1632,David,Vinckeboons
+3422,1,1676,1765,Theobald,Michau
+3423,1,1567,1641,Michiel van,Miereveld
+3424,1,1608,1651,Jacob Adriaensz.,Backer
+3425,1,1585,1657,Hendrik,Pot
+3426,1,1599,1678,Pieter,Codde
+3427,1,1629,1667,Gabriel,Metsu
+3428,1,1634,1704,Egbert van (I),Heemskerck
+3429,1,1608,1666,Johannes,Schoeff
+3430,1,1620,1690,Abraham van,Beyeren
+3431,1,1460,1523,Gerard,David
+3432,1,1591,1656,Dirck,Hals
+3433,2,1609,1660,Judith,Leyster
+3434,1,1596,1667,Thomas de,Keyser
+3435,1,1630,1674,Cornelis,Bisschop
+3436,1,1603,1677,Aert van der,Neer
+3437,1,1626,1679,Jan,Steen
+3438,1,1617,1681,Gerard ter,Borch
+3439,1,1599,1660,"Diego, hans skole",Velázquez
+3440,1,1883,1980,Ola,Abrahamsson
+3441,1,1827,1887,Niels Bjørnsen,Møller
+3442,1,1846,1868,Johan Jørgen,Broch
+3443,1,1890,1949,Leon,Aurdal
+3444,1,1886,1957,Olaf,Rude
+3445,1,1884,1976,Sigurd,Eriksen
+3446,1,1886,1960,Sigfrid,Ullman
+3447,1,1864,1916,Vilhelm,Hammershøi
+3448,1,1637,1697,Abraham,Begeyn
+3449,2,1824,1888,Hedevig Thorine Christiane,Lund
+3450,1,1865,1893,Kalle,Løchen
+3451,1,1870,1938,Karl,Schou
+3452,1,1888,1961,Thoralf Nikolai,Lerdal
+3453,1,1869,1928,Lars Martin,Eriksen
+3454,1,1610,1662,Giovanni Francesco,Romanelli
+3455,2,1841,1895,Berthe,Morisot
+3456,1,1836,1904,Franz von,Lenbach
+3457,1,1887,1953,Oldrich,Blažícek
+3458,1,1886,1967,Charles,Strøm
+3459,1,1879,1973,Sigurd,Swane
+3460,1,1889,1963,Gabriel,Dahl
+3461,2,1897,1982,Joronn,Sitje
+3462,1,1881,1927,Harald,Giersing
+3463,1,1805,1839,Peter,Bull
+3464,1,1802,1882,Christian,Breslauer
+3465,1,1810,1895,Max,Hauschild
+3466,1,1647,1704,David van der,Plas
+3467,1,1853,1927,Laurits (L.),Tuxen
+3468,1,1866,1950,Axel,Sjöberg
+3469,1,1885,1972,Axel  P.,Jensen
+3470,1,1897,1977,Karl,Larsen
+3471,1,1907,1995,Halvdan,Holbø
+3472,1,1892,1981,Yngve,Anderson
+3473,1,1611,1654,Francesco,Guarino
+3474,1,1616,1654,Bernardo,Cavallino
+3475,1,1865,1931,Sophus Niels,Claussen
+3476,1,1862,1888,Karl,Jensen-Hjell
+3477,1,1879,1951,Simon,Thorbjørnsen
+3478,1,1884,1962,Wilhelm Marius,Wangensten
+3479,1,1860,1929,Oscar,Björck
+3480,1,1885,1946,Svante,Bergh
+3481,1,1901,1949,Nils,Nilsson
+3482,1,1851,1908,Sverre,Ihle
+3483,2,1888,1969,Charlotte,Wankel
+3484,1,1610,1690,Emmanuel,Tzane
+3485,1,1787,1869,François Joseph,Navez
+3486,2,1882,1961,Hjørdis,Landmark
+3487,1,1520,1578,Giovanni Battista,Moroni
+3488,1,1860,1935,Alfredo,Andersen
+3489,1,1897,1947,Erik,Brandt
+3490,1,1897,1978,Otto Neumann Knoph,Sverdrup
+3491,2,1853,1935,Helene Augusta,Vosgraff
+3492,1,1895,1965,Martin,Emond
+3493,1,1816,1852,Dankvart,Dreyer
+3494,1,1869,1953,Eiler,Sørensen
+3495,1,1890,1964,Emil,Olsson
+3496,1,1893,1950,Vilhelm,Lundstrøm
+3497,1,1819,1889,Tycho Christoffer,Jæger
+3498,1,1900,1980,Georg Backer,Berg
+3499,2,1885,1948,Sigrid,Hjertén
+3500,1,1894,1963,Kurt,Jungstedt
+3501,1,1887,1942,Bertil,Damm
+3502,2,1864,1935,Anna,Boberg
+3503,1,1891,1960,Ulrik,Hendriksen
+3504,1,1894,1964,Hjalmar,Haalke
+3505,1,1886,1935,Alvar,Cawén
+3506,2,1899,1984,Agnes,Hiorth
+3507,1,1876,1967,Antonio,Antony de Witt
+3508,1,1389,1428,Andrea di Bartolo,
+3509,1,1840,1920,Theodor,Philipsen
+3510,1,1719,1805,Heinrich Christian Friedrich,Hosenfelder
+3511,1,1647,1705,Daniel,Seiter
+3512,1,1903,2001,Hans,Finne-Grønn
+3513,2,1900,1987,Ruth,Krefting
+3514,2,1912,1994,Teddy,Røwde
+3515,1,1846,1913,Léon,Tanzi
+3516,2,1858,1943,Cecilie,Dahl
+3517,2,1889,1949,Ragnhild,Kaarbø
+3518,1,1882,1966,Marcus,Collin
+3519,1,1879,1955,Tyko,Sallinen
+3520,2,1877,1979,Sigrid,Schauman
+3521,1,1899,1958,Yrjö,Saarinen
+3522,1,1882,1970,Bjarne,Eriksen
+3523,2,1844,1924,Hulda Tegnér,Grønneberg
+3524,2,1884,1946,Ingeborg,Jensen
+3525,2,1861,1957,Mimi,Falsen
+3526,2,1899,1945,Gerda,Knudsen
+3527,1,1886,1955,Kræsten,Iversen
+3528,1,1884,1953,Knud Ove Schinkel (K.O.),Hilkier
+3529,1,1899,1964,Gösta,Diehl
+3530,1,1902,1975,Albin,Amelin
+3531,1,1901,1958,Snorri,Arinbjarnar
+3532,1,1877,1946,Bernt,Tunold
+3533,1,1460,1505,Filippo,Mazzola
+3534,1,1909,1997,Tage,Hedqvist
+3535,1,1701,1735,Peter Petersen,Batta
+3536,1,1907,1993,Folmer,Bendtsen
+3537,1,1696,1772,Louis,Tocqué
+3538,1,1732,1798,Johann Melchior,Wyrsch
+3539,1,1836,1902,James,Tissot
+3540,1,1903,1963,Thoralf,Gjesdal
+3541,1,1905,1983,Mogens,Zieler
+3542,1,1899,1986,Alf,Løvberg
+3543,1,1904,1972,Gunnlaugur,Scheving
+3544,1,1881,1955,Fernand,Léger
+3545,1,1889,1971,Aasmund,Esval
+3546,2,1888,1984,Lagertha,Munthe
+3547,2,1879,1927,Anna,Schønheyder
+3548,2,1872,1966,Mary Archer,Heggen
+3549,2,1894,1970,Hannah,Ryggen
+3550,1,1896,1959,Poul,Sørensen
+3551,1,1855,1895,Lorentz,Norberg
+3552,1,1722,1782,Vigilius,Eriksen
+3553,1,1792,1870,Christian Albrecht,Jensen
+3554,1,1839,1917,Hans,Smidth
+3555,2,1896,1973,Anna Marie,Braathen
+3556,1,1891,1984,Hilding,Linnqvist
+3557,1,1884,1966,Oluf,Høst
+3558,2,1897,1961,Ellen Nordan Lund,Iden
+3559,2,1862,1946,Helene,Schjerfbeck
+3560,2,1888,1979,Vera,Nilsson
+3561,1,1915,1956,Oddvar,Alstad
+3562,2,1899,1970,Elsa,Lystad
+3563,2,1889,1966,Ellen (Eline),Fischer
+3564,1,1893,1979,Ivon,Hitchens
+3565,1,1871,1958,Ludvig,Ravensberg
+3566,1,1885,1972,Jóhannes,Kjarval
+3567,1,1893,1946,Eric,Hallström
+3568,1,1879,1943,Edvard,Weie
+3569,1,1777,1845,Johann Friedrich,Matthiaë
+3570,1,1893,1982,Niels,Lergaard
+3571,1,1863,1935,Paul,Signac
+3572,1,1906,1979,Samuel,Joensen-Mikines
+3573,1,1920,1990,Albert,Mertz
+3574,1,1899,1986,Harald,Leth
+3575,1,1902,1984,Kai,Mottlau
+3576,2,1888,1974,Siri,Derkert
+3577,1,1485,1540,Joos van,Cleve
+3578,1,1905,1984,Johan Fredrik,Michelet
+3579,1,1817,1857,Peter Christian Thamsen ( P.C.),Skovgaard
+3580,1,1909,1993,Gunnar,Haukebø
+3581,1,1887,1948,Kurt,Schwitters
+3582,1,1810,1848,Christen,Købke
+3583,1,1719,1763,Mathias,Blumenthal
+3584,1,1882,1962,Ernö,Gebauer
+3585,1,1843,1894,Hugo,Salmson
+3586,1,1883,1954,Martin,Bloch
+3587,1,1912,1995,Tore,Hamsun
+3588,2,1901,1993,Ragnhild,Thrane
+3589,2,1884,1980,Aagot,Kramer
+3590,1,1887,1978,Fritz,Christ
+3591,1,1889,1981,Axel,Nilsson
+3592,1,1868,1943,William Henry,Singer
+3593,1,1790,1852,Ferdinand,Gjøs
+3594,1,1863,1952,Even,Ulving
+3595,2,1918,1980,Mary,Karlsrud
+3596,1,1900,1987,Tormod,Sjaamo
+3597,1,1814,1897,François Louis,Français
+3598,1,1838,1891,Léon Germain,Pelouse
+3599,1,1888,1937,Thorvald,Hellesen
+3600,1,1900,1968,Christoffer,Stixrud
+3601,1,1803,1860,Alexandre Gabriel,Decamps
+3602,1,1847,1912,Jacob Oxholm,Schive
+3603,1,1794,1876,Carl Peter,Lehmann
+3604,1,1750,1802,Johan Carl Christian,Michaelsen
+3605,1,1848,1884,Jules,Bastien-Lepage
+3606,1,1897,1953,Gunnar,Scott-Ruud
+3607,1,1852,1927,Ole,Juul
+3608,2,1876,1938,Rigmor,Bech
+3609,1,1589,1624,Domenico,Fetti
+3610,1,1817,1878,Charles François,Daubigny
+3611,1,1810,1890,Gustaf Wilhelm,Palm
+3612,1,1914,1978,Eva,Synnestvedt
+3613,1,1639,1709,Giovanni Battista,Gaulli
+3614,1,1841,1901,Jean Charles,Cazin
+3615,1,1812,1875,August Wilhelm,Boesen
+3616,1,1641,1680,Jan van,Kessel (II)
+3617,1,1766,1837,John,Constable
+3618,1,1852,1876,Thorben Viking,Bille
+3619,2,1853,1927,Andrea,Gram
+3620,1,1889,1975,Gustav Erik Gideon,Liljeholm
+3621,1,1805,1893,Christian,Due
+3622,1,1542,1616,Frans,Francken (II)
+3623,1,1823,1906,Ole Peter Hansen,Balling
+3624,2,1877,1959,Borghild Røed,Lærum
+3625,1,1807,1876,Narcisse Virgile,Diaz de la Peña
+3626,1,1899,1973,William,Kullgren
+3627,1,1893,1981,Erling,Clausen
+3628,2,1894,1934,Agnes Mannheimer,Heiberg
+3629,1,1899,1975,Per,Lefdal
+3630,1,1892,1972,John,Paulsen
+3631,2,1906,1992,Hetty,Gleditsch
+3632,1,1902,1991,Frank,Wathne
+3633,1,1903,1960,Rolf,Kongsvold
+3634,1,1896,1973,Kristian,Tysken
+3635,2,1903,1981,Lella,Ringnes
+3636,1,1903,1997,Olaf,Tangen
+3637,1,1909,1997,Omar,Kvalvaag
+3638,2,1896,1959,Borghild,Askeland
+3639,1,1909,1995,Olav,Andreassen
+3640,1,1911,1992,Kåre,Haram
+3641,1,1822,1896,Julius Amatus,Roeting
+3642,1,1899,1985,Ville,Aarseth
+3643,2,1856,1933,Leis,Schjelderup
+3644,1,1892,1973,Bjarne,Reidar
+3645,1,1827,1906,Jules,Breton
+3646,1,1878,1957,Gyula,Rudnay
+3647,2,1851,1885,Annette,Anker
+3648,,1790,1833,Jacob,Petersen
+3649,1,1910,1972,Olav K.,Vaagen
+3650,1,1897,1967,Olav Ansgar,Larssen
+3651,1,1824,1886,Adolphe,Monticelli
+3652,1,1827,1855,Henrik August,Helland
+3653,1,1877,1940,Arne,Lærum
+3654,2,1850,1922,Betzy,Akersloot-Berg
+3655,1,1879,1963,Ambrosius,Egedius
+3656,1,1718,1793,Alexander,Roslin
+3657,1,1811,1889,Knud Geelmuyden,Bull
+3658,1,1909,1957,Vilhelm Bjerke,Petersen
+3659,1,1794,1858,Peter,Petersen
+3660,1,1894,1982,Oskar,Hokstad
+3661,1,1919,1974,Kjell Lodberg,Holm
+3662,1,1822,1882,Mikkel,Mandt
+3663,1,1905,1938,Elliot,Kvalstad
+3664,2,1882,1970,Christiane,Olberg
+3665,2,1869,1934,Lili Holmsen Sømme,Schlytter
+3666,2,1863,1965,Agnes,Steineger
+3667,1,1842,1914,Georg Anton,Rasmussen
+3668,1,1857,1942,Hans Andersen,Brendekilde
+3669,1,1863,1935,Carl,Holsøe
+3670,2,1854,1917,Ragnhild,Beichmann
+3671,1,1862,1953,Kristian,Haug
+3672,1,1860,1958,Lars,Osa
+3673,1,1855,1938,Lauritz,Haaland
+3674,1,1868,1948,Gustaf Adolf,Fjæstad Christensen
+3675,1,1882,1958,Alfred,Hagn
+3676,2,1880,1964,Magnhild,Haavardsholm
+3677,2,1874,1961,Johanna Bugge,Berge
+3678,1,1719,1789,Jacob Pedersson,Lindgaard
+3679,,1870,1938,Gustav,Lærum
+3680,1,1821,1901,Olaf Olafsen,Glosimodt
+3681,1,1817,1896,Christopher,Borch
+3682,1,1594,1653,Francois,Duquesnoy
+3683,1,1798,1868,Hermann Wilhelm,Bissen
+3684,1,1835,1923,Carl Ludvig,Jacobsen
+3685,1,1814,1873,Johan Peter,Molin
+3686,1,1830,1879,Hans Johnsen,Budal
+3687,1,1832,1871,Ole Henriksen,Fladager
+3688,1,1830,1898,Brynjulf,Bergslien
+3689,1,1779,1838,Erik Gustaf,Göthe
+3690,1,1814,1882,Johann von,Halbig
+3691,1,1846,1917,Oscar,Castberg
+3692,1,1492,1563,Pankraz,Labenwolf
+3693,1,1846,1922,Stephan Abel,Sinding
+3694,1,1812,1854,Karl Gottlob,Beyer
+3695,1,1845,1919,Søren,Lexow-Hansen
+3696,1,1857,1890,Halfdan,Hertzberg
+3697,1,1844,1912,Louis,Hasselriis
+3698,1,1851,1919,Antonin Jean Paul,Carlès
+3699,1,1846,1911,Oscar,Roty
+3700,1,1836,1885,Johannes Fritiof,Kjellberg
+3701,1,1857,1923,Raoul-Charles,Verlet
+3702,1,1833,1891,Henri,Chapu
+3703,,1837,1888,Charles,Degeorge
+3704,1,1838,1920,Walter,Runeberg
+3705,1,1861,1923,Jo,Visdal
+3706,,1864,1943,Camille,Claudel
+3707,2,1871,1945,Menga,Schjelderup-Ebbe
+3708,1,1864,1929,Anders Rasmussen,Svor
+3709,2,1868,1951,Augusta,Finne
+3710,1,1839,1909,Jules Clément,Chaplain
+3711,1,1856,1909,Alexandre,Charpentier
+3712,,1831,1905,Alphée,Dubois
+3713,1,1849,1899,Daniel,Dupuis
+3714,1,1850,1924,Alphonse Eugène,Lechevrel
+3715,1,1843,1914,Louis Eugène,Mouchon
+3716,1,1810,1887,Eugène André,Oudiné
+3717,1,1855,1930,Auguste,Patey
+3718,1,1862,1937,Agnes,Slott-Møller
+3719,1,1872,1912,Harald,Sørensen-Ringi
+3720,1,1866,1944,Valentin,Kielland
+3721,1,1831,1905,Constantin Émile,Meunier
+3722,1,1875,1906,Anund,Hovde
+3723,1,1882,1924,Kai,Nielsen
+3724,1,1877,1913,Robert,Dietrich
+3725,1,1869,1957,Jens Munthe,Svendsen
+3726,1,1862,1922,Lars,Utne
+3727,1,1813,1889,Johann Adam,Ries
+3728,1,1836,1870,Alois,Stanger
+3729,1,1852,1940,Louis Alexandre,Bottée
+3730,1,1873,1954,Carl Johan,Eldh
+3731,1,1888,1955,Einar Axel,Utzon-Frank
+3732,1,1868,1949,Fin Haakon,Frølich
+3733,1,1879,1965,Wilhelm,Rasmussen
+3734,1,1850,1925,Thomas,Vincotte
+3735,1,1886,1955,Johannes Clausen,Bjerg
+3736,1,1827,1875,Jean-Baptiste,Carpeaux
+3737,1,1838,1902,Aimé Jules,Dalou
+3738,1,1741,1828,Jean Antoine,Houdon
+3739,1,1399,1482,hans verksted,Luca della Robbia
+3740,1,1524,1608,Giovanni da,Bologna
+3741,1,1520,1586,"Pierre, I",Courteys
+3742,1,1850,1894,Per,Hasselberg
+3743,1,1867,1938,Johan,Fahlstrøm
+3744,2,1890,1975,Emma,Matthiasen
+3745,1,1888,1968,Adam,Fischer
+3746,1,1894,1968,Bror,Hjorth
+3747,1,1888,1965,Renée,Sintenis
+3748,1,1881,1919,Wilhelm,Lehmbruck
+3749,1,1876,1978,Jacques,Loutchansky
+3750,1,1897,1976,Emil,Lie
+3751,2,1899,1961,Anne,Grimdalen
+3752,1,1885,1941,Svend,Rathsack
+3753,,1901,1983,Gunnar Tidemand,Janson
+3754,1,1892,1977,Paul,Cornet
+3755,1,1861,1929,Émile Antoine,Bourdelle
+3756,2,1907,1973,Hanna,Jessen
+3757,1,1888,1964,Nanna Johansen,Ullman
+3758,1,1859,1896,Jakob,Fjelde
+3759,1,1903,1984,Svein,Visted
+3760,1,1899,1977,Inge,Finsen
+3761,1,1898,1999,Jean,Osouf
+3762,1,1909,1993,Knut,Skinnarland
+3763,1,1889,1953,Carl,Wilhelms
+3764,1,1895,1966,Jørgen,Gudmundsen-Holmgreen
+3765,1,1917,1999,Kjeld,Rasmussen
+3766,1,1885,1970,Ivar Viktor,Johnsson
+3767,1,1863,1945,Anne-Marie,Carl-Nielsen
+3768,2,1897,1986,Maja,Refsum
+3769,1,1914,1998,Kåre,Orud
+3770,1,1881,1960,Arrigo,Minerbi
+3771,1,1911,1979,Sigurd,Nome
+3772,1,1861,1944,Aristide,Maillol
+3773,1,1888,1967,Hannes,Autere
+3774,1,1909,1970,Finn,Eriksen
+3775,1,1913,1996,Ottar,Espeland
+3776,1,1915,1986,Odd,Hilt
+3777,1,1904,1973,August,Keil
+3778,1,1896,1958,Hugo,Liisberg
+3779,2,1888,1954,Astrid,Noack
+3780,1,1888,1968,Chana,Orloff
+3781,1,1864,1950,Gunnar,Utsond
+3782,1,1894,1961,Marcel Antoine,Gimond
+3783,1,1912,1993,Arne,Durban
+3784,1,1640,1720,Antoine,Coysevox
+3785,1,1900,1984,Waldemar,Dahl
+3786,2,1909,1995,Benny,Motzfeldt
+3787,2,1912,1992,Ragnhild,Butenschøn
+3788,1,1882,1944,Robert,Wlérick
+3789,1,1887,1957,Magnus,Vigrestad
+3790,1,1911,1973,Hjalmar,Hansen
+3791,1,1881,1977,Sofus,Madsen
+3792,1,1903,1987,Ståle,Kyllingstad
+3793,2,1894,1991,Sigri,Welhaven
+3794,1,1795,1875,Antoine Louis,Barye
+3795,1,1929,2013,Heikki Aulis,Häiväoja
+3796,2,1889,1978,Hannah,Höch
+3797,1,1887,1914,August,Macke
+3798,2,1877,1962,Gabriele,Münter
+3799,1,1880,1938,Ernst Ludwig,Kirchner
+3800,1,1930,1998,Dieter,Roth
+3801,1,1896,1973,Carl,Paulsen
+3802,2,1962,2013,Olga,Chernysheva
+3803,1,1961,2013,Oleg,Kulik
+3804,2,1969,2013,Natalya,Pershina-Yakimanskaya
+3805,2,1968,2013,Olga,Egorova
+3806,1,1968,2013,Yang,Zhenzhong
+3807,2,1943,2013,Annette,Messager
+3808,1,1963,2013,Stein,Koksvik
+3809,2,1965,2013,Kristin,Evensen
+3810,2,1968,2013,Sofie,Berntsen
+3811,1,1969,2013,Snorre,Ytterstad
+3812,1,1976,2013,Gardar Eide,Einarsson
+3813,1,1906,1971,Harald,Damsleth
+3814,1,1960,2013,Nirmal Singh,Dhunsi
+3815,1,1955,2013,Per Jonas,Lindström
+3816,2,1959,2013,Anne Lise,Stenseth
+3817,1,1955,2013,Lars,Paalgard
+3818,1,1955,2013,Axel,Ekwall
+3819,2,1958,2013,Marianne,Blankenberg
+3820,2,1946,2013,Anne,Rolfsen
+3821,2,1963,2013,Sofie,Persvik
+3822,1,1946,2013,Kalle,Grude
+3823,1,1869,1943,Valery,Carrick
+3824,1,1877,1928,Rudolf,Krog
+3825,1,1961,2013,Ole Jørgen,Ness
+3826,1,1968,2013,Ingar,Dragset
+3827,1,1961,2013,Michael,Elmgreen
+3828,1,1931,2007,Bernd,Becher
+3829,2,1883,1973,Laura,Hovland
+3830,2,1973,2013,Kim,Hiorthøy
+3831,1,1882,1961,Arnstein Rynning,Arneberg
+3832,1,1921,2013,Per,Remfeldt
+3833,1,1973,2013,Matias,Faldbakken
+3834,2,1943,2013,Ingegerd,Råman
+3835,2,1967,2013,Annika von,Hausswolf
+3836,2,1970,2013,Runa,Islam
+3837,2,1969,2013,Siri,Hermansen
+3838,1,1965,2013,Morten,Viskum
+3839,2,1955,2013,Margareta,Bergman
+3840,1,1964,2013,Terje,Nicolaisen
+3841,1,1983,2013,Tron Ove,Wisløff
+3842,,1948,2013,Roar Werner,Eriksen
+3843,1,1938,2013,Per,Kirkeby
+3844,2,1955,2013,Mimsy,Møller
+3845,2,1955,2013,Kristina,Bræin
+3846,2,1967,2013,Aleksandra,Mir
+3847,1,1966,2013,Jan Henning,Larsen
+3848,2,1978,2013,Hanna,Boyesen
+3849,1,1975,2013,Tom Stian,Kosmo
+3850,2,1977,2013,Marthe,Thorshaug
+3851,2,1976,2013,Bodil,Furu
+3852,2,1948,2013,Isa,Genzken
+3853,2,1967,2013,Dania,Burger
+3854,2,1978,2013,Zinnia,Gjengstø
+3855,2,1974,2013,Samoa,Rémy
+3856,,1883,1976,Marie-Louise,Middelthon
+3857,2,1962,2013,Unni,Askeland
+3858,1,1971,2013,Narve,Hovdenakk
+3859,1,1974,2013,Marius,Engh
+3860,1,1882,1959,Christian Cornelius,Krohn
+3861,1,1813,1871,Emile,Lassalle
+3862,1,1813,1905,Philippe,Benoist
+3863,1,1804,1868,Adrien,Dauzats
+3864,1,1810,1866,Adolphe Jean Baptiste,Bayot
+3865,1,1811,1876,Jacques,Guiaud
+3866,1,1806,1880,Louis Julien,Jacottet
+3867,1,1813,1890,Eugène,Cicéri
+3868,,1807,1864,Jacques Francois Gauderique,Llanta
+3869,1,1793,1860,Antoine,Maurin
+3870,1,1805,1871,Barthélémy,Lauvergne
+3871,1,1784,1860,Auguste François,Laby
+3872,1,1819,1892,Sébastien-Charles,Giraud
+3873,1,1801,1850,Louis Pierre Alphonse,Bichebois
+3874,1,1806,1862,Charles Louis,Mozin
+3875,1,1808,1894,Karl,Werner
+3876,,1821,1880,Erhard,Schieble
+3877,1,1934,2013,William,Anthony
+3878,1,1959,2013,Dirkjan van der,Linde
+3879,1,1865,1926,Gustav,Borgen
+3880,2,1969,2013,Hedevig,Anker
+3881,2,1968,2013,Signe Marie,Andersen
+3882,2,1963,2013,Else Marie,Hagen
+3883,2,1980,2013,Ida,Ekblad
+3884,1,1980,2013,Christian,Messel
+3885,1,1973,2013,Fredrik,Raddum
+3886,2,1975,2013,Unn,Fahlstrøm
+3887,2,1979,2013,Ane Mette,Hol
+3888,1,1975,2013,Anders,Smebye
+3889,2,1965,2013,Lene,Berg
+3890,1,1971,2013,Guillermo,Calzadilla
+3891,2,1974,2013,Jennifer,Allora
+3892,2,1972,2013,Trine Lise,Nedreaas
+3893,1,1976,2013,Håvard,Homstvedt
+3894,2,1965,2013,Andrea,Fraser
+3895,2,1977,2013,Mai Hofstad,Gunnes
+3896,1,1889,1938,Georg,Schrimpf
+3897,,1984,2013,Lars Risan,Sandås
+3898,1,1947,2013,Franz,West
+3899,1,1979,2013,Jan,Freuchen
+3900,1,1952,2013,Werner,Zellien
+3901,2,1972,2013,Trine,Søndergaard
+3902,2,1969,2013,Marit,Følstad
+3903,1,1982,2013,Ola,Jonsrud
+3904,2,1980,2013,Sara,Christensen
+3905,1,1967,2013,Torgeir,Husevaag
+3906,1,1937,2013,Edward Joseph,Ruscha
+3907,2,1969,2013,Marine,Hugonnier
+3908,2,1968,2013,Vibeke,Slyngstad
+3909,1,1969,2013,Gerard,Byrne
+3910,1,1977,2013,Øystein,Aasan
+3911,,1957,2013,Vera,Wyller
+3912,2,1968,2013,Marianne,Heier
+3913,1,1749,1828,Christian August,Lorentzen
+3914,1,1978,2013,Jason,Havneraas
+3915,1,1977,2013,Jorinde,Voigt
+3916,1,1976,2013,Robin,Rhode
+3917,1,1964,2013,Ola,Kolehmainen
+3918,2,1967,2013,Solveig,Birna
+3919,1,1966,2013,Geir Tore,Holm
+3920,,1967,2013,Iselin,Lønn
+3921,2,1974,2013,Kjersti Solberg,Monsen
+3922,1,1963,2013,Tommy,Olsson
+3923,2,1969,2013,Elise,Storsveen
+3924,2,1958,2013,Anne,Bang-Steinsvik
+3925,1,1965,2013,Tim,Ayres
+3926,1,1982,2013,Johannes Borchgrevink,Hansen
+3927,2,1986,2013,Marthe Karen,Kampen
+3928,1,1962,2013,Juan Brito,Vargas
+3929,2,1978,2013,Toril,Johannessen
+3930,1,1975,2013,Andreas,Eriksson
+3931,2,1957,2013,Kristin,Bergaust
+3932,1,1938,2013,Brice,Marden

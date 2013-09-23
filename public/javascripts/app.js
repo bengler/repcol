@@ -92,7 +92,7 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
       workGeometry = new THREE.CubeGeometry(1, 1, 4);
       properties = {};
       workMaterial = new THREE.MeshLambertMaterial();
-      undefMaterial = new THREE.MeshLambertMaterial(properties);
+      undefMaterial = new THREE.MeshLambertMaterial(properties.color);
       manMaterial = new THREE.MeshLambertMaterial(properties);
       womanMaterial = new THREE.MeshLambertMaterial(properties);
       WorkMaterial = new THREE.MeshLambertMaterial({
@@ -100,7 +100,7 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
         transparent: true
       });
       material = void 0;
-      return this.data.artists.forEach(function(artist) {
+      this.data.artists.forEach(function(artist) {
         var mesh;
 
         if (artist.gender === 1) {
@@ -125,6 +125,7 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
           }
         });
       });
+      return this.data.artists = this.data.artists.slice(0, 21);
     };
 
     GeometryBuilder.prototype.yearToFloat = function(year) {
@@ -162,7 +163,10 @@ window.require.define({"importer": function(exports, require, module) {
           row.gender = +row.gender;
           row.dob = +row.dob;
           row.dod = +row.dod;
-          return _this.data.artistsKeyed[row["id"]] = row;
+          _this.data.artistsKeyed[row.id] = row;
+          if (row.dob === row.dod) {
+            return row.dod += 1;
+          }
         });
         _this.data.artists = rows;
         return artistsLoaded.resolve();
@@ -179,12 +183,16 @@ window.require.define({"importer": function(exports, require, module) {
             row.produced = +row.produced;
             row.acquired = +row.acquired;
             row.invalid = row.produced === 0 || row.acquired === 0;
+            if (row.produced === row.acquired) {
+              row.acquired += 1;
+            }
             value = _this.data.artistsKeyed[row["artistId"]];
             if (value != null) {
               _this.data.artistsKeyed[row["artistId"]].works.push(row);
               return _this.data.works.push(row);
             } else {
-              return missing += 1;
+              missing += 1;
+              return console.info(row);
             }
           });
           console.info("Missing artists for " + missing + " works!");
@@ -192,11 +200,10 @@ window.require.define({"importer": function(exports, require, module) {
             return artist.dob;
           });
           _this.data.artists.forEach(function(artist) {
-            return _.sortBy(artist.works, function(work) {
+            return artist.works = _.sortBy(artist.works, function(work) {
               return work.produced;
             });
           });
-          console.info(_this.data.works[1]);
           return _this.dataLoaded.resolve(_this.data);
         });
       });

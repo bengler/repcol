@@ -18,7 +18,10 @@ class Importer
         row.gender = +row.gender
         row.dob = +row.dob
         row.dod = +row.dod
-        @data.artistsKeyed[row["id"]] = row
+        @data.artistsKeyed[row.id] = row
+
+        # Erronous death dates – lifespan == 0
+        row.dod += 1 if (row.dob == row.dod)
 
       @data.artists = rows
 
@@ -33,6 +36,9 @@ class Importer
           row.acquired = +row.acquired
           row.invalid = (row.produced == 0 or row.acquired == 0)
 
+          # Need this for GL
+          row.acquired += 1 if (row.produced == row.acquired)
+
           value = @data.artistsKeyed[row["artistId"]]
 
           if value?
@@ -40,6 +46,7 @@ class Importer
             @data.works.push(row)
           else
             missing += 1
+            console.info row
 
         console.info("Missing artists for #{missing} works!")
 
@@ -48,10 +55,8 @@ class Importer
           artist.dob
 
         @data.artists.forEach (artist)->
-          _.sortBy artist.works, (work)-> 
+          artist.works = _.sortBy artist.works, (work)-> 
             work.produced
-
-        console.info(@data.works[1])
 
         @dataLoaded.resolve(@data)
 
