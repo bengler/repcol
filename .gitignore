@@ -19,6 +19,9 @@
 nbproject
 Thumbs.db
 
+public/data/images/
+public/data/images_lores/
+
 # NPM packages folder.
 node_modules/
 

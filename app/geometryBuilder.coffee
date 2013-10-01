@@ -4,62 +4,69 @@ class GeometryBuilder
     @scene = scene
     @data = data
 
-    scaleX = 60
+    scaleX = 100
     scaleY = 40
 
-    geometry = new THREE.CubeGeometry( 1, 1, 0.5)
-    workGeometry = new THREE.CubeGeometry( 1, 1, 4)
+    # Undef, Men, Women
+    @collatedArtistGeometries = [new THREE.Geometry(), new THREE.Geometry(), new THREE.Geometry()]
+    @collatedWorkGeometry = new THREE.Geometry()
 
-    # properties = 
-    #   depthTest: true
-    #   color: #ff0000
-    #   opacity: 0.35
-    #   wireframe: false
-    #   blending: THREE.AdditiveAlphaBlending
-    #   transparent:true
-
-    properties = {}
-
-    workMaterial = new THREE.MeshLambertMaterial()
-    undefMaterial = new THREE.MeshLambertMaterial(properties.color)
-    manMaterial = new THREE.MeshLambertMaterial(properties)
-    womanMaterial = new THREE.MeshLambertMaterial(properties)
-
-
-    WorkMaterial = new THREE.MeshLambertMaterial({
-      side: THREE.DoubleSide,
-      transparent: true,
-    })
-
-    material = undefined
+    artistGeometry = new THREE.CubeGeometry( 1, 1, 1)
+    workGeometry = new THREE.PlaneGeometry( 1, 40)
 
     @data.artists.forEach (artist)=>
 
-      # Men
-      if artist.gender == 1
-        material = undefMaterial
-      # Women 
-      else if artist.gender == 2
-        material = womanMaterial
-      # Undef
-      else if artist.gender == 0
-        material = manMaterial
-
-      mesh = new THREE.Mesh( geometry, material )
+      mesh = new THREE.Mesh(artistGeometry)
       mesh.position.set(artist._x * scaleX, artist._y * scaleY, 0)
       mesh.scale.x = artist._width * scaleX
       mesh.scale.y = artist._height * scaleY
-      @scene.add( mesh )
+      mesh.scale.z = 1 + artist._height * scaleY * 10
+
+      #@scene.add(mesh)
+      THREE.GeometryUtils.merge(@collatedArtistGeometries[artist.gender], mesh)
 
       artist.works.forEach (work)=>
         if !work.invalid
-          mesh = new THREE.Mesh( workGeometry, workMaterial )
-          mesh.position.set(work._x * scaleX, work._y * scaleY, 0)
-          mesh.scale.x = work._width * scaleX
-          mesh.scale.y = work._height * scaleY
-          @scene.add( mesh )
+          workMesh = new THREE.Mesh(workGeometry)
+          workMesh.position.set(work._x * scaleX, work._y * scaleY, (mesh.scale.z / 2) + 0.1 )
+          workMesh.scale.x = work._width * scaleX
+          workMesh.scale.y = work._height * scaleY/10
+          THREE.GeometryUtils.merge(@collatedWorkGeometry, workMesh)
 
-    @data.artists = @data.artists[0..20]
+    materialProperties = 
+      depthTest: true
+      wireframe: false
+      # emissive: "#eee"
+
+    for geometry, gender in @collatedArtistGeometries
+      switch gender
+        # when 0 then materialProperties.color = "#999"
+        # when 1 then materialProperties.color = "#0000a0"
+        # when 2 then materialProperties.color = "#a00000"
+        when 0 then materialProperties.color = "#999"
+        when 1 then materialProperties.color = "#6060a0"
+        when 2 then materialProperties.color = "#a06060"
+
+
+      mesh = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial(materialProperties) );
+      mesh.material.ambient = mesh.material.color
+      mesh.material.shinyness = 1
+
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      
+      @scene.add(mesh);
+
+    workMaterial = new THREE.MeshLambertMaterial({
+      depthTest: true
+      opacity: 0.80
+      emissive: "#fff"
+      wireframe: false
+      transparent:true
+    })
+
+    mesh = new THREE.Mesh(@collatedWorkGeometry, workMaterial);
+    @scene.add(mesh)
 
 
   yearToFloat:(year) ->

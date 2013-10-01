@@ -81,51 +81,71 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
     function GeometryBuilder() {}
 
     GeometryBuilder.prototype.build = function(scene, data) {
-      var WorkMaterial, geometry, manMaterial, material, properties, scaleX, scaleY, undefMaterial, womanMaterial, workGeometry, workMaterial,
+      var artistGeometry, gender, geometry, materialProperties, mesh, scaleX, scaleY, workGeometry, workMaterial, _i, _len, _ref,
         _this = this;
 
       this.scene = scene;
       this.data = data;
-      scaleX = 60;
+      scaleX = 100;
       scaleY = 40;
-      geometry = new THREE.CubeGeometry(1, 1, 0.5);
-      workGeometry = new THREE.CubeGeometry(1, 1, 4);
-      properties = {};
-      workMaterial = new THREE.MeshLambertMaterial();
-      undefMaterial = new THREE.MeshLambertMaterial(properties.color);
-      manMaterial = new THREE.MeshLambertMaterial(properties);
-      womanMaterial = new THREE.MeshLambertMaterial(properties);
-      WorkMaterial = new THREE.MeshLambertMaterial({
-        side: THREE.DoubleSide,
-        transparent: true
-      });
-      material = void 0;
+      this.collatedArtistGeometries = [new THREE.Geometry(), new THREE.Geometry(), new THREE.Geometry()];
+      this.collatedWorkGeometry = new THREE.Geometry();
+      artistGeometry = new THREE.CubeGeometry(1, 1, 1);
+      workGeometry = new THREE.PlaneGeometry(1, 40);
       this.data.artists.forEach(function(artist) {
         var mesh;
 
-        if (artist.gender === 1) {
-          material = undefMaterial;
-        } else if (artist.gender === 2) {
-          material = womanMaterial;
-        } else if (artist.gender === 0) {
-          material = manMaterial;
-        }
-        mesh = new THREE.Mesh(geometry, material);
+        mesh = new THREE.Mesh(artistGeometry);
         mesh.position.set(artist._x * scaleX, artist._y * scaleY, 0);
         mesh.scale.x = artist._width * scaleX;
         mesh.scale.y = artist._height * scaleY;
-        _this.scene.add(mesh);
+        mesh.scale.z = 1 + artist._height * scaleY * 10;
+        THREE.GeometryUtils.merge(_this.collatedArtistGeometries[artist.gender], mesh);
         return artist.works.forEach(function(work) {
+          var workMesh;
+
           if (!work.invalid) {
-            mesh = new THREE.Mesh(workGeometry, workMaterial);
-            mesh.position.set(work._x * scaleX, work._y * scaleY, 0);
-            mesh.scale.x = work._width * scaleX;
-            mesh.scale.y = work._height * scaleY;
-            return _this.scene.add(mesh);
+            workMesh = new THREE.Mesh(workGeometry);
+            workMesh.position.set(work._x * scaleX, work._y * scaleY, (mesh.scale.z / 2) + 0.1);
+            workMesh.scale.x = work._width * scaleX;
+            workMesh.scale.y = work._height * scaleY / 10;
+            return THREE.GeometryUtils.merge(_this.collatedWorkGeometry, workMesh);
           }
         });
       });
-      return this.data.artists = this.data.artists.slice(0, 21);
+      materialProperties = {
+        depthTest: true,
+        wireframe: false
+      };
+      _ref = this.collatedArtistGeometries;
+      for (gender = _i = 0, _len = _ref.length; _i < _len; gender = ++_i) {
+        geometry = _ref[gender];
+        switch (gender) {
+          case 0:
+            materialProperties.color = "#999";
+            break;
+          case 1:
+            materialProperties.color = "#6060a0";
+            break;
+          case 2:
+            materialProperties.color = "#a06060";
+        }
+        mesh = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial(materialProperties));
+        mesh.material.ambient = mesh.material.color;
+        mesh.material.shinyness = 1;
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+        this.scene.add(mesh);
+      }
+      workMaterial = new THREE.MeshLambertMaterial({
+        depthTest: true,
+        opacity: 0.80,
+        emissive: "#fff",
+        wireframe: false,
+        transparent: true
+      });
+      mesh = new THREE.Mesh(this.collatedWorkGeometry, workMaterial);
+      return this.scene.add(mesh);
     };
 
     GeometryBuilder.prototype.yearToFloat = function(year) {
@@ -617,7 +637,8 @@ window.require.define({"routers/app_router": function(exports, require, module) 
 }});
 
 window.require.define({"sceneKeeper": function(exports, require, module) {
-  var SceneKeeper;
+  var SceneKeeper,
+    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   SceneKeeper = (function() {
     var SHOW_STATS, geometryBuilder, visualStructure;
@@ -628,7 +649,9 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
 
     SHOW_STATS = true;
 
-    function SceneKeeper() {}
+    function SceneKeeper() {
+      this.click = __bind(this.click, this);
+    }
 
     SceneKeeper.prototype.init = function(data) {
       this.data = visualStructure.init(data);
@@ -637,11 +660,17 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     };
 
     SceneKeeper.prototype.initScene = function() {
-      var container, light;
+      var FAR, HEIGHT, MARGIN, SCREEN_HEIGHT, SCREEN_WIDTH, WIDTH, container, light;
 
       this.scene = new THREE.Scene;
-      this.camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 10000);
-      this.camera.position.set(0, 0, 90);
+      WIDTH = window.innerWidth || 2;
+      HEIGHT = window.innerHeight || (2 + 2 * MARGIN);
+      MARGIN = 0;
+      SCREEN_WIDTH = WIDTH;
+      SCREEN_HEIGHT = HEIGHT - 2 * MARGIN;
+      FAR = 10000;
+      this.camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 2, FAR);
+      this.camera.position.set(140, 85, 150);
       this.camera.lookAt(this.scene.position);
       this.controls = new THREE.TrackballControls(this.camera);
       this.controls.rotateSpeed = 1.0;
@@ -652,14 +681,37 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.controls.staticMoving = true;
       this.controls.dynamicDampingFactor = 0.3;
       this.controls.keys = [65, 83, 68];
-      light = new THREE.PointLight(0xFFFFFF);
-      light.position.set(0, 0, 40);
+      this.scene.add(new THREE.AmbientLight(0x808080));
+      light = new THREE.SpotLight(0xffffff, 1.5);
+      light.position.set(50, 150, 0);
+      light.castShadow = true;
+      light.shadowCameraNear = 100;
+      light.shadowCameraFar = this.camera.far;
+      light.shadowCameraFov = 100;
+      light.shadowBias = -0.00122;
+      light.shadowDarkness = 0.3;
+      light.shadowMapWidth = 4096;
+      light.shadowMapHeight = 4096;
+      this.scene.add(light);
+      light = new THREE.SpotLight(0xffffff, 0.7);
+      light.position.set(50, 150, 100);
+      light.castShadow = false;
+      light.shadowCameraNear = 100;
+      light.shadowCameraFar = this.camera.far;
+      light.shadowCameraFov = 100;
+      light.shadowBias = -0.00122;
+      light.shadowDarkness = 0.3;
+      light.shadowMapWidth = 4096;
+      light.shadowMapHeight = 4096;
       this.scene.add(light);
       this.renderer = new THREE.WebGLRenderer({
         antialias: true
       });
       this.renderer.setSize(window.innerWidth, window.innerHeight);
-      this.renderer.setClearColor(new THREE.Color(0xFFFFFF));
+      this.renderer.setClearColor(new THREE.Color(0xD0D0D8));
+      this.renderer.shadowMapEnabled = true;
+      this.renderer.shadowMapType = THREE.PCFShadowMap;
+      this.renderer.sortObjects = false;
       container = document.createElement('div');
       document.body.appendChild(container);
       container.appendChild(this.renderer.domElement);
@@ -670,7 +722,21 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
         this.stats.domElement.style.left = '0px';
         container.appendChild(this.stats.domElement);
       }
-      return this.animate();
+      this.mouse = new THREE.Vector2();
+      this.projector = new THREE.Projector();
+      this.animate();
+      return document.onclick = this.click;
+    };
+
+    SceneKeeper.prototype.click = function(event) {
+      var ray, vector;
+
+      this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      vector = new THREE.Vector3(this.mouse.x, this.mouse.y, 0.5);
+      this.projector.unprojectVector(vector, this.camera);
+      ray = new THREE.Ray(this.camera.position, vector.sub(this.camera.position).normalize());
+      return console.info("hello");
     };
 
     SceneKeeper.prototype.animate = function() {
@@ -739,7 +805,7 @@ window.require.define({"visualStructure": function(exports, require, module) {
     function VisualStructure() {}
 
     VisualStructure.prototype.init = function(data) {
-      var workIndex,
+      var workHeight, workIndex,
         _this = this;
 
       this.data = data;
@@ -752,6 +818,7 @@ window.require.define({"visualStructure": function(exports, require, module) {
       console.info("Normalizing against: " + this.startYear + " - " + this.endYear);
       this.numberOfWorks = this.data.works.length;
       console.info("Allocating artist space");
+      workHeight = 1 / this.numberOfWorks;
       workIndex = -0.5;
       this.data.artists.forEach(function(artist) {
         var height, width, x;
@@ -770,14 +837,14 @@ window.require.define({"visualStructure": function(exports, require, module) {
             wHeight = 1 / _this.numberOfWorks;
             wX = _this.yearToFloat(work.produced);
             wWidth = _this.yearToFloat(work.acquired) - wX;
-            wY = workIndex + ((1 / _this.numberOfWorks) * i);
+            wY = workIndex + (workHeight * i);
             work._x = wX - 0.5 + (wWidth / 2);
             work._y = wY + wHeight / 2;
             work._height = wHeight;
             return work._width = wWidth;
           }
         });
-        return workIndex += height;
+        return workIndex += height + workHeight * 10;
       });
       console.info("Done");
       return this.data;

@@ -23,6 +23,8 @@ class VisualStructure
 
     # Todo: calc 1/@numberOfWorks once!
 
+    workHeight = 1/@numberOfWorks
+
     workIndex = -0.5
     @data.artists.forEach (artist)=>
       height = artist.works.length/@numberOfWorks
@@ -40,14 +42,14 @@ class VisualStructure
           wHeight = 1/@numberOfWorks
           wX = @yearToFloat(work.produced)
           wWidth = @yearToFloat(work.acquired) - wX
-          wY = workIndex + ((1/@numberOfWorks) * i)
+          wY = workIndex + ((workHeight) * i)
 
           work._x = wX - 0.5 + (wWidth / 2)
           work._y = wY + wHeight/2
           work._height = wHeight 
           work._width = wWidth
 
-      workIndex += height
+      workIndex += height + workHeight * 10
 
 
 
