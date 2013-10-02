@@ -158,7 +158,6 @@ class SceneKeeper
         vec.setLength(vec.length() * 1.5);
         @camera.position.addVectors(vec,@controls.target);
         @camera.updateProjectionMatrix();
-
     else
       $(".container h2").addClass("selected")
       @currentArtist = res.artist
@@ -168,13 +167,14 @@ class SceneKeeper
       v.subVectors(COG,@controls.target);
       @controls.target.set(COG.x,COG.y,COG.z);  
 
-      sphereSize = 1 + res.artist._height * 160
-      distToCenter = sphereSize/Math.sin( Math.PI / 180.0 * @camera.fov * 0.5);
+      size = 1 + res.artist._height * 160
+      distToCenter = size/Math.sin( Math.PI / 180.0 * @camera.fov * 0.5);
       target = @controls.target
       vec = new THREE.Vector3();
-      vec.subVectors( @camera.position, target );
-      vec.setLength( distToCenter );
+      vec.subVectors(@camera.position, target);
+      vec.setLength(distToCenter);
       @camera.position.addVectors(  vec , target );
+
       @camera.updateProjectionMatrix();
 
   findArtist:(event) ->

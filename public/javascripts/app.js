@@ -774,7 +774,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     };
 
     SceneKeeper.prototype.click = function(event) {
-      var COG, distToCenter, res, sphereSize, target, v, vec;
+      var COG, distToCenter, res, size, target, v, vec;
 
       res = this.findArtist(event);
       if (res == null) {
@@ -795,8 +795,8 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
         v = new THREE.Vector3();
         v.subVectors(COG, this.controls.target);
         this.controls.target.set(COG.x, COG.y, COG.z);
-        sphereSize = 1 + res.artist._height * 160;
-        distToCenter = sphereSize / Math.sin(Math.PI / 180.0 * this.camera.fov * 0.5);
+        size = 1 + res.artist._height * 160;
+        distToCenter = size / Math.sin(Math.PI / 180.0 * this.camera.fov * 0.5);
         target = this.controls.target;
         vec = new THREE.Vector3();
         vec.subVectors(this.camera.position, target);
