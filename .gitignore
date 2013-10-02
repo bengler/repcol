@@ -21,6 +21,7 @@ Thumbs.db
 
 public/data/images/
 public/data/images_lores/
+public/data/images_lores_2
 
 # NPM packages folder.
 node_modules/

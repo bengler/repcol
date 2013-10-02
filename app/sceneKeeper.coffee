@@ -10,7 +10,8 @@ class SceneKeeper
     #   $("#main").hide()
 
   init:(data) ->
-    @data = visualStructure.init(data)
+    @data = data
+    visualStructure.init(data)
     @initScene()
     geometryBuilder.build(@scene, @data)
 
@@ -27,7 +28,7 @@ class SceneKeeper
 
     FAR = 10000
 
-    @camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 2, FAR)
+    @camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1, FAR)
     @camera.position.set(140,85,150)
     @camera.lookAt(@scene.position);
 
@@ -37,7 +38,7 @@ class SceneKeeper
     @controls.panSpeed = 0.8
     @controls.noZoom = false
     @controls.noPan = false
-    @controls.staticMoving = true
+    @controls.staticMoving = false
     @controls.dynamicDampingFactor = 0.3
     @controls.keys = [ 65, 83, 68 ]
 
@@ -54,7 +55,7 @@ class SceneKeeper
 
     @scene.add( new THREE.AmbientLight( 0x808080 ) )
 
-    light = new THREE.SpotLight( 0xffffff, 1.5 )
+    light = new THREE.SpotLight( 0xffffff, 1.0 )
     light.position.set( 50, 150, 0 )
     light.castShadow = true
 
@@ -63,77 +64,65 @@ class SceneKeeper
     light.shadowCameraFov = 100
 
     light.shadowBias = -0.00122
-    light.shadowDarkness = 0.3
+    light.shadowDarkness = 0.1
 
     light.shadowMapWidth = 4096
     light.shadowMapHeight = 4096
     @scene.add(light)
 
 
-
-    light = new THREE.SpotLight( 0xffffff, 0.7 )
+    light = new THREE.SpotLight( 0xffffff, 0.6 )
     light.position.set( 50, 150, 100 )
-    light.castShadow = false
+    # light.castShadow = false
 
-    light.shadowCameraNear = 100
-    light.shadowCameraFar = @camera.far
-    light.shadowCameraFov = 100
+    # light.shadowCameraNear = 100
+    # light.shadowCameraFar = @camera.far
+    # light.shadowCameraFov = 100
 
-    light.shadowBias = -0.00122
-    light.shadowDarkness = 0.3
+    # light.shadowBias = -0.00122
+    # light.shadowDarkness = 0.8
 
-    light.shadowMapWidth = 4096
-    light.shadowMapHeight = 4096
+    # light.shadowMapWidth = 4096
+    # light.shadowMapHeight = 4096
     @scene.add(light)
-
 
     @renderer = new THREE.WebGLRenderer({ antialias: true})
-    @renderer.setSize(window.innerWidth, window.innerHeight)
+    @renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT)
     @renderer.setClearColor(new THREE.Color(0xD0D0D8))
 
     @renderer.shadowMapEnabled = true;
     @renderer.shadowMapType = THREE.PCFShadowMap;
     @renderer.sortObjects = false;
     
+    # Composer
+
     # @renderer.autoClear = false;
 
-    # renderTargetParameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBFormat, stencilBuffer: false }
-    # @renderTarget = new THREE.WebGLRenderTarget( SCREEN_WIDTH, SCREEN_HEIGHT, renderTargetParameters )
+    renderTargetParameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBFormat, stencilBuffer: false }
+    @renderTarget = new THREE.WebGLRenderTarget( SCREEN_WIDTH * 2, SCREEN_HEIGHT * 2, renderTargetParameters )
 
     # effectFXAA = new THREE.ShaderPass( THREE.FXAAShader )
-    # effectVignette = new THREE.ShaderPass( THREE.VignetteShader )
+    # effectFXAA.uniforms[ 'resolution' ].value.set( 1 / SCREEN_WIDTH / 2, 1 / SCREEN_HEIGHT / 2 )
 
-    # hblur = new THREE.ShaderPass( THREE.HorizontalTiltShiftShader )
-    # vblur = new THREE.ShaderPass( THREE.VerticalTiltShiftShader )
+    effectVignette = new THREE.ShaderPass( THREE.VignetteShader )
+    effectVignette.uniforms[ 'darkness' ].value = 0.4
 
-    # bluriness = 4
+    hblur = new THREE.ShaderPass( THREE.HorizontalTiltShiftShader )
+    vblur = new THREE.ShaderPass( THREE.VerticalTiltShiftShader )
+    bluriness = 2
+    hblur.uniforms[ 'h' ].value = bluriness / SCREEN_WIDTH
+    vblur.uniforms[ 'v' ].value = bluriness / SCREEN_HEIGHT
+    hblur.uniforms[ 'r' ].value = vblur.uniforms[ 'r' ].value = 0.5
 
-    # hblur.uniforms[ 'h' ].value = bluriness / SCREEN_WIDTH
-    # vblur.uniforms[ 'v' ].value = bluriness / SCREEN_HEIGHT
+    @composer = new THREE.EffectComposer( @renderer, @renderTarget )
+    renderModel = new THREE.RenderPass( @scene, @camera )
 
-    # hblur.uniforms[ 'r' ].value = vblur.uniforms[ 'r' ].value = 0.5
-
-    # effectFXAA.uniforms[ 'resolution' ].value.set( 1 / SCREEN_WIDTH, 1 / SCREEN_HEIGHT )
-
-    # composer = new THREE.EffectComposer( @renderer, renderTarget )
-
-    # renderModel = new THREE.RenderPass( @scene, @camera )
-
-    # effectVignette.renderToScreen = true
-    # vblur.renderToScreen = true
-    # effectFXAA.renderToScreen = true
-
-    # composer = new THREE.EffectComposer( @renderer, @renderTarget )
-
-    # composer.addPass( renderModel )
-
-    # composer.addPass( effectFXAA )
-
-    # composer.addPass( hblur );
-    # composer.addPass( vblur );
-    # composer.addPass( effectVignette );
-
-
+    @composer.addPass(renderModel)
+    @composer.addPass(effectVignette);
+    @composer.addPass(hblur);
+    @composer.addPass(vblur);
+    # @composer.addPass(effectFXAA)
+    vblur.renderToScreen = true;
 
     container = document.createElement('div')
     document.body.appendChild(container)
@@ -150,18 +139,72 @@ class SceneKeeper
     @projector = new THREE.Projector()
     @animate()
 
-    document.onclick = @click
+    #window.addEventListener( 'resize', @resize, false );
+    window.addEventListener( 'dblclick', @click, false );
+    window.addEventListener( 'mousemove', @mousemove, false );
+
+    @currentArtist = undefined
 
   click:(event) =>
+    res = @findArtist(event)
 
+    if ! res?
+      if @currentArtist
+        @currentArtist = undefined
+        $(".container h2").removeClass("selected")
+  
+        vec = new THREE.Vector3();
+        vec.subVectors( @camera.position, @controls.target);
+        vec.setLength(vec.length() * 1.5);
+        @camera.position.addVectors(vec,@controls.target);
+        @camera.updateProjectionMatrix();
+
+    else
+      $(".container h2").addClass("selected")
+      @currentArtist = res.artist
+      @updateArtistName(@currentArtist)
+      COG = res.artist.focusFace.centroid
+      v = new THREE.Vector3();
+      v.subVectors(COG,@controls.target);
+      @controls.target.set(COG.x,COG.y,COG.z);  
+
+      sphereSize = 1 + res.artist._height * 160
+      distToCenter = sphereSize/Math.sin( Math.PI / 180.0 * @camera.fov * 0.5);
+      target = @controls.target
+      vec = new THREE.Vector3();
+      vec.subVectors( @camera.position, target );
+      vec.setLength( distToCenter );
+      @camera.position.addVectors(  vec , target );
+      @camera.updateProjectionMatrix();
+
+  findArtist:(event) ->
     @mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1
     @mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1
-
     vector = new THREE.Vector3(@mouse.x, @mouse.y, 0.5)
     @projector.unprojectVector(vector, @camera)
-    ray = new THREE.Ray(@camera.position, vector.sub(@camera.position ).normalize())
+    ray = new THREE.Raycaster(@camera.position, vector.sub(@camera.position ).normalize())
+    intersects = ray.intersectObjects(@scene.children)
 
-    console.info("hello")
+    if intersects.length > 0
+      face = intersects[0].face
+      artist = @data.artistsKeyed[face.color.r]
+      res =
+        object: intersects[0]
+        artist: artist
+        face:   face 
+      return res
+    return undefined
+
+  mousemove:(event) =>
+    return if @currentArtist?
+    res = @findArtist(event)
+    return unless res?
+    @updateArtistName(res.artist)
+
+  updateArtistName:(artist) =>
+    $('.container h2').text(artist.firstname + " " + artist.lastname)
+    dod = if artist.dod == 2013 then "" else artist.dod
+    $('.container p').text(artist.dob + " - " + dod)
 
 
   animate: ->
@@ -172,6 +215,6 @@ class SceneKeeper
 
   render: ->
 
-    @renderer.render(@scene, @camera)
+    @composer.render()
 
 module.exports = new SceneKeeper

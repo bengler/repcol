@@ -20,9 +20,13 @@ class GeometryBuilder
       mesh.position.set(artist._x * scaleX, artist._y * scaleY, 0)
       mesh.scale.x = artist._width * scaleX
       mesh.scale.y = artist._height * scaleY
+      # mesh.rotation.x = Math.sin(artist._y * 3)
+      # mesh.rotation.z = Math.cos(artist._y * 3 )
       mesh.scale.z = 1 + artist._height * scaleY * 10
 
-      #@scene.add(mesh)
+      for face in mesh.geometry.faces
+        face.color.r = artist.id
+
       THREE.GeometryUtils.merge(@collatedArtistGeometries[artist.gender], mesh)
 
       artist.works.forEach (work)=>
@@ -30,7 +34,7 @@ class GeometryBuilder
           workMesh = new THREE.Mesh(workGeometry)
           workMesh.position.set(work._x * scaleX, work._y * scaleY, (mesh.scale.z / 2) + 0.1 )
           workMesh.scale.x = work._width * scaleX
-          workMesh.scale.y = work._height * scaleY/10
+          workMesh.scale.y = work._height * scaleY * 0.1
           THREE.GeometryUtils.merge(@collatedWorkGeometry, workMesh)
 
     materialProperties = 
@@ -38,15 +42,30 @@ class GeometryBuilder
       wireframe: false
       # emissive: "#eee"
 
+    # HACK: there has got to be a better way of doing this
+
+    currentArtist = 0
+    offset = 0
+    for geometry, gender in @collatedArtistGeometries
+      for face in geometry.faces
+        artist = face.color.r
+        # n+1
+        if offset == 0
+          @data.artistsKeyed[artist].focusFace = face
+        offset += 1
+        if currentArtist != artist
+          offset = 0
+          currentArtist = artist
+          @data.artistsKeyed[artist].faces = []
+
+        @data.artistsKeyed[artist].faces << face
+
+    # Color meshes
     for geometry, gender in @collatedArtistGeometries
       switch gender
-        # when 0 then materialProperties.color = "#999"
-        # when 1 then materialProperties.color = "#0000a0"
-        # when 2 then materialProperties.color = "#a00000"
         when 0 then materialProperties.color = "#999"
-        when 1 then materialProperties.color = "#6060a0"
-        when 2 then materialProperties.color = "#a06060"
-
+        when 1 then materialProperties.color = "#6068ff"
+        when 2 then materialProperties.color = "#ff7060"
 
       mesh = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial(materialProperties) );
       mesh.material.ambient = mesh.material.color
@@ -59,7 +78,7 @@ class GeometryBuilder
 
     workMaterial = new THREE.MeshLambertMaterial({
       depthTest: true
-      opacity: 0.80
+      opacity: 0.90
       emissive: "#fff"
       wireframe: false
       transparent:true

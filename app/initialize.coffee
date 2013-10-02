@@ -1,5 +1,3 @@
-# App Namespace
-# Change `Hipster` to your app's name
 @Hipster ?= {}
 Hipster.Routers ?= {}
 Hipster.Views ?= {}

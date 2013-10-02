@@ -81,7 +81,7 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
     function GeometryBuilder() {}
 
     GeometryBuilder.prototype.build = function(scene, data) {
-      var artistGeometry, gender, geometry, materialProperties, mesh, scaleX, scaleY, workGeometry, workMaterial, _i, _len, _ref,
+      var artist, artistGeometry, currentArtist, face, gender, geometry, materialProperties, mesh, offset, scaleX, scaleY, workGeometry, workMaterial, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2,
         _this = this;
 
       this.scene = scene;
@@ -93,13 +93,18 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
       artistGeometry = new THREE.CubeGeometry(1, 1, 1);
       workGeometry = new THREE.PlaneGeometry(1, 40);
       this.data.artists.forEach(function(artist) {
-        var mesh;
+        var face, mesh, _i, _len, _ref;
 
         mesh = new THREE.Mesh(artistGeometry);
         mesh.position.set(artist._x * scaleX, artist._y * scaleY, 0);
         mesh.scale.x = artist._width * scaleX;
         mesh.scale.y = artist._height * scaleY;
         mesh.scale.z = 1 + artist._height * scaleY * 10;
+        _ref = mesh.geometry.faces;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          face = _ref[_i];
+          face.color.r = artist.id;
+        }
         THREE.GeometryUtils.merge(_this.collatedArtistGeometries[artist.gender], mesh);
         return artist.works.forEach(function(work) {
           var workMesh;
@@ -108,7 +113,7 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
             workMesh = new THREE.Mesh(workGeometry);
             workMesh.position.set(work._x * scaleX, work._y * scaleY, (mesh.scale.z / 2) + 0.1);
             workMesh.scale.x = work._width * scaleX;
-            workMesh.scale.y = work._height * scaleY / 10;
+            workMesh.scale.y = work._height * scaleY * 0.1;
             return THREE.GeometryUtils.merge(_this.collatedWorkGeometry, workMesh);
           }
         });
@@ -117,18 +122,39 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
         depthTest: true,
         wireframe: false
       };
+      currentArtist = 0;
+      offset = 0;
       _ref = this.collatedArtistGeometries;
       for (gender = _i = 0, _len = _ref.length; _i < _len; gender = ++_i) {
         geometry = _ref[gender];
+        _ref1 = geometry.faces;
+        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+          face = _ref1[_j];
+          artist = face.color.r;
+          if (offset === 0) {
+            this.data.artistsKeyed[artist].focusFace = face;
+          }
+          offset += 1;
+          if (currentArtist !== artist) {
+            offset = 0;
+            currentArtist = artist;
+            this.data.artistsKeyed[artist].faces = [];
+          }
+          this.data.artistsKeyed[artist].faces << face;
+        }
+      }
+      _ref2 = this.collatedArtistGeometries;
+      for (gender = _k = 0, _len2 = _ref2.length; _k < _len2; gender = ++_k) {
+        geometry = _ref2[gender];
         switch (gender) {
           case 0:
             materialProperties.color = "#999";
             break;
           case 1:
-            materialProperties.color = "#6060a0";
+            materialProperties.color = "#6068ff";
             break;
           case 2:
-            materialProperties.color = "#a06060";
+            materialProperties.color = "#ff7060";
         }
         mesh = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial(materialProperties));
         mesh.material.ambient = mesh.material.color;
@@ -139,7 +165,7 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
       }
       workMaterial = new THREE.MeshLambertMaterial({
         depthTest: true,
-        opacity: 0.80,
+        opacity: 0.90,
         emissive: "#fff",
         wireframe: false,
         transparent: true
@@ -650,17 +676,20 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     SHOW_STATS = true;
 
     function SceneKeeper() {
+      this.updateArtistName = __bind(this.updateArtistName, this);
+      this.mousemove = __bind(this.mousemove, this);
       this.click = __bind(this.click, this);
     }
 
     SceneKeeper.prototype.init = function(data) {
-      this.data = visualStructure.init(data);
+      this.data = data;
+      visualStructure.init(data);
       this.initScene();
       return geometryBuilder.build(this.scene, this.data);
     };
 
     SceneKeeper.prototype.initScene = function() {
-      var FAR, HEIGHT, MARGIN, SCREEN_HEIGHT, SCREEN_WIDTH, WIDTH, container, light;
+      var FAR, HEIGHT, MARGIN, SCREEN_HEIGHT, SCREEN_WIDTH, WIDTH, bluriness, container, effectVignette, hblur, light, renderModel, renderTargetParameters, vblur;
 
       this.scene = new THREE.Scene;
       WIDTH = window.innerWidth || 2;
@@ -669,7 +698,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       SCREEN_WIDTH = WIDTH;
       SCREEN_HEIGHT = HEIGHT - 2 * MARGIN;
       FAR = 10000;
-      this.camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 2, FAR);
+      this.camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1, FAR);
       this.camera.position.set(140, 85, 150);
       this.camera.lookAt(this.scene.position);
       this.controls = new THREE.TrackballControls(this.camera);
@@ -678,40 +707,54 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.controls.panSpeed = 0.8;
       this.controls.noZoom = false;
       this.controls.noPan = false;
-      this.controls.staticMoving = true;
+      this.controls.staticMoving = false;
       this.controls.dynamicDampingFactor = 0.3;
       this.controls.keys = [65, 83, 68];
       this.scene.add(new THREE.AmbientLight(0x808080));
-      light = new THREE.SpotLight(0xffffff, 1.5);
+      light = new THREE.SpotLight(0xffffff, 1.0);
       light.position.set(50, 150, 0);
       light.castShadow = true;
       light.shadowCameraNear = 100;
       light.shadowCameraFar = this.camera.far;
       light.shadowCameraFov = 100;
       light.shadowBias = -0.00122;
-      light.shadowDarkness = 0.3;
+      light.shadowDarkness = 0.1;
       light.shadowMapWidth = 4096;
       light.shadowMapHeight = 4096;
       this.scene.add(light);
-      light = new THREE.SpotLight(0xffffff, 0.7);
+      light = new THREE.SpotLight(0xffffff, 0.6);
       light.position.set(50, 150, 100);
-      light.castShadow = false;
-      light.shadowCameraNear = 100;
-      light.shadowCameraFar = this.camera.far;
-      light.shadowCameraFov = 100;
-      light.shadowBias = -0.00122;
-      light.shadowDarkness = 0.3;
-      light.shadowMapWidth = 4096;
-      light.shadowMapHeight = 4096;
       this.scene.add(light);
       this.renderer = new THREE.WebGLRenderer({
         antialias: true
       });
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
+      this.renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
       this.renderer.setClearColor(new THREE.Color(0xD0D0D8));
       this.renderer.shadowMapEnabled = true;
       this.renderer.shadowMapType = THREE.PCFShadowMap;
       this.renderer.sortObjects = false;
+      renderTargetParameters = {
+        minFilter: THREE.LinearFilter,
+        magFilter: THREE.LinearFilter,
+        format: THREE.RGBFormat,
+        stencilBuffer: false
+      };
+      this.renderTarget = new THREE.WebGLRenderTarget(SCREEN_WIDTH * 2, SCREEN_HEIGHT * 2, renderTargetParameters);
+      effectVignette = new THREE.ShaderPass(THREE.VignetteShader);
+      effectVignette.uniforms['darkness'].value = 0.4;
+      hblur = new THREE.ShaderPass(THREE.HorizontalTiltShiftShader);
+      vblur = new THREE.ShaderPass(THREE.VerticalTiltShiftShader);
+      bluriness = 2;
+      hblur.uniforms['h'].value = bluriness / SCREEN_WIDTH;
+      vblur.uniforms['v'].value = bluriness / SCREEN_HEIGHT;
+      hblur.uniforms['r'].value = vblur.uniforms['r'].value = 0.5;
+      this.composer = new THREE.EffectComposer(this.renderer, this.renderTarget);
+      renderModel = new THREE.RenderPass(this.scene, this.camera);
+      this.composer.addPass(renderModel);
+      this.composer.addPass(effectVignette);
+      this.composer.addPass(hblur);
+      this.composer.addPass(vblur);
+      vblur.renderToScreen = true;
       container = document.createElement('div');
       document.body.appendChild(container);
       container.appendChild(this.renderer.domElement);
@@ -725,18 +768,85 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.mouse = new THREE.Vector2();
       this.projector = new THREE.Projector();
       this.animate();
-      return document.onclick = this.click;
+      window.addEventListener('dblclick', this.click, false);
+      window.addEventListener('mousemove', this.mousemove, false);
+      return this.currentArtist = void 0;
     };
 
     SceneKeeper.prototype.click = function(event) {
-      var ray, vector;
+      var COG, distToCenter, res, sphereSize, target, v, vec;
+
+      res = this.findArtist(event);
+      if (res == null) {
+        if (this.currentArtist) {
+          this.currentArtist = void 0;
+          $(".container h2").removeClass("selected");
+          vec = new THREE.Vector3();
+          vec.subVectors(this.camera.position, this.controls.target);
+          vec.setLength(vec.length() * 1.5);
+          this.camera.position.addVectors(vec, this.controls.target);
+          return this.camera.updateProjectionMatrix();
+        }
+      } else {
+        $(".container h2").addClass("selected");
+        this.currentArtist = res.artist;
+        this.updateArtistName(this.currentArtist);
+        COG = res.artist.focusFace.centroid;
+        v = new THREE.Vector3();
+        v.subVectors(COG, this.controls.target);
+        this.controls.target.set(COG.x, COG.y, COG.z);
+        sphereSize = 1 + res.artist._height * 160;
+        distToCenter = sphereSize / Math.sin(Math.PI / 180.0 * this.camera.fov * 0.5);
+        target = this.controls.target;
+        vec = new THREE.Vector3();
+        vec.subVectors(this.camera.position, target);
+        vec.setLength(distToCenter);
+        this.camera.position.addVectors(vec, target);
+        return this.camera.updateProjectionMatrix();
+      }
+    };
+
+    SceneKeeper.prototype.findArtist = function(event) {
+      var artist, face, intersects, ray, res, vector;
 
       this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
       vector = new THREE.Vector3(this.mouse.x, this.mouse.y, 0.5);
       this.projector.unprojectVector(vector, this.camera);
-      ray = new THREE.Ray(this.camera.position, vector.sub(this.camera.position).normalize());
-      return console.info("hello");
+      ray = new THREE.Raycaster(this.camera.position, vector.sub(this.camera.position).normalize());
+      intersects = ray.intersectObjects(this.scene.children);
+      if (intersects.length > 0) {
+        face = intersects[0].face;
+        artist = this.data.artistsKeyed[face.color.r];
+        res = {
+          object: intersects[0],
+          artist: artist,
+          face: face
+        };
+        return res;
+      }
+      return void 0;
+    };
+
+    SceneKeeper.prototype.mousemove = function(event) {
+      var res;
+
+      if (this.currentArtist != null) {
+        return;
+      }
+      res = this.findArtist(event);
+      if (res == null) {
+        return;
+      }
+      return this.updateArtistName(res.artist);
+    };
+
+    SceneKeeper.prototype.updateArtistName = function(artist) {
+      var dod;
+
+      $('.container h2').text(artist.firstname + " " + artist.lastname);
+      dod = artist.dod === 2013 ? "" : artist.dod;
+      return $('.container p').text(artist.dob + " - " + dod);
     };
 
     SceneKeeper.prototype.animate = function() {
@@ -755,7 +865,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     };
 
     SceneKeeper.prototype.render = function() {
-      return this.renderer.render(this.scene, this.camera);
+      return this.composer.render();
     };
 
     return SceneKeeper;

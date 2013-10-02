@@ -36,7 +36,6 @@ class VisualStructure
       artist._height = height 
       artist._width = width
 
-
       artist.works.forEach (work, i)=>
         if !work.invalid
           wHeight = 1/@numberOfWorks
@@ -50,8 +49,6 @@ class VisualStructure
           work._width = wWidth
 
       workIndex += height + workHeight * 10
-
-
 
     console.info("Done")
 

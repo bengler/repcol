@@ -879,7 +879,24 @@ body {
   font-size: 12px;
 }
 .container {
+  position: fixed;
   margin: 0;
+  z-index: 1000;
+  top: 100px;
+  left: 100px;
+}
+.container h2 {
+  font-size: 32px;
+  margin: 0;
+  padding: 0;
+}
+.container h2.selected {
+  color: #fff;
+}
+.container p {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 #chart {
   position: fixed;
