@@ -1,28 +1,35 @@
 class GeometryBuilder
 
+  constructor: ->
+    @artistGeometry = new THREE.CubeGeometry( 1, 1, 1)
+    @workGeometry = new THREE.PlaneGeometry( 1, 40)
+
+    @scaleX = 100
+    @scaleY = 40
+
+  artistMesh:(artist, texture, multiplier = 1, adder = 0) ->
+    mesh = new THREE.Mesh(@artistGeometry, texture)
+    mesh.position.set(artist._x * @scaleX, artist._y * @scaleY, 0)
+    mesh.scale.x = (artist._width * @scaleX) * multiplier
+    mesh.scale.y = (artist._height * @scaleY) * multiplier
+    mesh.scale.z = (1 + artist._height * @scaleY * 10) * multiplier
+
+    # mesh.rotation.x = Math.sin(artist._y * 3)
+    # mesh.rotation.z = Math.cos(artist._y * 3 )
+
+    mesh
+
   build:(scene, data) ->
     @scene = scene
     @data = data
 
-    scaleX = 100
-    scaleY = 40
 
     # Undef, Men, Women
     @collatedArtistGeometries = [new THREE.Geometry(), new THREE.Geometry(), new THREE.Geometry()]
     @collatedWorkGeometry = new THREE.Geometry()
 
-    artistGeometry = new THREE.CubeGeometry( 1, 1, 1)
-    workGeometry = new THREE.PlaneGeometry( 1, 40)
-
     @data.artists.forEach (artist)=>
-
-      mesh = new THREE.Mesh(artistGeometry)
-      mesh.position.set(artist._x * scaleX, artist._y * scaleY, 0)
-      mesh.scale.x = artist._width * scaleX
-      mesh.scale.y = artist._height * scaleY
-      # mesh.rotation.x = Math.sin(artist._y * 3)
-      # mesh.rotation.z = Math.cos(artist._y * 3 )
-      mesh.scale.z = 1 + artist._height * scaleY * 10
+      mesh = @artistMesh(artist)
 
       for face in mesh.geometry.faces
         face.color.r = artist.id
@@ -31,10 +38,10 @@ class GeometryBuilder
 
       artist.works.forEach (work)=>
         if !work.invalid
-          workMesh = new THREE.Mesh(workGeometry)
-          workMesh.position.set(work._x * scaleX, work._y * scaleY, (mesh.scale.z / 2) + 0.1 )
-          workMesh.scale.x = work._width * scaleX
-          workMesh.scale.y = work._height * scaleY * 0.1
+          workMesh = new THREE.Mesh(@workGeometry)
+          workMesh.position.set(work._x * @scaleX, work._y * @scaleY, (mesh.scale.z / 2) + 0.1 )
+          workMesh.scale.x = work._width * @scaleX
+          workMesh.scale.y = work._height * @scaleY * 0.1
           THREE.GeometryUtils.merge(@collatedWorkGeometry, workMesh)
 
     materialProperties = 
@@ -63,7 +70,7 @@ class GeometryBuilder
     # Color meshes
     for geometry, gender in @collatedArtistGeometries
       switch gender
-        when 0 then materialProperties.color = "#999"
+        when 0 then materialProperties.color = "#346"
         when 1 then materialProperties.color = "#6068ff"
         when 2 then materialProperties.color = "#ff7060"
 

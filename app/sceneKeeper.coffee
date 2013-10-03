@@ -5,9 +5,12 @@ class SceneKeeper
   SHOW_STATS = true
 
   constructor: ->
-    # if not Detector.webgl
-    #   $("#error").show()
-    #   $("#main").hide()
+    @selectedArtistMaterial = new THREE.MeshLambertMaterial({
+      opacity: 0.50
+      wireframe: false
+      transparent:true
+    })
+
 
   init:(data) ->
     @data = data
@@ -29,7 +32,7 @@ class SceneKeeper
     FAR = 10000
 
     @camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1, FAR)
-    @camera.position.set(140,85,150)
+    @camera.position.set(-190,75,0)
     @camera.lookAt(@scene.position);
 
     @controls = new THREE.TrackballControls(@camera)
@@ -96,7 +99,7 @@ class SceneKeeper
     
     # Composer
 
-    # @renderer.autoClear = false;
+    @renderer.autoClear = false;
 
     renderTargetParameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBFormat, stencilBuffer: false }
     @renderTarget = new THREE.WebGLRenderTarget( SCREEN_WIDTH * 2, SCREEN_HEIGHT * 2, renderTargetParameters )
@@ -142,6 +145,8 @@ class SceneKeeper
     window.addEventListener('dblclick', @click, false)
     window.addEventListener('mousemove', @mousemove, false)
     window.addEventListener('resize', @resize, false)
+    window.addEventListener('resize', @resize, false)
+
     @currentArtist = undefined
 
   resize: =>
@@ -159,6 +164,7 @@ class SceneKeeper
     if ! res?
       if @currentArtist
         @currentArtist = undefined
+        @scene.remove(@currentArtistMesh)
         $(".container h2").removeClass("selected")
         vec = new THREE.Vector3();
         vec.subVectors( @camera.position, @controls.target);
@@ -170,8 +176,13 @@ class SceneKeeper
       @currentArtist = res.artist
       @updateArtistName(@currentArtist)
 
-      # Color faces
-      console.info @currentArtist.faces
+      # Color chosen mesh
+      if @currentArtistMesh
+        @scene.remove(@currentArtistMesh)
+
+      mesh = geometryBuilder.artistMesh(res.artist, @selectedArtistMaterial, 1.03)
+      @scene.add(mesh)
+      @currentArtistMesh = mesh
 
       oldLookAt = @controls.target
       lookAt = res.artist.focusFace.centroid.clone()
@@ -186,8 +197,6 @@ class SceneKeeper
       vec.setLength(distToCenter);
       vec.addVectors(vec, lookAt)
       @tweenCamera(vec, lookAt)
-
-
 
   tweenCamera:(position, target) =>
     TWEEN.removeAll()
@@ -223,8 +232,14 @@ class SceneKeeper
   mousemove:(event) =>
     return if @currentArtist?
     res = @findArtist(event)
-    return unless res?
-    @updateArtistName(res.artist)
+    if res?
+      @updateArtistName(res.artist)
+    else
+      @blankArtistName()
+
+  blankArtistName:() =>
+    $('.container h2').text("")
+    $('.container p').text("")
 
   updateArtistName:(artist) =>
     $('.container h2').text(artist.firstname + " " + artist.lastname)

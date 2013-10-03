@@ -24,7 +24,6 @@ class VisualStructure
     # Todo: calc 1/@numberOfWorks once!
 
     workHeight = 1/@numberOfWorks
-
     workIndex = -0.5
     @data.artists.forEach (artist)=>
       height = artist.works.length/@numberOfWorks

@@ -54,6 +54,9 @@ class Importer
         @data.artists = _.sortBy @data.artists, (artist)->
           artist.dob
 
+        @data.artists.forEach (artist, i) =>
+          artist.index = i
+
         @data.artists.forEach (artist)->
           artist.works = _.sortBy artist.works, (work)-> 
             work.produced
