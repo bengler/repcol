@@ -139,11 +139,19 @@ class SceneKeeper
     @projector = new THREE.Projector()
     @animate()
 
-    #window.addEventListener( 'resize', @resize, false );
-    window.addEventListener( 'dblclick', @click, false );
-    window.addEventListener( 'mousemove', @mousemove, false );
-
+    window.addEventListener('dblclick', @click, false)
+    window.addEventListener('mousemove', @mousemove, false)
+    window.addEventListener('resize', @resize, false)
     @currentArtist = undefined
+
+  resize: =>
+    SCREEN_WIDTH = window.innerWidth
+    SCREEN_HEIGHT = window.innerHeight
+
+    @renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT )
+
+    @camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT
+    @camera.updateProjectionMatrix()
 
   click:(event) =>
     res = @findArtist(event)
@@ -152,30 +160,47 @@ class SceneKeeper
       if @currentArtist
         @currentArtist = undefined
         $(".container h2").removeClass("selected")
-  
         vec = new THREE.Vector3();
         vec.subVectors( @camera.position, @controls.target);
-        vec.setLength(vec.length() * 1.5);
-        @camera.position.addVectors(vec,@controls.target);
-        @camera.updateProjectionMatrix();
+        vec.setLength(vec.length() * 3);
+        vec.addVectors(vec, @controls.target)
+        @tweenCamera(vec, @controls.target)
     else
       $(".container h2").addClass("selected")
       @currentArtist = res.artist
       @updateArtistName(@currentArtist)
-      COG = res.artist.focusFace.centroid
+
+      # Color faces
+      console.info @currentArtist.faces
+
+      oldLookAt = @controls.target
+      lookAt = res.artist.focusFace.centroid.clone()
       v = new THREE.Vector3();
-      v.subVectors(COG,@controls.target);
-      @controls.target.set(COG.x,COG.y,COG.z);  
+      v.subVectors(lookAt,@controls.target);
+      # @controls.target.set(lookAt.x,lookAt.y,lookAt.z)
 
       size = 1 + res.artist._height * 160
-      distToCenter = size/Math.sin( Math.PI / 180.0 * @camera.fov * 0.5);
-      target = @controls.target
-      vec = new THREE.Vector3();
-      vec.subVectors(@camera.position, target);
+      distToCenter = size/Math.sin( Math.PI / 180.0 * @camera.fov * 0.5)
+      vec = new THREE.Vector3()
+      vec.subVectors(@camera.position, oldLookAt)
       vec.setLength(distToCenter);
-      @camera.position.addVectors(  vec , target );
+      vec.addVectors(vec, lookAt)
+      @tweenCamera(vec, lookAt)
 
-      @camera.updateProjectionMatrix();
+
+
+  tweenCamera:(position, target) =>
+    TWEEN.removeAll()
+    new TWEEN.Tween(@camera.position ).to( {
+    x: position.x,
+    y: position.y,
+    z: position.z}, 1000 )
+    .easing( TWEEN.Easing.Exponential.Out).start()
+    new TWEEN.Tween(@controls.target ).to( {
+    x: target.x,
+    y: target.y,
+    z: target.z}, 800 )
+    .easing( TWEEN.Easing.Exponential.Out).start()
 
   findArtist:(event) ->
     @mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1
@@ -206,15 +231,14 @@ class SceneKeeper
     dod = if artist.dod == 2013 then "" else artist.dod
     $('.container p').text(artist.dob + " - " + dod)
 
-
   animate: ->
     @render()
     @stats.update() if SHOW_STATS
     requestAnimationFrame(=> @animate()) unless @stopped
+    TWEEN.update();
     @controls.update();
 
   render: ->
-
     @composer.render()
 
 module.exports = new SceneKeeper

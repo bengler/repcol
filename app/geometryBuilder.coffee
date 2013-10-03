@@ -58,7 +58,7 @@ class GeometryBuilder
           currentArtist = artist
           @data.artistsKeyed[artist].faces = []
 
-        @data.artistsKeyed[artist].faces << face
+        @data.artistsKeyed[artist].faces.push(face)
 
     # Color meshes
     for geometry, gender in @collatedArtistGeometries
@@ -78,8 +78,8 @@ class GeometryBuilder
 
     workMaterial = new THREE.MeshLambertMaterial({
       depthTest: true
-      opacity: 0.90
-      emissive: "#fff"
+      opacity: 0.30
+      emissive: "#eee"
       wireframe: false
       transparent:true
     })

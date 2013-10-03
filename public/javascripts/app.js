@@ -140,7 +140,7 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
             currentArtist = artist;
             this.data.artistsKeyed[artist].faces = [];
           }
-          this.data.artistsKeyed[artist].faces << face;
+          this.data.artistsKeyed[artist].faces.push(face);
         }
       }
       _ref2 = this.collatedArtistGeometries;
@@ -165,8 +165,8 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
       }
       workMaterial = new THREE.MeshLambertMaterial({
         depthTest: true,
-        opacity: 0.90,
-        emissive: "#fff",
+        opacity: 0.30,
+        emissive: "#eee",
         wireframe: false,
         transparent: true
       });
@@ -678,7 +678,9 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     function SceneKeeper() {
       this.updateArtistName = __bind(this.updateArtistName, this);
       this.mousemove = __bind(this.mousemove, this);
+      this.tweenCamera = __bind(this.tweenCamera, this);
       this.click = __bind(this.click, this);
+      this.resize = __bind(this.resize, this);
     }
 
     SceneKeeper.prototype.init = function(data) {
@@ -770,11 +772,22 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.animate();
       window.addEventListener('dblclick', this.click, false);
       window.addEventListener('mousemove', this.mousemove, false);
+      window.addEventListener('resize', this.resize, false);
       return this.currentArtist = void 0;
     };
 
+    SceneKeeper.prototype.resize = function() {
+      var SCREEN_HEIGHT, SCREEN_WIDTH;
+
+      SCREEN_WIDTH = window.innerWidth;
+      SCREEN_HEIGHT = window.innerHeight;
+      this.renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+      this.camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
+      return this.camera.updateProjectionMatrix();
+    };
+
     SceneKeeper.prototype.click = function(event) {
-      var COG, distToCenter, res, size, target, v, vec;
+      var distToCenter, lookAt, oldLookAt, res, size, v, vec;
 
       res = this.findArtist(event);
       if (res == null) {
@@ -783,27 +796,41 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
           $(".container h2").removeClass("selected");
           vec = new THREE.Vector3();
           vec.subVectors(this.camera.position, this.controls.target);
-          vec.setLength(vec.length() * 1.5);
-          this.camera.position.addVectors(vec, this.controls.target);
-          return this.camera.updateProjectionMatrix();
+          vec.setLength(vec.length() * 3);
+          vec.addVectors(vec, this.controls.target);
+          return this.tweenCamera(vec, this.controls.target);
         }
       } else {
         $(".container h2").addClass("selected");
         this.currentArtist = res.artist;
         this.updateArtistName(this.currentArtist);
-        COG = res.artist.focusFace.centroid;
+        console.info(this.currentArtist.faces);
+        oldLookAt = this.controls.target;
+        lookAt = res.artist.focusFace.centroid.clone();
         v = new THREE.Vector3();
-        v.subVectors(COG, this.controls.target);
-        this.controls.target.set(COG.x, COG.y, COG.z);
+        v.subVectors(lookAt, this.controls.target);
         size = 1 + res.artist._height * 160;
         distToCenter = size / Math.sin(Math.PI / 180.0 * this.camera.fov * 0.5);
-        target = this.controls.target;
         vec = new THREE.Vector3();
-        vec.subVectors(this.camera.position, target);
+        vec.subVectors(this.camera.position, oldLookAt);
         vec.setLength(distToCenter);
-        this.camera.position.addVectors(vec, target);
-        return this.camera.updateProjectionMatrix();
+        vec.addVectors(vec, lookAt);
+        return this.tweenCamera(vec, lookAt);
       }
+    };
+
+    SceneKeeper.prototype.tweenCamera = function(position, target) {
+      TWEEN.removeAll();
+      new TWEEN.Tween(this.camera.position).to({
+        x: position.x,
+        y: position.y,
+        z: position.z
+      }, 1000).easing(TWEEN.Easing.Exponential.Out).start();
+      return new TWEEN.Tween(this.controls.target).to({
+        x: target.x,
+        y: target.y,
+        z: target.z
+      }, 800).easing(TWEEN.Easing.Exponential.Out).start();
     };
 
     SceneKeeper.prototype.findArtist = function(event) {
@@ -861,6 +888,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
           return _this.animate();
         });
       }
+      TWEEN.update();
       return this.controls.update();
     };
 
