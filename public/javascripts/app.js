@@ -203,6 +203,54 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
   
 }});
 
+window.require.define({"imageRetriever": function(exports, require, module) {
+  var ImageRetriever;
+
+  ImageRetriever = (function() {
+    function ImageRetriever() {}
+
+    ImageRetriever.prototype.getImages = function(artist) {
+      var image, work, _i, _len, _ref, _results;
+
+      this.clear();
+      _ref = artist.works.slice(0, 51);
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        work = _ref[_i];
+        image = new Image();
+        image.src = "data/images_lores_2/" + work.id + "_0.JPG";
+        _results.push(image.addEventListener("load", function(event) {
+          this.addEventListener("onmousein", function(event) {
+            return this.css({
+              opacity: 1
+            });
+          });
+          this.addEventListener("onmouseout", function(event) {
+            return this.css({
+              opacity: 0.5
+            });
+          });
+          this.addEventListener("click", function(event) {
+            return console.info("clicked");
+          });
+          return $(".imageContainer").append(this);
+        }));
+      }
+      return _results;
+    };
+
+    ImageRetriever.prototype.clear = function() {
+      return $(".imageContainer").empty();
+    };
+
+    return ImageRetriever;
+
+  })();
+
+  module.exports = new ImageRetriever;
+  
+}});
+
 window.require.define({"importer": function(exports, require, module) {
   var Importer;
 
@@ -687,11 +735,13 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   SceneKeeper = (function() {
-    var SHOW_STATS, geometryBuilder, visualStructure;
+    var SHOW_STATS, geometryBuilder, imageRetriever, visualStructure;
 
     visualStructure = require('./visualStructure');
 
     geometryBuilder = require('./geometryBuilder');
+
+    imageRetriever = require('./imageRetriever');
 
     SHOW_STATS = true;
 
@@ -743,8 +793,8 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       light.shadowCameraFov = 100;
       light.shadowBias = -0.00122;
       light.shadowDarkness = 0.1;
-      light.shadowMapWidth = 8192;
-      light.shadowMapHeight = 8192;
+      light.shadowMapWidth = 1024;
+      light.shadowMapHeight = 1024;
       this.scene.add(light);
       light = new THREE.SpotLight(0xffffff, 1.3);
       light.position.set(0, -300, 100);
@@ -780,7 +830,6 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
 
     SceneKeeper.prototype.keydown = function(event) {
       if (this.currentArtist) {
-        console.info(event.keyCode);
         switch (event.keyCode) {
           case 37:
             if (this.currentArtist.index !== 0) {
@@ -801,14 +850,14 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       res = this.findArtist(event);
       if (res == null) {
         if (this.currentArtist) {
-          return this.defocusArtist();
+          return this.blurArtist();
         }
       } else {
         return this.focusArtist(res.artist);
       }
     };
 
-    SceneKeeper.prototype.defocusArtist = function() {
+    SceneKeeper.prototype.blurArtist = function() {
       var vec;
 
       this.currentArtist = void 0;
@@ -818,7 +867,8 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       vec.subVectors(this.camera.position, this.controls.target);
       vec.setLength(vec.length() * 3);
       vec.addVectors(vec, this.controls.target);
-      return this.tweenCamera(vec, this.controls.target);
+      this.tweenCamera(vec, this.controls.target);
+      return imageRetriever.clear();
     };
 
     SceneKeeper.prototype.focusArtist = function(artist) {
@@ -835,7 +885,6 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.currentArtistMesh = mesh;
       oldLookAt = this.controls.target;
       lookAt = artist.focusFace.centroid.clone();
-      console.info(lookAt);
       v = new THREE.Vector3();
       v.subVectors(lookAt, this.controls.target);
       size = 1 + artist._height * 260;
@@ -844,7 +893,8 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       vec.subVectors(this.camera.position, oldLookAt);
       vec.setLength(distToCenter);
       vec.addVectors(vec, lookAt);
-      return this.tweenCamera(vec, lookAt);
+      this.tweenCamera(vec, lookAt);
+      return imageRetriever.getImages(artist);
     };
 
     SceneKeeper.prototype.tweenCamera = function(position, target) {
@@ -903,11 +953,14 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     };
 
     SceneKeeper.prototype.updateArtistName = function(artist) {
-      var dod;
+      var dod, workLen, workNoun;
 
       $('.container h2').text(artist.firstname + " " + artist.lastname);
       dod = artist.dod === 2013 ? "" : artist.dod;
-      return $('.container p').text(artist.dob + " - " + dod);
+      $('.container p.lifespan').text(artist.dob + " - " + dod);
+      workLen = artist.works.length;
+      workNoun = artist.works.length > 1 ? "works" : "work";
+      return $('.container p.works').text(workLen + " " + workNoun + " in collection");
     };
 
     SceneKeeper.prototype.animate = function() {

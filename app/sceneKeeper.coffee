@@ -1,6 +1,7 @@
 class SceneKeeper
   visualStructure = require './visualStructure'
   geometryBuilder = require './geometryBuilder'
+  imageRetriever = require './imageRetriever'
 
   SHOW_STATS = true
 
@@ -54,8 +55,8 @@ class SceneKeeper
     light.shadowBias = -0.00122
     light.shadowDarkness = 0.1
 
-    light.shadowMapWidth = 8192
-    light.shadowMapHeight = 8192
+    light.shadowMapWidth = 1024
+    light.shadowMapHeight = 1024
     @scene.add(light)
 
 
@@ -108,7 +109,6 @@ class SceneKeeper
 
   keydown:(event) =>
     if @currentArtist
-      console.info (event.keyCode)
       switch event.keyCode
         when 37 then @focusArtist(@data.artists[@currentArtist.index - 1]) unless @currentArtist.index == 0
         when 39 then @focusArtist(@data.artists[@currentArtist.index + 1]) unless @currentArtist.index == @data.artists.length - 1 
@@ -117,11 +117,11 @@ class SceneKeeper
     res = @findArtist(event)
 
     if ! res?
-      @defocusArtist() if @currentArtist
+      @blurArtist() if @currentArtist
     else
       @focusArtist(res.artist)
 
-  defocusArtist: ->
+  blurArtist: ->
     @currentArtist = undefined
     @scene.remove(@currentArtistMesh)
     $(".container h2").removeClass("selected")
@@ -130,6 +130,7 @@ class SceneKeeper
     vec.setLength(vec.length() * 3);
     vec.addVectors(vec, @controls.target)
     @tweenCamera(vec, @controls.target)
+    imageRetriever.clear()
 
   focusArtist:(artist) ->
     @currentArtist = artist
@@ -145,7 +146,6 @@ class SceneKeeper
 
     oldLookAt = @controls.target
     lookAt = artist.focusFace.centroid.clone()
-    console.info(lookAt)
     v = new THREE.Vector3();
     v.subVectors(lookAt,@controls.target);
 
@@ -156,6 +156,8 @@ class SceneKeeper
     vec.setLength(distToCenter);
     vec.addVectors(vec, lookAt)
     @tweenCamera(vec, lookAt)
+
+    imageRetriever.getImages(artist)
 
   tweenCamera:(position, target) =>
     TWEEN.removeAll()
@@ -203,7 +205,10 @@ class SceneKeeper
   updateArtistName:(artist) =>
     $('.container h2').text(artist.firstname + " " + artist.lastname)
     dod = if artist.dod == 2013 then "" else artist.dod
-    $('.container p').text(artist.dob + " - " + dod)
+    $('.container p.lifespan').text(artist.dob + " - " + dod)
+    workLen = artist.works.length
+    workNoun = if artist.works.length > 1 then "works" else "work" 
+    $('.container p.works').text(workLen + " " + workNoun + " in collection")
 
   animate: ->
     @render()
