@@ -81,24 +81,30 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
     function GeometryBuilder() {
       this.artistGeometry = new THREE.CubeGeometry(1, 1, 1);
       this.workGeometry = new THREE.PlaneGeometry(1, 40);
-      this.scaleX = 100;
+      this.selectedArtistMaterial = new THREE.MeshLambertMaterial({
+        opacity: 0.50,
+        wireframe: false,
+        transparent: true
+      });
+      this.scaleX = 200;
       this.scaleY = 40;
     }
 
-    GeometryBuilder.prototype.artistMesh = function(artist, texture, multiplier, adder) {
+    GeometryBuilder.prototype.selectedArtistMesh = function(artist) {
+      return this.artistMesh(artist, this.selectedArtistMaterial, 1.03);
+    };
+
+    GeometryBuilder.prototype.artistMesh = function(artist, texture, multiplier) {
       var mesh;
 
       if (multiplier == null) {
-        multiplier = 1;
-      }
-      if (adder == null) {
-        adder = 0;
+        multiplier = 0;
       }
       mesh = new THREE.Mesh(this.artistGeometry, texture);
       mesh.position.set(artist._x * this.scaleX, artist._y * this.scaleY, 0);
-      mesh.scale.x = (artist._width * this.scaleX) * multiplier;
-      mesh.scale.y = (artist._height * this.scaleY) * multiplier;
-      mesh.scale.z = (1 + artist._height * this.scaleY * 10) * multiplier;
+      mesh.scale.x = (artist._width * this.scaleX) + (artist._height * multiplier);
+      mesh.scale.y = (artist._height * this.scaleY) + (artist._height * multiplier);
+      mesh.scale.z = (1 + artist._height * this.scaleY * 10) + (artist._height * multiplier);
       return mesh;
     };
 
@@ -693,16 +699,13 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     SHOW_STATS = true;
 
     function SceneKeeper() {
+      this.resize = __bind(this.resize, this);
       this.updateArtistName = __bind(this.updateArtistName, this);
       this.blankArtistName = __bind(this.blankArtistName, this);
       this.mousemove = __bind(this.mousemove, this);
       this.tweenCamera = __bind(this.tweenCamera, this);
       this.click = __bind(this.click, this);
-      this.resize = __bind(this.resize, this);    this.selectedArtistMaterial = new THREE.MeshLambertMaterial({
-        opacity: 0.50,
-        wireframe: false,
-        transparent: true
-      });
+      this.keydown = __bind(this.keydown, this);
     }
 
     SceneKeeper.prototype.init = function(data) {
@@ -761,10 +764,9 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       renderTargetParameters = {
         minFilter: THREE.LinearFilter,
         magFilter: THREE.LinearFilter,
-        format: THREE.RGBFormat,
-        stencilBuffer: false
+        format: THREE.RGBFormat
       };
-      this.renderTarget = new THREE.WebGLRenderTarget(SCREEN_WIDTH * 2, SCREEN_HEIGHT * 2, renderTargetParameters);
+      this.renderTarget = new THREE.WebGLRenderTarget(SCREEN_WIDTH * 1, SCREEN_HEIGHT * 1, renderTargetParameters);
       effectVignette = new THREE.ShaderPass(THREE.VignetteShader);
       effectVignette.uniforms['darkness'].value = 0.4;
       hblur = new THREE.ShaderPass(THREE.HorizontalTiltShiftShader);
@@ -797,56 +799,76 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       window.addEventListener('mousemove', this.mousemove, false);
       window.addEventListener('resize', this.resize, false);
       window.addEventListener('resize', this.resize, false);
+      window.addEventListener('keydown', this.keydown, false);
       return this.currentArtist = void 0;
     };
 
-    SceneKeeper.prototype.resize = function() {
-      var SCREEN_HEIGHT, SCREEN_WIDTH;
-
-      SCREEN_WIDTH = window.innerWidth;
-      SCREEN_HEIGHT = window.innerHeight;
-      this.renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-      this.camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
-      return this.camera.updateProjectionMatrix();
+    SceneKeeper.prototype.keydown = function(event) {
+      if (this.currentArtist) {
+        console.info(event.keyCode);
+        switch (event.keyCode) {
+          case 37:
+            if (this.currentArtist.index !== 0) {
+              return this.focusArtist(this.data.artists[this.currentArtist.index - 1]);
+            }
+            break;
+          case 39:
+            if (this.currentArtist.index !== this.data.artists.length - 1) {
+              return this.focusArtist(this.data.artists[this.currentArtist.index + 1]);
+            }
+        }
+      }
     };
 
     SceneKeeper.prototype.click = function(event) {
-      var distToCenter, lookAt, mesh, oldLookAt, res, size, v, vec;
+      var res;
 
       res = this.findArtist(event);
       if (res == null) {
         if (this.currentArtist) {
-          this.currentArtist = void 0;
-          this.scene.remove(this.currentArtistMesh);
-          $(".container h2").removeClass("selected");
-          vec = new THREE.Vector3();
-          vec.subVectors(this.camera.position, this.controls.target);
-          vec.setLength(vec.length() * 3);
-          vec.addVectors(vec, this.controls.target);
-          return this.tweenCamera(vec, this.controls.target);
+          return this.defocusArtist();
         }
       } else {
-        $(".container h2").addClass("selected");
-        this.currentArtist = res.artist;
-        this.updateArtistName(this.currentArtist);
-        if (this.currentArtistMesh) {
-          this.scene.remove(this.currentArtistMesh);
-        }
-        mesh = geometryBuilder.artistMesh(res.artist, this.selectedArtistMaterial, 1.03);
-        this.scene.add(mesh);
-        this.currentArtistMesh = mesh;
-        oldLookAt = this.controls.target;
-        lookAt = res.artist.focusFace.centroid.clone();
-        v = new THREE.Vector3();
-        v.subVectors(lookAt, this.controls.target);
-        size = 1 + res.artist._height * 160;
-        distToCenter = size / Math.sin(Math.PI / 180.0 * this.camera.fov * 0.5);
-        vec = new THREE.Vector3();
-        vec.subVectors(this.camera.position, oldLookAt);
-        vec.setLength(distToCenter);
-        vec.addVectors(vec, lookAt);
-        return this.tweenCamera(vec, lookAt);
+        return this.focusArtist(res.artist);
       }
+    };
+
+    SceneKeeper.prototype.defocusArtist = function() {
+      var vec;
+
+      this.currentArtist = void 0;
+      this.scene.remove(this.currentArtistMesh);
+      $(".container h2").removeClass("selected");
+      vec = new THREE.Vector3();
+      vec.subVectors(this.camera.position, this.controls.target);
+      vec.setLength(vec.length() * 3);
+      vec.addVectors(vec, this.controls.target);
+      return this.tweenCamera(vec, this.controls.target);
+    };
+
+    SceneKeeper.prototype.focusArtist = function(artist) {
+      var distToCenter, lookAt, mesh, oldLookAt, size, v, vec;
+
+      this.currentArtist = artist;
+      this.updateArtistName(this.currentArtist);
+      $(".container h2").addClass("selected");
+      if (this.currentArtistMesh) {
+        this.scene.remove(this.currentArtistMesh);
+      }
+      mesh = geometryBuilder.selectedArtistMesh(artist);
+      this.scene.add(mesh);
+      this.currentArtistMesh = mesh;
+      oldLookAt = this.controls.target;
+      lookAt = artist.focusFace.centroid.clone();
+      v = new THREE.Vector3();
+      v.subVectors(lookAt, this.controls.target);
+      size = 1 + artist._height * 160;
+      distToCenter = size / Math.sin(Math.PI / 180.0 * this.camera.fov * 0.5);
+      vec = new THREE.Vector3();
+      vec.subVectors(this.camera.position, oldLookAt);
+      vec.setLength(distToCenter);
+      vec.addVectors(vec, lookAt);
+      return this.tweenCamera(vec, lookAt);
     };
 
     SceneKeeper.prototype.tweenCamera = function(position, target) {
@@ -932,6 +954,16 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       return this.composer.render();
     };
 
+    SceneKeeper.prototype.resize = function() {
+      var SCREEN_HEIGHT, SCREEN_WIDTH;
+
+      SCREEN_WIDTH = window.innerWidth;
+      SCREEN_HEIGHT = window.innerHeight;
+      this.renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+      this.camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
+      return this.camera.updateProjectionMatrix();
+    };
+
     return SceneKeeper;
 
   })();
@@ -1008,7 +1040,7 @@ window.require.define({"visualStructure": function(exports, require, module) {
           var wHeight, wWidth, wX, wY;
 
           if (!work.invalid) {
-            wHeight = 1 / _this.numberOfWorks;
+            wHeight = workHeight;
             wX = _this.yearToFloat(work.produced);
             wWidth = _this.yearToFloat(work.acquired) - wX;
             wY = workIndex + (workHeight * i);
@@ -1018,7 +1050,7 @@ window.require.define({"visualStructure": function(exports, require, module) {
             return work._width = wWidth;
           }
         });
-        return workIndex += height + workHeight * 10;
+        return workIndex += height + workHeight * 30;
       });
       console.info("Done");
       return this.data;

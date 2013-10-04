@@ -5,12 +5,6 @@ class SceneKeeper
   SHOW_STATS = true
 
   constructor: ->
-    @selectedArtistMaterial = new THREE.MeshLambertMaterial({
-      opacity: 0.50
-      wireframe: false
-      transparent:true
-    })
-
 
   init:(data) ->
     @data = data
@@ -100,9 +94,8 @@ class SceneKeeper
     # Composer
 
     @renderer.autoClear = false;
-
-    renderTargetParameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBFormat, stencilBuffer: false }
-    @renderTarget = new THREE.WebGLRenderTarget( SCREEN_WIDTH * 2, SCREEN_HEIGHT * 2, renderTargetParameters )
+    renderTargetParameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBFormat }
+    @renderTarget = new THREE.WebGLRenderTarget( SCREEN_WIDTH * 1, SCREEN_HEIGHT * 1, renderTargetParameters )
 
     # effectFXAA = new THREE.ShaderPass( THREE.FXAAShader )
     # effectFXAA.uniforms[ 'resolution' ].value.set( 1 / SCREEN_WIDTH / 2, 1 / SCREEN_HEIGHT / 2 )
@@ -146,57 +139,60 @@ class SceneKeeper
     window.addEventListener('mousemove', @mousemove, false)
     window.addEventListener('resize', @resize, false)
     window.addEventListener('resize', @resize, false)
+    window.addEventListener('keydown', @keydown, false)
 
     @currentArtist = undefined
 
-  resize: =>
-    SCREEN_WIDTH = window.innerWidth
-    SCREEN_HEIGHT = window.innerHeight
 
-    @renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT )
-
-    @camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT
-    @camera.updateProjectionMatrix()
+  keydown:(event) =>
+    if @currentArtist
+      console.info (event.keyCode)
+      switch event.keyCode
+        when 37 then @focusArtist(@data.artists[@currentArtist.index - 1]) unless @currentArtist.index == 0
+        when 39 then @focusArtist(@data.artists[@currentArtist.index + 1]) unless @currentArtist.index == @data.artists.length - 1 
 
   click:(event) =>
     res = @findArtist(event)
 
     if ! res?
-      if @currentArtist
-        @currentArtist = undefined
-        @scene.remove(@currentArtistMesh)
-        $(".container h2").removeClass("selected")
-        vec = new THREE.Vector3();
-        vec.subVectors( @camera.position, @controls.target);
-        vec.setLength(vec.length() * 3);
-        vec.addVectors(vec, @controls.target)
-        @tweenCamera(vec, @controls.target)
+      @defocusArtist() if @currentArtist
     else
-      $(".container h2").addClass("selected")
-      @currentArtist = res.artist
-      @updateArtistName(@currentArtist)
+      @focusArtist(res.artist)
 
-      # Color chosen mesh
-      if @currentArtistMesh
-        @scene.remove(@currentArtistMesh)
+  defocusArtist: ->
+    @currentArtist = undefined
+    @scene.remove(@currentArtistMesh)
+    $(".container h2").removeClass("selected")
+    vec = new THREE.Vector3();
+    vec.subVectors( @camera.position, @controls.target);
+    vec.setLength(vec.length() * 3);
+    vec.addVectors(vec, @controls.target)
+    @tweenCamera(vec, @controls.target)
 
-      mesh = geometryBuilder.artistMesh(res.artist, @selectedArtistMaterial, 1.03)
-      @scene.add(mesh)
-      @currentArtistMesh = mesh
+  focusArtist:(artist) ->
+    @currentArtist = artist
+    @updateArtistName(@currentArtist)
+    $(".container h2").addClass("selected")
 
-      oldLookAt = @controls.target
-      lookAt = res.artist.focusFace.centroid.clone()
-      v = new THREE.Vector3();
-      v.subVectors(lookAt,@controls.target);
-      # @controls.target.set(lookAt.x,lookAt.y,lookAt.z)
+    if @currentArtistMesh
+      @scene.remove(@currentArtistMesh)
 
-      size = 1 + res.artist._height * 160
-      distToCenter = size/Math.sin( Math.PI / 180.0 * @camera.fov * 0.5)
-      vec = new THREE.Vector3()
-      vec.subVectors(@camera.position, oldLookAt)
-      vec.setLength(distToCenter);
-      vec.addVectors(vec, lookAt)
-      @tweenCamera(vec, lookAt)
+    mesh = geometryBuilder.selectedArtistMesh(artist)
+    @scene.add(mesh)
+    @currentArtistMesh = mesh
+
+    oldLookAt = @controls.target
+    lookAt = artist.focusFace.centroid.clone()
+    v = new THREE.Vector3();
+    v.subVectors(lookAt,@controls.target);
+
+    size = 1 + artist._height * 160
+    distToCenter = size/Math.sin( Math.PI / 180.0 * @camera.fov * 0.5)
+    vec = new THREE.Vector3()
+    vec.subVectors(@camera.position, oldLookAt)
+    vec.setLength(distToCenter);
+    vec.addVectors(vec, lookAt)
+    @tweenCamera(vec, lookAt)
 
   tweenCamera:(position, target) =>
     TWEEN.removeAll()
@@ -255,5 +251,13 @@ class SceneKeeper
 
   render: ->
     @composer.render()
+
+  resize: =>
+    SCREEN_WIDTH = window.innerWidth
+    SCREEN_HEIGHT = window.innerHeight
+    @renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT )
+    @camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT
+    @camera.updateProjectionMatrix()
+
 
 module.exports = new SceneKeeper

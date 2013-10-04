@@ -4,15 +4,24 @@ class GeometryBuilder
     @artistGeometry = new THREE.CubeGeometry( 1, 1, 1)
     @workGeometry = new THREE.PlaneGeometry( 1, 40)
 
-    @scaleX = 100
+    @selectedArtistMaterial = new THREE.MeshLambertMaterial({
+      opacity: 0.50
+      wireframe: false
+      transparent:true
+    })
+
+    @scaleX = 200
     @scaleY = 40
 
-  artistMesh:(artist, texture, multiplier = 1, adder = 0) ->
+  selectedArtistMesh:(artist) ->
+    @artistMesh(artist, @selectedArtistMaterial, 1.03)
+
+  artistMesh:(artist, texture, multiplier = 0) ->
     mesh = new THREE.Mesh(@artistGeometry, texture)
     mesh.position.set(artist._x * @scaleX, artist._y * @scaleY, 0)
-    mesh.scale.x = (artist._width * @scaleX) * multiplier
-    mesh.scale.y = (artist._height * @scaleY) * multiplier
-    mesh.scale.z = (1 + artist._height * @scaleY * 10) * multiplier
+    mesh.scale.x = (artist._width * @scaleX) + (artist._height * multiplier)
+    mesh.scale.y = (artist._height * @scaleY) + (artist._height * multiplier) 
+    mesh.scale.z = (1 + artist._height * @scaleY * 10) + (artist._height * multiplier)
 
     # mesh.rotation.x = Math.sin(artist._y * 3)
     # mesh.rotation.z = Math.cos(artist._y * 3 )
@@ -22,7 +31,6 @@ class GeometryBuilder
   build:(scene, data) ->
     @scene = scene
     @data = data
-
 
     # Undef, Men, Women
     @collatedArtistGeometries = [new THREE.Geometry(), new THREE.Geometry(), new THREE.Geometry()]
@@ -47,10 +55,9 @@ class GeometryBuilder
     materialProperties = 
       depthTest: true
       wireframe: false
-      # emissive: "#eee"
 
-    # HACK: there has got to be a better way of doing this
 
+    # HACK: there _has got_ to be a better way of doing this
     currentArtist = 0
     offset = 0
     for geometry, gender in @collatedArtistGeometries

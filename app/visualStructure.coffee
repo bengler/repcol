@@ -37,7 +37,7 @@ class VisualStructure
 
       artist.works.forEach (work, i)=>
         if !work.invalid
-          wHeight = 1/@numberOfWorks
+          wHeight = workHeight
           wX = @yearToFloat(work.produced)
           wWidth = @yearToFloat(work.acquired) - wX
           wY = workIndex + ((workHeight) * i)
@@ -47,7 +47,7 @@ class VisualStructure
           work._height = wHeight 
           work._width = wWidth
 
-      workIndex += height + workHeight * 10
+      workIndex += height + workHeight * 30
 
     console.info("Done")
 
