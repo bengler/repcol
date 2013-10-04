@@ -26,8 +26,7 @@ class SceneKeeper
     FAR = 10000
 
     @camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1, FAR)
-    @camera.position.set(-290,175,0)
-    @camera.lookAt(@scene.position);
+    @camera.position.set(-205,-15,0)
 
     @controls = new THREE.TrackballControls(@camera)
     @controls.rotateSpeed = 1.0
@@ -38,6 +37,7 @@ class SceneKeeper
     @controls.staticMoving = false
     @controls.dynamicDampingFactor = 0.3
     @controls.keys = [ 65, 83, 68 ]
+    @controls.target = new THREE.Vector3().set(-200,-19.996042251586914,0)
 
     # @scene.fog = new THREE.FogExp2 0xcccccc, 0.001103
 
@@ -54,13 +54,13 @@ class SceneKeeper
     light.shadowBias = -0.00122
     light.shadowDarkness = 0.1
 
-    light.shadowMapWidth = 4096
-    light.shadowMapHeight = 4096
+    light.shadowMapWidth = 8192
+    light.shadowMapHeight = 8192
     @scene.add(light)
 
 
     light = new THREE.SpotLight( 0xffffff, 1.3 )
-    light.position.set( 0, -300, 300 )
+    light.position.set( 0, -300, 100 )
     # light.castShadow = false
 
     # light.shadowCameraNear = 100
@@ -149,7 +149,7 @@ class SceneKeeper
     v = new THREE.Vector3();
     v.subVectors(lookAt,@controls.target);
 
-    size = 1 + artist._height * 160
+    size = 1 + artist._height * 260
     distToCenter = size/Math.sin( Math.PI / 180.0 * @camera.fov * 0.5)
     vec = new THREE.Vector3()
     vec.subVectors(@camera.position, oldLookAt)
@@ -167,7 +167,7 @@ class SceneKeeper
     new TWEEN.Tween(@controls.target ).to( {
     x: target.x,
     y: target.y,
-    z: target.z}, 800 )
+    z: target.z}, 1000 )
     .easing( TWEEN.Easing.Exponential.Out).start()
 
   findArtist:(event) ->

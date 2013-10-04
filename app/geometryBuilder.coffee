@@ -5,7 +5,7 @@ class GeometryBuilder
     @workGeometry = new THREE.PlaneGeometry( 1, 40)
 
     @selectedArtistMaterial = new THREE.MeshLambertMaterial({
-      opacity: 0.50
+      opacity: 0.80
       wireframe: false
       transparent:true
     })
@@ -14,7 +14,7 @@ class GeometryBuilder
     @scaleY = 40
 
   selectedArtistMesh:(artist) ->
-    @artistMesh(artist, @selectedArtistMaterial, 1.03)
+    @artistMesh(artist, @selectedArtistMaterial, 1.50)
 
   artistMesh:(artist, texture, multiplier = 0) ->
     mesh = new THREE.Mesh(@artistGeometry, texture)
@@ -44,19 +44,27 @@ class GeometryBuilder
 
       THREE.GeometryUtils.merge(@collatedArtistGeometries[artist.gender], mesh)
 
+
       artist.works.forEach (work)=>
         if !work.invalid
-          workMesh = new THREE.Mesh(@workGeometry)
-          workMesh.position.set(work._x * @scaleX, work._y * @scaleY, (mesh.scale.z / 2) + 0.1 )
-          workMesh.scale.x = work._width * @scaleX
-          workMesh.scale.y = work._height * @scaleY * 0.1
-          THREE.GeometryUtils.merge(@collatedWorkGeometry, workMesh)
+          v1 = new THREE.Vector3()
+          v1.set((work._x - work._width/2) * @scaleX, work._y * @scaleY, (mesh.scale.z / 2) + 1)
+          v2 = new THREE.Vector3()
+          v2.set((work._x + work._width/2) * @scaleX, work._y * @scaleY, (mesh.scale.z / 2) + 1)
 
-    materialProperties = 
-      depthTest: true
-      wireframe: false
+          @collatedWorkGeometry.vertices.push(v1)
+          @collatedWorkGeometry.vertices.push(v2)
+
+          # workMesh = new THREE.Mesh(@workGeometry)
+          # workMesh.position.set(work._x * @scaleX, work._y * @scaleY, (mesh.scale.z / 2) + 0.1 )
+          # workMesh.scale.x = work._width * @scaleX
+          # workMesh.scale.y = work._height * @scaleY * 0.1
+          # THREE.GeometryUtils.merge(@collatedWorkGeometry, workMesh)
 
 
+    materialProperties = {}
+
+    # Mark focus faces 
     # HACK: there _has got_ to be a better way of doing this
     currentArtist = 0
     offset = 0
@@ -90,16 +98,18 @@ class GeometryBuilder
       
       @scene.add(mesh);
 
-    workMaterial = new THREE.MeshLambertMaterial({
-      depthTest: true
-      opacity: 0.30
-      emissive: "#eee"
-      wireframe: false
-      transparent:true
-    })
+    lineMaterial = new THREE.LineBasicMaterial(
+      color: 0xffffff
+      opacity: 0.01
+      blending: THREE.AdditiveBlending
+      linewidth: 0.1
+    )
 
-    mesh = new THREE.Mesh(@collatedWorkGeometry, workMaterial);
-    @scene.add(mesh)
+    line = new THREE.Line(@collatedWorkGeometry, lineMaterial, THREE.LinePieces)
+    @scene.add(line)
+
+    # mesh = new THREE.Mesh(@collatedWorkGeometry, workMaterial);
+    # @scene.add(mesh)
 
 
   yearToFloat:(year) ->

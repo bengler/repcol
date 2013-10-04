@@ -82,7 +82,7 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
       this.artistGeometry = new THREE.CubeGeometry(1, 1, 1);
       this.workGeometry = new THREE.PlaneGeometry(1, 40);
       this.selectedArtistMaterial = new THREE.MeshLambertMaterial({
-        opacity: 0.50,
+        opacity: 0.80,
         wireframe: false,
         transparent: true
       });
@@ -91,7 +91,7 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
     }
 
     GeometryBuilder.prototype.selectedArtistMesh = function(artist) {
-      return this.artistMesh(artist, this.selectedArtistMaterial, 1.03);
+      return this.artistMesh(artist, this.selectedArtistMaterial, 1.50);
     };
 
     GeometryBuilder.prototype.artistMesh = function(artist, texture, multiplier) {
@@ -109,7 +109,7 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
     };
 
     GeometryBuilder.prototype.build = function(scene, data) {
-      var artist, currentArtist, face, gender, geometry, materialProperties, mesh, offset, workMaterial, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2,
+      var artist, currentArtist, face, gender, geometry, line, lineMaterial, materialProperties, mesh, offset, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2,
         _this = this;
 
       this.scene = scene;
@@ -127,21 +127,19 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
         }
         THREE.GeometryUtils.merge(_this.collatedArtistGeometries[artist.gender], mesh);
         return artist.works.forEach(function(work) {
-          var workMesh;
+          var v1, v2;
 
           if (!work.invalid) {
-            workMesh = new THREE.Mesh(_this.workGeometry);
-            workMesh.position.set(work._x * _this.scaleX, work._y * _this.scaleY, (mesh.scale.z / 2) + 0.1);
-            workMesh.scale.x = work._width * _this.scaleX;
-            workMesh.scale.y = work._height * _this.scaleY * 0.1;
-            return THREE.GeometryUtils.merge(_this.collatedWorkGeometry, workMesh);
+            v1 = new THREE.Vector3();
+            v1.set((work._x - work._width / 2) * _this.scaleX, work._y * _this.scaleY, (mesh.scale.z / 2) + 1);
+            v2 = new THREE.Vector3();
+            v2.set((work._x + work._width / 2) * _this.scaleX, work._y * _this.scaleY, (mesh.scale.z / 2) + 1);
+            _this.collatedWorkGeometry.vertices.push(v1);
+            return _this.collatedWorkGeometry.vertices.push(v2);
           }
         });
       });
-      materialProperties = {
-        depthTest: true,
-        wireframe: false
-      };
+      materialProperties = {};
       currentArtist = 0;
       offset = 0;
       _ref = this.collatedArtistGeometries;
@@ -183,15 +181,14 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
         mesh.receiveShadow = true;
         this.scene.add(mesh);
       }
-      workMaterial = new THREE.MeshLambertMaterial({
-        depthTest: true,
-        opacity: 0.30,
-        emissive: "#eee",
-        wireframe: false,
-        transparent: true
+      lineMaterial = new THREE.LineBasicMaterial({
+        color: 0xffffff,
+        opacity: 0.01,
+        blending: THREE.AdditiveBlending,
+        linewidth: 0.1
       });
-      mesh = new THREE.Mesh(this.collatedWorkGeometry, workMaterial);
-      return this.scene.add(mesh);
+      line = new THREE.Line(this.collatedWorkGeometry, lineMaterial, THREE.LinePieces);
+      return this.scene.add(line);
     };
 
     GeometryBuilder.prototype.yearToFloat = function(year) {
@@ -726,8 +723,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       SCREEN_HEIGHT = HEIGHT - 2 * MARGIN;
       FAR = 10000;
       this.camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1, FAR);
-      this.camera.position.set(-290, 175, 0);
-      this.camera.lookAt(this.scene.position);
+      this.camera.position.set(-205, -15, 0);
       this.controls = new THREE.TrackballControls(this.camera);
       this.controls.rotateSpeed = 1.0;
       this.controls.zoomSpeed = 1.2;
@@ -737,6 +733,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.controls.staticMoving = false;
       this.controls.dynamicDampingFactor = 0.3;
       this.controls.keys = [65, 83, 68];
+      this.controls.target = new THREE.Vector3().set(-200, -19.996042251586914, 0);
       this.scene.add(new THREE.AmbientLight(0x808080));
       light = new THREE.SpotLight(0xffffff, 1.0);
       light.position.set(170, 700, 0);
@@ -746,11 +743,11 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       light.shadowCameraFov = 100;
       light.shadowBias = -0.00122;
       light.shadowDarkness = 0.1;
-      light.shadowMapWidth = 4096;
-      light.shadowMapHeight = 4096;
+      light.shadowMapWidth = 8192;
+      light.shadowMapHeight = 8192;
       this.scene.add(light);
       light = new THREE.SpotLight(0xffffff, 1.3);
-      light.position.set(0, -300, 300);
+      light.position.set(0, -300, 100);
       this.scene.add(light);
       this.renderer = new THREE.WebGLRenderer({
         antialias: true
@@ -841,7 +838,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       console.info(lookAt);
       v = new THREE.Vector3();
       v.subVectors(lookAt, this.controls.target);
-      size = 1 + artist._height * 160;
+      size = 1 + artist._height * 260;
       distToCenter = size / Math.sin(Math.PI / 180.0 * this.camera.fov * 0.5);
       vec = new THREE.Vector3();
       vec.subVectors(this.camera.position, oldLookAt);
@@ -861,7 +858,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
         x: target.x,
         y: target.y,
         z: target.z
-      }, 800).easing(TWEEN.Easing.Exponential.Out).start();
+      }, 1000).easing(TWEEN.Easing.Exponential.Out).start();
     };
 
     SceneKeeper.prototype.findArtist = function(event) {
