@@ -17,7 +17,7 @@ class VisualStructure
     @endYear = new Date().getFullYear()
     console.info("Normalizing against: #{@startYear} - #{@endYear}")
 
-    @numberOfWorks = @data.works.length
+    @numberOfWorks = @data.works.length / 10
 
     console.info("Allocating artist space")
 
@@ -47,7 +47,7 @@ class VisualStructure
           work._height = wHeight 
           work._width = wWidth
 
-      workIndex += height + workHeight * 30
+      workIndex += height + workHeight * 0
 
     console.info("Done")
 

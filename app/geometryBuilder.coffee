@@ -10,7 +10,7 @@ class GeometryBuilder
       transparent:true
     })
 
-    @scaleX = 200
+    @scaleX = 400
     @scaleY = 40
 
   selectedArtistMesh:(artist) ->

@@ -26,7 +26,7 @@ class SceneKeeper
     FAR = 10000
 
     @camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1, FAR)
-    @camera.position.set(-190,75,0)
+    @camera.position.set(-290,175,0)
     @camera.lookAt(@scene.position);
 
     @controls = new THREE.TrackballControls(@camera)
@@ -41,19 +41,10 @@ class SceneKeeper
 
     # @scene.fog = new THREE.FogExp2 0xcccccc, 0.001103
 
-    # geometry = new THREE.CubeGeometry( 1, 1, 1 )
-    # material = new THREE.MeshLambertMaterial( { color: 0xFF0000 } )
-    # mesh = new THREE.Mesh( geometry, material )
-    # @scene.add( mesh )
-
-    # light = new THREE.PointLight( 0xFFFFFF )
-    # light.position.set( 0, 0, 40 )
-    # @scene.add( light )
-
     @scene.add( new THREE.AmbientLight( 0x808080 ) )
 
     light = new THREE.SpotLight( 0xffffff, 1.0 )
-    light.position.set( 50, 150, 0 )
+    light.position.set( 170, 700, 0 )
     light.castShadow = true
 
     light.shadowCameraNear = 100
@@ -68,8 +59,8 @@ class SceneKeeper
     @scene.add(light)
 
 
-    light = new THREE.SpotLight( 0xffffff, 0.6 )
-    light.position.set( 50, 150, 100 )
+    light = new THREE.SpotLight( 0xffffff, 1.3 )
+    light.position.set( 0, -300, 300 )
     # light.castShadow = false
 
     # light.shadowCameraNear = 100
@@ -91,35 +82,6 @@ class SceneKeeper
     @renderer.shadowMapType = THREE.PCFShadowMap;
     @renderer.sortObjects = false;
     
-    # Composer
-
-    @renderer.autoClear = false;
-    renderTargetParameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBFormat }
-    @renderTarget = new THREE.WebGLRenderTarget( SCREEN_WIDTH * 1, SCREEN_HEIGHT * 1, renderTargetParameters )
-
-    # effectFXAA = new THREE.ShaderPass( THREE.FXAAShader )
-    # effectFXAA.uniforms[ 'resolution' ].value.set( 1 / SCREEN_WIDTH / 2, 1 / SCREEN_HEIGHT / 2 )
-
-    effectVignette = new THREE.ShaderPass( THREE.VignetteShader )
-    effectVignette.uniforms[ 'darkness' ].value = 0.4
-
-    hblur = new THREE.ShaderPass( THREE.HorizontalTiltShiftShader )
-    vblur = new THREE.ShaderPass( THREE.VerticalTiltShiftShader )
-    bluriness = 2
-    hblur.uniforms[ 'h' ].value = bluriness / SCREEN_WIDTH
-    vblur.uniforms[ 'v' ].value = bluriness / SCREEN_HEIGHT
-    hblur.uniforms[ 'r' ].value = vblur.uniforms[ 'r' ].value = 0.5
-
-    @composer = new THREE.EffectComposer( @renderer, @renderTarget )
-    renderModel = new THREE.RenderPass( @scene, @camera )
-
-    @composer.addPass(renderModel)
-    @composer.addPass(effectVignette);
-    @composer.addPass(hblur);
-    @composer.addPass(vblur);
-    # @composer.addPass(effectFXAA)
-    vblur.renderToScreen = true;
-
     container = document.createElement('div')
     document.body.appendChild(container)
     container.appendChild(@renderer.domElement)
@@ -183,6 +145,7 @@ class SceneKeeper
 
     oldLookAt = @controls.target
     lookAt = artist.focusFace.centroid.clone()
+    console.info(lookAt)
     v = new THREE.Vector3();
     v.subVectors(lookAt,@controls.target);
 
@@ -250,7 +213,8 @@ class SceneKeeper
     @controls.update();
 
   render: ->
-    @composer.render()
+    # @composer.render()
+    @renderer.render(@scene, @camera)
 
   resize: =>
     SCREEN_WIDTH = window.innerWidth
@@ -261,3 +225,35 @@ class SceneKeeper
 
 
 module.exports = new SceneKeeper
+
+
+
+    # Composer
+
+    # renderTargetParameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBFormat }
+    # @renderTarget = new THREE.WebGLRenderTarget( SCREEN_WIDTH * 1, SCREEN_HEIGHT * 1, renderTargetParameters )
+
+    # effectFXAA = new THREE.ShaderPass( THREE.FXAAShader )
+    # effectFXAA.uniforms[ 'resolution' ].value.set( 1 / SCREEN_WIDTH / 2, 1 / SCREEN_HEIGHT / 2 )
+
+    # effectVignette = new THREE.ShaderPass( THREE.VignetteShader )
+    # effectVignette.uniforms[ 'darkness' ].value = 0.4
+
+    # hblur = new THREE.ShaderPass( THREE.HorizontalTiltShiftShader )
+    # vblur = new THREE.ShaderPass( THREE.VerticalTiltShiftShader )
+    # bluriness = 2
+    # hblur.uniforms[ 'h' ].value = bluriness / SCREEN_WIDTH
+    # vblur.uniforms[ 'v' ].value = bluriness / SCREEN_HEIGHT
+    # hblur.uniforms[ 'r' ].value = vblur.uniforms[ 'r' ].value = 0.5
+
+    # @composer = new THREE.EffectComposer( @renderer, @renderTarget )
+    # renderModel = new THREE.RenderPass( @scene, @camera )
+
+    # @composer.addPass(renderModel)
+    # @composer.addPass(effectVignette);
+    # @composer.addPass(hblur);
+    # @composer.addPass(vblur);
+    # # @composer.addPass(effectFXAA)
+    # vblur.renderToScreen = true;
+
+

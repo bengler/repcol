@@ -86,7 +86,7 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
         wireframe: false,
         transparent: true
       });
-      this.scaleX = 200;
+      this.scaleX = 400;
       this.scaleY = 40;
     }
 
@@ -716,7 +716,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     };
 
     SceneKeeper.prototype.initScene = function() {
-      var FAR, HEIGHT, MARGIN, SCREEN_HEIGHT, SCREEN_WIDTH, WIDTH, bluriness, container, effectVignette, hblur, light, renderModel, renderTargetParameters, vblur;
+      var FAR, HEIGHT, MARGIN, SCREEN_HEIGHT, SCREEN_WIDTH, WIDTH, container, light;
 
       this.scene = new THREE.Scene;
       WIDTH = window.innerWidth || 2;
@@ -726,7 +726,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       SCREEN_HEIGHT = HEIGHT - 2 * MARGIN;
       FAR = 10000;
       this.camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1, FAR);
-      this.camera.position.set(-190, 75, 0);
+      this.camera.position.set(-290, 175, 0);
       this.camera.lookAt(this.scene.position);
       this.controls = new THREE.TrackballControls(this.camera);
       this.controls.rotateSpeed = 1.0;
@@ -739,7 +739,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.controls.keys = [65, 83, 68];
       this.scene.add(new THREE.AmbientLight(0x808080));
       light = new THREE.SpotLight(0xffffff, 1.0);
-      light.position.set(50, 150, 0);
+      light.position.set(170, 700, 0);
       light.castShadow = true;
       light.shadowCameraNear = 100;
       light.shadowCameraFar = this.camera.far;
@@ -749,8 +749,8 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       light.shadowMapWidth = 4096;
       light.shadowMapHeight = 4096;
       this.scene.add(light);
-      light = new THREE.SpotLight(0xffffff, 0.6);
-      light.position.set(50, 150, 100);
+      light = new THREE.SpotLight(0xffffff, 1.3);
+      light.position.set(0, -300, 300);
       this.scene.add(light);
       this.renderer = new THREE.WebGLRenderer({
         antialias: true
@@ -760,28 +760,6 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.renderer.shadowMapEnabled = true;
       this.renderer.shadowMapType = THREE.PCFShadowMap;
       this.renderer.sortObjects = false;
-      this.renderer.autoClear = false;
-      renderTargetParameters = {
-        minFilter: THREE.LinearFilter,
-        magFilter: THREE.LinearFilter,
-        format: THREE.RGBFormat
-      };
-      this.renderTarget = new THREE.WebGLRenderTarget(SCREEN_WIDTH * 1, SCREEN_HEIGHT * 1, renderTargetParameters);
-      effectVignette = new THREE.ShaderPass(THREE.VignetteShader);
-      effectVignette.uniforms['darkness'].value = 0.4;
-      hblur = new THREE.ShaderPass(THREE.HorizontalTiltShiftShader);
-      vblur = new THREE.ShaderPass(THREE.VerticalTiltShiftShader);
-      bluriness = 2;
-      hblur.uniforms['h'].value = bluriness / SCREEN_WIDTH;
-      vblur.uniforms['v'].value = bluriness / SCREEN_HEIGHT;
-      hblur.uniforms['r'].value = vblur.uniforms['r'].value = 0.5;
-      this.composer = new THREE.EffectComposer(this.renderer, this.renderTarget);
-      renderModel = new THREE.RenderPass(this.scene, this.camera);
-      this.composer.addPass(renderModel);
-      this.composer.addPass(effectVignette);
-      this.composer.addPass(hblur);
-      this.composer.addPass(vblur);
-      vblur.renderToScreen = true;
       container = document.createElement('div');
       document.body.appendChild(container);
       container.appendChild(this.renderer.domElement);
@@ -860,6 +838,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.currentArtistMesh = mesh;
       oldLookAt = this.controls.target;
       lookAt = artist.focusFace.centroid.clone();
+      console.info(lookAt);
       v = new THREE.Vector3();
       v.subVectors(lookAt, this.controls.target);
       size = 1 + artist._height * 160;
@@ -951,7 +930,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     };
 
     SceneKeeper.prototype.render = function() {
-      return this.composer.render();
+      return this.renderer.render(this.scene, this.camera);
     };
 
     SceneKeeper.prototype.resize = function() {
@@ -1022,7 +1001,7 @@ window.require.define({"visualStructure": function(exports, require, module) {
       this.startYear = this.data.artists[0].dob;
       this.endYear = new Date().getFullYear();
       console.info("Normalizing against: " + this.startYear + " - " + this.endYear);
-      this.numberOfWorks = this.data.works.length;
+      this.numberOfWorks = this.data.works.length / 10;
       console.info("Allocating artist space");
       workHeight = 1 / this.numberOfWorks;
       workIndex = -0.5;
@@ -1050,7 +1029,7 @@ window.require.define({"visualStructure": function(exports, require, module) {
             return work._width = wWidth;
           }
         });
-        return workIndex += height + workHeight * 30;
+        return workIndex += height + workHeight * 0;
       });
       console.info("Done");
       return this.data;
