@@ -153,7 +153,7 @@ class SceneKeeper
     distToCenter = size/Math.sin( Math.PI / 180.0 * @camera.fov * 0.5)
     vec = new THREE.Vector3()
     vec.subVectors(@camera.position, oldLookAt)
-    vec.setLength(distToCenter);
+    # vec.setLength(distToCenter);
     vec.addVectors(vec, lookAt)
     @tweenCamera(vec, lookAt)
 
@@ -230,8 +230,6 @@ class SceneKeeper
 
 
 module.exports = new SceneKeeper
-
-
 
     # Composer
 

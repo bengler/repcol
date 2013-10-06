@@ -86,7 +86,7 @@ class GeometryBuilder
     for geometry, gender in @collatedArtistGeometries
       switch gender
         when 0 then materialProperties.color = "#346"
-        when 1 then materialProperties.color = "#6068ff"
+        when 1 then materialProperties.color = "#3058c0"
         when 2 then materialProperties.color = "#ff7060"
 
       mesh = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial(materialProperties) );

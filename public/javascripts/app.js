@@ -169,7 +169,7 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
             materialProperties.color = "#346";
             break;
           case 1:
-            materialProperties.color = "#6068ff";
+            materialProperties.color = "#3058c0";
             break;
           case 2:
             materialProperties.color = "#ff7060";
@@ -210,37 +210,48 @@ window.require.define({"imageRetriever": function(exports, require, module) {
     function ImageRetriever() {}
 
     ImageRetriever.prototype.getImages = function(artist) {
-      var image, work, _i, _len, _ref, _results;
+      var chunkSize, image, index, retrievedImages, work, _i, _len, _ref, _results;
 
       this.clear();
-      _ref = artist.works.slice(0, 51);
+      console.info("-----");
+      index = 0;
+      retrievedImages = 0;
+      chunkSize = 10;
       _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        work = _ref[_i];
-        image = new Image();
-        image.src = "data/images_lores_2/" + work.id + "_0.JPG";
-        _results.push(image.addEventListener("load", function(event) {
-          this.addEventListener("onmousein", function(event) {
-            return this.css({
-              opacity: 1
+      while (index < artist.works.length && retrievedImages < 50) {
+        if (index + chunkSize > artist.works.length) {
+          chunkSize = artist.works.length - index;
+        }
+        console.info(index + ":" + chunkSize);
+        _ref = artist.works.slice(index, +(index + chunkSize) + 1 || 9e9);
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          work = _ref[_i];
+          image = new Image();
+          image.src = "data/images_lores_2/" + work.id + "_0.JPG";
+          image.work = work;
+          image.addEventListener("load", function(event) {
+            var link;
+
+            retrievedImages += 1;
+            link = $(this).wrap($("<a>").attr("href", "#"));
+            $(".imageContainer").append(link);
+            this.addEventListener("mouseenter", function(event) {
+              $(".zoomedImage").attr("src", "data/images/" + this.work.id + "_0.JPG");
+              return $(".zoomedImage").show();
+            });
+            return this.addEventListener("mouseleave", function(event) {
+              return $(".zoomedImage").hide();
             });
           });
-          this.addEventListener("onmouseout", function(event) {
-            return this.css({
-              opacity: 0.5
-            });
-          });
-          this.addEventListener("click", function(event) {
-            return console.info("clicked");
-          });
-          return $(".imageContainer").append(this);
-        }));
+        }
+        _results.push(index += chunkSize);
       }
       return _results;
     };
 
     ImageRetriever.prototype.clear = function() {
-      return $(".imageContainer").empty();
+      $(".imageContainer").empty();
+      return $(".zoomedImage").hide();
     };
 
     return ImageRetriever;
@@ -891,7 +902,6 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       distToCenter = size / Math.sin(Math.PI / 180.0 * this.camera.fov * 0.5);
       vec = new THREE.Vector3();
       vec.subVectors(this.camera.position, oldLookAt);
-      vec.setLength(distToCenter);
       vec.addVectors(vec, lookAt);
       this.tweenCamera(vec, lookAt);
       return imageRetriever.getImages(artist);
