@@ -207,34 +207,30 @@ window.require.define({"imageRetriever": function(exports, require, module) {
   var ImageRetriever;
 
   ImageRetriever = (function() {
+    var maxImages;
+
     function ImageRetriever() {}
 
+    maxImages = 30;
+
     ImageRetriever.prototype.getImages = function(artist) {
-      var chunkSize, image, index, retrievedImages, work, _i, _len, _ref, _results;
+      var image, retrievedImages, work, _i, _len, _ref, _results;
 
       this.clear();
       console.info("-----");
-      index = 0;
       retrievedImages = 0;
-      chunkSize = 10;
+      _ref = artist.works;
       _results = [];
-      while (index < artist.works.length && retrievedImages < 50) {
-        if (index + chunkSize > artist.works.length) {
-          chunkSize = artist.works.length - index;
-        }
-        console.info(index + ":" + chunkSize);
-        _ref = artist.works.slice(index, +(index + chunkSize) + 1 || 9e9);
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          work = _ref[_i];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        work = _ref[_i];
+        console.info(work);
+        if (work.imageCount > 0) {
+          retrievedImages += 1;
           image = new Image();
           image.src = "data/images_lores_2/" + work.id + "_0.JPG";
           image.work = work;
           image.addEventListener("load", function(event) {
-            var link;
-
-            retrievedImages += 1;
-            link = $(this).wrap($("<a>").attr("href", "#"));
-            $(".imageContainer").append(link);
+            $(".imageContainer").append(this);
             this.addEventListener("mouseenter", function(event) {
               $(".zoomedImage").attr("src", "data/images/" + this.work.id + "_0.JPG");
               return $(".zoomedImageContainer").show();
@@ -244,7 +240,11 @@ window.require.define({"imageRetriever": function(exports, require, module) {
             });
           });
         }
-        _results.push(index += chunkSize);
+        if (retrievedImages > maxImages) {
+          break;
+        } else {
+          _results.push(void 0);
+        }
       }
       return _results;
     };
@@ -294,7 +294,7 @@ window.require.define({"importer": function(exports, require, module) {
         return artistsLoaded.resolve();
       });
       artistsLoaded.then(function() {
-        return d3.csv("data/works.csv", function(err, rows) {
+        return d3.csv("data/works_images.csv", function(err, rows) {
           var missing;
 
           missing = 0;
@@ -367,12 +367,11 @@ window.require.define({"initialize": function(exports, require, module) {
   }
 
   $(function() {
-    var AppView, data, importer, packHierarchy, sceneKeeper;
+    var AppView, data, importer, sceneKeeper;
 
     require('../lib/app_helpers');
     importer = require('./importer');
     sceneKeeper = require('./sceneKeeper');
-    packHierarchy = require('./pack_hierarchy');
     Hipster.Views.AppView = new (AppView = require('views/app_view'));
     Backbone.history.start({
       pushState: true
@@ -754,7 +753,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
 
     imageRetriever = require('./imageRetriever');
 
-    SHOW_STATS = true;
+    SHOW_STATS = false;
 
     function SceneKeeper() {
       this.resize = __bind(this.resize, this);
@@ -770,8 +769,11 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.data = data;
       visualStructure.init(data);
       this.initScene();
-      return geometryBuilder.build(this.scene, this.data);
+      geometryBuilder.build(this.scene, this.data);
+      return this.searchField();
     };
+
+    SceneKeeper.prototype.searchField = function() {};
 
     SceneKeeper.prototype.initScene = function() {
       var FAR, HEIGHT, MARGIN, SCREEN_HEIGHT, SCREEN_WIDTH, WIDTH, container, light;
@@ -879,17 +881,22 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       vec.setLength(vec.length() * 3);
       vec.addVectors(vec, this.controls.target);
       this.tweenCamera(vec, this.controls.target);
-      return imageRetriever.clear();
+      imageRetriever.clear();
+      this.currentArtistMesh = false;
+      return this.blankArtistName();
     };
 
     SceneKeeper.prototype.focusArtist = function(artist) {
-      var distToCenter, lookAt, mesh, oldLookAt, size, v, vec;
+      var distToCenter, freshlyFocused, lookAt, mesh, oldLookAt, size, v, vec;
 
       this.currentArtist = artist;
       this.updateArtistName(this.currentArtist);
       $(".container h2").addClass("selected");
+      freshlyFocused = false;
       if (this.currentArtistMesh) {
         this.scene.remove(this.currentArtistMesh);
+      } else {
+        freshlyFocused = true;
       }
       mesh = geometryBuilder.selectedArtistMesh(artist);
       this.scene.add(mesh);
@@ -902,6 +909,9 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       distToCenter = size / Math.sin(Math.PI / 180.0 * this.camera.fov * 0.5);
       vec = new THREE.Vector3();
       vec.subVectors(this.camera.position, oldLookAt);
+      if (freshlyFocused) {
+        vec.setLength(distToCenter);
+      }
       vec.addVectors(vec, lookAt);
       this.tweenCamera(vec, lookAt);
       return imageRetriever.getImages(artist);
@@ -958,7 +968,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     };
 
     SceneKeeper.prototype.blankArtistName = function() {
-      $('.container h2').text("");
+      $('.container h2').html("");
       return $('.container p').text("");
     };
 

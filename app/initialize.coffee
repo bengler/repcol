@@ -9,7 +9,6 @@ $ ->
     require '../lib/app_helpers'
     importer = require './importer'
     sceneKeeper = require './sceneKeeper'
-    packHierarchy = require './pack_hierarchy'
 
     # Initialize App
     Hipster.Views.AppView = new AppView = require 'views/app_view'
@@ -23,7 +22,5 @@ $ ->
       console.info("Done loading. Firing scene.")
       sceneKeeper.init(data)
 
-      # new packHierarchy(data.nestedJobs, class: "jobs")
-      # new packHierarchy(data.nestedEds, offset: 5, class: "eds")
 
 

@@ -28,7 +28,7 @@ class Importer
       artistsLoaded.resolve()
 
     artistsLoaded.then ()=> 
-      d3.csv "data/works.csv", (err, rows)=>
+      d3.csv "data/works_images.csv", (err, rows)=>
         missing = 0
         rows.forEach (row) =>
           row.artistId = +row.artistId

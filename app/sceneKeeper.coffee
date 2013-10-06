@@ -3,7 +3,7 @@ class SceneKeeper
   geometryBuilder = require './geometryBuilder'
   imageRetriever = require './imageRetriever'
 
-  SHOW_STATS = true
+  SHOW_STATS = false
 
   constructor: ->
 
@@ -12,6 +12,13 @@ class SceneKeeper
     visualStructure.init(data)
     @initScene()
     geometryBuilder.build(@scene, @data)
+    @searchField()
+
+
+  searchField: ->
+    # $("span.search").click ->
+    #   console.info ("fooo")
+      # $("span.search").attr('contentEditable',true)
 
   initScene: ->
 
@@ -131,14 +138,19 @@ class SceneKeeper
     vec.addVectors(vec, @controls.target)
     @tweenCamera(vec, @controls.target)
     imageRetriever.clear()
+    @currentArtistMesh = false
+    @blankArtistName()
 
   focusArtist:(artist) ->
     @currentArtist = artist
     @updateArtistName(@currentArtist)
     $(".container h2").addClass("selected")
 
+    freshlyFocused = false
     if @currentArtistMesh
       @scene.remove(@currentArtistMesh)
+    else
+      freshlyFocused = true
 
     mesh = geometryBuilder.selectedArtistMesh(artist)
     @scene.add(mesh)
@@ -153,7 +165,7 @@ class SceneKeeper
     distToCenter = size/Math.sin( Math.PI / 180.0 * @camera.fov * 0.5)
     vec = new THREE.Vector3()
     vec.subVectors(@camera.position, oldLookAt)
-    # vec.setLength(distToCenter);
+    vec.setLength(distToCenter) if freshlyFocused
     vec.addVectors(vec, lookAt)
     @tweenCamera(vec, lookAt)
 
@@ -199,7 +211,7 @@ class SceneKeeper
       @blankArtistName()
 
   blankArtistName:() =>
-    $('.container h2').text("")
+    $('.container h2').html("")
     $('.container p').text("")
 
   updateArtistName:(artist) =>
