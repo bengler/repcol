@@ -237,10 +237,10 @@ window.require.define({"imageRetriever": function(exports, require, module) {
             $(".imageContainer").append(link);
             this.addEventListener("mouseenter", function(event) {
               $(".zoomedImage").attr("src", "data/images/" + this.work.id + "_0.JPG");
-              return $(".zoomedImage").show();
+              return $(".zoomedImageContainer").show();
             });
             return this.addEventListener("mouseleave", function(event) {
-              return $(".zoomedImage").hide();
+              return $(".zoomedImageContainer").hide();
             });
           });
         }
@@ -251,7 +251,7 @@ window.require.define({"imageRetriever": function(exports, require, module) {
 
     ImageRetriever.prototype.clear = function() {
       $(".imageContainer").empty();
-      return $(".zoomedImage").hide();
+      return $(".zoomedImageContainer").hide();
     };
 
     return ImageRetriever;

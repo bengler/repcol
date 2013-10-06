@@ -154,6 +154,9 @@ class Wrangler
         work[:artistKey] = keyFromRow(row)
         artist[:works] << work
         @works << work
+      else
+        puts row
+
       end
     end
   end

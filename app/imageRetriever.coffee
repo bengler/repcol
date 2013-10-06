@@ -1,9 +1,5 @@
 class ImageRetriever
 
-  # constructor: ->
-  #   $(".zoomedImage").click ->
-  #     $(this).hide()
-
   getImages:(artist) ->
     @clear()
     console.info "-----"
@@ -27,17 +23,17 @@ class ImageRetriever
           $(".imageContainer").append(link)
           this.addEventListener "mouseenter", (event)->
             $(".zoomedImage").attr("src","data/images/#{this.work.id}_0.JPG")
-            $(".zoomedImage").show()
+            $(".zoomedImageContainer").show()
 
           this.addEventListener "mouseleave", (event)->
-            $(".zoomedImage").hide()
+            $(".zoomedImageContainer").hide()
 
 
       index += chunkSize
 
   clear: ->
     $(".imageContainer").empty()
-    $(".zoomedImage").hide()
+    $(".zoomedImageContainer").hide()
 
 
 
