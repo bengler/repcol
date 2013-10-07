@@ -12,16 +12,9 @@ class SceneKeeper
     visualStructure.init(data)
     @initScene()
     geometryBuilder.build(@scene, @data)
-    @searchField()
 
-
-  searchField: ->
-    # $("span.search").click ->
-    #   console.info ("fooo")
-      # $("span.search").attr('contentEditable',true)
 
   initScene: ->
-
     @scene = new THREE.Scene
 
     WIDTH = window.innerWidth || 2;
@@ -44,7 +37,7 @@ class SceneKeeper
     @controls.noPan = false
     @controls.staticMoving = false
     @controls.dynamicDampingFactor = 0.3
-    @controls.keys = [ 65, 83, 68 ]
+    @controls.keys = [ 49, 50, 51 ]
     @controls.target = new THREE.Vector3().set(-200,-19.996042251586914,0)
 
     # @scene.fog = new THREE.FogExp2 0xcccccc, 0.001103
@@ -110,36 +103,105 @@ class SceneKeeper
     window.addEventListener('resize', @resize, false)
     window.addEventListener('resize', @resize, false)
     window.addEventListener('keydown', @keydown, false)
+    window.addEventListener('keyup', @keyup, false)
 
     @currentArtist = undefined
+    @currentlyTyping = false
 
+  # Controls – TODO: Refactor this into 2-3 other chunks of code
+
+  keyup:(event) =>
+    char = String.fromCharCode(event.keyCode)
+
+    del = event.keyCode == 8 or event.keyCode == 46
+    esc = event.keyCode == 27
+
+    return if (char < "A" or char > "Z") and !del and !esc
+    if esc
+      @currentlyTyping = false
+      @blankArtistName()
+      @blurArtist()
+      return
+
+    if @currentlyTyping == false
+      @currentlyTyping = true
+      @blurArtist()
+      @blankArtistName()
+      $("h2").text("_")
+
+    if !del
+      $("h2").text( $("h2").text().slice(0, - 1) + char + "_")
+    else
+      $("h2").text( $("h2").text().slice(0, - 2) + "_" )
+
+    artists = @scanArtists($("h2").text().slice(0, - 1))
+
+    $(".works").empty()
+    $(".works").append($("<p>&nbsp;</p>"))
+    for artist in artists
+      el = $("<a href=\"#\">#{artist.firstname} #{artist.lastname}</a>")
+      binder = (artist) =>
+        $(el).on("click", =>
+          @currentlyTyping = false
+          @focusArtist(@data.artists[artist.index]))
+      binder(artist)
+
+      $(".works").append(el)
+
+    return false
+
+  scanArtists:(matchString) =>
+    matches = []
+    if matchString == ""
+      return matches
+    expression = ""
+    len = matchString.length - 1
+    expression += matchString.charAt(i) + "+.?" for i in [0..len]
+    re = new RegExp(expression, "i")
+    for artist in @data.artists
+      matches.push(artist) if re.test(artist.firstname + artist.lastname)
+      break if matches.length > 20
+    return matches 
 
   keydown:(event) =>
-    if @currentArtist
+    event.preventDefault(); return false if event.keyCode == 8 or event.keyCode == 46
+
+    if @currentArtist? and !@currentTyping
       switch event.keyCode
         when 37 then @focusArtist(@data.artists[@currentArtist.index - 1]) unless @currentArtist.index == 0
         when 39 then @focusArtist(@data.artists[@currentArtist.index + 1]) unless @currentArtist.index == @data.artists.length - 1 
 
   click:(event) =>
     res = @findArtist(event)
-
-    if ! res?
+    if !res? or @currentArtist == res.artist
       @blurArtist() if @currentArtist
     else
       @focusArtist(res.artist)
+      @currentlyTyping = false
 
   blurArtist: ->
-    @currentArtist = undefined
-    @scene.remove(@currentArtistMesh)
+    @blankArtistName()
     $(".container h2").removeClass("selected")
-    vec = new THREE.Vector3();
-    vec.subVectors( @camera.position, @controls.target);
-    vec.setLength(vec.length() * 3);
+
+    return if !@currentArtist?
+    @currentArtist = undefined
+    @removeHighlight()
+    vec = new THREE.Vector3()
+    vec.subVectors( @camera.position, @controls.target)
+    vec.setLength(vec.length() * 3)
     vec.addVectors(vec, @controls.target)
     @tweenCamera(vec, @controls.target)
     imageRetriever.clear()
-    @currentArtistMesh = false
-    @blankArtistName()
+    @currentArtistMesh = undefined
+
+  removeHighlight:() ->
+    tweenOut = (mesh) =>
+
+      new TWEEN.Tween(@currentArtistMesh.material).to( {
+      opacity: 0, 500}).easing( TWEEN.Easing.Exponential.Out).start()
+      .onComplete(() => @scene.remove(mesh))
+
+    tweenOut(@currentArtistMesh)
 
   focusArtist:(artist) ->
     @currentArtist = artist
@@ -148,7 +210,7 @@ class SceneKeeper
 
     freshlyFocused = false
     if @currentArtistMesh
-      @scene.remove(@currentArtistMesh)
+      @removeHighlight()
     else
       freshlyFocused = true
 
@@ -172,7 +234,6 @@ class SceneKeeper
     imageRetriever.getImages(artist)
 
   tweenCamera:(position, target) =>
-    TWEEN.removeAll()
     new TWEEN.Tween(@camera.position ).to( {
     x: position.x,
     y: position.y,
@@ -203,7 +264,7 @@ class SceneKeeper
     return undefined
 
   mousemove:(event) =>
-    return if @currentArtist?
+    return if @currentArtist? or @currentlyTyping
     res = @findArtist(event)
     if res?
       @updateArtistName(res.artist)
@@ -242,33 +303,4 @@ class SceneKeeper
 
 
 module.exports = new SceneKeeper
-
-    # Composer
-
-    # renderTargetParameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBFormat }
-    # @renderTarget = new THREE.WebGLRenderTarget( SCREEN_WIDTH * 1, SCREEN_HEIGHT * 1, renderTargetParameters )
-
-    # effectFXAA = new THREE.ShaderPass( THREE.FXAAShader )
-    # effectFXAA.uniforms[ 'resolution' ].value.set( 1 / SCREEN_WIDTH / 2, 1 / SCREEN_HEIGHT / 2 )
-
-    # effectVignette = new THREE.ShaderPass( THREE.VignetteShader )
-    # effectVignette.uniforms[ 'darkness' ].value = 0.4
-
-    # hblur = new THREE.ShaderPass( THREE.HorizontalTiltShiftShader )
-    # vblur = new THREE.ShaderPass( THREE.VerticalTiltShiftShader )
-    # bluriness = 2
-    # hblur.uniforms[ 'h' ].value = bluriness / SCREEN_WIDTH
-    # vblur.uniforms[ 'v' ].value = bluriness / SCREEN_HEIGHT
-    # hblur.uniforms[ 'r' ].value = vblur.uniforms[ 'r' ].value = 0.5
-
-    # @composer = new THREE.EffectComposer( @renderer, @renderTarget )
-    # renderModel = new THREE.RenderPass( @scene, @camera )
-
-    # @composer.addPass(renderModel)
-    # @composer.addPass(effectVignette);
-    # @composer.addPass(hblur);
-    # @composer.addPass(vblur);
-    # # @composer.addPass(effectFXAA)
-    # vblur.renderToScreen = true;
-
 

@@ -2,14 +2,19 @@ class ImageRetriever
 
   maxImages = 30
 
+  constructor: ->
+
+
   getImages:(artist) ->
     @clear()
-    console.info "-----"
 
     retrievedImages = 0
+  
+    $(".imageContainer").on "mouseleave", (event)->
+      console.info("hi")
+      $(".zoomedImageContainer").hide()
 
     for work in artist.works
-      console.info work
       if work.imageCount > 0
         retrievedImages += 1
         image = new Image()
@@ -22,8 +27,6 @@ class ImageRetriever
             $(".zoomedImage").attr("src","data/images/#{this.work.id}_0.JPG")
             $(".zoomedImageContainer").show()
 
-          this.addEventListener "mouseleave", (event)->
-            $(".zoomedImageContainer").hide()
       break if retrievedImages > maxImages
 
 

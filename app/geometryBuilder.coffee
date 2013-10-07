@@ -4,17 +4,18 @@ class GeometryBuilder
     @artistGeometry = new THREE.CubeGeometry( 1, 1, 1)
     @workGeometry = new THREE.PlaneGeometry( 1, 40)
 
-    @selectedArtistMaterial = new THREE.MeshLambertMaterial({
-      opacity: 0.80
-      wireframe: false
-      transparent:true
-    })
 
     @scaleX = 400
     @scaleY = 40
 
   selectedArtistMesh:(artist) ->
-    @artistMesh(artist, @selectedArtistMaterial, 1.50)
+    selectedArtistMaterial = new THREE.MeshLambertMaterial({
+      opacity: 0.70
+      wireframe: false
+      transparent:true
+    })
+
+    @artistMesh(artist, selectedArtistMaterial, 1.50)
 
   artistMesh:(artist, texture, multiplier = 0) ->
     mesh = new THREE.Mesh(@artistGeometry, texture)

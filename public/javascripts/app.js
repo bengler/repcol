@@ -81,17 +81,19 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
     function GeometryBuilder() {
       this.artistGeometry = new THREE.CubeGeometry(1, 1, 1);
       this.workGeometry = new THREE.PlaneGeometry(1, 40);
-      this.selectedArtistMaterial = new THREE.MeshLambertMaterial({
-        opacity: 0.80,
-        wireframe: false,
-        transparent: true
-      });
       this.scaleX = 400;
       this.scaleY = 40;
     }
 
     GeometryBuilder.prototype.selectedArtistMesh = function(artist) {
-      return this.artistMesh(artist, this.selectedArtistMaterial, 1.50);
+      var selectedArtistMaterial;
+
+      selectedArtistMaterial = new THREE.MeshLambertMaterial({
+        opacity: 0.70,
+        wireframe: false,
+        transparent: true
+      });
+      return this.artistMesh(artist, selectedArtistMaterial, 1.50);
     };
 
     GeometryBuilder.prototype.artistMesh = function(artist, texture, multiplier) {
@@ -209,21 +211,23 @@ window.require.define({"imageRetriever": function(exports, require, module) {
   ImageRetriever = (function() {
     var maxImages;
 
-    function ImageRetriever() {}
-
     maxImages = 30;
+
+    function ImageRetriever() {}
 
     ImageRetriever.prototype.getImages = function(artist) {
       var image, retrievedImages, work, _i, _len, _ref, _results;
 
       this.clear();
-      console.info("-----");
       retrievedImages = 0;
+      $(".imageContainer").on("mouseleave", function(event) {
+        console.info("hi");
+        return $(".zoomedImageContainer").hide();
+      });
       _ref = artist.works;
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         work = _ref[_i];
-        console.info(work);
         if (work.imageCount > 0) {
           retrievedImages += 1;
           image = new Image();
@@ -231,12 +235,9 @@ window.require.define({"imageRetriever": function(exports, require, module) {
           image.work = work;
           image.addEventListener("load", function(event) {
             $(".imageContainer").append(this);
-            this.addEventListener("mouseenter", function(event) {
+            return this.addEventListener("mouseenter", function(event) {
               $(".zoomedImage").attr("src", "data/images/" + this.work.id + "_0.JPG");
               return $(".zoomedImageContainer").show();
-            });
-            return this.addEventListener("mouseleave", function(event) {
-              return $(".zoomedImageContainer").hide();
             });
           });
         }
@@ -763,17 +764,16 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.tweenCamera = __bind(this.tweenCamera, this);
       this.click = __bind(this.click, this);
       this.keydown = __bind(this.keydown, this);
+      this.scanArtists = __bind(this.scanArtists, this);
+      this.keyup = __bind(this.keyup, this);
     }
 
     SceneKeeper.prototype.init = function(data) {
       this.data = data;
       visualStructure.init(data);
       this.initScene();
-      geometryBuilder.build(this.scene, this.data);
-      return this.searchField();
+      return geometryBuilder.build(this.scene, this.data);
     };
-
-    SceneKeeper.prototype.searchField = function() {};
 
     SceneKeeper.prototype.initScene = function() {
       var FAR, HEIGHT, MARGIN, SCREEN_HEIGHT, SCREEN_WIDTH, WIDTH, container, light;
@@ -795,7 +795,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.controls.noPan = false;
       this.controls.staticMoving = false;
       this.controls.dynamicDampingFactor = 0.3;
-      this.controls.keys = [65, 83, 68];
+      this.controls.keys = [49, 50, 51];
       this.controls.target = new THREE.Vector3().set(-200, -19.996042251586914, 0);
       this.scene.add(new THREE.AmbientLight(0x808080));
       light = new THREE.SpotLight(0xffffff, 1.0);
@@ -838,11 +838,88 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       window.addEventListener('resize', this.resize, false);
       window.addEventListener('resize', this.resize, false);
       window.addEventListener('keydown', this.keydown, false);
-      return this.currentArtist = void 0;
+      window.addEventListener('keyup', this.keyup, false);
+      this.currentArtist = void 0;
+      return this.currentlyTyping = false;
+    };
+
+    SceneKeeper.prototype.keyup = function(event) {
+      var artist, artists, binder, char, del, el, esc, _i, _len,
+        _this = this;
+
+      char = String.fromCharCode(event.keyCode);
+      del = event.keyCode === 8 || event.keyCode === 46;
+      esc = event.keyCode === 27;
+      if ((char < "A" || char > "Z") && !del && !esc) {
+        return;
+      }
+      if (esc) {
+        this.currentlyTyping = false;
+        this.blankArtistName();
+        this.blurArtist();
+        return;
+      }
+      if (this.currentlyTyping === false) {
+        this.currentlyTyping = true;
+        this.blurArtist();
+        this.blankArtistName();
+        $("h2").text("_");
+      }
+      if (!del) {
+        $("h2").text($("h2").text().slice(0, -1) + char + "_");
+      } else {
+        $("h2").text($("h2").text().slice(0, -2) + "_");
+      }
+      artists = this.scanArtists($("h2").text().slice(0, -1));
+      $(".works").empty();
+      $(".works").append($("<p>&nbsp;</p>"));
+      for (_i = 0, _len = artists.length; _i < _len; _i++) {
+        artist = artists[_i];
+        el = $("<a href=\"#\">" + artist.firstname + " " + artist.lastname + "</a>");
+        binder = function(artist) {
+          return $(el).on("click", function() {
+            _this.currentlyTyping = false;
+            return _this.focusArtist(_this.data.artists[artist.index]);
+          });
+        };
+        binder(artist);
+        $(".works").append(el);
+      }
+      return false;
+    };
+
+    SceneKeeper.prototype.scanArtists = function(matchString) {
+      var artist, expression, i, len, matches, re, _i, _j, _len, _ref;
+
+      matches = [];
+      if (matchString === "") {
+        return matches;
+      }
+      expression = "";
+      len = matchString.length - 1;
+      for (i = _i = 0; 0 <= len ? _i <= len : _i >= len; i = 0 <= len ? ++_i : --_i) {
+        expression += matchString.charAt(i) + "+.?";
+      }
+      re = new RegExp(expression, "i");
+      _ref = this.data.artists;
+      for (_j = 0, _len = _ref.length; _j < _len; _j++) {
+        artist = _ref[_j];
+        if (re.test(artist.firstname + artist.lastname)) {
+          matches.push(artist);
+        }
+        if (matches.length > 20) {
+          break;
+        }
+      }
+      return matches;
     };
 
     SceneKeeper.prototype.keydown = function(event) {
-      if (this.currentArtist) {
+      event.preventDefault();
+      if (event.keyCode === 8 || event.keyCode === 46) {
+        return false;
+      }
+      if ((this.currentArtist != null) && !this.currentTyping) {
         switch (event.keyCode) {
           case 37:
             if (this.currentArtist.index !== 0) {
@@ -861,29 +938,48 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       var res;
 
       res = this.findArtist(event);
-      if (res == null) {
+      if ((res == null) || this.currentArtist === res.artist) {
         if (this.currentArtist) {
           return this.blurArtist();
         }
       } else {
-        return this.focusArtist(res.artist);
+        this.focusArtist(res.artist);
+        return this.currentlyTyping = false;
       }
     };
 
     SceneKeeper.prototype.blurArtist = function() {
       var vec;
 
-      this.currentArtist = void 0;
-      this.scene.remove(this.currentArtistMesh);
+      this.blankArtistName();
       $(".container h2").removeClass("selected");
+      if (this.currentArtist == null) {
+        return;
+      }
+      this.currentArtist = void 0;
+      this.removeHighlight();
       vec = new THREE.Vector3();
       vec.subVectors(this.camera.position, this.controls.target);
       vec.setLength(vec.length() * 3);
       vec.addVectors(vec, this.controls.target);
       this.tweenCamera(vec, this.controls.target);
       imageRetriever.clear();
-      this.currentArtistMesh = false;
-      return this.blankArtistName();
+      return this.currentArtistMesh = void 0;
+    };
+
+    SceneKeeper.prototype.removeHighlight = function() {
+      var tweenOut,
+        _this = this;
+
+      tweenOut = function(mesh) {
+        return new TWEEN.Tween(_this.currentArtistMesh.material).to({
+          opacity: 0,
+          500: 500
+        }).easing(TWEEN.Easing.Exponential.Out).start().onComplete(function() {
+          return _this.scene.remove(mesh);
+        });
+      };
+      return tweenOut(this.currentArtistMesh);
     };
 
     SceneKeeper.prototype.focusArtist = function(artist) {
@@ -894,7 +990,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       $(".container h2").addClass("selected");
       freshlyFocused = false;
       if (this.currentArtistMesh) {
-        this.scene.remove(this.currentArtistMesh);
+        this.removeHighlight();
       } else {
         freshlyFocused = true;
       }
@@ -918,7 +1014,6 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     };
 
     SceneKeeper.prototype.tweenCamera = function(position, target) {
-      TWEEN.removeAll();
       new TWEEN.Tween(this.camera.position).to({
         x: position.x,
         y: position.y,
@@ -956,7 +1051,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     SceneKeeper.prototype.mousemove = function(event) {
       var res;
 
-      if (this.currentArtist != null) {
+      if ((this.currentArtist != null) || this.currentlyTyping) {
         return;
       }
       res = this.findArtist(event);
