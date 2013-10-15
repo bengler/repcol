@@ -56,12 +56,6 @@ class GeometryBuilder
           @collatedWorkGeometry.vertices.push(v1)
           @collatedWorkGeometry.vertices.push(v2)
 
-          # workMesh = new THREE.Mesh(@workGeometry)
-          # workMesh.position.set(work._x * @scaleX, work._y * @scaleY, (mesh.scale.z / 2) + 0.1 )
-          # workMesh.scale.x = work._width * @scaleX
-          # workMesh.scale.y = work._height * @scaleY * 0.1
-          # THREE.GeometryUtils.merge(@collatedWorkGeometry, workMesh)
-
 
     materialProperties = {}
 
