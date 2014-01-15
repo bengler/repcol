@@ -2,8 +2,6 @@ class ImageRetriever
 
   maxImages = 30
 
-  constructor: ->
-
 
   getImages:(artist) ->
     @clear()

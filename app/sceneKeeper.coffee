@@ -235,7 +235,10 @@ class SceneKeeper
     vec.addVectors(vec, lookAt)
     @tweenCamera(vec, lookAt)
 
-    imageRetriever.getImages(artist)
+    if (new Date().getFullYear() - artist.dod) > 70
+      imageRetriever.getImages(artist)
+    else
+      imageRetriever.clear()
 
   tweenCamera:(position, target) =>
     new TWEEN.Tween(@camera.position ).to( {

@@ -211,9 +211,9 @@ window.require.define({"imageRetriever": function(exports, require, module) {
   ImageRetriever = (function() {
     var maxImages;
 
-    maxImages = 30;
-
     function ImageRetriever() {}
+
+    maxImages = 30;
 
     ImageRetriever.prototype.getImages = function(artist) {
       var image, retrievedImages, work, _i, _len, _ref, _results;
@@ -1016,7 +1016,11 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       }
       vec.addVectors(vec, lookAt);
       this.tweenCamera(vec, lookAt);
-      return imageRetriever.getImages(artist);
+      if ((new Date().getFullYear() - artist.dod) > 70) {
+        return imageRetriever.getImages(artist);
+      } else {
+        return imageRetriever.clear();
+      }
     };
 
     SceneKeeper.prototype.tweenCamera = function(position, target) {
