@@ -7,8 +7,19 @@ DICT = [
         {:key => {:firstName => "Carl", :dob => 1803, :dod => 2018}, :cor => {:dob => 1807, :dod => 1843}},
         {:key => {:lastName => "Ehrenreich", :dob => 1739, :dod => 2017}, :cor => {:dod => 1806}},
         {:key => {:lastName => "Rose", :dob => 1936, :dod => 2016}, :cor => {:dod => 2002}}
-
        ]
+
+def check_untouchables(row)
+  UNTOUCHABLES.each do |key|
+    match = true
+    pattern[:key].each_pair do |k,v|
+      match = false if v != row[k]
+    end
+    return true if match
+  end
+  return false
+end
+
 
 def correct(row)
   DICT.each do |pattern|
@@ -17,9 +28,9 @@ def correct(row)
         match = false if v != row[k]
       end
     if match
-      puts "!!! CORRECTED"
+      # puts "!!! CORRECTED"
       row = row.merge(pattern[:cor])
-      puts row.inspect
+      # puts row.inspect
       break
     end
   end

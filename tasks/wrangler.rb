@@ -92,8 +92,10 @@ class Wrangler
 
       row = [] if !row[:dod].nil? and row[:dod] > 2013
 
+
       # Throw away unknown artists and artists with future death dates
       @rows << row unless row.empty? or row[:firstName] == "Ukjent kunstner" or row[:firstName] == "Ukjent"
+
     end
 
     # Todo – chop first line
@@ -128,6 +130,7 @@ class Wrangler
         if v[:works].empty?
           artistsWithoutWorks += 1
         else
+          # puts v[:works].inspect
           csv << [v[:id], v[:gender],v[:dob],v[:dod],v[:firstName],v[:lastName]]
         end
       end
@@ -155,10 +158,10 @@ class Wrangler
         artist[:works] << work
         @works << work
       else
-        puts row
-
+        # puts row
       end
     end
+    puts @artistDict.inspect
   end
 
   def workFromRow(row)
