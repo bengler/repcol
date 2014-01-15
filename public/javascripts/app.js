@@ -943,8 +943,14 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
           return this.blurArtist();
         }
       } else {
-        this.focusArtist(res.artist);
-        return this.currentlyTyping = false;
+        if (res.artist.id === 3927 && (this.currentArtist == null)) {
+          if (this.currentArtist) {
+            return this.blurArtist();
+          }
+        } else {
+          this.focusArtist(res.artist);
+          return this.currentlyTyping = false;
+        }
       }
     };
 

@@ -176,8 +176,12 @@ class SceneKeeper
     if !res? or @currentArtist == res.artist
       @blurArtist() if @currentArtist
     else
-      @focusArtist(res.artist)
-      @currentlyTyping = false
+      if res.artist.id == 3927 and !@currentArtist?
+        # Anti-bug. Don't even ask.
+        @blurArtist() if @currentArtist
+      else
+        @focusArtist(res.artist)
+        @currentlyTyping = false
 
   blurArtist: ->
     @blankArtistName()
