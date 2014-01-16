@@ -36,8 +36,7 @@ class Importer
           row.acquired = +row.acquired
           row.invalid = (row.produced == 0 or row.acquired == 0)
 
-          # Need this for GL
-          row.acquired += 1 if (row.produced == row.acquired)
+          # Need this for GLagered == row.acquired)
 
           value = @data.artistsKeyed[row["artistId"]]
 

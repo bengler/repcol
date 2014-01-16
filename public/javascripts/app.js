@@ -306,9 +306,6 @@ window.require.define({"importer": function(exports, require, module) {
             row.produced = +row.produced;
             row.acquired = +row.acquired;
             row.invalid = row.produced === 0 || row.acquired === 0;
-            if (row.produced === row.acquired) {
-              row.acquired += 1;
-            }
             value = _this.data.artistsKeyed[row["artistId"]];
             if (value != null) {
               _this.data.artistsKeyed[row["artistId"]].works.push(row);
