@@ -140,7 +140,7 @@ class Wrangler
 
     worksWithoutArtists = 0
 
-    CSV.open("app/assets/data/works.csv", 'w') do |csv|
+    CSV.open("tasks/sourceData/intermediate/works.csv", 'w') do |csv|
       csv << ['id', 'artistId', 'produced', 'acquired', 'kind']
       @works.each do |v| 
         csv << [v[:inventoryNr],v[:artistId],v[:productionYear],v[:acquiredYear],v[:kind]]

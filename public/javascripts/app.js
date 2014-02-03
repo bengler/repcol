@@ -209,11 +209,13 @@ window.require.define({"imageRetriever": function(exports, require, module) {
   var ImageRetriever;
 
   ImageRetriever = (function() {
-    var maxImages;
+    var baseURL, maxImages;
 
     function ImageRetriever() {}
 
-    maxImages = 30;
+    maxImages = 60;
+
+    baseURL = "http://api.digitaltmuseum.no/artifact?owner=NMK-B&mapping=ESE&api.key=demo&identifier=";
 
     ImageRetriever.prototype.getImages = function(artist) {
       var image, retrievedImages, work, _i, _len, _ref, _results;
@@ -221,8 +223,9 @@ window.require.define({"imageRetriever": function(exports, require, module) {
       this.clear();
       retrievedImages = 0;
       $(".imageContainer").on("mouseleave", function(event) {
-        console.info("hi");
-        return $(".zoomedImageContainer").hide();
+        $(".zoomedImageContainer").hide();
+        $(".photographer").text("");
+        return $(".title").text("");
       });
       _ref = artist.works;
       _results = [];
@@ -236,8 +239,39 @@ window.require.define({"imageRetriever": function(exports, require, module) {
           image.addEventListener("load", function(event) {
             $(".imageContainer").append(this);
             return this.addEventListener("mouseenter", function(event) {
+              var _this = this;
+
               $(".zoomedImage").attr("src", "data/images/" + this.work.id + "_0.JPG");
-              return $(".zoomedImageContainer").show();
+              $(".zoomedImageContainer").show();
+              $(".photographer").text("Imaging by " + this.work.photographer);
+              $(".title").text("");
+              return $.get(baseURL + this.work.id, {}, function(xml) {
+                var engTitle, n, norTitle, title;
+
+                xml = $(xml);
+                n = xml.find("dc\\:title, title");
+                engTitle = norTitle = void 0;
+                n.each(function(n, m) {
+                  var title;
+
+                  title = $(m);
+                  if (title.context.outerHTML.indexOf("xml:lang=\"NOR\"") >= 0) {
+                    norTitle = title.text();
+                  }
+                  if (title.context.outerHTML.indexOf("xml:lang=\"ENG\"") >= 0) {
+                    return engTitle = title.text();
+                  }
+                });
+                title = engTitle;
+                title || (title = norTitle);
+                if (title == null) {
+                  title = "Archive reference: " + _this.work.id;
+                  $(".title").addClass("onlyReference");
+                } else {
+                  $(".title").removeClass("onlyReference");
+                }
+                return $(".title").text(title);
+              });
             });
           });
         }
@@ -252,7 +286,9 @@ window.require.define({"imageRetriever": function(exports, require, module) {
 
     ImageRetriever.prototype.clear = function() {
       $(".imageContainer").empty();
-      return $(".zoomedImageContainer").hide();
+      $(".zoomedImageContainer").hide();
+      $(".photographer").text("");
+      return $(".title").text("");
     };
 
     return ImageRetriever;
@@ -275,10 +311,11 @@ window.require.define({"importer": function(exports, require, module) {
     }
 
     Importer.prototype.load = function() {
-      var artistsLoaded,
+      var artistsLoaded, photographers,
         _this = this;
 
       artistsLoaded = $.Deferred();
+      photographers = ["Morten Thorkildsen", "Børre Høstland", "Jeanette Veiby", "Frode Larsen", "Anne Hansteen Jarre", "Dag A. Ivarsøy", "Therese Husby", "Dag Andre Ivarsøy", "Jacques Lathion", "Børre Høstland", "Andreas Harvik", "Ukjent", "Stein Jorgensen", "Øyvind Andersen", "Jaques Lathion", "Ole Henrik Storeheier", "Dag A, Ivarsøy", "Anne Hansteen", "Ukjent", "Scanned by Dag A. Ivarsøy", "Børre Høstland/ Andreas Harvik", "Annar Bjørgli", "Angela Musil-Jantjes", "Ukjent", "Stein Jørgensen", "Knut Øystein Nerdrum", "Børre Høstland", "Knut Øystein Nerdrum"];
       d3.csv("data/artists.csv", function(err, rows) {
         rows.forEach(function(row) {
           row.works = [];
@@ -295,7 +332,7 @@ window.require.define({"importer": function(exports, require, module) {
         return artistsLoaded.resolve();
       });
       artistsLoaded.then(function() {
-        return d3.csv("data/works_images.csv", function(err, rows) {
+        return d3.csv("data/works_coded.csv", function(err, rows) {
           var missing;
 
           missing = 0;
@@ -306,6 +343,11 @@ window.require.define({"importer": function(exports, require, module) {
             row.produced = +row.produced;
             row.acquired = +row.acquired;
             row.invalid = row.produced === 0 || row.acquired === 0;
+            if (row.photographer_id !== "-1") {
+              row.photographer = photographers[row.photographer_id];
+            } else {
+              row.photographer = "Nasjonalmuseet";
+            }
             value = _this.data.artistsKeyed[row["artistId"]];
             if (value != null) {
               _this.data.artistsKeyed[row["artistId"]].works.push(row);
@@ -834,8 +876,8 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       window.addEventListener('mousemove', this.mousemove, false);
       window.addEventListener('resize', this.resize, false);
       window.addEventListener('resize', this.resize, false);
-      window.addEventListener('keydown', this.keydown, false);
-      window.addEventListener('keyup', this.keyup, false);
+      window.addEventListener('keydown', this.keydown, true);
+      window.addEventListener('keyup', this.keyup, true);
       this.currentArtist = void 0;
       return this.currentlyTyping = false;
     };
@@ -940,7 +982,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
           return this.blurArtist();
         }
       } else {
-        if (res.artist.id === 3927 && (this.currentArtist == null)) {
+        if (res.artist.id === 3927 && (this.currentArtist != null)) {
           if (this.currentArtist) {
             return this.blurArtist();
           }

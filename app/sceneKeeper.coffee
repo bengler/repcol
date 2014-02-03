@@ -102,8 +102,8 @@ class SceneKeeper
     window.addEventListener('mousemove', @mousemove, false)
     window.addEventListener('resize', @resize, false)
     window.addEventListener('resize', @resize, false)
-    window.addEventListener('keydown', @keydown, false)
-    window.addEventListener('keyup', @keyup, false)
+    window.addEventListener('keydown', @keydown, true)
+    window.addEventListener('keyup', @keyup, true)
 
     @currentArtist = undefined
     @currentlyTyping = false
@@ -176,7 +176,7 @@ class SceneKeeper
     if !res? or @currentArtist == res.artist
       @blurArtist() if @currentArtist
     else
-      if res.artist.id == 3927 and !@currentArtist?
+      if res.artist.id == 3927 and @currentArtist?
         # Anti-bug. Don't even ask.
         @blurArtist() if @currentArtist
       else
