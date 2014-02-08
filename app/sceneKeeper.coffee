@@ -169,7 +169,7 @@ class SceneKeeper
     return matches 
 
   keydown:(event) =>
-    event.preventDefault(); return false if event.keyCode == 8 or event.keyCode == 46
+    return false if event.keyCode == 8 or event.keyCode == 46
 
     if @currentArtist? and !@currentTyping
       switch event.keyCode

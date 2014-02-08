@@ -416,7 +416,17 @@ window.require.define({"initialize": function(exports, require, module) {
 
       $('.intro .button').click(function() {
         $('.intro').hide();
-        return sceneKeeper.init(data);
+        $('.warnings').hide();
+        sceneKeeper.init(data);
+        return $('body').addClass('activated');
+      });
+      $('.showNavigation').click(function() {
+        $('.copy.overview').hide();
+        return $('.copy.navigation').show();
+      });
+      $('.showOverview').click(function() {
+        $('.copy.overview').show();
+        return $('.copy.navigation').hide();
       });
       $warnings = $('.warnings');
       activateClass = (function() {
@@ -974,7 +984,6 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     };
 
     SceneKeeper.prototype.keydown = function(event) {
-      event.preventDefault();
       if (event.keyCode === 8 || event.keyCode === 46) {
         return false;
       }

@@ -14,37 +14,62 @@
 body
   margin: 0
   padding: 0
-  background-color: #d0d0d9
   font-family: "Helvetica Neue", Helvetica, Arial
-  letter-spacing: -0.03em
   color: #000
   font-size: 12px
+  background-color: #d0d0d9
 
-body a
-  color: #888
 
 .escHint
   padding-left: 20px
 
 .intro
-  font-size: 16px
-  line-height: 24px
+  font-size: 14px
+  line-height: 20px
   position: fixed
-  width: 400px
-  background-color: rgba(20,20,20,0.1)
+  width: 820px
+  background-color: #eee
   padding: 10px 10px 10px 10px
-  top: 40px
+  top: 100px
   left: 40px
 
+  h3
+    font-size: 36px
+    margin: 10px 0px 20px 0px
+
+  .copy
+    width: 400px
+    float: left
+    min-height: 360px
+    margin-bottom: 20px
+
+  .copy.navigation
+    display: none
+
+  .sectionNav.showNavigation
+    float: right
+
+  .video
+    margin-top: 50px
+    float: left
+    margin-left: 20px
+
   a.button
-    clear: both
-    position: absolute
-    bottom: 10px
-    right: 10px 
+    text-align: center
+    display: block
+    width: 100%
     padding: 10px
-    background-color: #afe
+    background-color: #aef
     color: #000
     cursor: pointer
+    text-transform: uppercase
+    font-weight: 800
+    clear: both
+    margin-top: 20px
+
+    &:hover
+      text-decoration:none
+      background-color: #bff
 
   p
     margin: 0 0 10px 0
@@ -52,24 +77,28 @@ body a
   p.last
     margin: 0 0 40px 0
 
-  .warnings
-    color: #fff
-    background-color: #800
-    
+.warnings
+    font-size: 16px
+    position: fixed
+    width: 820px
+    background-color: #eee
+    top: 20px
+    left: 40px
 
-    .shouldWork, .maybeWork, .cantWork, .cantWorkMobile 
-      display: none
-      padding: 10px
 
-      &.active
-        display: block
+  .shouldWork, .maybeWork, .cantWork, .cantWorkMobile 
+    display: none
+    padding: 10px
 
-  .warnings>.shouldWork
-    color: #f00
-    
+    &.active
+      display: block
 
+.warnings>.shouldWork
+  color: #333
+  
 
 .container
+  letter-spacing: -0.03em
   position: fixed
   margin: 0
   top: 50px

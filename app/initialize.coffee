@@ -23,7 +23,18 @@ $ ->
       
       $('.intro .button').click =>
         $('.intro').hide()
+        $('.warnings').hide()
         sceneKeeper.init(data)
+        $('body').addClass('activated')
+
+      $('.showNavigation').click =>
+        $('.copy.overview').hide()
+        $('.copy.navigation').show()
+
+      $('.showOverview').click =>
+        $('.copy.overview').show()
+        $('.copy.navigation').hide()
+
 
       $warnings = $('.warnings');
       
