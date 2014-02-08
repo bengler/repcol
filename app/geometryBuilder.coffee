@@ -103,9 +103,6 @@ class GeometryBuilder
     line = new THREE.Line(@collatedWorkGeometry, lineMaterial, THREE.LinePieces)
     @scene.add(line)
 
-    # mesh = new THREE.Mesh(@collatedWorkGeometry, workMaterial);
-    # @scene.add(mesh)
-
 
   yearToFloat:(year) ->
     (year - @startYear)/@endYear

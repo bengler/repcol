@@ -333,9 +333,6 @@ window.require.define({"importer": function(exports, require, module) {
       });
       artistsLoaded.then(function() {
         return d3.csv("data/works_coded.csv", function(err, rows) {
-          var missing;
-
-          missing = 0;
           rows.forEach(function(row) {
             var value;
 
@@ -344,7 +341,7 @@ window.require.define({"importer": function(exports, require, module) {
             row.acquired = +row.acquired;
             row.invalid = row.produced === 0 || row.acquired === 0;
             if (row.photographer_id !== "-1") {
-              row.photographer = photographers[row.photographer_id];
+              row.photographer = photographers[row.photographer_id] + " / Nasjonalmuseet";
             } else {
               row.photographer = "Nasjonalmuseet";
             }
@@ -352,12 +349,8 @@ window.require.define({"importer": function(exports, require, module) {
             if (value != null) {
               _this.data.artistsKeyed[row["artistId"]].works.push(row);
               return _this.data.works.push(row);
-            } else {
-              missing += 1;
-              return console.info(row);
             }
           });
-          console.info("Missing artists for " + missing + " works!");
           _this.data.artists = _.sortBy(_this.data.artists, function(artist) {
             return artist.dob;
           });
@@ -418,8 +411,31 @@ window.require.define({"initialize": function(exports, require, module) {
     });
     console.info("Importing");
     return data = importer.load().then(function(data) {
-      console.info("Done loading. Firing scene.");
-      return sceneKeeper.init(data);
+      var $warnings, activateClass,
+        _this = this;
+
+      $('.intro .button').click(function() {
+        $('.intro').hide();
+        return sceneKeeper.init(data);
+      });
+      $warnings = $('.warnings');
+      activateClass = (function() {
+        var isMobile;
+
+        isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
+        if (Detector.webgl) {
+          if (!isMobile && navigator.userAgent.match(/Chrom(e|ium)/)) {
+            return '.shouldWork';
+          }
+          return '.maybeWork';
+        } else {
+          if (isMobile) {
+            return '.cantWorkMobile';
+          }
+          return '.cantWork';
+        }
+      })();
+      return $warnings.find(activateClass).addClass('active');
     });
   });
   
@@ -825,17 +841,17 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       SCREEN_HEIGHT = HEIGHT - 2 * MARGIN;
       FAR = 10000;
       this.camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1, FAR);
-      this.camera.position.set(-205, -15, 0);
+      this.camera.position.set(-658, 366, 614);
       this.controls = new THREE.TrackballControls(this.camera);
-      this.controls.rotateSpeed = 1.0;
-      this.controls.zoomSpeed = 1.2;
-      this.controls.panSpeed = 0.8;
+      this.controls.rotateSpeed = 0.4;
+      this.controls.zoomSpeed = 0.7;
+      this.controls.panSpeed = 0.4;
       this.controls.noZoom = false;
       this.controls.noPan = false;
       this.controls.staticMoving = false;
       this.controls.dynamicDampingFactor = 0.3;
       this.controls.keys = [49, 50, 51];
-      this.controls.target = new THREE.Vector3().set(-200, -19.996042251586914, 0);
+      this.controls.target = new THREE.Vector3().set(-98, 128, -96);
       this.scene.add(new THREE.AmbientLight(0x808080));
       light = new THREE.SpotLight(0xffffff, 1.0);
       light.position.set(170, 700, 0);
@@ -889,19 +905,21 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       char = String.fromCharCode(event.keyCode);
       del = event.keyCode === 8 || event.keyCode === 46;
       esc = event.keyCode === 27;
-      if ((char < "A" || char > "Z") && !del && !esc) {
+      if (((char < "A" || char > "Z") && char !== " ") && !del && !esc) {
         return;
       }
       if (esc) {
         this.currentlyTyping = false;
         this.blankArtistName();
         this.blurArtist();
+        $('.escHint').slideUp(100);
         return;
       }
       if (this.currentlyTyping === false) {
         this.currentlyTyping = true;
         this.blurArtist();
         this.blankArtistName();
+        $('.escHint').slideDown(100);
         $("h2").text("_");
       }
       if (!del) {
@@ -918,6 +936,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
         binder = function(artist) {
           return $(el).on("click", function() {
             _this.currentlyTyping = false;
+            $('.escHint').slideUp(100);
             return _this.focusArtist(_this.data.artists[artist.index]);
           });
         };
@@ -930,6 +949,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
     SceneKeeper.prototype.scanArtists = function(matchString) {
       var artist, expression, i, len, matches, re, _i, _j, _len, _ref;
 
+      matchString = matchString.replace(/\s/g, '');
       matches = [];
       if (matchString === "") {
         return matches;

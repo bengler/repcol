@@ -19,8 +19,22 @@ $ ->
     console.info("Importing")
 
     data = importer.load().then (data)->
-      console.info("Done loading. Firing scene.")
-      sceneKeeper.init(data)
 
+      
+      $('.intro .button').click =>
+        $('.intro').hide()
+        sceneKeeper.init(data)
 
+      $warnings = $('.warnings');
+      
+      activateClass = do ->
+        isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)
+        if Detector.webgl
+          if !isMobile and navigator.userAgent.match(/Chrom(e|ium)/)
+            return '.shouldWork' 
+          return '.maybeWork'
+        else
+          return '.cantWorkMobile' if isMobile
+          return '.cantWork'
 
+      $warnings.find(activateClass).addClass('active')

@@ -339,7 +339,7 @@ THREE.TrackballControls = function ( object, domElement ) {
 
 			_state = STATE.ZOOM;
 
-		} else if ( event.keyCode === _this.keys[ STATE.PAN ] && !_this.noPan ) {
+		} else if ( event.shiftKey && !_this.noPan ) {
 
 			_state = STATE.PAN;
 

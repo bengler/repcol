@@ -22,9 +22,40 @@
     </head>
 
     <body class="application">
+
+        <div class="intro">
+            <div class="warnings">
+                <div class="shouldWork">
+                    <p>Your browser looks fine for running Repcol, but you may still have issues with your hardware.</p>
+                </div>
+                <div class="maybeWork">
+                    <p>Warning: Repcol is an experimental service that displays detailed 3d-models in the browser. We haven't tested it with your browser yet, but it might just work anyway! For an optimal experience try the latest version of&nbsp;
+                      a(href="http://google.com/chrome") Chrome</p>
+                </div>
+                <div class="cantWork">
+                    <p>We're really sorry, Repcol uses WebGL to display 3d models. This just doesn't work in your browser or on your hardware. You might want to try the latest version of&nbsp;
+                      a(href="http://google.com/chrome") Chrome.</p>
+                </div>
+                <div class="cantWorkMobile">
+                    <p>We're sorry, this project is only available on the desktop. And preferably the latest Chrome at that. Watch the video below and come back with your laptop!</p>
+                </div>
+            </div>
+            <h3>Repcol</h3>
+
+            <iframe src="//player.vimeo.com/video/85755986" width="300" height="200" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/85755986">Repcol</a> from <a href="http://vimeo.com/bengler">Bengler</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+
+            <p>Repcol is an experimental service for getting an overview of the strategies at work in a colelction of art. Which artists were acquired when? How many works were collected? What was their gender?</p>
+
+            <p class="last">
+            It currently lets you see the collection of The Norwegian National Museum. The museum has kindly provided us with a snapshot of their archive.
+
+            </p>
+            <a class="button">Sure, I get it</a>
+        </div>
         <!--[if lt IE 8]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
+        <p style="display:none" class="escHint">Press <strong>escape</strong> to stop searching</p>
         <div class="container">
             <h2></h2>
             <p class="lifespan"></p>

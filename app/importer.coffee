@@ -33,7 +33,6 @@ class Importer
 
     artistsLoaded.then ()=> 
       d3.csv "data/works_coded.csv", (err, rows)=>
-        missing = 0
         rows.forEach (row) =>
           row.artistId = +row.artistId
           row.produced = +row.produced
@@ -41,10 +40,9 @@ class Importer
           row.invalid = (row.produced == 0 or row.acquired == 0)
 
           if row.photographer_id != "-1"
-            row.photographer = photographers[row.photographer_id]
+            row.photographer = photographers[row.photographer_id] + " / Nasjonalmuseet"
           else
             row.photographer = "Nasjonalmuseet"
-
 
           # Need this for GLagered == row.acquired)
 
@@ -53,11 +51,6 @@ class Importer
           if value?
             @data.artistsKeyed[row["artistId"]].works.push(row)
             @data.works.push(row)
-          else
-            missing += 1
-            console.info row
-
-        console.info("Missing artists for #{missing} works!")
 
         # Clean and sort
         @data.artists = _.sortBy @data.artists, (artist)->

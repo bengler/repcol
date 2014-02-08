@@ -27,20 +27,20 @@ class SceneKeeper
     FAR = 10000
 
     @camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1, FAR)
-    @camera.position.set(-205,-15,0)
+    @camera.position.set(-658,366,614)
 
     @controls = new THREE.TrackballControls(@camera)
-    @controls.rotateSpeed = 1.0
-    @controls.zoomSpeed = 1.2
-    @controls.panSpeed = 0.8
+
+    @controls.rotateSpeed = 0.4
+    @controls.zoomSpeed = 0.7
+    @controls.panSpeed = 0.4
     @controls.noZoom = false
     @controls.noPan = false
     @controls.staticMoving = false
     @controls.dynamicDampingFactor = 0.3
     @controls.keys = [ 49, 50, 51 ]
-    @controls.target = new THREE.Vector3().set(-200,-19.996042251586914,0)
+    @controls.target = new THREE.Vector3().set(-98,128,-96)
 
-    # @scene.fog = new THREE.FogExp2 0xcccccc, 0.001103
 
     @scene.add( new THREE.AmbientLight( 0x808080 ) )
 
@@ -116,17 +116,20 @@ class SceneKeeper
     del = event.keyCode == 8 or event.keyCode == 46
     esc = event.keyCode == 27
 
-    return if (char < "A" or char > "Z") and !del and !esc
+    return if ((char < "A" or char > "Z") and char != " " ) and !del and !esc
+
     if esc
       @currentlyTyping = false
       @blankArtistName()
       @blurArtist()
+      $('.escHint').slideUp(100)
       return
 
     if @currentlyTyping == false
       @currentlyTyping = true
       @blurArtist()
       @blankArtistName()
+      $('.escHint').slideDown(100)
       $("h2").text("_")
 
     if !del
@@ -143,14 +146,16 @@ class SceneKeeper
       binder = (artist) =>
         $(el).on("click", =>
           @currentlyTyping = false
+          $('.escHint').slideUp(100)
           @focusArtist(@data.artists[artist.index]))
-      binder(artist)
 
+      binder(artist)
       $(".works").append(el)
 
     return false
 
   scanArtists:(matchString) =>
+    matchString = matchString.replace(/\s/g, '')
     matches = []
     if matchString == ""
       return matches

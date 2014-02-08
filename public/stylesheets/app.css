@@ -872,7 +872,7 @@ cursor not-allowed {
 body {
   margin: 0;
   padding: 0;
-  background-color: #fff;
+  background-color: #d0d0d9;
   font-family: "Helvetica Neue", Helvetica, Arial;
   letter-spacing: -0.03em;
   color: #000;
@@ -880,6 +880,55 @@ body {
 }
 body a {
   color: #888;
+}
+.escHint {
+  padding-left: 20px;
+}
+.intro {
+  font-size: 16px;
+  line-height: 24px;
+  position: fixed;
+  width: 400px;
+  background-color: rgba(20,20,20,0.1);
+  padding: 10px 10px 10px 10px;
+  top: 40px;
+  left: 40px;
+}
+.intro a.button {
+  clear: both;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px;
+  background-color: #afe;
+  color: #000;
+  cursor: pointer;
+}
+.intro p {
+  margin: 0 0 10px 0;
+}
+.intro p.last {
+  margin: 0 0 40px 0;
+}
+.intro .warnings {
+  color: #fff;
+  background-color: #800;
+}
+.intro .warnings .shouldWork,
+.intro .warnings .maybeWork,
+.intro .warnings .cantWork,
+.intro .warnings .cantWorkMobile {
+  display: none;
+  padding: 10px;
+}
+.intro .warnings .shouldWork.active,
+.intro .warnings .maybeWork.active,
+.intro .warnings .cantWork.active,
+.intro .warnings .cantWorkMobile.active {
+  display: block;
+}
+.intro .warnings>.shouldWork {
+  color: #f00;
 }
 .container {
   position: fixed;

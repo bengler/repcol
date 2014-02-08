@@ -22,15 +22,6 @@ exports.config =
                     'vendor/scripts/lodash-v0.8.2.js'
                     'vendor/scripts/backbone-0.9.2.js'
                     'vendor/scripts/three.js'
-                    'vendor/scripts/FXAAShader.js'
-                    'vendor/scripts/VignetteShader.js'
-                    'vendor/scripts/VerticalTiltShiftShader.js'
-                    'vendor/scripts/HorizontalTiltShiftShader.js'
-                    'vendor/scripts/CopyShader.js'
-                    'vendor/scripts/EffectComposer.js'
-                    'vendor/scripts/RenderPass.js'
-                    'vendor/scripts/MaskPass.js'
-                    'vendor/scripts/ShaderPass.js'
                 ]
                 after: [
                 ]
