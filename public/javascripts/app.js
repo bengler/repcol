@@ -206,86 +206,125 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
 }});
 
 window.require.define({"imageRetriever": function(exports, require, module) {
-  var ImageRetriever;
+  var ImageRetriever,
+    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   ImageRetriever = (function() {
-    var baseURL, maxImages;
-
-    function ImageRetriever() {}
-
-    maxImages = 60;
+    var baseURL;
 
     baseURL = "http://api.digitaltmuseum.no/artifact?owner=NMK-B&mapping=ESE&api.key=demo&identifier=";
 
-    ImageRetriever.prototype.getImages = function(artist) {
-      var image, retrievedImages, work, _i, _len, _ref, _results;
-
-      this.clear();
-      retrievedImages = 0;
-      $(".imageContainer").on("mouseleave", function(event) {
+    function ImageRetriever() {
+      this.previousBlock = __bind(this.previousBlock, this);
+      this.nextBlock = __bind(this.nextBlock, this);    $(".imageContainer").on("mouseleave", function(event) {
         $(".zoomedImageContainer").hide();
         $(".photographer").text("");
         return $(".title").text("");
       });
-      _ref = artist.works;
+      $(".navBlock .next").click(this.nextBlock);
+      $(".navBlock .prev").click(this.previousBlock);
+      this.maxImages = 30;
+    }
+
+    ImageRetriever.prototype.getImages = function(artist) {
+      this.clear();
+      this.works = artist.works;
+      this.works = this.works.filter(function(a) {
+        return a.imageCount > 0;
+      });
+      this.currentOffset = 0;
+      this.getImageBlock(this.works.slice(this.currentOffset, this.currentOffset + this.maxImages));
+      return this.updateArrows();
+    };
+
+    ImageRetriever.prototype.updateArrows = function() {
+      if (this.currentOffset === 0) {
+        $('.navBlock .prev').addClass("deactivated");
+      } else {
+        $('.navBlock .prev').removeClass("deactivated");
+      }
+      if (this.currentOffset + this.maxImages >= this.works.length) {
+        return $('.navBlock .next').addClass("deactivated");
+      } else {
+        return $('.navBlock .next').removeClass("deactivated");
+      }
+    };
+
+    ImageRetriever.prototype.nextBlock = function(event) {
+      event.stopPropagation();
+      if (this.currentOffset + this.maxImages >= this.works.length) {
+        return;
+      }
+      this.clear();
+      this.currentOffset += this.maxImages;
+      this.getImageBlock(this.works.slice(this.currentOffset, this.currentOffset + this.maxImages));
+      return this.updateArrows();
+    };
+
+    ImageRetriever.prototype.previousBlock = function(event) {
+      event.stopPropagation();
+      if (this.currentOffset === 0) {
+        return;
+      }
+      this.clear();
+      this.currentOffset -= this.maxImages;
+      this.getImageBlock(this.works.slice(this.currentOffset, this.currentOffset + this.maxImages));
+      return this.updateArrows();
+    };
+
+    ImageRetriever.prototype.getImageBlock = function(works) {
+      var image, work, _i, _len, _results;
+
       _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        work = _ref[_i];
-        if (work.imageCount > 0) {
-          retrievedImages += 1;
-          image = new Image();
-          image.src = "data/images_lores_2/" + work.id + "_0.JPG";
-          image.work = work;
-          image.addEventListener("load", function(event) {
-            $(".imageContainer").append(this);
-            return this.addEventListener("mouseenter", function(event) {
-              var _this = this;
+      for (_i = 0, _len = works.length; _i < _len; _i++) {
+        work = works[_i];
+        image = new Image();
+        image.src = "data/images_lores_2/" + work.id + "_0.JPG";
+        image.work = work;
+        _results.push(image.addEventListener("load", function(event) {
+          $(".imageContainerInner").append(this);
+          return this.addEventListener("mouseenter", function(event) {
+            var _this = this;
 
-              $(".zoomedImage").attr("src", "data/images/" + this.work.id + "_0.JPG");
-              $(".zoomedImageContainer").show();
-              $(".photographer").text("Imaging by " + this.work.photographer);
-              $(".title").text("");
-              return $.get(baseURL + this.work.id, {}, function(xml) {
-                var engTitle, n, norTitle, title;
+            $(".zoomedImage").attr("src", "data/images/" + this.work.id + "_0.JPG");
+            $(".zoomedImageContainer").show();
+            $(".photographer").text("Imaging by " + this.work.photographer);
+            $(".title").text("");
+            return $.get(baseURL + this.work.id, {}, function(xml) {
+              var engTitle, n, norTitle, title;
 
-                xml = $(xml);
-                n = xml.find("dc\\:title, title");
-                engTitle = norTitle = void 0;
-                n.each(function(n, m) {
-                  var title;
+              xml = $(xml);
+              n = xml.find("dc\\:title, title");
+              engTitle = norTitle = void 0;
+              n.each(function(n, m) {
+                var title;
 
-                  title = $(m);
-                  if (title.context.outerHTML.indexOf("xml:lang=\"NOR\"") >= 0) {
-                    norTitle = title.text();
-                  }
-                  if (title.context.outerHTML.indexOf("xml:lang=\"ENG\"") >= 0) {
-                    return engTitle = title.text();
-                  }
-                });
-                title = engTitle;
-                title || (title = norTitle);
-                if (title == null) {
-                  title = "Archive reference: " + _this.work.id;
-                  $(".title").addClass("onlyReference");
-                } else {
-                  $(".title").removeClass("onlyReference");
+                title = $(m);
+                if (title.context.outerHTML.indexOf("xml:lang=\"NOR\"") >= 0) {
+                  norTitle = title.text();
                 }
-                return $(".title").text(title);
+                if (title.context.outerHTML.indexOf("xml:lang=\"ENG\"") >= 0) {
+                  return engTitle = title.text();
+                }
               });
+              title = engTitle;
+              title || (title = norTitle);
+              if (title == null) {
+                title = "Archive reference: " + _this.work.id;
+                $(".title").addClass("onlyReference");
+              } else {
+                $(".title").removeClass("onlyReference");
+              }
+              return $(".title").text(title);
             });
           });
-        }
-        if (retrievedImages > maxImages) {
-          break;
-        } else {
-          _results.push(void 0);
-        }
+        }));
       }
       return _results;
     };
 
     ImageRetriever.prototype.clear = function() {
-      $(".imageContainer").empty();
+      $(".imageContainerInner").empty();
       $(".zoomedImageContainer").hide();
       $(".photographer").text("");
       return $(".title").text("");
@@ -400,7 +439,7 @@ window.require.define({"initialize": function(exports, require, module) {
   }
 
   $(function() {
-    var AppView, data, importer, sceneKeeper;
+    var $warnings, AppView, activateClass, data, importer, sceneKeeper;
 
     require('../lib/app_helpers');
     importer = require('./importer');
@@ -409,11 +448,29 @@ window.require.define({"initialize": function(exports, require, module) {
     Backbone.history.start({
       pushState: true
     });
-    console.info("Importing");
-    return data = importer.load().then(function(data) {
-      var $warnings, activateClass,
-        _this = this;
+    $warnings = $('.warnings');
+    activateClass = (function() {
+      var isMobile;
 
+      isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
+      if (Detector.webgl) {
+        if (!isMobile && navigator.userAgent.match(/Chrom(e|ium)/)) {
+          return '.shouldWork';
+        }
+        return '.maybeWork';
+      } else {
+        if (isMobile) {
+          return '.cantWorkMobile';
+        }
+        return '.cantWork';
+      }
+    })();
+    $warnings.find(activateClass).addClass('active');
+    return data = importer.load().then(function(data) {
+      var _this = this;
+
+      $('.intro .button').text("Start");
+      $('.intro .button').removeClass("deactivated");
       $('.intro .button').click(function() {
         $('.intro').hide();
         $('.warnings').hide();
@@ -424,28 +481,10 @@ window.require.define({"initialize": function(exports, require, module) {
         $('.copy.overview').hide();
         return $('.copy.navigation').show();
       });
-      $('.showOverview').click(function() {
+      return $('.showOverview').click(function() {
         $('.copy.overview').show();
         return $('.copy.navigation').hide();
       });
-      $warnings = $('.warnings');
-      activateClass = (function() {
-        var isMobile;
-
-        isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
-        if (Detector.webgl) {
-          if (!isMobile && navigator.userAgent.match(/Chrom(e|ium)/)) {
-            return '.shouldWork';
-          }
-          return '.maybeWork';
-        } else {
-          if (isMobile) {
-            return '.cantWorkMobile';
-          }
-          return '.cantWork';
-        }
-      })();
-      return $warnings.find(activateClass).addClass('active');
     });
   });
   
@@ -827,10 +866,10 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.blankArtistName = __bind(this.blankArtistName, this);
       this.mousemove = __bind(this.mousemove, this);
       this.tweenCamera = __bind(this.tweenCamera, this);
-      this.click = __bind(this.click, this);
       this.keydown = __bind(this.keydown, this);
       this.scanArtists = __bind(this.scanArtists, this);
       this.keyup = __bind(this.keyup, this);
+      this.click = __bind(this.click, this);
     }
 
     SceneKeeper.prototype.init = function(data) {
@@ -844,9 +883,9 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       var FAR, HEIGHT, MARGIN, SCREEN_HEIGHT, SCREEN_WIDTH, WIDTH, container, light;
 
       this.scene = new THREE.Scene;
+      MARGIN = 0;
       WIDTH = window.innerWidth || 2;
       HEIGHT = window.innerHeight || (2 + 2 * MARGIN);
-      MARGIN = 0;
       SCREEN_WIDTH = WIDTH;
       SCREEN_HEIGHT = HEIGHT - 2 * MARGIN;
       FAR = 10000;
@@ -898,7 +937,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.mouse = new THREE.Vector2();
       this.projector = new THREE.Projector();
       this.animate();
-      window.addEventListener('dblclick', this.click, false);
+      window.addEventListener('click', this.click, false);
       window.addEventListener('mousemove', this.mousemove, false);
       window.addEventListener('resize', this.resize, false);
       window.addEventListener('resize', this.resize, false);
@@ -906,6 +945,29 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       window.addEventListener('keyup', this.keyup, true);
       this.currentArtist = void 0;
       return this.currentlyTyping = false;
+    };
+
+    SceneKeeper.prototype.click = function(event) {
+      var res;
+
+      if (Math.abs(window.mouseX - event.clientX) > 4 || Math.abs(window.mouseY - event.clientY) > 4) {
+        return;
+      }
+      res = this.findArtist(event);
+      if ((res == null) || this.currentArtist === res.artist) {
+        if (this.currentArtist) {
+          return this.blurArtist();
+        }
+      } else {
+        if (res.artist.id === 3927 && (this.currentArtist != null)) {
+          if (this.currentArtist) {
+            return this.blurArtist();
+          }
+        } else {
+          this.focusArtist(res.artist);
+          return this.currentlyTyping = false;
+        }
+      }
     };
 
     SceneKeeper.prototype.keyup = function(event) {
@@ -985,6 +1047,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
 
     SceneKeeper.prototype.keydown = function(event) {
       if (event.keyCode === 8 || event.keyCode === 46) {
+        event.preventDefault();
         return false;
       }
       if ((this.currentArtist != null) && !this.currentTyping) {
@@ -998,26 +1061,6 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
             if (this.currentArtist.index !== this.data.artists.length - 1) {
               return this.focusArtist(this.data.artists[this.currentArtist.index + 1]);
             }
-        }
-      }
-    };
-
-    SceneKeeper.prototype.click = function(event) {
-      var res;
-
-      res = this.findArtist(event);
-      if ((res == null) || this.currentArtist === res.artist) {
-        if (this.currentArtist) {
-          return this.blurArtist();
-        }
-      } else {
-        if (res.artist.id === 3927 && (this.currentArtist != null)) {
-          if (this.currentArtist) {
-            return this.blurArtist();
-          }
-        } else {
-          this.focusArtist(res.artist);
-          return this.currentlyTyping = false;
         }
       }
     };
@@ -1048,7 +1091,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       tweenOut = function(mesh) {
         return new TWEEN.Tween(_this.currentArtistMesh.material).to({
           opacity: 0,
-          500: 500
+          200: 200
         }).easing(TWEEN.Easing.Exponential.Out).start().onComplete(function() {
           return _this.scene.remove(mesh);
         });
@@ -1084,7 +1127,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       }
       vec.addVectors(vec, lookAt);
       this.tweenCamera(vec, lookAt);
-      if ((new Date().getFullYear() - artist.dod) > 70) {
+      if ((new Date().getFullYear() - artist.dod) > Math.floor(22.281692032865347 * Math.PI)) {
         return imageRetriever.getImages(artist);
       } else {
         return imageRetriever.clear();
@@ -1096,12 +1139,12 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
         x: position.x,
         y: position.y,
         z: position.z
-      }, 1000).easing(TWEEN.Easing.Exponential.Out).start();
+      }, 700).easing(TWEEN.Easing.Exponential.Out).start();
       return new TWEEN.Tween(this.controls.target).to({
         x: target.x,
         y: target.y,
         z: target.z
-      }, 1000).easing(TWEEN.Easing.Exponential.Out).start();
+      }, 700).easing(TWEEN.Easing.Exponential.Out).start();
     };
 
     SceneKeeper.prototype.findArtist = function(event) {

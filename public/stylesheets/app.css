@@ -880,36 +880,88 @@ body {
 .escHint {
   padding-left: 20px;
 }
+.warnings {
+  font-size: 16px;
+  width: 100%;
+  margin: 0px auto 10px auto;
+  background-color: #333;
+  text-align: center;
+}
+.warnings p {
+  margin: 0px;
+}
+.shouldWork,
+.maybeWork,
+.cantWork,
+.cantWorkMobile {
+  display: none;
+  padding: 10px;
+  color: #fdd;
+  font-weight: 800;
+}
+.shouldWork.active,
+.maybeWork.active,
+.cantWork.active,
+.cantWorkMobile.active {
+  display: block;
+}
+.warnings>.shouldWork {
+  color: #eee;
+  font-weight: 300;
+}
 .intro {
   font-size: 14px;
   line-height: 20px;
-  position: fixed;
-  width: 820px;
+  max-width: 730px;
   background-color: #eee;
-  padding: 10px 10px 10px 10px;
-  top: 100px;
-  left: 40px;
+  padding: 20px;
+  margin: 0px auto;
+  margin-bottom: 40px;
 }
 .intro h3 {
-  font-size: 36px;
-  margin: 10px 0px 20px 0px;
+  font-size: 42px;
+  margin: 20px 0px 40px 0px;
 }
 .intro .copy {
-  width: 400px;
+  width: 45%;
   float: left;
-  min-height: 360px;
   margin-bottom: 20px;
+}
+@media all and (max-width: 659px) {
+  .intro .copy {
+    width: 100%;
+  }
 }
 .intro .copy.navigation {
   display: none;
+  margin-left: 20px;
 }
 .intro .sectionNav.showNavigation {
   float: right;
+  margin-right: 20px;
 }
 .intro .video {
-  margin-top: 50px;
-  float: left;
-  margin-left: 20px;
+  position: relative;
+  padding-bottom: 26.25%;
+/* 16:9 */
+  height: 0;
+  width: 45%;
+  float: right;
+}
+.intro .video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+@media all and (max-width: 659px) {
+  .intro .video {
+    padding-bottom: 56.25%;
+/* 16:9 */
+    margin: 0px 0px 0px 40px;
+    width: 100%;
+  }
 }
 .intro a.button {
   text-align: center;
@@ -919,44 +971,27 @@ body {
   background-color: #aef;
   color: #000;
   cursor: pointer;
-  text-transform: uppercase;
   font-weight: 800;
-  clear: both;
   margin-top: 20px;
+  font-size: 20px;
+  clear: both;
+  margin: 40px 0px;
 }
 .intro a.button:hover {
   text-decoration: none;
   background-color: #bff;
+}
+.intro a.button.deactivated {
+  background-color: #d8d8d8;
+}
+.intro a.button.deactivated:hover {
+  background-color: #d8d8d8;
 }
 .intro p {
   margin: 0 0 10px 0;
 }
 .intro p.last {
   margin: 0 0 40px 0;
-}
-.warnings {
-  font-size: 16px;
-  position: fixed;
-  width: 820px;
-  background-color: #eee;
-  top: 20px;
-  left: 40px;
-}
-.shouldWork,
-.maybeWork,
-.cantWork,
-.cantWorkMobile {
-  display: none;
-  padding: 10px;
-}
-.shouldWork.active,
-.maybeWork.active,
-.cantWork.active,
-.cantWorkMobile.active {
-  display: block;
-}
-.warnings>.shouldWork {
-  color: #333;
 }
 .container {
   letter-spacing: -0.03em;
@@ -1023,6 +1058,45 @@ body {
   z-index: 2000;
   background-color: rgba(0,0,0,0.1);
   padding-left: 10px;
+  height: 110px;
+  width: 100%;
+}
+.imageContainer .navBlock {
+  position: absolute;
+  right: 20px;
+  top: -40px;
+}
+.imageContainer .navBlock a {
+  text-decoration: none;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(180,200,222,0.8);
+  display: block;
+  cursor: pointer;
+  color: #000;
+  float: left;
+  line-height: 25px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 22px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.imageContainer .navBlock a.next {
+  margin-left: 10px;
+}
+.imageContainer .navBlock a.deactivated {
+  opacity: 0.1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  filter: alpha(opacity=10);
+}
+.imageContainer .navBlock a.deactivated:hover {
+  opacity: 0.1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  filter: alpha(opacity=10);
+}
+.imageContainer .navBlock a:hover {
+  background-color: rgba(255,255,255,0.9);
 }
 .imageContainer img {
   height: 50px;

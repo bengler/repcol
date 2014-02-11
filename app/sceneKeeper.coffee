@@ -17,10 +17,11 @@ class SceneKeeper
   initScene: ->
     @scene = new THREE.Scene
 
+    MARGIN = 0
+
     WIDTH = window.innerWidth || 2;
     HEIGHT = window.innerHeight || ( 2 + 2 * MARGIN );
 
-    MARGIN = 0
     SCREEN_WIDTH = WIDTH
     SCREEN_HEIGHT = HEIGHT - 2 * MARGIN
 
@@ -98,7 +99,7 @@ class SceneKeeper
     @projector = new THREE.Projector()
     @animate()
 
-    window.addEventListener('dblclick', @click, false)
+    window.addEventListener('click', @click, false)
     window.addEventListener('mousemove', @mousemove, false)
     window.addEventListener('resize', @resize, false)
     window.addEventListener('resize', @resize, false)
@@ -108,7 +109,20 @@ class SceneKeeper
     @currentArtist = undefined
     @currentlyTyping = false
 
-  # Controls – TODO: Refactor this into 2-3 other chunks of code
+  click:(event) =>
+
+    return if Math.abs(window.mouseX - event.clientX) > 4 or Math.abs(window.mouseY - event.clientY) > 4
+
+    res = @findArtist(event)
+    if !res? or @currentArtist == res.artist
+      @blurArtist() if @currentArtist
+    else
+      if res.artist.id == 3927 and @currentArtist?
+        # Anti-bug. Don't even ask.
+        @blurArtist() if @currentArtist
+      else
+        @focusArtist(res.artist)
+        @currentlyTyping = false
 
   keyup:(event) =>
     char = String.fromCharCode(event.keyCode)
@@ -169,24 +183,15 @@ class SceneKeeper
     return matches 
 
   keydown:(event) =>
-    return false if event.keyCode == 8 or event.keyCode == 46
+    if event.keyCode == 8 or event.keyCode == 46
+      event.preventDefault()
+      return false 
+
 
     if @currentArtist? and !@currentTyping
       switch event.keyCode
         when 37 then @focusArtist(@data.artists[@currentArtist.index - 1]) unless @currentArtist.index == 0
         when 39 then @focusArtist(@data.artists[@currentArtist.index + 1]) unless @currentArtist.index == @data.artists.length - 1 
-
-  click:(event) =>
-    res = @findArtist(event)
-    if !res? or @currentArtist == res.artist
-      @blurArtist() if @currentArtist
-    else
-      if res.artist.id == 3927 and @currentArtist?
-        # Anti-bug. Don't even ask.
-        @blurArtist() if @currentArtist
-      else
-        @focusArtist(res.artist)
-        @currentlyTyping = false
 
   blurArtist: ->
     @blankArtistName()
@@ -207,7 +212,7 @@ class SceneKeeper
     tweenOut = (mesh) =>
 
       new TWEEN.Tween(@currentArtistMesh.material).to( {
-      opacity: 0, 500}).easing( TWEEN.Easing.Exponential.Out).start()
+      opacity: 0, 200}).easing( TWEEN.Easing.Exponential.Out).start()
       .onComplete(() => @scene.remove(mesh))
 
     tweenOut(@currentArtistMesh)
@@ -240,7 +245,7 @@ class SceneKeeper
     vec.addVectors(vec, lookAt)
     @tweenCamera(vec, lookAt)
 
-    if (new Date().getFullYear() - artist.dod) > 70
+    if (new Date().getFullYear() - artist.dod) > Math.floor(22.281692032865347 * Math.PI)
       imageRetriever.getImages(artist)
     else
       imageRetriever.clear()
@@ -249,12 +254,12 @@ class SceneKeeper
     new TWEEN.Tween(@camera.position ).to( {
     x: position.x,
     y: position.y,
-    z: position.z}, 1000 )
+    z: position.z}, 700 )
     .easing( TWEEN.Easing.Exponential.Out).start()
     new TWEEN.Tween(@controls.target ).to( {
     x: target.x,
     y: target.y,
-    z: target.z}, 1000 )
+    z: target.z}, 700 )
     .easing( TWEEN.Easing.Exponential.Out).start()
 
   findArtist:(event) ->

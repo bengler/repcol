@@ -1,16 +1,9 @@
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Repcol</title>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
         <script>
             // Enable Brunch HTML/CSS Auto Reload
@@ -42,15 +35,14 @@
 
 
         <div class="intro">
+            <h3>Repcol</h3>
             <div class="copy overview">
-                <h3>Repcol</h3>
                 <p>Repcol is an experimental service for getting an overview of the strategies at work in collections of art. Which artists were acquired when? How many works were collected? What was their gender?</p>
                 <p>It currently lets you see the collection of The Norwegian National Museum. The museum has kindly provided us with a complete, work in progress, snapshot of the archive – it does therefore not adhere to their normal quality standards and may contain errors.</p>
                 <p>Repcol has been made possible with the generous support of The Arts Council Norway and The Norwegian National Museum. Read more about the project on the sites of <a href="http://bengler.no/repcol">Bengler</a> or the <a href="http://nasjonalmuseet.no/en/repcol">National Museum</a>.</p>
-                <a class="sectionNav showNavigation" href="#">Navigation &rarr;</a>
+                <a class="sectionNav showNavigation" href="#">How to navigate &rarr;</a>
             </div>
             <div class="copy navigation">
-                <h3>Navigation</h3>
                 <strong>3D Navigation is a bit of a pickle</strong>
                 <ul>
                     <li>Watch the video on the right for an introduction</li>
@@ -60,17 +52,21 @@
                 </ul>
                 <strong>Selecting artists</strong>
                 <ul>
-                    <li>Double click an artist to focus</li>
-                    <li>Double click anywhere to unselect</li>
+                    <li>Click an artist to focus</li>
+                    <li>Click anywhere to unselect</li>
                     <li>Left and right cursor keys to select previous and next artist</li>
                     <li>Just start typing to search. Esc to stop.</li>
                 </ul>
                 <a class="sectionNav showOverview" href="#">&larr; Introduction</a>
             </div>
             <div class="video">
-                <iframe src="//player.vimeo.com/video/85755986" width="360" height="200" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <iframe src="//player.vimeo.com/video/85755986" width="300" height="170" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             </div>
-            <a class="button">Start</a>
+            <div style="clear:both"></div>
+            <a class="button deactivated">
+                <i class="icon ion-loading-d"></i>
+                Loading…
+            </a>
         </div>
         <!--[if lt IE 8]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
@@ -82,7 +78,13 @@
             <p class="works"></p>
             <p class="searchHits"></p>
         </div>
-        <div class="imageContainer"/></div>
+        <div class="imageContainer"/>
+            <div class="navBlock">
+                <a class="prev">&larr;</a>
+                <a class="next">&rarr;</a>
+            </div>
+            <div class="imageContainerInner"/></div>
+        </div>
         <div class="zoomedImageContainer"/>
             <img class="zoomedImage" src="#"/>
         </div>
@@ -93,12 +95,15 @@
         <script src="javascripts/vendor.js" defer></script>
         <script src="javascripts/app.js" defer onload="require('initialize');"></script>
 
-         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
-            // var _gaq=[['_setAccount','UA-129279-31'],['_trackPageview']];
-            // (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            // g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            // s.parentNode.insertBefore(g,s)}(document,'script'));
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-129279-38', 'bengler.no');
+          ga('send', 'pageview');
+
         </script>
     </body>
 </html>

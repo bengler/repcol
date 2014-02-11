@@ -52837,6 +52837,9 @@ THREE.TrackballControls = function ( object, domElement ) {
 
 	function mousedown( event ) {
 
+		window.mouseX = event.clientX;
+		window.mouseY = event.clientY;
+
 		if ( _this.enabled === false ) return;
 
 		event.preventDefault();

@@ -16,11 +16,25 @@ $ ->
     # Initialize Backbone History
     Backbone.history.start pushState: yes
 
-    console.info("Importing")
+
+    $warnings = $('.warnings');
+    
+    activateClass = do ->
+      isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)
+      if Detector.webgl
+        if !isMobile and navigator.userAgent.match(/Chrom(e|ium)/)
+          return '.shouldWork' 
+        return '.maybeWork'
+      else
+        return '.cantWorkMobile' if isMobile
+        return '.cantWork'
+
+    $warnings.find(activateClass).addClass('active')
 
     data = importer.load().then (data)->
+      $('.intro .button').text("Start")
+      $('.intro .button').removeClass("deactivated")
 
-      
       $('.intro .button').click =>
         $('.intro').hide()
         $('.warnings').hide()
@@ -36,16 +50,3 @@ $ ->
         $('.copy.navigation').hide()
 
 
-      $warnings = $('.warnings');
-      
-      activateClass = do ->
-        isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)
-        if Detector.webgl
-          if !isMobile and navigator.userAgent.match(/Chrom(e|ium)/)
-            return '.shouldWork' 
-          return '.maybeWork'
-        else
-          return '.cantWorkMobile' if isMobile
-          return '.cantWork'
-
-      $warnings.find(activateClass).addClass('active')
