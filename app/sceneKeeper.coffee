@@ -111,18 +111,16 @@ class SceneKeeper
 
   click:(event) =>
 
-    return if Math.abs(window.mouseX - event.clientX) > 4 or Math.abs(window.mouseY - event.clientY) > 4
+    return if Math.abs(window.mouseX - event.clientX) > 4 or Math.abs(window.mouseY - event.clientY) > 4 
 
     res = @findArtist(event)
+    return if res? and res.artist.id == 3927
+
     if !res? or @currentArtist == res.artist
       @blurArtist() if @currentArtist
     else
-      if res.artist.id == 3927 and @currentArtist?
-        # Anti-bug. Don't even ask.
-        @blurArtist() if @currentArtist
-      else
-        @focusArtist(res.artist)
-        @currentlyTyping = false
+      @focusArtist(res.artist)
+      @currentlyTyping = false
 
   keyup:(event) =>
     char = String.fromCharCode(event.keyCode)

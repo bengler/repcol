@@ -971,19 +971,16 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
         return;
       }
       res = this.findArtist(event);
+      if ((res != null) && res.artist.id === 3927) {
+        return;
+      }
       if ((res == null) || this.currentArtist === res.artist) {
         if (this.currentArtist) {
           return this.blurArtist();
         }
       } else {
-        if (res.artist.id === 3927 && (this.currentArtist != null)) {
-          if (this.currentArtist) {
-            return this.blurArtist();
-          }
-        } else {
-          this.focusArtist(res.artist);
-          return this.currentlyTyping = false;
-        }
+        this.focusArtist(res.artist);
+        return this.currentlyTyping = false;
       }
     };
 
