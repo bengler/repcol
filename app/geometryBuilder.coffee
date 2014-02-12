@@ -9,13 +9,13 @@ class GeometryBuilder
     @scaleY = 40
 
   selectedArtistMesh:(artist) ->
-    selectedArtistMaterial = new THREE.MeshLambertMaterial({
+    selectedArtistMaterial = new THREE.MeshPhongMaterial({
       opacity: 0.70
       wireframe: false
       transparent:true
     })
 
-    @artistMesh(artist, selectedArtistMaterial, 1.50)
+    @artistMesh(artist, selectedArtistMaterial, 3)
 
   artistMesh:(artist, texture, multiplier = 0) ->
     mesh = new THREE.Mesh(@artistGeometry, texture)

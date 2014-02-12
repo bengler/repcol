@@ -257,12 +257,12 @@ class SceneKeeper
     new TWEEN.Tween(@camera.position ).to( {
     x: position.x,
     y: position.y,
-    z: position.z}, 700 )
+    z: position.z}, 800 )
     .easing( TWEEN.Easing.Exponential.Out).start()
     new TWEEN.Tween(@controls.target ).to( {
     x: target.x,
     y: target.y,
-    z: target.z}, 700 )
+    z: target.z}, 1400 )
     .easing( TWEEN.Easing.Exponential.Out).start()
 
   findArtist:(event) ->

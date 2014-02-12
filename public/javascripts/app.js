@@ -88,12 +88,12 @@ window.require.define({"geometryBuilder": function(exports, require, module) {
     GeometryBuilder.prototype.selectedArtistMesh = function(artist) {
       var selectedArtistMaterial;
 
-      selectedArtistMaterial = new THREE.MeshLambertMaterial({
+      selectedArtistMaterial = new THREE.MeshPhongMaterial({
         opacity: 0.70,
         wireframe: false,
         transparent: true
       });
-      return this.artistMesh(artist, selectedArtistMaterial, 1.50);
+      return this.artistMesh(artist, selectedArtistMaterial, 3);
     };
 
     GeometryBuilder.prototype.artistMesh = function(artist, texture, multiplier) {
@@ -1155,12 +1155,12 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
         x: position.x,
         y: position.y,
         z: position.z
-      }, 700).easing(TWEEN.Easing.Exponential.Out).start();
+      }, 800).easing(TWEEN.Easing.Exponential.Out).start();
       return new TWEEN.Tween(this.controls.target).to({
         x: target.x,
         y: target.y,
         z: target.z
-      }, 700).easing(TWEEN.Easing.Exponential.Out).start();
+      }, 1400).easing(TWEEN.Easing.Exponential.Out).start();
     };
 
     SceneKeeper.prototype.findArtist = function(event) {
