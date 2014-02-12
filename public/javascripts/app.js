@@ -1155,12 +1155,12 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
         x: position.x,
         y: position.y,
         z: position.z
-      }, 800).easing(TWEEN.Easing.Exponential.Out).start();
+      }, 700).easing(TWEEN.Easing.Exponential.Out).start();
       return new TWEEN.Tween(this.controls.target).to({
         x: target.x,
         y: target.y,
         z: target.z
-      }, 900).easing(TWEEN.Easing.Exponential.Out).start();
+      }, 700).easing(TWEEN.Easing.Exponential.Out).start();
     };
 
     SceneKeeper.prototype.findArtist = function(event) {

@@ -973,8 +973,8 @@ body {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #aef;
-  color: #000;
+  background-color: #4bf;
+  color: #fff;
   cursor: pointer;
   font-weight: 800;
   font-size: 20px;
@@ -983,7 +983,7 @@ body {
 }
 .intro a.button:hover {
   text-decoration: none;
-  background-color: #bff;
+  background-color: #5cf;
 }
 .intro a.button.deactivated {
   background-color: #d8d8d8;
