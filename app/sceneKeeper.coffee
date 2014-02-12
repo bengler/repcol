@@ -262,7 +262,7 @@ class SceneKeeper
     new TWEEN.Tween(@controls.target ).to( {
     x: target.x,
     y: target.y,
-    z: target.z}, 1400 )
+    z: target.z}, 900 )
     .easing( TWEEN.Easing.Exponential.Out).start()
 
   findArtist:(event) ->
