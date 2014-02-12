@@ -70,7 +70,7 @@ class ImageRetriever
   getImageBlock:(works) ->
     for work in works
       image = new Image()
-      image.src = "data/images_lores/#{work.id}_0.JPG"
+      image.src = "data/images_lores_2/#{work.id}_0.JPG"
       image.work = work
       image.addEventListener "load", (event)->
         $(".imageContainerInner").append(this)
