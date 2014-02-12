@@ -293,7 +293,7 @@ window.require.define({"imageRetriever": function(exports, require, module) {
       for (_i = 0, _len = works.length; _i < _len; _i++) {
         work = works[_i];
         image = new Image();
-        image.src = "data/images_lores_2/" + work.id + "_0.JPG";
+        image.src = "data/images_lores/" + work.id + "_0.JPG";
         image.work = work;
         _results.push(image.addEventListener("load", function(event) {
           $(".imageContainerInner").append(this);
