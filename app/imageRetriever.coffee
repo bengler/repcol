@@ -18,17 +18,24 @@ class ImageRetriever
 
     @works = artist.works
 
-    # .sort (a,b)->
-    #   a.kind == "Maleri" < b.kind == "Maleri"
+    @works = @works.sort (a,b)->
+      a.kind == "Maleri" < b.kind == "Maleri"
 
     @works = @works.filter (a)->
       a.imageCount > 0
 
     @currentOffset = 0
+    @sheetNumber = 1
     @getImageBlock(@works.slice(@currentOffset, @currentOffset + @maxImages))
-    @updateArrows()
+    @updateDisplay()
+    $('.imageContainer').show()
 
-  updateArrows:() ->
+  updateDisplay:() ->
+    if @works.length > 0
+      $('.navBlock p.counter').text(@sheetNumber + " / " + (Math.ceil(@works.length/@maxImages)))
+    else
+      $('.navBlock p.counter').text("")
+
     if @currentOffset == 0
       $('.navBlock .prev').addClass("deactivated")
     else
@@ -43,18 +50,22 @@ class ImageRetriever
   nextBlock:(event) =>
     event.stopPropagation()
     return if @currentOffset + @maxImages >= @works.length
-    @clear()
     @currentOffset += @maxImages
+    @sheetNumber += 1
+    @clear()
+
     @getImageBlock(@works.slice(@currentOffset, @currentOffset + @maxImages))
-    @updateArrows()
+    @updateDisplay()
 
   previousBlock:(event) =>
     event.stopPropagation()
     return if @currentOffset == 0
-    @clear()
     @currentOffset -= @maxImages
+    @sheetNumber -= 1
+    @clear()
+
     @getImageBlock(@works.slice(@currentOffset, @currentOffset + @maxImages))
-    @updateArrows()
+    @updateDisplay()
 
   getImageBlock:(works) ->
     for work in works
@@ -98,6 +109,9 @@ class ImageRetriever
     $(".zoomedImageContainer").hide()
     $(".photographer").text("")
     $(".title").text("")
+    $('.navBlock .prev').removeClass("deactivated")
+    $('.navBlock .prev').removeClass("deactivated")
+    $('.navBlock p.counter').text("")
 
 
 

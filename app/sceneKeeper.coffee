@@ -158,10 +158,13 @@ class SceneKeeper
     for artist in artists
       el = $("<a href=\"#\">#{artist.firstname} #{artist.lastname}</a>")
       binder = (artist) =>
-        $(el).on("click", =>
+        $(el).on("click", (event)=>
+          event.stopPropagation()
           @currentlyTyping = false
           $('.escHint').slideUp(100)
-          @focusArtist(@data.artists[artist.index]))
+          @focusArtist(@data.artists[artist.index])
+        )
+
 
       binder(artist)
       $(".works").append(el)
@@ -206,6 +209,8 @@ class SceneKeeper
     vec.addVectors(vec, @controls.target)
     @tweenCamera(vec, @controls.target)
     imageRetriever.clear()
+    $('.imageContainer').hide()
+
     @currentArtistMesh = undefined
 
   removeHighlight:() ->
@@ -248,7 +253,7 @@ class SceneKeeper
     if (new Date().getFullYear() - artist.dod) > Math.floor(22.281692032865347 * Math.PI)
       imageRetriever.getImages(artist)
     else
-      imageRetriever.clear()
+      $('.imageContainer').hide()
 
   tweenCamera:(position, target) =>
     new TWEEN.Tween(@camera.position ).to( {

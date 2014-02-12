@@ -229,15 +229,27 @@ window.require.define({"imageRetriever": function(exports, require, module) {
     ImageRetriever.prototype.getImages = function(artist) {
       this.clear();
       this.works = artist.works;
+      this.works = this.works.sort(function(a, b) {
+        var _ref;
+
+        return ((a.kind === "Maleri" && "Maleri" < (_ref = b.kind)) && _ref === "Maleri");
+      });
       this.works = this.works.filter(function(a) {
         return a.imageCount > 0;
       });
       this.currentOffset = 0;
+      this.sheetNumber = 1;
       this.getImageBlock(this.works.slice(this.currentOffset, this.currentOffset + this.maxImages));
-      return this.updateArrows();
+      this.updateDisplay();
+      return $('.imageContainer').show();
     };
 
-    ImageRetriever.prototype.updateArrows = function() {
+    ImageRetriever.prototype.updateDisplay = function() {
+      if (this.works.length > 0) {
+        $('.navBlock p.counter').text(this.sheetNumber + " / " + (Math.ceil(this.works.length / this.maxImages)));
+      } else {
+        $('.navBlock p.counter').text("");
+      }
       if (this.currentOffset === 0) {
         $('.navBlock .prev').addClass("deactivated");
       } else {
@@ -255,10 +267,11 @@ window.require.define({"imageRetriever": function(exports, require, module) {
       if (this.currentOffset + this.maxImages >= this.works.length) {
         return;
       }
-      this.clear();
       this.currentOffset += this.maxImages;
+      this.sheetNumber += 1;
+      this.clear();
       this.getImageBlock(this.works.slice(this.currentOffset, this.currentOffset + this.maxImages));
-      return this.updateArrows();
+      return this.updateDisplay();
     };
 
     ImageRetriever.prototype.previousBlock = function(event) {
@@ -266,10 +279,11 @@ window.require.define({"imageRetriever": function(exports, require, module) {
       if (this.currentOffset === 0) {
         return;
       }
-      this.clear();
       this.currentOffset -= this.maxImages;
+      this.sheetNumber -= 1;
+      this.clear();
       this.getImageBlock(this.works.slice(this.currentOffset, this.currentOffset + this.maxImages));
-      return this.updateArrows();
+      return this.updateDisplay();
     };
 
     ImageRetriever.prototype.getImageBlock = function(works) {
@@ -327,7 +341,10 @@ window.require.define({"imageRetriever": function(exports, require, module) {
       $(".imageContainerInner").empty();
       $(".zoomedImageContainer").hide();
       $(".photographer").text("");
-      return $(".title").text("");
+      $(".title").text("");
+      $('.navBlock .prev').removeClass("deactivated");
+      $('.navBlock .prev').removeClass("deactivated");
+      return $('.navBlock p.counter').text("");
     };
 
     return ImageRetriever;
@@ -1006,7 +1023,8 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
         artist = artists[_i];
         el = $("<a href=\"#\">" + artist.firstname + " " + artist.lastname + "</a>");
         binder = function(artist) {
-          return $(el).on("click", function() {
+          return $(el).on("click", function(event) {
+            event.stopPropagation();
             _this.currentlyTyping = false;
             $('.escHint').slideUp(100);
             return _this.focusArtist(_this.data.artists[artist.index]);
@@ -1081,6 +1099,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       vec.addVectors(vec, this.controls.target);
       this.tweenCamera(vec, this.controls.target);
       imageRetriever.clear();
+      $('.imageContainer').hide();
       return this.currentArtistMesh = void 0;
     };
 
@@ -1130,7 +1149,7 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       if ((new Date().getFullYear() - artist.dod) > Math.floor(22.281692032865347 * Math.PI)) {
         return imageRetriever.getImages(artist);
       } else {
-        return imageRetriever.clear();
+        return $('.imageContainer').hide();
       }
     };
 

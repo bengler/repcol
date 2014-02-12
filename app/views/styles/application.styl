@@ -19,13 +19,16 @@ body
   font-size: 12px
   background-color: #d0d0d9
 
+  @media all and (min-width: 659px)
+    overflow: hidden
+
 .escHint
   padding-left: 20px
 
 .warnings
     font-size: 16px
     width: 100%
-    margin: 00px auto 10px auto
+    margin: 0 auto 0 auto
     background-color: #333
     text-align: center
 
@@ -53,7 +56,7 @@ body
   background-color: #eee
   padding: 20px
   margin: 0px auto
-  margin-bottom: 40px
+  margin-bottom: 20px
 
   h3
     font-size: 42px
@@ -71,7 +74,6 @@ body
   .copy.navigation
     display: none
     margin-left: 20px
-
 
   .sectionNav.showNavigation
     float: right
@@ -107,10 +109,9 @@ body
     color: #000
     cursor: pointer
     font-weight: 800
-    margin-top: 20px
     font-size: 20px
     clear: both
-    margin: 40px 0px
+    margin: 20px 0px
 
     &:hover
       text-decoration:none
@@ -193,35 +194,46 @@ body
   padding-left: 10px
   height: 110px
   width: 100%
+  display: none
 
   .navBlock
     position: absolute
     right: 20px
     top: -40px
 
+    p
+      display: block
+      width: 40px
+      height: 30px
+      float: left
+      line-height: 10px
+      text-align: center
+      font-size: 11px
+      font-weight: 500
+      color: #333
+      opacity: 0.8
     a
-      text-decoration: none
       width: 30px
       height: 30px
-      background-color: rgba(180,200,222,0.8)
+      float: left
+      background-color: rgba(200,220,254,0.8)
+      border: 1px solid rgba(100,120,154,0.3)
       display: block
       cursor: pointer
-      color: #000
-      float: left
+      color: #335
       line-height: 25px
       text-align: center
       font-weight: 900
       font-size: 22px
       border-radius: 3px
-
-      &.next
-        margin-left: 10px
+      text-decoration: none
 
       &.deactivated
         opacity: 0.1
 
       &.deactivated:hover
         opacity: 0.1
+        background-color: rgba(180,200,222,0.8)
 
 
     a:hover
