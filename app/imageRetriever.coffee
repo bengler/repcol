@@ -19,7 +19,7 @@ class ImageRetriever
     @works = artist.works
 
     @works = @works.sort (a,b)->
-      a.kind == "Maleri" < b.kind == "Maleri"
+      return a.kind < b.kind 
 
     @works = @works.filter (a)->
       a.imageCount > 0

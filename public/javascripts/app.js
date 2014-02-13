@@ -230,9 +230,7 @@ window.require.define({"imageRetriever": function(exports, require, module) {
       this.clear();
       this.works = artist.works;
       this.works = this.works.sort(function(a, b) {
-        var _ref;
-
-        return ((a.kind === "Maleri" && "Maleri" < (_ref = b.kind)) && _ref === "Maleri");
+        return a.kind < b.kind;
       });
       this.works = this.works.filter(function(a) {
         return a.imageCount > 0;
