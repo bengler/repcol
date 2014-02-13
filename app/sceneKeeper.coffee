@@ -41,6 +41,8 @@ class SceneKeeper
     @controls.dynamicDampingFactor = 0.3
     @controls.keys = [ 49, 50, 51 ]
     @controls.target = new THREE.Vector3().set(-98,128,-96)
+    @controls.maxDistance = 1500
+    @controls.minDistance = 5;
 
 
     @scene.add( new THREE.AmbientLight( 0x808080 ) )

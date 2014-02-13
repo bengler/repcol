@@ -443,7 +443,7 @@ window.require.define({"importer": function(exports, require, module) {
 }});
 
 window.require.define({"initialize": function(exports, require, module) {
-  var _ref, _ref1, _ref2, _ref3, _ref4;
+  var $warnings, activateClass, _ref, _ref1, _ref2, _ref3, _ref4;
 
   if ((_ref = this.Hipster) == null) {
     this.Hipster = {};
@@ -465,8 +465,27 @@ window.require.define({"initialize": function(exports, require, module) {
     Hipster.Collections = {};
   }
 
+  $warnings = $('.warnings');
+
+  activateClass = (function() {
+    var isMobile;
+
+    isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
+    if (Detector.webgl) {
+      if (!isMobile && navigator.userAgent.match(/Chrom(e|ium)/)) {
+        return '.shouldWork';
+      }
+      return '.maybeWork';
+    } else {
+      if (isMobile) {
+        return '.cantWorkMobile';
+      }
+      return '.cantWork';
+    }
+  })();
+
   $(function() {
-    var $warnings, AppView, activateClass, data, importer, sceneKeeper;
+    var AppView, data, importer, sceneKeeper;
 
     require('../lib/app_helpers');
     importer = require('./importer');
@@ -475,23 +494,6 @@ window.require.define({"initialize": function(exports, require, module) {
     Backbone.history.start({
       pushState: true
     });
-    $warnings = $('.warnings');
-    activateClass = (function() {
-      var isMobile;
-
-      isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
-      if (Detector.webgl) {
-        if (!isMobile && navigator.userAgent.match(/Chrom(e|ium)/)) {
-          return '.shouldWork';
-        }
-        return '.maybeWork';
-      } else {
-        if (isMobile) {
-          return '.cantWorkMobile';
-        }
-        return '.cantWork';
-      }
-    })();
     $warnings.find(activateClass).addClass('active');
     return data = importer.load().then(function(data) {
       var _this = this;
@@ -928,6 +930,8 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       this.controls.dynamicDampingFactor = 0.3;
       this.controls.keys = [49, 50, 51];
       this.controls.target = new THREE.Vector3().set(-98, 128, -96);
+      this.controls.maxDistance = 1500;
+      this.controls.minDistance = 5;
       this.scene.add(new THREE.AmbientLight(0x808080));
       light = new THREE.SpotLight(0xffffff, 1.0);
       light.position.set(170, 700, 0);
