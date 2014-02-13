@@ -24,10 +24,21 @@ class ImageRetriever
     @works = @works.filter (a)->
       a.imageCount > 0
 
+    if @works.length == 0
+      $('.imageContainer').hide()
+      return
+
     @currentOffset = 0
     @sheetNumber = 1
     @getImageBlock(@works.slice(@currentOffset, @currentOffset + @maxImages))
     @updateDisplay()
+
+    if @works.length < @maxImages
+      $('.navBlock').hide()
+    else
+      $('.navBlock').show()
+    
+
     $('.imageContainer').show()
 
   updateDisplay:() ->
@@ -74,6 +85,9 @@ class ImageRetriever
       image.work = work
       image.addEventListener "load", (event)->
         $(".imageContainerInner").append(this)
+
+        this.addEventListener "click", (event)->
+          event.stopPropagation()
 
         this.addEventListener "mouseenter", (event)->
           $(".zoomedImage").attr("src","data/images/#{this.work.id}_0.JPG")

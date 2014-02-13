@@ -1050,7 +1050,7 @@ body {
   opacity: 0.9;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
   filter: alpha(opacity=90);
-  text-shadow: 0px 0px 4px rgba(30,30,30,0.6);
+  text-shadow: 1px 1px 1px rgba(30,30,30,0.6);
   pointer-events: none;
 }
 .title.onlyReference {
@@ -1060,7 +1060,7 @@ body {
   position: fixed;
   bottom: 10px;
   z-index: 2000;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.02);
   padding-left: 10px;
   height: 110px;
   width: 100%;
@@ -1073,31 +1073,31 @@ body {
 }
 .imageContainer .navBlock p {
   display: block;
-  width: 40px;
+  width: 45px;
   height: 30px;
   float: left;
   line-height: 10px;
+  text-shadow: 1.5px 1.5px rgba(20,20,20,0.5);
   text-align: center;
   font-size: 11px;
   font-weight: 500;
-  color: #333;
-  opacity: 0.8;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  filter: alpha(opacity=80);
+  color: #fff;
+  opacity: 0.7;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  filter: alpha(opacity=70);
 }
 .imageContainer .navBlock a {
   width: 30px;
   height: 30px;
   float: left;
-  background-color: rgba(200,220,254,0.8);
   border: 1px solid rgba(100,120,154,0.3);
   display: block;
   cursor: pointer;
-  color: #335;
+  color: #666;
   line-height: 25px;
   text-align: center;
   font-weight: 900;
-  font-size: 22px;
+  font-size: 19px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   text-decoration: none;

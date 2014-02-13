@@ -237,10 +237,19 @@ window.require.define({"imageRetriever": function(exports, require, module) {
       this.works = this.works.filter(function(a) {
         return a.imageCount > 0;
       });
+      if (this.works.length === 0) {
+        $('.imageContainer').hide();
+        return;
+      }
       this.currentOffset = 0;
       this.sheetNumber = 1;
       this.getImageBlock(this.works.slice(this.currentOffset, this.currentOffset + this.maxImages));
       this.updateDisplay();
+      if (this.works.length < this.maxImages) {
+        $('.navBlock').hide();
+      } else {
+        $('.navBlock').show();
+      }
       return $('.imageContainer').show();
     };
 
@@ -297,6 +306,9 @@ window.require.define({"imageRetriever": function(exports, require, module) {
         image.work = work;
         _results.push(image.addEventListener("load", function(event) {
           $(".imageContainerInner").append(this);
+          this.addEventListener("click", function(event) {
+            return event.stopPropagation();
+          });
           return this.addEventListener("mouseenter", function(event) {
             var _this = this;
 
