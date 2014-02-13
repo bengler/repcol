@@ -311,7 +311,6 @@ class SceneKeeper
     @controls.update();
 
   render: ->
-    # @composer.render()
     @renderer.render(@scene, @camera)
 
   resize: =>

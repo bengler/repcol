@@ -923,9 +923,15 @@ body {
   margin: 0px auto;
   margin-bottom: 20px;
 }
+.intro img {
+  width: 100px;
+  margin-right: 20px;
+}
 .intro h3 {
-  font-size: 42px;
+  font-size: 52px;
   margin: 20px 0px 40px 0px;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
 }
 .intro .copy {
   width: 45%;
@@ -947,7 +953,7 @@ body {
 }
 .intro .video {
   position: relative;
-  padding-bottom: 26.25%;
+  padding-bottom: 25.3%;
 /* 16:9 */
   height: 0;
   width: 45%;
