@@ -1082,11 +1082,13 @@ window.require.define({"sceneKeeper": function(exports, require, module) {
       if ((this.currentArtist != null) && !this.currentTyping) {
         switch (event.keyCode) {
           case 37:
+          case 40:
             if (this.currentArtist.index !== 0) {
               return this.focusArtist(this.data.artists[this.currentArtist.index - 1]);
             }
             break;
           case 39:
+          case 38:
             if (this.currentArtist.index !== this.data.artists.length - 1) {
               return this.focusArtist(this.data.artists[this.currentArtist.index + 1]);
             }

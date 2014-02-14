@@ -192,9 +192,10 @@ class SceneKeeper
 
 
     if @currentArtist? and !@currentTyping
+
       switch event.keyCode
-        when 37 then @focusArtist(@data.artists[@currentArtist.index - 1]) unless @currentArtist.index == 0
-        when 39 then @focusArtist(@data.artists[@currentArtist.index + 1]) unless @currentArtist.index == @data.artists.length - 1 
+        when 37, 40 then @focusArtist(@data.artists[@currentArtist.index - 1]) unless @currentArtist.index == 0
+        when 39, 38 then @focusArtist(@data.artists[@currentArtist.index + 1]) unless @currentArtist.index == @data.artists.length - 1 
 
   blurArtist: ->
     @blankArtistName()
