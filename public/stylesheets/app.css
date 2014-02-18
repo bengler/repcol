@@ -871,7 +871,7 @@ cursor not-allowed {
 }
 body {
   margin: 0;
-  padding: 0;
+  padding: 40px 0 0 0;
   font-family: "Helvetica Neue", Helvetica, Arial;
   color: #000;
   font-size: 12px;
@@ -886,10 +886,18 @@ body {
   width: 100px;
   margin-right: 20px;
 }
+@media all and (max-width: 659px) {
+  .logos img {
+    width: 80px;
+    margin-right: 10px;
+  }
+}
 .escHint {
   padding-left: 20px;
 }
 .warnings {
+  position: absolute;
+  top: 0;
   font-size: 14px;
   width: 100%;
   margin: 0 auto 0 auto;
@@ -898,24 +906,23 @@ body {
   opacity: 0.5;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   filter: alpha(opacity=50);
-  height: 35px;
 }
 .warnings p {
   margin: 0px;
 }
-.shouldWork,
-.maybeWork,
-.cantWork,
-.cantWorkMobile {
+.warnings .shouldWork,
+.warnings .maybeWork,
+.warnings .cantWork,
+.warnings .cantWorkMobile {
   display: none;
   padding: 10px;
   color: #fdd;
   font-weight: 800;
 }
-.shouldWork.active,
-.maybeWork.active,
-.cantWork.active,
-.cantWorkMobile.active {
+.warnings .shouldWork.active,
+.warnings .maybeWork.active,
+.warnings .cantWork.active,
+.warnings .cantWorkMobile.active {
   display: block;
 }
 .warnings>.shouldWork {
@@ -927,8 +934,7 @@ body {
   line-height: 20px;
   max-width: 730px;
   padding: 20px;
-  margin: 0px auto;
-  margin-bottom: 20px;
+  margin: 0px auto 0px auto;
 }
 .intro h3 {
   font-size: 36px;

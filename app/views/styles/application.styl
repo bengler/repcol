@@ -13,7 +13,7 @@
 
 body
   margin: 0
-  padding: 0
+  padding: 40px 0 0 0
   font-family: "Helvetica Neue", Helvetica, Arial
   color: #000
   font-size: 12px
@@ -27,20 +27,25 @@ body
     width: 100px
     margin-right: 20px
 
+    @media all and (max-width: 659px)
+      width: 80px
+      margin-right: 10px
+
 .escHint
   padding-left: 20px
 
 .warnings
-    font-size: 14px
-    width: 100%
-    margin: 0 auto 0 auto
-    background-color: #666
-    text-align: center
-    opacity: 0.5
-    height: 35px
+  position: absolute
+  top: 0
+  font-size: 14px
+  width: 100%
+  margin: 0 auto 0 auto
+  background-color: #666
+  text-align: center
+  opacity: 0.5
 
-    p
-      margin: 0px
+  p
+    margin: 0px
 
   .shouldWork, .maybeWork, .cantWork, .cantWorkMobile 
     display: none
@@ -55,15 +60,12 @@ body
   color: #eee
   font-weight: 300
   
-
 .intro
   font-size: 14px
   line-height: 20px
   max-width: 730px
   padding: 20px
-  margin: 0px auto
-  margin-bottom: 20px
-
+  margin: 0px auto 0px auto
 
   h3
     font-size: 36px
