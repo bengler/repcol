@@ -1,8 +1,9 @@
-# Nothing to read here yet
+# A viewer for art museum archives
 
-Ok, perhaps just a little.
+Repcol is a tiny app written in coffeescript. It only has a client side and is set up to transpile with brunch, so:
 
-- Install node with brew on OS X
+- On OS X – install node.js with brew
 - Install brunch with npm 
-- 'npm install' in project root
-- Do 'brunch w -s'
+- In project root
+-- 'npm install'
+-- 'brunch w -s'
