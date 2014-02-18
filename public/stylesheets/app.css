@@ -910,7 +910,8 @@ body {
   font-weight: 300;
 }
 .warnings a {
-  color: #333;
+  color: #eee;
+  text-decoration: underline;
 }
 .warnings p {
   margin: 0px;
