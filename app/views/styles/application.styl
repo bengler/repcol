@@ -40,9 +40,9 @@ body
   font-size: 14px
   width: 100%
   margin: 0 auto 0 auto
-  background-color: #666
   text-align: center
-  opacity: 0.5
+  opacity: 0.7
+  font-weight: 300
 
   a
     color: #333
@@ -53,16 +53,21 @@ body
   .shouldWork, .maybeWork, .cantWork, .cantWorkMobile 
     display: none
     padding: 10px
-    color: #633
-    font-weight: 800
+    color: #eee
 
     &.active
       display: block
 
-.warnings>.shouldWork
-  color: #eee
-  font-weight: 300
-  
+  .shouldWork
+    background-color: #666
+
+  .maybeWork, .cantWork, .cantWorkMobile
+    background-color: #f00
+
+  .warnings>.shouldWork
+    color: #eee
+
+
 .intro
   font-size: 14px
   line-height: 20px
