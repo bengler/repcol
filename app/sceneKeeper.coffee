@@ -190,7 +190,6 @@ class SceneKeeper
       event.preventDefault()
       return false 
 
-
     if @currentArtist? and !@currentTyping
 
       switch event.keyCode
