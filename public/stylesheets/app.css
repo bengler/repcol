@@ -909,6 +909,9 @@ body {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   filter: alpha(opacity=50);
 }
+.warnings a {
+  color: #333;
+}
 .warnings p {
   margin: 0px;
 }
@@ -918,7 +921,7 @@ body {
 .warnings .cantWorkMobile {
   display: none;
   padding: 10px;
-  color: #fdd;
+  color: #633;
   font-weight: 800;
 }
 .warnings .shouldWork.active,
